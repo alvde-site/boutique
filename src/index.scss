@@ -1,3 +1,7 @@
 @import "./vendor/normalize";
 @import "./vendor/manrope";
 @import "./vendor/inter";
+
+@import "./components/App/App/vars";
+@import "./components/App/App/app";
+@import "./components/App/Header/header";

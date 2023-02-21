@@ -1,0 +1,16 @@
+/* Отступы */
+$main-desctop-padding: 50px 90px 50px;
+
+/* Шрифты */
+@mixin usual-text {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+/* эффекты наведения */
+$main-transition: 0.3s;
+$main-link-state-opacity: 0.5;
+$main-link-hover-opacity: 1;

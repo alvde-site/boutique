@@ -1,0 +1,115 @@
+/* variables */
+@mixin button-size {
+  width: 28px;
+  height: 28px;
+}
+
+@mixin button-image($image) {
+  background-image: $image;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* styles */
+
+.header {
+  box-sizing: border-box;
+  max-width: 1920px;
+  width: 100%;
+  padding: $main-desctop-padding;
+  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(255, 255, 255, 0)),
+    url(../../../images/promo.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background: url(../../../images/logo.png) center/44px 42px no-repeat;
+}
+
+.nav__text {
+  @include usual-text;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.nav__link {
+  margin: 0 95px 0 0;
+  opacity: 0.5;
+  transition: $main-transition;
+}
+
+.nav__link:last-child {
+  margin: 0;
+}
+
+.nav__link:hover {
+  opacity: 1;
+}
+
+.nav__link:hover .nav__link_more {
+  opacity: $main-link-hover-opacity;
+}
+
+.nav__link_more {
+  position: relative;
+}
+
+.nav__link_more::after {
+  content: "";
+  background: url(../../../images/svg/more-arrow.svg);
+  width: 20px;
+  height: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: -20px;
+  opacity: $main-link-state-opacity;
+}
+
+.nav__logo {
+  width: 44px;
+  height: 42px;
+}
+
+.nav__button {
+  padding: 0;
+  margin: 0 30px 0 0;
+  border: none;
+  background-color: transparent;
+  opacity: $main-link-state-opacity;
+  vertical-align: bottom;
+}
+
+.nav__button:last-child {
+  margin: 0;
+}
+
+.nav__button:hover {
+  opacity: $main-link-hover-opacity;
+}
+
+.nav__button_type_enter {
+  opacity: $main-link-state-opacity;
+  transition: $main-transition;
+}
+
+.nav__button_type_search {
+  @include button-size;
+  @include button-image(url(../../../images/svg/search-button.svg));
+}
+
+.nav__button_type_favourite {
+  @include button-size;
+  @include button-image(url(../../../images/svg/favourite-button.svg));
+}
+.nav__button_type_basket {
+  @include button-size;
+  @include button-image(url(../../../images/svg/basket-button.svg));
+}
