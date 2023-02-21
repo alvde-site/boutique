@@ -19,7 +19,7 @@
   width: 100%;
   padding: $main-desctop-padding;
   background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(255, 255, 255, 0)),
-    url(../../../images/promo.png);
+    url(../../images/promo.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -29,7 +29,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  background: url(../../../images/logo.png) center/44px 42px no-repeat;
+  background: url(../../images/logo.png) center/44px 42px no-repeat;
 }
 
 .nav__text {
@@ -63,7 +63,7 @@
 
 .nav__link_more::after {
   content: "";
-  background: url(../../../images/svg/more-arrow.svg);
+  background: url(../../images/svg/more-arrow.svg);
   width: 20px;
   height: 10px;
   position: absolute;
@@ -75,6 +75,18 @@
 
 .nav__logo {
   width: 44px;
+  height: 42px;
+}
+
+.nav__burger {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  background-image: url(../../images/svg/burger.svg);
+  background-size: contain;
+  width: 51px;
   height: 42px;
 }
 
@@ -102,14 +114,72 @@
 
 .nav__button_type_search {
   @include button-size;
-  @include button-image(url(../../../images/svg/search-button.svg));
+  @include button-image(url(../../images/svg/search-button.svg));
 }
 
 .nav__button_type_favourite {
   @include button-size;
-  @include button-image(url(../../../images/svg/favourite-button.svg));
+  @include button-image(url(../../images/svg/favourite-button.svg));
 }
 .nav__button_type_basket {
   @include button-size;
-  @include button-image(url(../../../images/svg/basket-button.svg));
+  @include button-image(url(../../images/svg/basket-button.svg));
+}
+
+.promo {
+  min-height: 629px;
+}
+
+.promo__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.promo__title {
+  @include big-text;
+  color: #fff;
+}
+
+.promo__button {
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  width: 177px;
+  height: 79px;
+  background-color: #000;
+  @include usual-text;
+  color: #fff;
+  opacity: $main-link-state-opacity;
+}
+
+.promo__button:hover {
+  opacity: $main-link-hover-opacity;
+}
+
+@media (max-width: 1800px) {
+  .header {
+    padding: $main-mobile-padding;
+  }
+
+  .nav__menu_type_left {
+    display: none;
+  }
+
+  .nav__burger {
+    display: block;
+  }
+
+  .nav__button_type_enter,
+  .nav__button_type_favourite,
+  .nav__button_type_search {
+    display: none;
+  }
+  .promo__title {
+    margin: 0 0 78px;
+  }
+
+  .promo__button {
+    width: 132px;
+    height: 42px;
+  }
 }
