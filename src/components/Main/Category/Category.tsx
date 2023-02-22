@@ -5,7 +5,7 @@ function Category() {
     <section className="category">
       <div className="category__content">
         <div className="category__description">
-          <img src={categoryDesctiption.src} alt="Реклама одежды" />
+          <img className="category__cover" src={categoryDesctiption.src} alt="Реклама одежды" />
           <p className="category__text">
             Будучи потомком великого импресарио 19-20 вв, Сергея Дягилева,
             Полина переосмысливает силуэты женского балетного костюма, предлагая
