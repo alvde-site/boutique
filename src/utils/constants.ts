@@ -21,3 +21,11 @@ const promoTitles = [
 ];
 
 export { promoTitles };
+
+/* Category */
+export const CATEGORY_TITLE_TEXT = "Категории";
+export const CATEGORY_BUTTON_TEXT = "Все категории";
+
+/*Collection */
+export const COLLECTION_TITLE_TEXT = "Коллекции";
+export const COLLECTION_BUTTON_TEXT = "Все коллекции";

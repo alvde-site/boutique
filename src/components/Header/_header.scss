@@ -14,11 +14,9 @@
 /* styles */
 
 .header {
-  box-sizing: border-box;
-  max-width: 1920px;
-  width: 100%;
+  @include container-width;
   padding: $main-desctop-padding;
-  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(255, 255, 255, 0)),
+  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(255, 255, 255, 0) 29%),
     url(../../images/promo.png);
   background-position: center;
   background-size: cover;
@@ -33,7 +31,7 @@
 }
 
 .nav__text {
-  @include usual-text;
+  @include usual-text("Inter");
   text-decoration: none;
   text-transform: uppercase;
   color: #fff;
@@ -136,7 +134,7 @@
 }
 
 .promo__title {
-  @include big-text;
+  @include big-text("Inter");
   color: #fff;
 }
 
@@ -147,7 +145,7 @@
   width: 177px;
   height: 79px;
   background-color: #000;
-  @include usual-text;
+  @include usual-text("Inter");
   color: #fff;
   opacity: $main-link-state-opacity;
 }
