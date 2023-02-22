@@ -38,10 +38,10 @@ export const categoryDesctiption = {
   src: categoryDescriptionFoto,
 };
 export const categoryFotos = [
-  categoryFoto1,
-  categoryFoto2,
-  categoryFoto3,
-  categoryFoto4,
+  { src: categoryFoto1, title: "sale" },
+  { src: categoryFoto2, title: "Юбки" },
+  { src: categoryFoto3, title: "Свадебные платья" },
+  { src: categoryFoto4, title: "блузки" },
 ];
 
 /*Collection */

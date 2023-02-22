@@ -5,7 +5,11 @@ function Category() {
     <section className="category">
       <div className="category__content">
         <div className="category__description">
-          <img className="category__cover" src={categoryDesctiption.src} alt="Реклама одежды" />
+          <img
+            className="category__cover"
+            src={categoryDesctiption.src}
+            alt="Реклама одежды"
+          />
           <p className="category__text">
             Будучи потомком великого импресарио 19-20 вв, Сергея Дягилева,
             Полина переосмысливает силуэты женского балетного костюма, предлагая
@@ -16,9 +20,18 @@ function Category() {
           </p>
         </div>
         <div className="category__gallery">
-          {categoryFotos.map((src, index) => (
+          {categoryFotos.map((item, index) => (
             <figure className="category__figure" key={index}>
-              <img className="category__image" src={src} alt="Реклама одежды" />
+              <img
+                className="category__image"
+                src={item.src}
+                alt={item.title}
+              />
+              <div className="category__overlay">
+                <a className="category__link" href="!#">
+                  {item.title}
+                </a>
+              </div>
             </figure>
           ))}
         </div>

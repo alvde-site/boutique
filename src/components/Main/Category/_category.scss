@@ -36,6 +36,7 @@
 }
 
 .category__figure {
+    position: relative;
     margin: 0;
 }
 
@@ -44,4 +45,29 @@
     object-position: center;
     width: 100%;
     height: 100%;
+}
+
+.category__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,.7);
+    opacity: 0;
+    transition: $transition-time;
+}
+
+.category__overlay:hover {
+    opacity: 1;
+}
+
+.category__link {
+    @include usual-text('Inter');
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
 }
