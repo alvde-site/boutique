@@ -5,6 +5,15 @@
 
 // export { loginError, controlError, passwordError, passwordConfirmationError };
 
+/* Images */
+/* Category images */
+import categoryDescriptionFoto from "../images/category1.jpg";
+import categoryFoto1 from "../images/category2.jpg";
+import categoryFoto2 from "../images/category3.jpg";
+import categoryFoto3 from "../images/category4.jpg";
+import categoryFoto4 from "../images/category5.jpg";
+
+/* Header */
 const promoTitles = [
   {
     title: "CRUISE 2022",
@@ -25,6 +34,15 @@ export { promoTitles };
 /* Category */
 export const CATEGORY_TITLE_TEXT = "Категории";
 export const CATEGORY_BUTTON_TEXT = "Все категории";
+export const categoryDesctiption = {
+  src: categoryDescriptionFoto,
+};
+export const categoryFotos = [
+  categoryFoto1,
+  categoryFoto2,
+  categoryFoto3,
+  categoryFoto4,
+];
 
 /*Collection */
 export const COLLECTION_TITLE_TEXT = "Коллекции";
