@@ -6,9 +6,6 @@
   align-items: center;
 }
 
-.swiper-wrapper {
-}
-
 .swiper-slide {
   display: flex;
   justify-content: center;

@@ -1,8 +1,12 @@
+.category {
+    padding: 0 0 112px;
+}
+
 .category__content {
     display: grid;
     grid-template-columns: 45% 55%;
     column-gap: 13px;
-    padding: 60px 90px 70px;
+    padding: 60px 90px 0;
 }
 
 .category__description {
@@ -68,11 +72,46 @@
 
 @media(max-width:1400px) {
     .category__content {
+        grid-template-columns: 1fr;
         margin: 0 auto;
         padding: 0;
     }
 
     .category__description {
         display: none;
+    }
+
+    .category__gallery {
+        max-height: none;
+        gap: 100px 12px;
+    }
+
+    .category__figure {
+        max-height: 722px;
+    }
+
+    .category__image {
+        max-height: 649px;
+    }
+
+    .category__overlay {
+        position: relative;
+        margin: 15px 0 0;
+        height: auto;
+        display: flex;
+        background-color: transparent;
+        opacity: 1;
+        transition: $transition-time;
+    }
+
+    .category__link {
+        @include decorative-big-text;
+        color: #000;
+    }
+}
+
+@media (max-width: 768px) {
+    .category__link {
+        @include usual-text('Manrope');
     }
 }
