@@ -1,16 +1,19 @@
 .showcase {
+  box-sizing: border-box;
   display: none;
   grid-template-columns: 330px 1fr;
   gap: 33px;
+  max-width: 963px;
   min-height: 701px;
-//   height: 100%;
-  margin: 0 0 70px;
+  margin: 0 auto 0;
+  padding: $main-mobile-padding;
+  background-color: #fff;
 }
 
 .showcase__figure {
   max-width: 330px;
   width: 100%;
-  margin: 0 33px 0 0;
+  margin: 0;
 }
 
 .showcase__image {
@@ -36,11 +39,10 @@
 
 .showcase__button {
   margin: 0;
-  padding: 0;
+  padding: 18px 0;
   border: none;
   box-sizing: border-box;
   max-width: 298px;
-  padding: 18px 0;
   @include usual-text("Inter");
   text-transform: uppercase;
   background-color: #000;
@@ -61,5 +63,22 @@
 @media (max-width: 1400px) {
   .showcase {
     display: grid;
+  }
+}
+
+@media (max-width: 768px) {
+  .showcase {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .showcase__content {
+    min-height: auto;
+  }
+
+  .showcase__button {
+    margin: 0 auto 18px;
+    padding: 18px;
   }
 }
