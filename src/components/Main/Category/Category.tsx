@@ -1,4 +1,7 @@
-import { categoryDesctiption, categoryFotos } from "../../../utils/constants";
+import {
+  categoryDesctiption,
+  categoryFotos,
+} from "../../../utils/constants";
 
 function Category() {
   return (

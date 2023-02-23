@@ -12,6 +12,7 @@ import categoryFoto1 from "../images/category2.jpg";
 import categoryFoto2 from "../images/category3.jpg";
 import categoryFoto3 from "../images/category4.jpg";
 import categoryFoto4 from "../images/category5.jpg";
+import showcaseFoto from "../images/showcase.jpg";
 
 /* Header */
 const promoTitles = [
@@ -43,6 +44,12 @@ export const categoryFotos = [
   { src: categoryFoto3, title: "Свадебные платья" },
   { src: categoryFoto4, title: "блузки" },
 ];
+
+export const showcase = {
+  src: showcaseFoto,
+  alt: "Платье с плиссированной вставкой",
+  description: "Платье с плиссированной вставкой",
+};
 
 /*Collection */
 export const COLLECTION_TITLE_TEXT = "Коллекции";

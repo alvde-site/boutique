@@ -147,11 +147,11 @@
   background-color: #000;
   @include usual-text("Inter");
   color: #fff;
-  opacity: $main-link-state-opacity;
+  opacity: $button-state-opacity;
 }
 
 .promo__button:hover {
-  opacity: $main-link-hover-opacity;
+  opacity: $button-hover-opacity;
 }
 
 @media (max-width: 1800px) {

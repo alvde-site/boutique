@@ -1,0 +1,63 @@
+.showcase {
+  display: none;
+  max-height: 701px;
+  height: 100%;
+  margin: 0 0 70px;
+}
+
+.showcase__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 701px;
+}
+
+.showcase__figure {
+    max-width: 330px;
+    width: 100%;
+    margin: 0 33px 0 0;
+}
+
+.showcase__image {
+    @include image-setting;
+}
+
+.showcase__title {
+    margin: 0;
+    @include decorative-big-text;
+    text-transform: uppercase;
+}
+
+.showcase__subtitle {
+    @include usual-text('Manrope');
+}
+
+.showcase__button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    max-width: 298px;
+    padding: 18px 0;
+    @include usual-text('Inter');
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+    transition: $transition-time;
+    opacity: $button-state-opacity;
+}
+
+.showcase__button:hover {
+    opacity: $button-hover-opacity;
+}
+
+.showcase__description {
+    margin: 0;
+    @include usual-text('Inter');
+}
+
+@media (max-width: 1800px) {
+  .showcase {
+    display: flex;
+  }
+}
