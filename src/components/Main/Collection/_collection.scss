@@ -1,0 +1,117 @@
+.category {
+    padding: 0 0 112px;
+}
+
+.category__content {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    column-gap: 13px;
+    padding: 60px 90px 0;
+}
+
+.category__description {
+    display: flex;
+    flex-direction: column;
+    min-height: 1304px;
+    justify-content: space-between;
+}
+
+.category__cover {
+    @include image-setting;
+    max-height: 1023px;
+}
+
+.category__text {
+    margin: 0;
+    max-width: 513px;
+    @include usual-text('Inter');
+    color: #000;
+    text-transform: uppercase;
+}
+
+.category__gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-height: 1312px;
+}
+
+.category__figure {
+    position: relative;
+    margin: 0;
+}
+
+.category__image {
+    @include image-setting;
+}
+
+.category__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,.7);
+    opacity: 0;
+    transition: $transition-time;
+}
+
+.category__overlay:hover {
+    opacity: 1;
+}
+
+.category__link {
+    @include usual-text('Inter');
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+@media(max-width:1400px) {
+    .category__content {
+        grid-template-columns: 1fr;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .category__description {
+        display: none;
+    }
+
+    .category__gallery {
+        max-height: none;
+        gap: 100px 12px;
+    }
+
+    .category__figure {
+        max-height: 722px;
+    }
+
+    .category__image {
+        max-height: 649px;
+    }
+
+    .category__overlay {
+        position: relative;
+        margin: 15px 0 0;
+        height: auto;
+        display: flex;
+        background-color: transparent;
+        opacity: 1;
+        transition: $transition-time;
+    }
+
+    .category__link {
+        @include decorative-big-text;
+        color: #000;
+    }
+}
+
+@media (max-width: 768px) {
+    .category__link {
+        @include usual-text('Manrope');
+    }
+}
