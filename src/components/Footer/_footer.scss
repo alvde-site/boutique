@@ -1,0 +1,109 @@
+.footer {
+  box-sizing: border-box;
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: #f1f1f1;
+  padding: 31px 61px;
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1739px;
+  margin: 0 auto;
+  padding: 0 90px;
+}
+
+.footer__links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-sizing: border-box;
+}
+
+.footer__link {
+  @include usual-text("Inter");
+  color: #000;
+  text-decoration: none;
+  transition: $transition-time;
+  opacity: $main-link-state-opacity;
+}
+
+.footer__link:hover {
+  opacity: $main-link-hover-opacity;
+}
+
+.footer__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.footer__langs {
+  margin: 0 0 auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.footer__langs li:not(:last-child)::after {
+  content: "/";
+  margin: 0 5px;
+  @include usual-text("Inter");
+}
+
+.footer__link_type_button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.footer__pays {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.footer__pays li:not(:last-child) {
+  margin: 0 5px 0 0;
+}
+
+.footer__pay {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: 58px;
+  height: 34px;
+  border-radius: 4px;
+  opacity: $main-link-state-opacity;
+}
+
+.footer__pay:hover {
+    opacity: $main-link-hover-opacity;
+}
+
+.footer__pay_type_mir {
+  background: #bfbfbf url(../../images/mir-logo.png) center/cover no-repeat;
+}
+
+.footer__pay_type_visa {
+  background: transparent url(../../images/visa-logo.png) center/cover no-repeat;
+}
+
+@media (max-width: 1400px) {
+  .footer {
+    padding: 20px;
+  }
+
+  .footer__content {
+    grid-template-columns: 1fr;
+    max-width: 963px;
+    padding: $main-mobile-padding;
+  }
+}
