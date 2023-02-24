@@ -1,11 +1,8 @@
-import {
-  categoryDesctiption,
-  categoryFotos,
-} from "../../../utils/constants";
+import { categoryDesctiption, categoryFotos } from "../../../utils/constants";
 
 function Category() {
   return (
-    <section className="category">
+    <div className="category">
       <div className="category__content">
         <div className="category__description">
           <img
@@ -39,7 +36,7 @@ function Category() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

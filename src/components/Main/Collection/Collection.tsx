@@ -2,7 +2,7 @@ import { collectionFotos } from "../../../utils/constants";
 
 function Collection() {
   return (
-    <section className="collection">
+    <div className="collection">
       {collectionFotos.map((collection, index) => (
         <article className="collection_item" key={index}>
           <figure className="collection__figure">
@@ -14,11 +14,11 @@ function Collection() {
           </figure>
           <div className="collection__content">
             <h2 className="collection__title">{collection.title}</h2>
-            <p className="collection__description">{collection.desc}</p>
+            <p className="collection__text">{collection.text}</p>
           </div>
         </article>
       ))}
-    </section>
+    </div>
   );
 }
 
