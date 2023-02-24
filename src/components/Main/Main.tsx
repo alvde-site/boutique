@@ -6,6 +6,7 @@ import {
 } from "../../utils/constants";
 import Category from "./Category/Category";
 import Collection from "./Collection/Collection";
+import Companies from "./Companies/Companies";
 import Content from "./Content/Content";
 import Showcase from "./Showcase/Showcase";
 
@@ -23,6 +24,7 @@ function Main() {
         titleText={COLLECTION_TITLE_TEXT}
         buttonText={COLLECTION_BUTTON_TEXT}
       />
+      <Companies />
     </main>
   );
 }

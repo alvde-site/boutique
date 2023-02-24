@@ -18,6 +18,11 @@ import categoryFoto4 from "../images/category5.jpg";
 import collectionFoto1 from "../images/collection1.jpg";
 import collectionFoto2 from "../images/collection2.jpg";
 import collectionFoto3 from "../images/collection3.jpg";
+/* Companies logo */
+import bazaarLogo from "../images/bazaar-logo.png";
+import buroLogo from "../images/buro-logo.png";
+import glamourLogo from "../images/glamour-logo.png";
+import vogueLogo from "../images/vogue-logo.png";
 /* Header */
 const promoTitles = [
   {
@@ -76,3 +81,7 @@ export const collectionFotos = [
     text: "Приталенное платье мини мятного цвета в полу-спортивном стиле. Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке вставки из гофре плиссе разных цветов. Мятный и розовый лампасы придают платью спортивное направление. По спинке длинная леопардовая молния.",
   },
 ];
+
+/* Companies */
+export const companiesLogo = [{src: bazaarLogo, alt: 'Логотип Базар'},{src: buroLogo, alt: 'Логотип Буро'},
+{src: glamourLogo, alt: 'Логотип Гламур'}, {src: vogueLogo, alt: 'Логотип Вожю'}];

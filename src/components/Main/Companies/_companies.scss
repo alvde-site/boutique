@@ -1,0 +1,41 @@
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.companies {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1739px;
+  padding: $main-desctop-padding;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+.companies__container {
+  overflow: hidden;
+}
+
+.companies__marquee {
+  display: flex;
+  width: calc((250px + 150px) * 8);
+  animation: marquee 10s infinite linear;
+}
+
+.companies__logo {
+  max-width: 250px;
+  margin-right: 150px;
+}
+
+@media(max-width: 1400px) {
+    .companies {
+        max-width: 963px;
+        padding: 50px 0;
+    }
+
+
+}
