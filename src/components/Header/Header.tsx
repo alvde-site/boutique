@@ -1,5 +1,6 @@
 import { promoTitles } from "../../utils/constants";
 import SwiperViewing from "../SwiperViewing/SwiperViewing";
+import StoreList from "./StoreList/StoreList";
 
 function Header() {
   return (
@@ -18,14 +19,28 @@ function Header() {
         </div>
         <button className="nav__burger" aria-label="Меню"></button>
         <div className="nav__menu nav__menu_type_right">
-          <button className="nav__button  nav__text nav__button_type_enter">Войти</button>
-          <button className="nav__button nav__button_type_search" aria-label="Поиск"></button>
-          <button className="nav__button nav__button_type_favourite" aria-label="Избранное"></button>
-          <button className="nav__button nav__button_type_basket" aria-label="Корзина"><span className="nav__text">2</span></button>
+          <button className="nav__button  nav__text nav__button_type_enter">
+            Войти
+          </button>
+          <button
+            className="nav__button nav__button_type_search"
+            aria-label="Поиск"
+          ></button>
+          <button
+            className="nav__button nav__button_type_favourite"
+            aria-label="Избранное"
+          ></button>
+          <button
+            className="nav__button nav__button_type_basket"
+            aria-label="Корзина"
+          >
+            <span className="nav__text">2</span>
+          </button>
         </div>
       </nav>
+      <StoreList />
       <section className="promo">
-        <SwiperViewing promoTitles={promoTitles}/>
+        <SwiperViewing promoTitles={promoTitles} />
       </section>
     </header>
   );
