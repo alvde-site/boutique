@@ -29,10 +29,10 @@
   text-decoration: none;
   transition: $transition-time;
   opacity: $main-link-state-opacity;
-}
 
-.footer__link:hover {
-  opacity: $main-link-hover-opacity;
+  &:hover {
+    opacity: $main-link-hover-opacity;
+  }
 }
 
 .footer__details {
@@ -47,12 +47,12 @@
   padding: 0;
   list-style: none;
   display: flex;
-}
 
-.footer__langs li:not(:last-child)::after {
-  content: "/";
-  margin: 0 5px;
-  @include usual-text("Inter");
+  li:not(:last-child)::after {
+    content: "/";
+    margin: 0 5px;
+    @include usual-text("Inter");
+  }
 }
 
 .footer__link_type_button {
@@ -67,10 +67,10 @@
   padding: 0;
   list-style: none;
   display: flex;
-}
 
-.footer__pays li:not(:last-child) {
-  margin: 0 5px 0 0;
+  li:not(:last-child) {
+    margin: 0 5px 0 0;
+  }
 }
 
 .footer__pay {
@@ -82,10 +82,10 @@
   height: 34px;
   border-radius: 4px;
   opacity: $main-link-state-opacity;
-}
 
-.footer__pay:hover {
+  &:hover {
     opacity: $main-link-hover-opacity;
+  }
 }
 
 .footer__pay_type_mir {
@@ -105,5 +105,39 @@
     grid-template-columns: 1fr;
     max-width: 963px;
     padding: $main-mobile-padding;
+
+    .footer__links {
+      padding: 0 0 45px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+      li:nth-child(3n + 2) {
+        text-align: center;
+      }
+
+      li:nth-child(3n + 3) {
+        text-align: right;
+      }
+    }
   }
+
+  .footer__details {
+    margin: 45px 0 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer__langs {
+    margin: 0;
+  }
+}
+
+@media(max-width: 768px) {
+    .footer__links {
+        grid-template-columns: 1fr;
+
+        li {
+            margin-bottom: 15px;
+        }
+    }
 }
