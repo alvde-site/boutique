@@ -20,6 +20,14 @@ export interface IShowcaseProps {
   modifier: string;
 }
 
+export interface IStoreListProps {
+  isMenuOpen: boolean;
+}
+
+export interface IHeaderProps extends IStoreListProps {
+  openMenu: () => void;
+}
+
 // export interface IFormValidator {
 //   values: IValues;
 //   errors: IErrors;

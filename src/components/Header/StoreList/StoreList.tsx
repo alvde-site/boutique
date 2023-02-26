@@ -1,8 +1,5 @@
+import { IStoreListProps } from "../../../utils/interfaces";
 import Showcase from "../../Main/Showcase/Showcase";
-
-interface IStoreListProps {
-  isMenuOpen: boolean;
-}
 
 function StoreList(props: IStoreListProps) {
   return (

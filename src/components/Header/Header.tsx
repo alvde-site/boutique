@@ -1,11 +1,7 @@
 import { promoTitles } from "../../utils/constants";
+import { IHeaderProps } from "../../utils/interfaces";
 import SwiperViewing from "../SwiperViewing/SwiperViewing";
 import StoreList from "./StoreList/StoreList";
-
-interface IHeaderProps {
-  openMenu: () => void;
-  isMenuOpen: boolean;
-}
 
 function Header(props: IHeaderProps) {
   return (
@@ -47,7 +43,7 @@ function Header(props: IHeaderProps) {
           </button>
         </div>
       </nav>
-      <StoreList isMenuOpen={props.isMenuOpen}/>
+      <StoreList isMenuOpen={props.isMenuOpen} />
       <section className="promo">
         <SwiperViewing promoTitles={promoTitles} />
       </section>
