@@ -2,12 +2,21 @@ import { promoTitles } from "../../utils/constants";
 import SwiperViewing from "../SwiperViewing/SwiperViewing";
 import StoreList from "./StoreList/StoreList";
 
-function Header() {
+interface IHeaderProps {
+  openMenu: () => void;
+  isMenuOpen: boolean;
+}
+
+function Header(props: IHeaderProps) {
   return (
     <header className="header">
       <nav className="nav">
         <div className="nav__menu nav__menu_type_left">
-          <a href="!#" className="nav__link  nav__text nav__link_more">
+          <a
+            href="!#"
+            className="nav__link  nav__text nav__link_more"
+            onClick={props.openMenu}
+          >
             МАГАЗИН
           </a>
           <a href="!#" className="nav__link nav__text">
@@ -38,7 +47,7 @@ function Header() {
           </button>
         </div>
       </nav>
-      <StoreList />
+      <StoreList isMenuOpen={props.isMenuOpen}/>
       <section className="promo">
         <SwiperViewing promoTitles={promoTitles} />
       </section>

@@ -1,6 +1,6 @@
 .store {
   box-sizing: border-box;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 12;
@@ -12,10 +12,14 @@
   background: url(../../../images/store-bg.png) center/cover no-repeat;
 }
 
+.store_open {
+  display: flex;
+}
+
 .store__content {
   display: grid;
-  grid-template-columns: 1fr 2fr 3fr;
-  gap: 130px;
+  grid-template-columns: 1fr 3fr 2fr;
+  gap: 35px;
   width: 100%;
   background-color: #fff;
   padding: 35px;
@@ -82,12 +86,26 @@
   backdrop-filter: blur(15px);
 }
 
+.store__new {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 @media (max-width: 1400px) {
   .store__content {
-    grid-template-columns: repeat(2fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .store__title {
     margin: 0 0 30px;
+  }
+
+  .store__new {
+    display: none;
+  }
+
+  .store__advertisement {
+    display: none;
   }
 }

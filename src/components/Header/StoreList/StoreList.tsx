@@ -1,8 +1,12 @@
 import Showcase from "../../Main/Showcase/Showcase";
 
-function StoreList() {
+interface IStoreListProps {
+  isMenuOpen: boolean;
+}
+
+function StoreList(props: IStoreListProps) {
   return (
-    <section className="store">
+    <section className={`store ${props.isMenuOpen && "store_open"}`}>
       <div className="store__content">
         <div className="store__category">
           <h2 className="store__title">Категории</h2>
@@ -107,7 +111,7 @@ function StoreList() {
         </div>
         <div className="store__new">
           <h2 className="store__title">Новинки</h2>
-          <Showcase modifier="showcase_position_header"/>
+          <Showcase modifier="showcase_position_header" />
         </div>
       </div>
     </section>
