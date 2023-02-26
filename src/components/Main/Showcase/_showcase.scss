@@ -1,10 +1,8 @@
 .showcase {
   box-sizing: border-box;
   display: none;
-  grid-template-columns: 330px 1fr;
   gap: 33px;
   max-width: 963px;
-  min-height: 701px;
   margin: 0 auto 0;
   background-color: #fff;
 }
@@ -12,10 +10,13 @@
 .showcase_position_main {
   display: none;
   padding: $main-mobile-padding;
+  grid-template-columns: 330px 1fr;
+  min-height: 701px;
 }
 
 .showcase_position_header {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .showcase__figure {
@@ -32,7 +33,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 701px;
 }
 
 .showcase__title {
