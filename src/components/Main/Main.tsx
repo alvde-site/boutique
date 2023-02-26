@@ -8,7 +8,7 @@ import Category from "./Category/Category";
 import Collection from "./Collection/Collection";
 import Companies from "./Companies/Companies";
 import Content from "./Content/Content";
-import Showcase from "./Showcase/Showcase";
+import Showcase from "../Showcase/Showcase";
 
 function Main() {
   return (

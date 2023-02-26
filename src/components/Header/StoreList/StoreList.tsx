@@ -1,5 +1,5 @@
 import { IStoreListProps } from "../../../utils/interfaces";
-import Showcase from "../../Main/Showcase/Showcase";
+import Showcase from "../../Showcase/Showcase";
 
 function StoreList(props: IStoreListProps) {
   return (

@@ -1,5 +1,5 @@
-import { showcase } from "../../../utils/constants";
-import { IShowcaseProps } from "../../../utils/interfaces";
+import { showcase } from "../../utils/constants";
+import { IShowcaseProps } from "../../utils/interfaces";
 
 function Showcase(props: IShowcaseProps) {
   return (
