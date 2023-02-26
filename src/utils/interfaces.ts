@@ -16,6 +16,10 @@ export interface ContentCategoryProps {
   buttonText: string;
 }
 
+export interface IShowcaseProps {
+  modifier: string;
+}
+
 // export interface IFormValidator {
 //   values: IValues;
 //   errors: IErrors;

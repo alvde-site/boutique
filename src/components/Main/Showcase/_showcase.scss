@@ -6,8 +6,16 @@
   max-width: 963px;
   min-height: 701px;
   margin: 0 auto 0;
-  padding: $main-mobile-padding;
   background-color: #fff;
+}
+
+.showcase_position_main {
+  display: none;
+  padding: $main-mobile-padding;
+}
+
+.showcase_position_header {
+  display: grid;
 }
 
 .showcase__figure {
@@ -61,8 +69,12 @@
 }
 
 @media (max-width: 1400px) {
-  .showcase {
+  .showcase_position_main {
     display: grid;
+  }
+
+  .showcase_position_header {
+    display: none;
   }
 }
 

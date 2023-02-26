@@ -13,7 +13,7 @@ import Showcase from "./Showcase/Showcase";
 function Main() {
   return (
     <main className="main">
-      <Showcase />
+      <Showcase modifier="showcase_position_main"/>
       <Content
         children={<Category />}
         titleText={CATEGORY_TITLE_TEXT}

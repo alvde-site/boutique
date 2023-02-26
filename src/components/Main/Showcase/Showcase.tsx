@@ -1,10 +1,15 @@
 import { showcase } from "../../../utils/constants";
+import { IShowcaseProps } from "../../../utils/interfaces";
 
-function Showcase() {
+function Showcase(props: IShowcaseProps) {
   return (
-    <article className="showcase">
+    <article className={`showcase ${props.modifier}`}>
       <figure className="showcase__figure">
-        <img className="showcase__image" src={showcase.src} alt={showcase.alt} />
+        <img
+          className="showcase__image"
+          src={showcase.src}
+          alt={showcase.alt}
+        />
       </figure>
       <div className="showcase__content">
         <div className="showcase__title-block">
