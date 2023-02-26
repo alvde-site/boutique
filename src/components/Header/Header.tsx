@@ -1,6 +1,7 @@
 import { promoTitles } from "../../utils/constants";
 import { IHeaderProps } from "../../utils/interfaces";
 import SwiperViewing from "../SwiperViewing/SwiperViewing";
+import RightHeaderMenu from "./RightHeaderMenu/RightHeaderMenu";
 import StoreList from "./StoreList/StoreList";
 
 function Header(props: IHeaderProps) {
@@ -22,26 +23,12 @@ function Header(props: IHeaderProps) {
             Адреса магазинов и контакты
           </a>
         </div>
-        <button className="nav__burger" aria-label="Меню"></button>
-        <div className="nav__menu nav__menu_type_right">
-          <button className="nav__button  nav__text nav__button_type_enter">
-            Войти
-          </button>
-          <button
-            className="nav__button nav__button_type_search"
-            aria-label="Поиск"
-          ></button>
-          <button
-            className="nav__button nav__button_type_favourite"
-            aria-label="Избранное"
-          ></button>
-          <button
-            className="nav__button nav__button_type_basket"
-            aria-label="Корзина"
-          >
-            <span className="nav__text">2</span>
-          </button>
-        </div>
+        <button
+          className="nav__burger"
+          aria-label="Меню"
+          onClick={props.openMenu}
+        ></button>
+        <RightHeaderMenu />
       </nav>
       <StoreList isMenuOpen={props.isMenuOpen} />
       <section className="promo">
