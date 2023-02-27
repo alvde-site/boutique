@@ -28,7 +28,7 @@ function Header(props: IHeaderProps) {
           aria-label="Меню"
           onClick={props.openMenu}
         ></button>
-        <RightHeaderMenu />
+        <RightHeaderMenu modifier={"nav__icon-menu"}/>
       </nav>
       <StoreList isMenuOpen={props.isMenuOpen} />
       <section className="promo">

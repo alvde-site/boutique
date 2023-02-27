@@ -17,7 +17,10 @@
   position: relative;
   @include container-width;
   padding: $main-desctop-padding;
-  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(255, 255, 255, 0) 29%),
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 1),
+      rgba(255, 255, 255, 0) 29%
+    ),
     url(../../images/promo.png);
   background-position: center;
   background-size: cover;
@@ -138,6 +141,10 @@
 
   .nav__burger {
     display: block;
+  }
+
+  .nav__icon-menu {
+    display: none;
   }
 
   .nav__button_type_enter,

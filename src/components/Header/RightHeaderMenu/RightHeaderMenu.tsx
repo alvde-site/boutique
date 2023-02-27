@@ -1,6 +1,8 @@
-function RightHeaderMenu() {
+import { IShowcaseProps } from "../../../utils/interfaces";
+
+function RightHeaderMenu(props:IShowcaseProps) {
   return (
-    <div className="icon-menu icon-menu_type_right">
+    <div className={`icon-menu ${props.modifier}`}>
       <button className="icon-menu__button  icon-menu__text icon-menu__button_type_enter">
         Войти
       </button>

@@ -1,42 +1,42 @@
 .icon-menu__text {
-    @include usual-text("Inter");
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #fff;
-  }
+  @include usual-text("Inter");
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+}
 
-  .icon-menu__button {
-    padding: 0;
-    margin: 0 30px 0 0;
-    border: none;
-    background-color: transparent;
-    opacity: $main-link-state-opacity;
-    vertical-align: bottom;
-  }
-  
-  .icon-menu__button:last-child {
-    margin: 0;
-  }
-  
-  .icon-menu__button:hover {
-    opacity: $main-link-hover-opacity;
-  }
-  
-  .icon-menu__button_type_enter {
-    opacity: $main-link-state-opacity;
-    transition: $main-transition;
-  }
-  
-  .icon-menu__button_type_search {
-    @include button-size;
-    @include button-image(url(../../images/svg/search-button.svg));
-  }
-  
-  .icon-menu__button_type_favourite {
-    @include button-size;
-    @include button-image(url(../../images/svg/favourite-button.svg));
-  }
-  .icon-menu__button_type_basket {
-    @include button-size;
-    @include button-image(url(../../images/svg/basket-button.svg));
-  }
+.icon-menu__button {
+  padding: 0;
+  margin: 0 30px 0 0;
+  border: none;
+  background-color: transparent;
+  opacity: $main-link-state-opacity;
+  vertical-align: bottom;
+}
+
+.icon-menu__button:last-child {
+  margin: 0;
+}
+
+.icon-menu__button:hover {
+  opacity: $main-link-hover-opacity;
+}
+
+.icon-menu__button_type_enter {
+  opacity: $main-link-state-opacity;
+  transition: $main-transition;
+}
+
+.icon-menu__button_type_search {
+  @include button-size;
+  @include button-image(url(../../images/svg/search-button.svg));
+}
+
+.icon-menu__button_type_favourite {
+  @include button-size;
+  @include button-image(url(../../images/svg/favourite-button.svg));
+}
+.icon-menu__button_type_basket {
+  @include button-size;
+  @include button-image(url(../../images/svg/basket-button.svg));
+}
