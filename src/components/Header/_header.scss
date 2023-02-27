@@ -36,47 +36,6 @@
   background: url(../../images/logo.png) center/44px 42px no-repeat;
 }
 
-.nav__text {
-  @include usual-text("Inter");
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-.nav__link {
-  margin: 0 28px 0 0;
-  opacity: 0.5;
-  transition: $main-transition;
-}
-
-.nav__link:last-child {
-  margin: 0;
-}
-
-.nav__link:hover {
-  opacity: 1;
-}
-
-.nav__link:hover .nav__link_more {
-  opacity: $main-link-hover-opacity;
-}
-
-.nav__link_more {
-  position: relative;
-}
-
-.nav__link_more::after {
-  content: "";
-  background: url(../../images/svg/more-arrow.svg);
-  width: 20px;
-  height: 10px;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  bottom: -20px;
-  opacity: $main-link-state-opacity;
-}
-
 .nav__logo {
   width: 44px;
   height: 42px;
@@ -133,10 +92,6 @@
 @media (max-width: 1400px) {
   .header {
     padding: $main-mobile-padding;
-  }
-
-  .nav__menu_type_left {
-    display: none;
   }
 
   .nav__burger {
