@@ -87,8 +87,14 @@
   background: transparent;
   background-image: url(../../images/svg/burger.svg);
   background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 51px;
   height: 42px;
+}
+
+.nav__burger_open {
+  background-image: url(../../images/svg/close-icon.svg);
 }
 
 .promo {

@@ -24,7 +24,7 @@ function Header(props: IHeaderProps) {
           </a>
         </div>
         <button
-          className="nav__burger"
+          className={`nav__burger ${props.isMenuOpen&&"nav__burger_open"}`}
           aria-label="Меню"
           onClick={props.openMenu}
         ></button>
