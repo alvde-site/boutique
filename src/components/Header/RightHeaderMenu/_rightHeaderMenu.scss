@@ -1,11 +1,11 @@
-.nav__text {
+.icon-menu__text {
     @include usual-text("Inter");
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
   }
 
-  .nav__button {
+  .icon-menu__button {
     padding: 0;
     margin: 0 30px 0 0;
     border: none;
@@ -14,29 +14,29 @@
     vertical-align: bottom;
   }
   
-  .nav__button:last-child {
+  .icon-menu__button:last-child {
     margin: 0;
   }
   
-  .nav__button:hover {
+  .icon-menu__button:hover {
     opacity: $main-link-hover-opacity;
   }
   
-  .nav__button_type_enter {
+  .icon-menu__button_type_enter {
     opacity: $main-link-state-opacity;
     transition: $main-transition;
   }
   
-  .nav__button_type_search {
+  .icon-menu__button_type_search {
     @include button-size;
     @include button-image(url(../../images/svg/search-button.svg));
   }
   
-  .nav__button_type_favourite {
+  .icon-menu__button_type_favourite {
     @include button-size;
     @include button-image(url(../../images/svg/favourite-button.svg));
   }
-  .nav__button_type_basket {
+  .icon-menu__button_type_basket {
     @include button-size;
     @include button-image(url(../../images/svg/basket-button.svg));
   }
