@@ -24,9 +24,13 @@ export interface IStoreListProps {
   isMenuOpen: boolean;
 }
 
-export interface IHeaderProps extends IStoreListProps {
+export interface IMenuProps {
   openMenu: () => void;
 }
+
+export interface IOpenModifierProps extends IMenuProps, IShowcaseProps{};
+
+export interface IHeaderProps extends IStoreListProps, IMenuProps {}
 
 // export interface IFormValidator {
 //   values: IValues;

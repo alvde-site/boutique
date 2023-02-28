@@ -1,11 +1,13 @@
-import { IStoreListProps } from "../../../utils/interfaces";
+import { IHeaderProps } from "../../../utils/interfaces";
 import Showcase from "../../Showcase/Showcase";
+import Menu from "../Menu/Menu";
 import RightHeaderMenu from "../RightHeaderMenu/RightHeaderMenu";
 
-function StoreList(props: IStoreListProps) {
+function StoreList(props: IHeaderProps) {
   return (
     <section className={`store ${props.isMenuOpen && "store_open"}`}>
       <RightHeaderMenu modifier="store__icon-menu" />
+      <Menu openMenu={props.openMenu} modifier="store__link-menu"/>
       <div className="store__wrapper">
         <div className="store__content">
           <div className="store__category">

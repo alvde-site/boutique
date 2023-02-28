@@ -1,46 +1,55 @@
-.menu__text {
-    @include usual-text("Inter");
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #fff;
-  }
-  
-  .menu__link {
+.menu {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  & li {
     margin: 0 28px 0 0;
-    opacity: 0.5;
-    transition: $main-transition;
   }
-  
-  .menu__link:last-child {
-    margin: 0;
-  }
-  
-  .menu__link:hover {
-    opacity: 1;
-  }
-  
-  .menu__link:hover .menu__link_more {
-    opacity: $main-link-hover-opacity;
-  }
-  
-  .menu__link_more {
-    position: relative;
-  }
-  
-  .menu__link_more::after {
-    content: "";
-    background: url(../../../images/svg/more-arrow.svg);
-    width: 20px;
-    height: 10px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    bottom: -20px;
-    opacity: $main-link-state-opacity;
-  }
+}
 
-  @media (max-width: 1400px) {
-    .menu__type_left {
-        display: none;
-    }
+.menu__text {
+  @include usual-text("Inter");
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.menu__link {
+  opacity: 0.5;
+  transition: $main-transition;
+}
+
+.menu__link:last-child {
+  margin: 0;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.menu__link:hover .menu__link_more {
+  opacity: $main-link-hover-opacity;
+}
+
+.menu__link_more {
+  position: relative;
+}
+
+.menu__link_more::after {
+  content: "";
+  background: url(../../../images/svg/more-arrow.svg);
+  width: 20px;
+  height: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: -20px;
+  opacity: $main-link-state-opacity;
+}
+
+@media (max-width: 1400px) {
+  .menu__position_nav {
+    display: none;
   }
+}

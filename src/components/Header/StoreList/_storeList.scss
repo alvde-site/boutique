@@ -17,12 +17,24 @@
   display: flex;
 }
 
+.store__link-menu {
+  display: none;
+  align-self: flex-start;
+  padding: 0 0 35px;
+  flex-direction: column;
+  & li:not(:last-child) {
+    margin-bottom: 35px;
+  }
+  & a {
+    border-bottom: 1px solid #fff;
+  }
+}
+
 .store__icon-menu {
   box-sizing: border-box;
   display: none;
   width: 100%;
-  margin-bottom: 60px;
-  padding: 35px;
+  padding: 35px 0 0;
 }
 
 .store__wrapper {
@@ -105,6 +117,14 @@
 }
 
 @media (max-width: 1400px) {
+  .store__link-menu {
+    display: flex;
+  }
+
+  .menu__link_more {
+    display: none;
+  }
+
   .store__icon-menu {
     display: block;
   }
@@ -123,5 +143,11 @@
 
   .store__advertisement {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .store {
+    padding: 123px 20px 207px;
   }
 }
