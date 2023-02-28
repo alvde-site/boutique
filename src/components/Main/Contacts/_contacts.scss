@@ -1,3 +1,83 @@
 .contacts {
-    padding: $main-desctop-padding;
+  padding: $main-desctop-padding;
+  background-color: #fff;
+}
+
+.contacts__title {
+  @include decorative-big-text;
+  margin: 0 0 56px;
+}
+
+.contacts__info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contacts__city {
+  @include big-text("Inter");
+  margin: 0 0 40px;
+}
+
+.contacts__subtitle {
+  @include decorative-big-text;
+  margin: 0;
+}
+
+.contacts__item {
+  @include usual-text("Inter");
+  margin: 0 0 40px;
+}
+
+.contacts__tel {
+  display: inline-block;
+  @include decorative-big-text;
+  margin: 0 0 40px;
+  text-decoration: none;
+  color: #000;
+}
+
+.contacts__icons {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.contacts__icon {
+  display: inline-block;
+  @include button-size;
+  margin: 0 10px 0 0;
+  text-decoration: none;
+  transition: $transition-time;
+  opacity: $button-state-opacity;
+}
+
+.contacts__icon:hover {
+  opacity: $button-hover-opacity;
+}
+
+.contacts__icon_type_instagram {
+  @include button-image(url("../../../images/svg/instagram-icon.svg"));
+}
+
+.contacts__icon_type_vk {
+  @include button-image(url("../../../images/svg/vk-icon.svg"));
+}
+
+.contacts__icon_type_tg {
+  @include button-image(url("../../../images/svg/tg-icon.svg"));
+}
+
+.contacts__icon_type_facebook {
+  @include button-image(url("../../../images/svg/facebook-icon.svg"));
+}
+
+@media (max-width: 1400px) {
+  .contacts {
+    padding: $main-mobile-padding;
+  }
+
+  .contacts__info {
+    flex-direction: column;
+  }
 }

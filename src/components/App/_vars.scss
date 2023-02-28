@@ -35,7 +35,7 @@ $main-mobile-padding: 50px 20px;
 }
 
 @mixin decorative-big-text() {
-  font-family: 'Forum', Arial, Helvetica, sans-serif;
+  font-family: "Forum", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 32px;
@@ -52,3 +52,16 @@ $transition-time: 0.3s;
 
 /* цвета */
 $background-content-color: #fff;
+
+/* Стили кнопок */
+@mixin button-size {
+  width: 28px;
+  height: 28px;
+}
+
+@mixin button-image($image) {
+  background-image: $image;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

@@ -1,16 +1,3 @@
-/* variables */
-@mixin button-size {
-  width: 28px;
-  height: 28px;
-}
-
-@mixin button-image($image) {
-  background-image: $image;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
 /* styles */
 
 .header {
