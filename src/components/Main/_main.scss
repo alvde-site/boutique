@@ -2,3 +2,44 @@
   @include container-width;
   background-color: #f1f1f1;
 }
+
+.promo {
+  min-height: 629px;
+  background-image: url(../../images/promo.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.promo__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.promo__title {
+  @include big-text("Inter");
+  color: #fff;
+}
+
+.promo__button {
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  width: 177px;
+  height: 79px;
+  background-color: #000;
+  @include usual-text("Inter");
+  color: #fff;
+  opacity: $button-state-opacity;
+}
+
+.promo__button:hover {
+  opacity: $button-hover-opacity;
+}
+
+@media (max-width: 1400px) {
+  .promo__button {
+    width: 132px;
+    height: 42px;
+  }
+}

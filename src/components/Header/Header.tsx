@@ -1,6 +1,4 @@
-import { promoTitles } from "../../utils/constants";
 import { IHeaderProps } from "../../utils/interfaces";
-import SwiperViewing from "../SwiperViewing/SwiperViewing";
 import Menu from "./Menu/Menu";
 import RightHeaderMenu from "./RightHeaderMenu/RightHeaderMenu";
 import StoreList from "./StoreList/StoreList";
@@ -9,7 +7,7 @@ function Header(props: IHeaderProps) {
   return (
     <header className="header">
       <nav className="nav">
-        <Menu openMenu={props.openMenu} modifier="menu__position_nav"/>
+        <Menu openMenu={props.openMenu} modifier="menu__position_nav" />
         <button
           className={`nav__burger ${props.isMenuOpen && "nav__burger_open"}`}
           aria-label="Меню"
@@ -17,10 +15,7 @@ function Header(props: IHeaderProps) {
         ></button>
         <RightHeaderMenu modifier={"nav__icon-menu"} />
       </nav>
-      <StoreList isMenuOpen={props.isMenuOpen} openMenu={props.openMenu}/>
-      <section className="promo">
-        <SwiperViewing promoTitles={promoTitles} />
-      </section>
+      <StoreList isMenuOpen={props.isMenuOpen} openMenu={props.openMenu} />
     </header>
   );
 }

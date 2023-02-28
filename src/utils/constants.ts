@@ -83,5 +83,31 @@ export const collectionFotos = [
 ];
 
 /* Companies */
-export const companiesLogo = [{src: bazaarLogo, alt: 'Логотип Базар'},{src: buroLogo, alt: 'Логотип Буро'},
-{src: glamourLogo, alt: 'Логотип Гламур'}, {src: vogueLogo, alt: 'Логотип Вожю'}];
+export const companiesLogo = [
+  { src: bazaarLogo, alt: "Логотип Базар" },
+  { src: buroLogo, alt: "Логотип Буро" },
+  { src: glamourLogo, alt: "Логотип Гламур" },
+  { src: vogueLogo, alt: "Логотип Вожю" },
+];
+
+/* Contacts */
+export const cityContacts = [
+  {
+    city: "Санкт-петербург",
+    label: "Maker Design Loft",
+    address: "ул. Восстания, 3-5",
+    time: "10:00 - 19:00 по предварительному звонку",
+  },
+  {
+    city: "Махачкала",
+    label: "Cezars",
+    address: "ул. Сулеймана Стальского 18",
+    time: "10:00 - 19:00 по предварительному звонку",
+  },
+  {
+    city: "Кемерово",
+    label: "LOR`IN",
+    address: "ул. 50 лет Октября 11, корпус 2",
+    time: "10:00 - 19:00 по предварительному звонку",
+  },
+];

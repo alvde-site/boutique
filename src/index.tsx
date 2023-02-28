@@ -3,14 +3,17 @@ import { createRoot } from "react-dom/client";
 import App from "./components/App/App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.scss";
+import { BrowserRouter } from "react-router-dom";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
 
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <BrowserRouter>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -4,6 +4,8 @@ import {
   COLLECTION_BUTTON_TEXT,
   COLLECTION_TITLE_TEXT,
 } from "../../utils/constants";
+import { promoTitles } from "../../utils/constants";
+import SwiperViewing from "../SwiperViewing/SwiperViewing";
 import Category from "./Category/Category";
 import Collection from "./Collection/Collection";
 import Companies from "./Companies/Companies";
@@ -12,8 +14,11 @@ import Showcase from "../Showcase/Showcase";
 
 function Main() {
   return (
-    <main className="main">
-      <Showcase modifier="showcase_position_main"/>
+    <>
+      <section className="promo">
+        <SwiperViewing promoTitles={promoTitles} />
+      </section>
+      <Showcase modifier="showcase_position_main" />
       <Content
         children={<Category />}
         titleText={CATEGORY_TITLE_TEXT}
@@ -25,7 +30,7 @@ function Main() {
         buttonText={COLLECTION_BUTTON_TEXT}
       />
       <Companies />
-    </main>
+    </>
   );
 }
 

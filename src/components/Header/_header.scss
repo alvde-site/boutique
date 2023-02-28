@@ -17,14 +17,7 @@
   position: relative;
   @include container-width;
   padding: $main-desctop-padding;
-  background-image: linear-gradient(
-      rgba(0, 0, 0, 1),
-      rgba(255, 255, 255, 0) 29%
-    ),
-    url(../../images/promo.png);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: #000;
 }
 
 .nav {
@@ -59,36 +52,6 @@
   background-image: url(../../images/svg/close-icon.svg);
 }
 
-.promo {
-  min-height: 629px;
-}
-
-.promo__content {
-  display: flex;
-  flex-direction: column;
-}
-
-.promo__title {
-  @include big-text("Inter");
-  color: #fff;
-}
-
-.promo__button {
-  margin: 0 auto;
-  padding: 0;
-  border: none;
-  width: 177px;
-  height: 79px;
-  background-color: #000;
-  @include usual-text("Inter");
-  color: #fff;
-  opacity: $button-state-opacity;
-}
-
-.promo__button:hover {
-  opacity: $button-hover-opacity;
-}
-
 @media (max-width: 1400px) {
   .header {
     padding: $main-mobile-padding;
@@ -109,10 +72,5 @@
   }
   .promo__title {
     margin: 0 0 78px;
-  }
-
-  .promo__button {
-    width: 132px;
-    height: 42px;
   }
 }
