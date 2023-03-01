@@ -16,7 +16,9 @@ function Contacts() {
             </p>
           </div>
           <div className="contacts__socials">
-            <a className="contacts__tel" href="tel:+79268304044">+79268304044</a>
+            <a className="contacts__tel" href="tel:+79268304044">
+              +79268304044
+            </a>
             <ul className="contacts__icons">
               <li>
                 <a
@@ -59,8 +61,14 @@ function Contacts() {
         </div>
       </div>
       <div className="contacts__maps">
-        <h2 className="contacts__title">как добраться</h2>
-        <div className="contacts__map"></div>
+        <h2 className="contacts__map-title">как добраться</h2>
+        <iframe
+          className="contacts__map"
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae7a5d4c269ccafb9c334339405d73207cca78899c012b6465ba7a0b7602363ea&amp;source=constructor"
+          width="100%"
+          height="720"
+          title="Яндекс Карты"
+        ></iframe>
       </div>
       <div className="contacts__cities">
         <h2 className="contacts__title">другие города</h2>

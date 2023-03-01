@@ -6,6 +6,7 @@
 .contacts__title {
   @include decorative-big-text;
   margin: 0 0 56px;
+  text-transform: uppercase;
 }
 
 .contacts__info {
@@ -16,16 +17,19 @@
 .contacts__city {
   @include big-text("Inter");
   margin: 0 0 40px;
+  text-transform: uppercase;
 }
 
 .contacts__subtitle {
   @include decorative-big-text;
   margin: 0;
+  text-transform: uppercase;
 }
 
 .contacts__item {
   @include usual-text("Inter");
   margin: 0 0 40px;
+  text-transform: uppercase;
 }
 
 .contacts__tel {
@@ -70,6 +74,15 @@
 
 .contacts__icon_type_facebook {
   @include button-image(url("../../../images/svg/facebook-icon.svg"));
+}
+
+.contacts__map-title {
+    @include decorative-big-text;
+    margin: 0;
+}
+
+.contacts__cities {
+    padding: 90px;
 }
 
 @media (max-width: 1400px) {
