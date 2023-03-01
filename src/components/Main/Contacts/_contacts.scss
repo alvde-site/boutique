@@ -5,8 +5,21 @@
 
 .contacts__title {
   @include decorative-big-text;
-  margin: 0 0 56px;
   text-transform: uppercase;
+}
+
+.contacts__title_position_data {
+  margin: 0 0 56px;
+}
+
+.contacts__title_position_map {
+  margin: 0;
+  text-align: center;
+}
+
+.contacts__title_position_cities {
+  margin: 0 0 56px;
+  text-align: center;
 }
 
 .contacts__info {
@@ -76,13 +89,40 @@
   @include button-image(url("../../../images/svg/facebook-icon.svg"));
 }
 
-.contacts__map-title {
-    @include decorative-big-text;
-    margin: 0;
+.contacts__cities {
+  padding: 90px;
 }
 
-.contacts__cities {
-    padding: 90px;
+.contacts__cards {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.card {
+    padding: 50px 11px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.card__title {
+    margin: 0 0 40px;
+    @include usual-text("Inter");
+    text-transform: uppercase;
+}
+
+.card__subtitle {
+    margin: 0;
+    @include usual-text("Inter");
+    text-transform: uppercase;
+}
+
+.card__text {
+    margin: 0 0 40px;
+    @include usual-text("Inter");
 }
 
 @media (max-width: 1400px) {

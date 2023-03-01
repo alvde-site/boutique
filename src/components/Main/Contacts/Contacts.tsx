@@ -4,7 +4,9 @@ function Contacts() {
   return (
     <section className="contacts">
       <div className="contacts__data">
-        <h2 className="contacts__title">Контакты</h2>
+        <h2 className="contacts__title contacts__title_position_data">
+          Контакты
+        </h2>
         <div className="contacts__info">
           <div className="contacts__adress">
             <h3 className="contacts__city">Москва</h3>
@@ -61,7 +63,9 @@ function Contacts() {
         </div>
       </div>
       <div className="contacts__maps">
-        <h2 className="contacts__map-title">как добраться</h2>
+        <h2 className="contacts__title contacts__title_position_map">
+          как добраться
+        </h2>
         <iframe
           className="contacts__map"
           src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae7a5d4c269ccafb9c334339405d73207cca78899c012b6465ba7a0b7602363ea&amp;source=constructor"
@@ -71,16 +75,18 @@ function Contacts() {
         ></iframe>
       </div>
       <div className="contacts__cities">
-        <h2 className="contacts__title">другие города</h2>
+        <h2 className="contacts__title contacts__title_position_cities">
+          другие города
+        </h2>
         <ul className="contacts__cards">
           {cityContacts.map((data, i) => {
             return (
               <li className="contacts__card card" key={i}>
-                <h3 className="card__city">{data.city}</h3>
-                <p className="card__label">{data.label}</p>
-                <p className="card__addres">{data.address}</p>
+                <h3 className="card__title">{data.city}</h3>
+                <p className="card__subtitle">{data.label}</p>
+                <p className="card__text">{data.address}</p>
                 <h4 className="card__subtitle">Режим работы:</h4>
-                <p className="card__working">{data.time}</p>
+                <p className="card__text">{data.time}</p>
                 <a className="card__time" href="!#">
                   Яндекс.Карты
                 </a>
