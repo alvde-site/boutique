@@ -7,7 +7,11 @@ function Header(props: IHeaderProps) {
   return (
     <header className="header">
       <nav className="nav">
-        <Menu openMenu={props.openMenu} modifier="menu__position_nav" />
+        <Menu
+          onClose={props.onClose}
+          openMenu={props.openMenu}
+          modifier="menu__position_nav"
+        />
         <button
           className={`nav__burger ${props.isMenuOpen && "nav__burger_open"}`}
           aria-label="Меню"
@@ -15,7 +19,11 @@ function Header(props: IHeaderProps) {
         ></button>
         <RightHeaderMenu modifier={"nav__icon-menu"} />
       </nav>
-      <StoreList isMenuOpen={props.isMenuOpen} openMenu={props.openMenu} />
+      <StoreList
+        onClose={props.onClose}
+        isMenuOpen={props.isMenuOpen}
+        openMenu={props.openMenu}
+      />
     </header>
   );
 }

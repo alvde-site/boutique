@@ -11,9 +11,14 @@ function App() {
   function handleOpenMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
+
+  function closeAllPopups() {
+    setIsMenuOpen(false);
+  }
+
   return (
     <div className="page">
-      <Header isMenuOpen={isMenuOpen} openMenu={handleOpenMenu} />
+      <Header isMenuOpen={isMenuOpen} openMenu={handleOpenMenu} onClose={closeAllPopups}/>
       <main className="main">
         <Routes>
           <Route path="/" element={<Main />}></Route>

@@ -26,6 +26,7 @@ export interface IStoreListProps {
 
 export interface IMenuProps {
   openMenu: () => void;
+  onClose: () => void;
 }
 
 export interface IOpenModifierProps extends IMenuProps, IShowcaseProps{};

@@ -3,7 +3,7 @@ import { IOpenModifierProps } from "../../../utils/interfaces";
 
 function Menu(props: IOpenModifierProps) {
   return (
-    <ul className={`menu ${props.modifier}`} onClick={props.openMenu}>
+    <ul className={`menu ${props.modifier}`}>
       <li>
         <Link
           to="/"
@@ -14,12 +14,17 @@ function Menu(props: IOpenModifierProps) {
         </Link>
       </li>
       <li>
-        <Link to="/conditions" className="menu__link menu__text">
+        <Link onClick={props.onClose} to="/" className="menu__link menu__text menu__link_main">
+          Главная
+        </Link>
+      </li>
+      <li>
+        <Link onClick={props.onClose} to="/conditions" className="menu__link menu__text">
           Доставка и оплата
         </Link>
       </li>
       <li>
-        <Link to="/contacts" className="menu__link menu__text">
+        <Link onClick={props.onClose} to="/contacts" className="menu__link menu__text">
           Адреса магазинов и контакты
         </Link>
       </li>

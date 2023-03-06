@@ -7,7 +7,11 @@ function StoreList(props: IHeaderProps) {
   return (
     <section className={`store ${props.isMenuOpen && "store_open"}`}>
       <RightHeaderMenu modifier="store__icon-menu" />
-      <Menu openMenu={props.openMenu} modifier="store__link-menu"/>
+      <Menu
+        onClose={props.onClose}
+        openMenu={props.openMenu}
+        modifier="store__link-menu"
+      />
       <div className="store__wrapper">
         <div className="store__content">
           <div className="store__category">

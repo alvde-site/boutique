@@ -36,6 +36,10 @@
   position: relative;
 }
 
+.menu__link_main {
+  display: none;
+}
+
 .menu__link_more::after {
   content: "";
   background: url(../../../images/svg/more-arrow.svg);
@@ -51,5 +55,9 @@
 @media (max-width: 1400px) {
   .menu__position_nav {
     display: none;
+  }
+
+  .menu__link_main {
+    display: inline-block;
   }
 }
