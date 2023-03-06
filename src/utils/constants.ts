@@ -5,7 +5,8 @@
 
 // export { loginError, controlError, passwordError, passwordConfirmationError };
 
-/* Images */
+/* ------  Images --------- */
+
 /*Showcase images*/
 import showcaseFoto from "../images/showcase.jpg";
 /* Category images */
@@ -23,6 +24,13 @@ import bazaarLogo from "../images/bazaar-logo.png";
 import buroLogo from "../images/buro-logo.png";
 import glamourLogo from "../images/glamour-logo.png";
 import vogueLogo from "../images/vogue-logo.png";
+/* Conditions */
+import deliveryLogo from "../images/svg/delivery-icon.svg";
+import refundLogo from "../images/svg/finance-icon.svg";
+import paymentLogo from "../images/svg/money-icon.svg";
+
+/* -------- Components --------- */
+
 /* Header */
 const promoTitles = [
   {
@@ -110,4 +118,12 @@ export const cityContacts = [
     address: "ул. 50 лет Октября 11, корпус 2",
     time: "10:00 - 19:00 по предварительному звонку",
   },
+];
+
+/* Conditions */
+
+export const conditionsLogo = [
+  { src: deliveryLogo, alt: "Доставка" },
+  { src: refundLogo, alt: "Возврат" },
+  { src: paymentLogo, alt: "Оплата" },
 ];

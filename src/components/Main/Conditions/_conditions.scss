@@ -1,0 +1,118 @@
+.conditions {
+  padding: $main-desctop-padding;
+  background-color: #fff;
+  display: flex;
+}
+
+.conditions__icons {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  max-width: 273px;
+  width: 100%;
+  & li {
+    box-sizing: border-box;
+    padding: 45px;
+    max-height: 273px;
+    height: 100%;
+    background-color: #f1f1f1;
+  }
+
+  & li:not(:last-child) {
+    margin-bottom: 5px;
+  }
+}
+
+.conditions__icon {
+  width: 100%;
+  height: 100%;
+}
+
+.conditions__content {
+  box-sizing: border-box;
+  padding: 0 0 0 80px;
+}
+
+.conditions__delivery {
+  padding: 0 0 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.conditions__title-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.conditions__title {
+  margin: 0 0 40px;
+  @include big-text("Inter");
+  text-transform: uppercase;
+}
+
+.conditions__title-icons {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  & li:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+.conditions__title-icon {
+  width: 75px;
+  height: 75px;
+}
+
+.conditions__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.conditions__item {
+  margin: 0;
+  @include usual-text("Inter");
+}
+
+.conditions__item_type_end {
+  margin: 0 0 30px;
+}
+
+.conditions__refund {
+    padding: 60px 0 0;
+}
+
+.conditions__subtitle {
+    @include decorative-big-text;
+    text-transform: uppercase;
+    margin: 0 0 30px;
+}
+
+.conditions__orderlist {
+    margin: 0 0 40px;
+}
+
+@media (max-width: 1400px) {
+  .conditions {
+    padding: $main-mobile-padding;
+  }
+
+  .conditions__icons {
+    display: none;
+  }
+
+  .conditions__content {
+    padding: 0;
+  }
+
+  .conditions__title-wrap {
+    justify-content: flex-start;
+  }
+
+  .conditions__title-icon {
+    display: none;
+  }
+}
