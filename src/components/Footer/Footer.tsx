@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Footer() {
   return (
     <footer className="footer">
@@ -34,9 +36,9 @@ function Footer() {
             </a>
           </li>
           <li>
-            <a href="!#" className="footer__link">
+            <Link to="/contacts" className="footer__link">
               Контакты
-            </a>
+            </Link>
           </li>
           <li>
             <a href="!#" className="footer__link">

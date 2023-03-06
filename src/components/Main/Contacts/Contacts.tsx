@@ -87,7 +87,7 @@ function Contacts() {
                 <p className="card__text">{data.address}</p>
                 <h4 className="card__subtitle">Режим работы:</h4>
                 <p className="card__text">{data.time}</p>
-                <a className="card__time" href="!#">
+                <a className="card__button" href="!#">
                   Яндекс.Карты
                 </a>
               </li>

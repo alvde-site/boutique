@@ -90,7 +90,7 @@
 }
 
 .contacts__cities {
-  padding: 90px;
+  padding: 90px 0;
 }
 
 .contacts__cards {
@@ -98,31 +98,51 @@
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 340px));
+  justify-content: center;
   gap: 30px;
 }
 
 .card {
-    padding: 50px 11px;
-    border: 1px solid black;
-    text-align: center;
+  padding: 50px 11px;
+  border: 1px solid black;
+  text-align: center;
 }
 
 .card__title {
-    margin: 0 0 40px;
-    @include usual-text("Inter");
-    text-transform: uppercase;
+  margin: 0 0 40px;
+  @include usual-text("Inter");
+  text-transform: uppercase;
 }
 
 .card__subtitle {
-    margin: 0;
-    @include usual-text("Inter");
-    text-transform: uppercase;
+  margin: 0;
+  @include usual-text("Inter");
+  text-transform: uppercase;
 }
 
 .card__text {
-    margin: 0 0 40px;
-    @include usual-text("Inter");
+  margin: 0 0 40px;
+  @include usual-text("Inter");
+}
+
+.card__button {
+  text-decoration: none;
+  @include usual-text("Inter");
+  text-transform: uppercase;
+  color: #000;
+  display: inline-block;
+  border: 1px solid #000;
+  padding: 5px 45px 5px 14px;
+  background-image: url("../../../images/svg/map-icon.svg");
+  background-position: 95% center;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  opacity: $button-state-opacity;
+}
+
+.card__button:hover {
+  opacity: $button-hover-opacity;
 }
 
 @media (max-width: 1400px) {
@@ -132,5 +152,9 @@
 
   .contacts__info {
     flex-direction: column;
+  }
+
+  .contacts__maps {
+    display: none;
   }
 }

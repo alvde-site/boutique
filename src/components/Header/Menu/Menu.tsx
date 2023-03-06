@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { IOpenModifierProps } from "../../../utils/interfaces";
 
 function Menu(props: IOpenModifierProps) {
@@ -18,9 +19,9 @@ function Menu(props: IOpenModifierProps) {
         </a>
       </li>
       <li>
-        <a href="!#" className="menu__link menu__text">
+        <Link to="/contacts" className="menu__link menu__text">
           Адреса магазинов и контакты
-        </a>
+        </Link>
       </li>
     </ul>
   );
