@@ -3,7 +3,7 @@ import { IOpenModifierProps } from "../../../utils/interfaces";
 
 function Menu(props: IOpenModifierProps) {
   return (
-    <ul className={`menu ${props.modifier}`}>
+    <ul className={`menu ${props.modifier}`} onClick={props.openMenu}>
       <li>
         <a
           href="!#"
