@@ -5,18 +5,18 @@ function Menu(props: IOpenModifierProps) {
   return (
     <ul className={`menu ${props.modifier}`} onClick={props.openMenu}>
       <li>
-        <a
-          href="!#"
+        <Link
+          to="/"
           className="menu__link  menu__text menu__link_more"
           onClick={props.openMenu}
         >
           МАГАЗИН
-        </a>
+        </Link>
       </li>
       <li>
-        <a href="!#" className="menu__link menu__text">
+        <Link to="/conditions" className="menu__link menu__text">
           Доставка и оплата
-        </a>
+        </Link>
       </li>
       <li>
         <Link to="/contacts" className="menu__link menu__text">

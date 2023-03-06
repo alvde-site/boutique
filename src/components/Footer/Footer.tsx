@@ -26,9 +26,9 @@ function Footer() {
             </a>
           </li>
           <li>
-            <a href="!#" className="footer__link">
+            <Link to="/conditions" className="footer__link">
               Условия доставки
-            </a>
+            </Link>
           </li>
           <li>
             <a href="!#" className="footer__link">
@@ -41,9 +41,9 @@ function Footer() {
             </Link>
           </li>
           <li>
-            <a href="!#" className="footer__link">
+            <Link to="/conditions" className="footer__link">
               Условия возврата
-            </a>
+            </Link>
           </li>
           <li>
             <a href="!#" className="footer__link">
@@ -51,9 +51,9 @@ function Footer() {
             </a>
           </li>
           <li>
-            <a href="!#" className="footer__link">
+            <Link to="/conditions" className="footer__link">
               Оплата
-            </a>
+            </Link>
           </li>
           <li>
             <a href="!#" className="footer__link">
@@ -69,18 +69,28 @@ function Footer() {
         <div className="footer__details">
           <ul className="footer__langs">
             <li>
-              <button className="footer__link footer__link_type_button">RU</button>
+              <button className="footer__link footer__link_type_button">
+                RU
+              </button>
             </li>
             <li>
-              <button className="footer__link footer__link_type_button">EN</button>
+              <button className="footer__link footer__link_type_button">
+                EN
+              </button>
             </li>
           </ul>
           <ul className="footer__pays">
             <li>
-              <button className="footer__pay footer__pay_type_mir" aria-label="Карта мир"></button>
+              <button
+                className="footer__pay footer__pay_type_mir"
+                aria-label="Карта мир"
+              ></button>
             </li>
             <li>
-              <button className="footer__pay  footer__pay_type_visa" aria-label="Карта виза"></button>
+              <button
+                className="footer__pay  footer__pay_type_visa"
+                aria-label="Карта виза"
+              ></button>
             </li>
           </ul>
           <a href="!#" className="footer__link">

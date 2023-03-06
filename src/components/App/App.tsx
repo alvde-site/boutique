@@ -4,6 +4,7 @@ import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
 import { Route, Routes } from "react-router-dom";
 import Contacts from "../Main/Contacts/Contacts";
+import Conditions from "../Main/Conditions/Conditions";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />}></Route>
           <Route path="/contacts" element={<Contacts />} />
+          <Route path="/conditions" element={<Conditions />} />
         </Routes>
       </main>
       <Footer />
