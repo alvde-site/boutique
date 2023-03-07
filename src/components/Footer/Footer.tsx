@@ -11,9 +11,9 @@ function Footer() {
             </a>
           </li>
           <li>
-            <a href="!#" className="footer__link">
+            <Link to="/dealer" className="footer__link">
               Оптовикам
-            </a>
+            </Link>
           </li>
           <li>
             <a href="!#" className="footer__link">
@@ -21,9 +21,9 @@ function Footer() {
             </a>
           </li>
           <li>
-            <a href="!#" className="footer__link">
+            <Link to="/press" className="footer__link">
               Пресса
-            </a>
+            </Link>
           </li>
           <li>
             <Link to="/conditions" className="footer__link">

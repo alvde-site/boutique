@@ -2,4 +2,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #1E1E1E;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

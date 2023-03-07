@@ -1,6 +1,7 @@
 .main {
   @include container-width;
-  background-color: #f1f1f1;
+  background-color: #fff;
+  flex: 1 0 auto;
 }
 
 .promo {

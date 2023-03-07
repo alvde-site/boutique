@@ -1,9 +1,10 @@
 .footer {
   box-sizing: border-box;
+  width: 100%;
   max-width: 1920px;
-  margin: 0 auto;
+  margin: auto auto 0;
+  padding: $main-desctop-padding;
   background-color: #f1f1f1;
-  padding: 31px 61px;
 }
 
 .footer__content {
@@ -98,7 +99,7 @@
 
 @media (max-width: 1400px) {
   .footer {
-    padding: 20px;
+    padding: $main-mobile-padding;
   }
 
   .footer__content {
@@ -132,12 +133,12 @@
   }
 }
 
-@media(max-width: 768px) {
-    .footer__links {
-        grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .footer__links {
+    grid-template-columns: 1fr;
 
-        li {
-            margin-bottom: 15px;
-        }
+    li {
+      margin-bottom: 15px;
     }
+  }
 }

@@ -1,0 +1,15 @@
+.press {
+  padding: $main-desctop-padding;
+  background-color: #fff;
+}
+
+.press__text {
+  margin: 0;
+  @include usual-text("Inter");
+}
+
+@media (max-width: 1400px) {
+  .press {
+    padding: $main-mobile-padding;
+  }
+}
