@@ -10,7 +10,7 @@
 @import "./components/App/app";
 @import "./components/Header/header";
 @import "./components/Header/Menu/menu";
-@import "./components/Header/RightHeaderMenu/_rightHeaderMenu.scss";
+@import "./components/Header/RightHeaderMenu/_rightHeaderMenu";
 @import "./components/Header/StoreList/storeList";
 @import "./components/Main/main";
 @import "./components/Main/Content/content";
@@ -18,6 +18,7 @@
 @import "./components/Main/Collection/collection";
 @import "./components/Main/Companies/companies";
 @import "./components/Main/Contacts/contacts";
-@import "./components/Main/Conditions/_conditions.scss";
+@import "./components/Main/Conditions/_conditions";
+@import "./components/Main/Privacy/privacy";
 @import "./components/Footer/footer";
-@import "./components/Showcase/_showcase.scss";
+@import "./components/Showcase/_showcase";

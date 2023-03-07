@@ -56,9 +56,9 @@ function Footer() {
             </Link>
           </li>
           <li>
-            <a href="!#" className="footer__link">
-              Вакансии
-            </a>
+            <Link to="/privacy" className="footer__link">
+              Политика конфиденциальности
+            </Link>
           </li>
           <li>
             <a href="!#" className="footer__link">

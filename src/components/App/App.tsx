@@ -5,6 +5,7 @@ import Main from "../Main/Main";
 import { Route, Routes } from "react-router-dom";
 import Contacts from "../Main/Contacts/Contacts";
 import Conditions from "../Main/Conditions/Conditions";
+import Privacy from "../Main/Privacy/Privacy";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Main />}></Route>
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/conditions" element={<Conditions />} />
+          <Route path="/privacy" element={<Privacy />} />
         </Routes>
       </main>
       <Footer />

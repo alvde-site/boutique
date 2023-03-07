@@ -1,0 +1,27 @@
+.privacy {
+  padding: $main-desctop-padding;
+  background-color: #fff;
+}
+
+.privacy__title {
+  margin: 0 0 40px;
+  @include decorative-big-text;
+  text-transform: uppercase;
+}
+
+.privacy__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.privacy__item {
+  margin: 0;
+  @include usual-text("Inter");
+}
+
+@media (max-width: 1400px) {
+  .privacy {
+    padding: $main-mobile-padding;
+  }
+}
