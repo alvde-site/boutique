@@ -29,16 +29,22 @@ export interface IMenuProps {
   onClose: () => void;
 }
 
-export interface IOpenModifierProps extends IMenuProps, IShowcaseProps{};
+export interface IOpenModifierProps extends IMenuProps, IShowcaseProps {}
 
 export interface IHeaderProps extends IStoreListProps, IMenuProps {}
 
-// export interface IFormValidator {
-//   values: IValues;
-//   errors: IErrors;
-//   isValid: boolean;
-//   setIsValid: (value: boolean) => void;
-//   setErrors: (value: IErrors) => void;
-//   handleChange: (event: React.FormEvent)=> void;
-//   resetForm: () => void;
-// }
+export interface IErrors {
+  login?: string;
+  control?: string;
+  password?: string;
+  confirmation?: string;
+}
+
+export interface IFormValidator {
+  errors: IErrors;
+  isValid: boolean;
+  setIsValid: (value: boolean) => void;
+  setErrors: (value: IErrors) => void;
+  handleChange: (event: React.FormEvent) => void;
+  resetForm: () => void;
+}

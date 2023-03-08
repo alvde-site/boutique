@@ -1,11 +1,6 @@
-// const loginError = "Поле должно быть заполнено";
-// const controlError = "Неверное контрольное слово";
-// const passwordError = " Пароль должен быть не менее 6 символов";
-// const passwordConfirmationError = "Пароли не совпадают";
-
-// export { loginError, controlError, passwordError, passwordConfirmationError };
-
 /* ------  Images --------- */
+/* Логотипы */
+import blackLogo from "../images/svg/black-logo.svg";
 
 /*Showcase images*/
 import showcaseFoto from "../images/showcase.jpg";
@@ -30,6 +25,8 @@ import refundLogo from "../images/svg/finance-icon.svg";
 import paymentLogo from "../images/svg/money-icon.svg";
 
 /* -------- Components --------- */
+export { blackLogo };
+
 
 /* Header */
 const promoTitles = [
@@ -127,3 +124,10 @@ export const conditionsLogo = [
   { src: refundLogo, alt: "Возврат" },
   { src: paymentLogo, alt: "Оплата" },
 ];
+
+// const loginError = "Поле должно быть заполнено";
+// const controlError = "Неверное контрольное слово";
+// const passwordError = " Пароль должен быть не менее 6 символов";
+// const passwordConfirmationError = "Пароли не совпадают";
+
+// export { loginError, controlError, passwordError, passwordConfirmationError };

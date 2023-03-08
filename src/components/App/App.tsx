@@ -8,6 +8,7 @@ import Conditions from "../Main/Conditions/Conditions";
 import Privacy from "../Main/Privacy/Privacy";
 import Press from "../Main/Press/Press";
 import Dealer from "../Main/Dealer/Dealer";
+import PopupWithAuth from "../PopupWithAuth/PopupWithAuth";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,6 +38,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <PopupWithAuth />
     </div>
   );
 }

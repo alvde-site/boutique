@@ -10,7 +10,7 @@
 @import "./components/App/app";
 @import "./components/Header/header";
 @import "./components/Header/Menu/menu";
-@import "./components/Header/RightHeaderMenu/_rightHeaderMenu";
+@import "./components/Header/RightHeaderMenu/rightHeaderMenu";
 @import "./components/Header/StoreList/storeList";
 @import "./components/Main/main";
 @import "./components/Main/Content/content";
@@ -24,3 +24,7 @@
 @import "./components/Main/Dealer/dealer";
 @import "./components/Footer/footer";
 @import "./components/Showcase/_showcase";
+
+/* popups */
+@import "./components/PopupWithForm/popupWithForm";
+@import "./components/PopupWithAuth/popupWithAuth";
