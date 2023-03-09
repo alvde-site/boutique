@@ -1,26 +1,24 @@
+import { useState } from "react";
 import { useFormWithValidation } from "../../utils/formValidator";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 interface IValues {
   authemail?: string;
   authpassword?: string;
 }
-interface IErrors {
-  authemail?: string;
-  authpassword?: string;
-}
 
-interface IFormWithValidation extends IValues, IErrors {
+interface IFormWithValidation extends IValues {
   values: IValues;
-  errors: IErrors;
+  errors: IValues;
   handleChange: (e: React.FormEvent<Element>) => void;
 }
 
 function PopupWithAuth(props: any) {
+  const [hasErrors, setHasErrors] = useState({} as IValues);
   const { values, handleChange, errors }: IFormWithValidation =
     useFormWithValidation();
   function handleSubmit(e: any) {
     e.preventDefault();
-    console.log(values)
+    setHasErrors(errors);
   }
 
   return (
@@ -38,14 +36,14 @@ function PopupWithAuth(props: any) {
         <label className="form__label" htmlFor="email">
           <input
             className={`form__input ${
-              errors["authemail"] && "form__input_type_error"
+              hasErrors["authemail"] && "form__input_type_error"
             }`}
             value={values["authemail"] || ""}
             type="email"
             id="authemail"
             name="authemail"
             onChange={handleChange}
-            placeholder="Email / Логин"
+            placeholder="E-MAIL"
             required
             minLength={2}
           />
@@ -55,14 +53,14 @@ function PopupWithAuth(props: any) {
         <label className="form__label" htmlFor="password">
           <input
             className={`form__input ${
-              errors["authpassword"] && "form__input_type_error"
+              hasErrors["authpassword"] && "form__input_type_error"
             }`}
             value={values["authpassword"] || ""}
             type="password"
             id="authpassword"
             name="authpassword"
             onChange={handleChange}
-            placeholder="Email / Логин"
+            placeholder="ПАРОЛЬ"
             required
             minLength={4}
           />

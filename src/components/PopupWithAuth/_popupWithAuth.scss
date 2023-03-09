@@ -27,6 +27,10 @@
 
 .form__input_type_error {
   border: 1px solid #f00;
+  color: #f00;
+  &::placeholder {
+    color: rgba(#f00, .5);
+  }
 }
 
 .input::placeholder {
