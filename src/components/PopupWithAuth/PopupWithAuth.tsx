@@ -1,16 +1,28 @@
-import { useState } from "react";
+import { useFormWithValidation } from "../../utils/formValidator";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+interface IValues {
+  authemail?: string;
+  authpassword?: string;
+}
+interface IErrors {
+  authemail?: string;
+  authpassword?: string;
+}
+
+interface IFormWithValidation extends IValues, IErrors {
+  values: IValues;
+  errors: IErrors;
+  handleChange: (e: React.FormEvent<Element>) => void;
+}
 
 function PopupWithAuth(props: any) {
-  const [email, setEmail] = useState("");
+  const { values, handleChange, errors }: IFormWithValidation =
+    useFormWithValidation();
   function handleSubmit(e: any) {
     e.preventDefault();
-    console.log(e.target.value);
+    console.log(values)
   }
 
-  function handleInputChange(e: any) {
-    setEmail(e.target.value);
-  }
   return (
     <PopupWithForm
       name="auth"
@@ -25,32 +37,53 @@ function PopupWithAuth(props: any) {
       <fieldset className="form__field">
         <label className="form__label" htmlFor="email">
           <input
-            className="form__input"
-            value={email}
+            className={`form__input ${
+              errors["authemail"] && "form__input_type_error"
+            }`}
+            value={values["authemail"] || ""}
             type="email"
-            id="email"
-            name="email"
-            onChange={handleInputChange}
+            id="authemail"
+            name="authemail"
+            onChange={handleChange}
             placeholder="Email / Логин"
+            required
+            minLength={2}
           />
         </label>
       </fieldset>
       <fieldset className="form__field">
         <label className="form__label" htmlFor="password">
           <input
-            className="form__input"
-            value={email}
+            className={`form__input ${
+              errors["authpassword"] && "form__input_type_error"
+            }`}
+            value={values["authpassword"] || ""}
             type="password"
-            id="password"
-            name="password"
-            onChange={handleInputChange}
+            id="authpassword"
+            name="authpassword"
+            onChange={handleChange}
             placeholder="Email / Логин"
+            required
+            minLength={4}
           />
         </label>
       </fieldset>
-      <button type="submit" className="form__submit form__submit_type_auth">Вход</button>
-      <button type="submit" className="form__submit form__submit_type_register">регистрация</button>
-      <button type="submit" className="form__submit form__submit_type_forgotten">Забыли пароль?</button>
+      <button
+        type="button"
+        onClick={handleSubmit}
+        className="form__submit form__submit_type_auth"
+      >
+        Вход
+      </button>
+      <button type="submit" className="form__submit form__submit_type_register">
+        регистрация
+      </button>
+      <button
+        type="submit"
+        className="form__submit form__submit_type_forgotten"
+      >
+        Забыли пароль?
+      </button>
     </PopupWithForm>
   );
 }
