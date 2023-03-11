@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useFormWithValidation } from "../../utils/formValidator";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import { AUTH_ERROR, NEED_REGISTRATION } from "../../utils/constants";
 interface IValues {
+  title?: string;
   authemail?: string;
   authpassword?: string;
 }
@@ -9,6 +11,7 @@ interface IValues {
 interface IFormWithValidation extends IValues {
   values: IValues;
   errors: IValues;
+  setErrors: (value: IValues) => void;
   handleChange: (e: React.FormEvent<Element>) => void;
 }
 
@@ -19,12 +22,26 @@ function PopupWithAuth(props: any) {
   function handleSubmit(e: any) {
     e.preventDefault();
     setHasErrors(errors);
+    if (!errors["authemail"] && !errors["authpassword"]) {
+      if (
+        values["authemail"] !== "admin@mail.ru" ||
+        values["authpassword"] !== "1234"
+      ) {
+        setHasErrors({
+          ...errors,
+          authemail: AUTH_ERROR,
+          authpassword: AUTH_ERROR,
+          title: AUTH_ERROR,
+        });
+      }
+    }
   }
 
   return (
     <PopupWithForm
       name="auth"
-      title="Для входа в личный кабинет необходима регистрация"
+      hasErrors={hasErrors["title"]}
+      title={`${hasErrors["title"] ? AUTH_ERROR : NEED_REGISTRATION}`}
       isOpen={props.isOpen}
       onClose={props.onClose}
       onSubmit={handleSubmit}

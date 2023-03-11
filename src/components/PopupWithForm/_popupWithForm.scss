@@ -57,8 +57,14 @@
 
 .form__title {
   @include usual-text("Manrope");
+  width: calc(430px - (36px * 2));
   margin: 0;
   text-align: center;
+  text-transform: uppercase;
+}
+
+.form__title_type_error {
+  color: #f00;
 }
 
 @media (max-width: 935px) {
@@ -72,5 +78,9 @@
     height: 20px;
     top: -36px;
     right: 0;
+  }
+
+  .form__title {
+    width: calc(282px - (22px * 2));
   }
 }

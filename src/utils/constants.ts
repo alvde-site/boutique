@@ -24,9 +24,12 @@ import deliveryLogo from "../images/svg/delivery-icon.svg";
 import refundLogo from "../images/svg/finance-icon.svg";
 import paymentLogo from "../images/svg/money-icon.svg";
 
+/* Errors */
+export const AUTH_ERROR = "Неверный логин или пароль";
+export const NEED_REGISTRATION = "Для входа в личный кабинет необходима регистрация";
+
 /* -------- Components --------- */
 export { blackLogo };
-
 
 /* Header */
 const promoTitles = [
