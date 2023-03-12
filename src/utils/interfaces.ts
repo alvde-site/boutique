@@ -29,8 +29,10 @@ export interface IRightHeaderMenuProps
   extends IModifier,
     IOnPopupWithAuthOpen {}
 
-export interface IStoreListProps extends IMenu, IIsMenuOpen, IOnPopupWithAuthOpen {
-}
+export interface IStoreListProps
+  extends IMenu,
+    IIsMenuOpen,
+    IOnPopupWithAuthOpen {}
 
 export interface IShowcaseProps extends IModifier {}
 
@@ -74,17 +76,26 @@ export interface IFormValidator {
   resetForm: () => void;
 }
 
-export interface IPopupWithAuthProps {
-  isOpen: boolean;
-  handleOpenPopup: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 export interface IValues {
   title?: string;
   authemail?: string;
   authpassword?: string;
   regname?: string;
 }
+
+/* Popups */
+interface IHandleOpenPopup {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export interface IPopupWithFormProps {}
+
+export interface IPopupWithAuthProps extends IHandleOpenPopup {
+  onOpenRegisterForm: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IPopupWithRegisterProps extends IHandleOpenPopup {}
 
 export interface IFormWithValidation extends IValues {
   values: IValues;

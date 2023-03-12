@@ -4,9 +4,6 @@ import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { AUTH_ERROR, NEED_REGISTRATION } from "../../utils/constants";
 import { IFormWithValidation, IPopupWithAuthProps, IValues } from "../../utils/interfaces";
 
-
-
-
 function PopupWithAuth(props: IPopupWithAuthProps) {
   const [hasErrors, setHasErrors] = useState({} as IValues);
   const { values, handleChange, errors }: IFormWithValidation =
@@ -29,14 +26,18 @@ function PopupWithAuth(props: IPopupWithAuthProps) {
     }
   }
 
+  function handleOpenRegisterForm() {
+    props.onClose();
+    props.onOpenRegisterForm(true);
+  }
+
   return (
     <PopupWithForm
       name="auth"
       hasErrors={hasErrors["title"]}
       title={`${hasErrors["title"] ? AUTH_ERROR : NEED_REGISTRATION}`}
       isOpen={props.isOpen}
-      handleOpenPopup={props.handleOpenPopup}
-      // onClose={props.onClose}
+      onClose={props.onClose}
       onSubmit={handleSubmit}
       // isLoading={props.isLoading}
       // buttonText="Сохранить"
@@ -83,11 +84,11 @@ function PopupWithAuth(props: IPopupWithAuthProps) {
       >
         Вход
       </button>
-      <button type="submit" className="form__submit form__submit_type_register">
+      <button onClick={handleOpenRegisterForm} type="button" className="form__submit form__submit_type_register">
         регистрация
       </button>
       <button
-        type="submit"
+        type="button"
         className="form__submit form__submit_type_forgotten"
       >
         Забыли пароль?

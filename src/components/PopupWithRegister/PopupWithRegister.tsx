@@ -2,9 +2,9 @@ import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useFormWithValidation } from "../../utils/formValidator";
 import {
   IFormWithValidation,
-  IPopupWithAuthProps,
+  IPopupWithRegisterProps,
 } from "../../utils/interfaces";
-function PopupWithRegister(props: IPopupWithAuthProps) {
+function PopupWithRegister(props: IPopupWithRegisterProps) {
   const { values, handleChange, errors }: IFormWithValidation =
     useFormWithValidation();
   function handleSubmit(e: React.FormEvent) {
@@ -15,8 +15,7 @@ function PopupWithRegister(props: IPopupWithAuthProps) {
       name="auth"
       title={`Регистарция`}
       isOpen={props.isOpen}
-      handleOpenPopup={props.handleOpenPopup}
-      // onClose={props.onClose}
+      onClose={props.onClose}
       onSubmit={handleSubmit}
       // isLoading={props.isLoading}
       buttonText="Сохранить"

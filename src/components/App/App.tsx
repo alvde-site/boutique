@@ -46,11 +46,12 @@ function App() {
       <Footer />
       <PopupWithAuth
         isOpen={isPopupWithAuthOpen}
-        handleOpenPopup={setIsPopupWithAuthOpen}
+        onOpenRegisterForm={setIsPopupWithRegisterOpen}
+        onClose={closeAllPopups}
       />
       <PopupWithRegister
         isOpen={isPopupWithRegisterOpen}
-        handleOpenPopup={setIsPopupWithRegisterOpen}
+        onClose={closeAllPopups}
       />
     </div>
   );
