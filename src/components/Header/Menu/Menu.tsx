@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { IOpenModifierProps } from "../../../utils/interfaces";
+import { IMenuProps } from "../../../utils/interfaces";
 
-function Menu(props: IOpenModifierProps) {
+function Menu(props: IMenuProps) {
   return (
     <ul className={`menu ${props.modifier}`}>
       <li>

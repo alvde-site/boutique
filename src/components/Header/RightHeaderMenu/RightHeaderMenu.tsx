@@ -1,9 +1,15 @@
-import { IShowcaseProps } from "../../../utils/interfaces";
+import { IRightHeaderMenuProps } from "../../../utils/interfaces";
 
-function RightHeaderMenu(props:IShowcaseProps) {
+function RightHeaderMenu(props: IRightHeaderMenuProps) {
+  function handleOpenPopup() {
+    props.onPopupWithAuthOpen(true);
+  }
   return (
     <div className={`icon-menu ${props.modifier}`}>
-      <button className="icon-menu__button  icon-menu__text icon-menu__button_type_enter">
+      <button
+        onClick={handleOpenPopup}
+        className="icon-menu__button  icon-menu__text icon-menu__button_type_enter"
+      >
         Войти
       </button>
       <button

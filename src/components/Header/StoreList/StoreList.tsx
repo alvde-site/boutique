@@ -1,12 +1,12 @@
-import { IHeaderProps } from "../../../utils/interfaces";
+import { IStoreListProps } from "../../../utils/interfaces";
 import Showcase from "../../Showcase/Showcase";
 import Menu from "../Menu/Menu";
 import RightHeaderMenu from "../RightHeaderMenu/RightHeaderMenu";
 
-function StoreList(props: IHeaderProps) {
+function StoreList(props: IStoreListProps) {
   return (
     <section className={`store ${props.isMenuOpen && "store_open"}`}>
-      <RightHeaderMenu modifier="store__icon-menu" />
+      <RightHeaderMenu modifier="store__icon-menu" onPopupWithAuthOpen={props.onPopupWithAuthOpen}/>
       <Menu
         onClose={props.onClose}
         openMenu={props.openMenu}

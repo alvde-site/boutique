@@ -27,6 +27,11 @@ import paymentLogo from "../images/svg/money-icon.svg";
 /* Errors */
 export const AUTH_ERROR = "Неверный логин или пароль";
 export const NEED_REGISTRATION = "Для входа в личный кабинет необходима регистрация";
+// const loginError = "Поле должно быть заполнено";
+// const controlError = "Неверное контрольное слово";
+// const passwordError = " Пароль должен быть не менее 6 символов";
+// const passwordConfirmationError = "Пароли не совпадают";
+// export { loginError, controlError, passwordError, passwordConfirmationError };
 
 /* -------- Components --------- */
 export { blackLogo };
@@ -128,9 +133,4 @@ export const conditionsLogo = [
   { src: paymentLogo, alt: "Оплата" },
 ];
 
-// const loginError = "Поле должно быть заполнено";
-// const controlError = "Неверное контрольное слово";
-// const passwordError = " Пароль должен быть не менее 6 символов";
-// const passwordConfirmationError = "Пароли не совпадают";
 
-// export { loginError, controlError, passwordError, passwordConfirmationError };

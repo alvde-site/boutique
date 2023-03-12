@@ -3,7 +3,7 @@ import { blackLogo } from "../../utils/constants";
 function PopupWithForm(props: any) {
   return (
     <div
-      className={`popup popup_opened popup_handle_${props.name} ${
+      className={`popup popup_handle_${props.name} ${
         props.isOpen ? "popup_opened" : ""
       }`}
     >

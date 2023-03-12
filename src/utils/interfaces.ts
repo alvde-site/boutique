@@ -1,5 +1,45 @@
 import { ReactNode } from "react";
 
+/* header */
+interface IMenu {
+  openMenu: () => void;
+  onClose: () => void;
+}
+
+interface IIsMenuOpen {
+  isMenuOpen: boolean;
+}
+
+interface IModifier {
+  modifier: string;
+}
+
+interface IOnPopupWithAuthOpen {
+  onPopupWithAuthOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IHeaderProps
+  extends IStoreListProps,
+    IMenu,
+    IOnPopupWithAuthOpen {}
+
+export interface IMenuProps extends IMenu, IModifier {}
+
+export interface IRightHeaderMenuProps
+  extends IModifier,
+    IOnPopupWithAuthOpen {}
+
+export interface IStoreListProps extends IMenu, IIsMenuOpen, IOnPopupWithAuthOpen {
+}
+
+export interface IShowcaseProps extends IModifier {}
+
+/* main */
+
+export interface IMainProps {
+  onPopupWithAuthOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 export interface IPromoTitle {
   title: string;
 }
@@ -16,22 +56,7 @@ export interface ContentCategoryProps {
   buttonText: string;
 }
 
-export interface IShowcaseProps {
-  modifier: string;
-}
-
-export interface IStoreListProps {
-  isMenuOpen: boolean;
-}
-
-export interface IMenuProps {
-  openMenu: () => void;
-  onClose: () => void;
-}
-
 export interface IOpenModifierProps extends IMenuProps, IShowcaseProps {}
-
-export interface IHeaderProps extends IStoreListProps, IMenuProps {}
 
 export interface IErrors {
   login?: string;
@@ -47,4 +72,23 @@ export interface IFormValidator {
   setErrors: (value: IErrors) => void;
   handleChange: (event: React.FormEvent) => void;
   resetForm: () => void;
+}
+
+export interface IPopupWithAuthProps {
+  isOpen: boolean;
+  handleOpenPopup: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IValues {
+  title?: string;
+  authemail?: string;
+  authpassword?: string;
+  regname?: string;
+}
+
+export interface IFormWithValidation extends IValues {
+  values: IValues;
+  errors: IValues;
+  setErrors: (value: IValues) => void;
+  handleChange: (e: React.FormEvent<Element>) => void;
 }

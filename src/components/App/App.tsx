@@ -9,15 +9,20 @@ import Privacy from "../Main/Privacy/Privacy";
 import Press from "../Main/Press/Press";
 import Dealer from "../Main/Dealer/Dealer";
 import PopupWithAuth from "../PopupWithAuth/PopupWithAuth";
+import PopupWithRegister from "../PopupWithRegister/PopupWithRegister";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPopupWithAuthOpen, setIsPopupWithAuthOpen] = useState(false);
+  const [isPopupWithRegisterOpen, setIsPopupWithRegisterOpen] = useState(false);
   function handleOpenMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
 
   function closeAllPopups() {
     setIsMenuOpen(false);
+    setIsPopupWithAuthOpen(false);
+    setIsPopupWithRegisterOpen(false);
   }
 
   return (
@@ -26,6 +31,7 @@ function App() {
         isMenuOpen={isMenuOpen}
         openMenu={handleOpenMenu}
         onClose={closeAllPopups}
+        onPopupWithAuthOpen={setIsPopupWithAuthOpen}
       />
       <main className="main">
         <Routes>
@@ -38,7 +44,14 @@ function App() {
         </Routes>
       </main>
       <Footer />
-      <PopupWithAuth />
+      <PopupWithAuth
+        isOpen={isPopupWithAuthOpen}
+        handleOpenPopup={setIsPopupWithAuthOpen}
+      />
+      <PopupWithRegister
+        isOpen={isPopupWithRegisterOpen}
+        handleOpenPopup={setIsPopupWithRegisterOpen}
+      />
     </div>
   );
 }

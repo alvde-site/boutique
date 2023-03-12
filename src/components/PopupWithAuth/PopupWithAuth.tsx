@@ -2,24 +2,16 @@ import { useState } from "react";
 import { useFormWithValidation } from "../../utils/formValidator";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { AUTH_ERROR, NEED_REGISTRATION } from "../../utils/constants";
-interface IValues {
-  title?: string;
-  authemail?: string;
-  authpassword?: string;
-}
+import { IFormWithValidation, IPopupWithAuthProps, IValues } from "../../utils/interfaces";
 
-interface IFormWithValidation extends IValues {
-  values: IValues;
-  errors: IValues;
-  setErrors: (value: IValues) => void;
-  handleChange: (e: React.FormEvent<Element>) => void;
-}
 
-function PopupWithAuth(props: any) {
+
+
+function PopupWithAuth(props: IPopupWithAuthProps) {
   const [hasErrors, setHasErrors] = useState({} as IValues);
   const { values, handleChange, errors }: IFormWithValidation =
     useFormWithValidation();
-  function handleSubmit(e: any) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setHasErrors(errors);
     if (!errors["authemail"] && !errors["authpassword"]) {
@@ -43,11 +35,12 @@ function PopupWithAuth(props: any) {
       hasErrors={hasErrors["title"]}
       title={`${hasErrors["title"] ? AUTH_ERROR : NEED_REGISTRATION}`}
       isOpen={props.isOpen}
-      onClose={props.onClose}
+      handleOpenPopup={props.handleOpenPopup}
+      // onClose={props.onClose}
       onSubmit={handleSubmit}
-      isLoading={props.isLoading}
-      buttonText="Сохранить"
-      buttonLoadingText="Сохранение..."
+      // isLoading={props.isLoading}
+      // buttonText="Сохранить"
+      // buttonLoadingText="Сохранение..."
     >
       <fieldset className="form__field">
         <label className="form__label" htmlFor="email">
