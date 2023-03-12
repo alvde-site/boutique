@@ -92,6 +92,8 @@ export interface IValues {
   regtel?: string;
   regpassword?: string;
   regreppassword?: string;
+  regcity?: string;
+  regaddress?: string;
 }
 
 export interface IPopupWithFormProps {}

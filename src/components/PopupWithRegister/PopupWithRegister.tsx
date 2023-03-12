@@ -123,6 +123,36 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
         </label>
       </fieldset>
       <h3 className="form__title">Адрес доставки</h3>
+      <fieldset className="form__field">
+        <label className="form__label" htmlFor="email">
+          <input
+            className={`form__input ${
+              errors["regcity"] && "form__input_type_error"
+            }`}
+            value={values["regcity"] || ""}
+            type="text"
+            id="regcity"
+            name="regcity"
+            onChange={handleChange}
+            placeholder="Город"
+          />
+        </label>
+      </fieldset>
+      <fieldset className="form__field">
+        <label className="form__label" htmlFor="email">
+          <input
+            className={`form__input ${
+              errors["regaddress"] && "form__input_type_error"
+            }`}
+            value={values["regaddress"] || ""}
+            type="text"
+            id="regaddress"
+            name="regaddress"
+            onChange={handleChange}
+            placeholder="Адрес"
+          />
+        </label>
+      </fieldset>
 
       <button
         type="button"
