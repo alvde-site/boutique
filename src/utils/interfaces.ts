@@ -76,17 +76,22 @@ export interface IFormValidator {
   resetForm: () => void;
 }
 
+/* Popups */
+interface IHandleOpenPopup {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
 export interface IValues {
   title?: string;
   authemail?: string;
   authpassword?: string;
   regname?: string;
-}
-
-/* Popups */
-interface IHandleOpenPopup {
-  isOpen: boolean;
-  onClose: () => void;
+  regsurname?: string;
+  regemail?: string;
+  regtel?: string;
+  regpassword?: string;
+  regreppassword?: string;
 }
 
 export interface IPopupWithFormProps {}

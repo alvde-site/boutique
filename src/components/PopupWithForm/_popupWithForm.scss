@@ -52,13 +52,13 @@
   display: block;
   width: 44px;
   height: 42px;
-  margin: 0 auto 32px;
+  margin: 0 auto;
 }
 
 .form__title {
   @include usual-text("Manrope");
   width: calc(430px - (36px * 2));
-  margin: 0;
+  margin: 32px 0 0;
   text-align: center;
   text-transform: uppercase;
 }

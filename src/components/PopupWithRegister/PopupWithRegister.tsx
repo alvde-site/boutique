@@ -9,6 +9,7 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
     useFormWithValidation();
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    props.onClose();
   }
   return (
     <PopupWithForm
@@ -25,19 +26,104 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
         <label className="form__label" htmlFor="email">
           <input
             className={`form__input ${
-              errors["authemail"] && "form__input_type_error"
+              errors["regname"] && "form__input_type_error"
             }`}
             value={values["regname"] || ""}
-            type="email"
+            type="text"
             id="regname"
-            name="auth"
+            name="regname"
             onChange={handleChange}
-            placeholder="ИМЯ"
+            placeholder="ИМЯ *"
             required
             minLength={2}
           />
         </label>
       </fieldset>
+      <fieldset className="form__field">
+        <label className="form__label" htmlFor="email">
+          <input
+            className={`form__input ${
+              errors["regsurname"] && "form__input_type_error"
+            }`}
+            value={values["regsurname"] || ""}
+            type="text"
+            id="regsurname"
+            name="regsurname"
+            onChange={handleChange}
+            placeholder="ФАМИЛИЯ"
+          />
+        </label>
+      </fieldset>
+      <fieldset className="form__field">
+        <label className="form__label" htmlFor="email">
+          <input
+            className={`form__input ${
+              errors["regemail"] && "form__input_type_error"
+            }`}
+            value={values["regemail"] || ""}
+            type="email"
+            id="regemail"
+            name="regemail"
+            onChange={handleChange}
+            placeholder="e-mail *"
+            required
+            minLength={2}
+          />
+        </label>
+      </fieldset>
+      <fieldset className="form__field">
+        <label className="form__label" htmlFor="email">
+          <input
+            className={`form__input ${
+              errors["regtel"] && "form__input_type_error"
+            }`}
+            value={values["regtel"] || ""}
+            type="tel"
+            id="regtel"
+            name="regtel"
+            onChange={handleChange}
+            placeholder="телефон *"
+            required
+            minLength={2}
+          />
+        </label>
+      </fieldset>
+      <fieldset className="form__field">
+        <label className="form__label" htmlFor="email">
+          <input
+            className={`form__input ${
+              errors["regpassword"] && "form__input_type_error"
+            }`}
+            value={values["regpassword"] || ""}
+            type="password"
+            id="regpassword"
+            name="regpassword"
+            onChange={handleChange}
+            placeholder="пароль *"
+            required
+            minLength={4}
+          />
+        </label>
+      </fieldset>
+      <fieldset className="form__field">
+        <label className="form__label" htmlFor="email">
+          <input
+            className={`form__input ${
+              errors["regreppassword"] && "form__input_type_error"
+            }`}
+            value={values["regreppassword"] || ""}
+            type="password"
+            id="regreppassword"
+            name="regreppassword"
+            onChange={handleChange}
+            placeholder="повторите пароль *"
+            required
+            minLength={4}
+          />
+        </label>
+      </fieldset>
+      <h3 className="form__title">Адрес доставки</h3>
+
       <button
         type="button"
         onClick={handleSubmit}

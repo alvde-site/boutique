@@ -33,9 +33,10 @@
   }
 }
 
-.input::placeholder {
+.form__input::placeholder {
   font-size: 18px;
-  color: #6b95b9;
+  color: rgba(#000, 0.3);
+  text-transform: uppercase;
 }
 
 .form__submit {
