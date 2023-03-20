@@ -113,4 +113,5 @@ export interface IFormWithValidation extends IValues {
   errors: IValues;
   setErrors: (value: IValues) => void;
   handleChange: (e: React.FormEvent<Element>) => void;
+  resetForm: () => void;
 }

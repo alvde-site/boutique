@@ -3,28 +3,87 @@ import { useFormWithValidation } from "../../utils/formValidator";
 import {
   IFormWithValidation,
   IPopupWithRegisterProps,
+  IValues,
 } from "../../utils/interfaces";
+import { useState } from "react";
+import {
+  CONFIRM_PASSWORD_ERROR,
+  REGISTRATION,
+  REQUIRED_FIELD,
+} from "../../utils/constants";
 function PopupWithRegister(props: IPopupWithRegisterProps) {
-  const { values, handleChange, errors }: IFormWithValidation =
+  const [hasErrors, setHasErrors] = useState({} as IValues);
+  const { values, handleChange, errors, resetForm }: IFormWithValidation =
     useFormWithValidation();
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    props.onClose();
-    props.onOpenAlertForm(true);
+    const isFilledRequiredFields = Boolean(
+      values["regname"] &&
+        values["regemail"] &&
+        values["regtel"] &&
+        values["regpassword"] &&
+        values["regreppassword"]
+    );
+
+    const isPasswordsMatched = Boolean(
+      values["regpassword"] === values["regreppassword"]
+    );
+
+    const noErrors = Boolean(
+      !errors["regname"] &&
+        !errors["regemail"] &&
+        !errors["regtel"] &&
+        !errors["regpassword"] &&
+        !errors["regreppassword"]
+    );
+
+    const canSumbit = Boolean(
+      noErrors && isFilledRequiredFields && isPasswordsMatched
+    );
+
+    if (canSumbit) {
+      props.onClose();
+      props.onOpenAlertForm(true);
+      resetForm();
+      setHasErrors({});
+    } else {
+      if (!isPasswordsMatched) {
+        setHasErrors({
+          ...errors,
+          regpassword: CONFIRM_PASSWORD_ERROR,
+          regreppassword: CONFIRM_PASSWORD_ERROR,
+          title: CONFIRM_PASSWORD_ERROR,
+        });
+      }
+      if (!noErrors) {
+        setHasErrors({ ...errors, title: REQUIRED_FIELD });
+      }
+      if (!isFilledRequiredFields) {
+        setHasErrors({
+          ...errors,
+          regname: REQUIRED_FIELD,
+          regemail: REQUIRED_FIELD,
+          regtel: REQUIRED_FIELD,
+          regpassword: REQUIRED_FIELD,
+          regreppassword: REQUIRED_FIELD,
+          title: REQUIRED_FIELD,
+        });
+      }
+    }
   }
   return (
     <PopupWithForm
       name="auth"
-      title={`Регистарция`}
+      hasErrors={hasErrors["title"]}
+      title={`${hasErrors["title"] ? hasErrors["title"] : REGISTRATION}`}
       isOpen={props.isOpen}
       onClose={props.onClose}
-      onSubmit={handleSubmit}
     >
       <fieldset className="form__field">
         <label className="form__label" htmlFor="email">
           <input
             className={`form__input ${
-              errors["regname"] && "form__input_type_error"
+              hasErrors["regname"] && "form__input_type_error"
             }`}
             value={values["regname"] || ""}
             type="text"
@@ -41,7 +100,7 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
         <label className="form__label" htmlFor="email">
           <input
             className={`form__input ${
-              errors["regsurname"] && "form__input_type_error"
+              hasErrors["regsurname"] && "form__input_type_error"
             }`}
             value={values["regsurname"] || ""}
             type="text"
@@ -56,7 +115,7 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
         <label className="form__label" htmlFor="email">
           <input
             className={`form__input ${
-              errors["regemail"] && "form__input_type_error"
+              hasErrors["regemail"] && "form__input_type_error"
             }`}
             value={values["regemail"] || ""}
             type="email"
@@ -73,7 +132,7 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
         <label className="form__label" htmlFor="email">
           <input
             className={`form__input ${
-              errors["regtel"] && "form__input_type_error"
+              hasErrors["regtel"] && "form__input_type_error"
             }`}
             value={values["regtel"] || ""}
             type="tel"
@@ -90,7 +149,7 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
         <label className="form__label" htmlFor="email">
           <input
             className={`form__input ${
-              errors["regpassword"] && "form__input_type_error"
+              hasErrors["regpassword"] && "form__input_type_error"
             }`}
             value={values["regpassword"] || ""}
             type="password"
@@ -107,7 +166,7 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
         <label className="form__label" htmlFor="email">
           <input
             className={`form__input ${
-              errors["regreppassword"] && "form__input_type_error"
+              hasErrors["regreppassword"] && "form__input_type_error"
             }`}
             value={values["regreppassword"] || ""}
             type="password"
@@ -125,7 +184,7 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
         <label className="form__label" htmlFor="email">
           <input
             className={`form__input ${
-              errors["regcity"] && "form__input_type_error"
+              hasErrors["regcity"] && "form__input_type_error"
             }`}
             value={values["regcity"] || ""}
             type="text"
@@ -140,7 +199,7 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
         <label className="form__label" htmlFor="email">
           <input
             className={`form__input ${
-              errors["regaddress"] && "form__input_type_error"
+              hasErrors["regaddress"] && "form__input_type_error"
             }`}
             value={values["regaddress"] || ""}
             type="text"

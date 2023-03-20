@@ -26,12 +26,12 @@ import paymentLogo from "../images/svg/money-icon.svg";
 
 /* Errors */
 export const AUTH_ERROR = "Неверный логин или пароль";
+export const REQUIRED_FIELD = "Заполните обязательные поля";
+export const CONFIRM_PASSWORD_ERROR = "Пароли не совпадают";
+
+/* Form text */
 export const NEED_REGISTRATION = "Для входа в личный кабинет необходима регистрация";
-// const loginError = "Поле должно быть заполнено";
-// const controlError = "Неверное контрольное слово";
-// const passwordError = " Пароль должен быть не менее 6 символов";
-// const passwordConfirmationError = "Пароли не совпадают";
-// export { loginError, controlError, passwordError, passwordConfirmationError };
+export const REGISTRATION = "Регистрация";
 
 /* -------- Components --------- */
 export { blackLogo };

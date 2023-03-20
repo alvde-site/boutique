@@ -43,9 +43,6 @@ function PopupWithAuth(props: IPopupWithAuthProps) {
       isOpen={props.isOpen}
       onClose={props.onClose}
       onSubmit={handleSubmit}
-      // isLoading={props.isLoading}
-      // buttonText="Сохранить"
-      // buttonLoadingText="Сохранение..."
     >
       <fieldset className="form__field">
         <label className="form__label" htmlFor="email">
