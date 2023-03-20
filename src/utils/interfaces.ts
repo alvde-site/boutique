@@ -102,7 +102,11 @@ export interface IPopupWithAuthProps extends IHandleOpenPopup {
   onOpenRegisterForm: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface IPopupWithRegisterProps extends IHandleOpenPopup {}
+export interface IPopupWithRegisterProps extends IHandleOpenPopup {
+  onOpenAlertForm: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IPopupWithAlertProps extends IHandleOpenPopup {}
 
 export interface IFormWithValidation extends IValues {
   values: IValues;

@@ -10,11 +10,13 @@ import Press from "../Main/Press/Press";
 import Dealer from "../Main/Dealer/Dealer";
 import PopupWithAuth from "../PopupWithAuth/PopupWithAuth";
 import PopupWithRegister from "../PopupWithRegister/PopupWithRegister";
+import PopupWithAlert from "../PopupWithAlert/PopupWithAlert";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPopupWithAuthOpen, setIsPopupWithAuthOpen] = useState(false);
   const [isPopupWithRegisterOpen, setIsPopupWithRegisterOpen] = useState(false);
+  const [isPopupWithAlertOpen, setIsPopupWithAlertOpen] = useState(false);
   function handleOpenMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
@@ -23,6 +25,7 @@ function App() {
     setIsMenuOpen(false);
     setIsPopupWithAuthOpen(false);
     setIsPopupWithRegisterOpen(false);
+    setIsPopupWithAlertOpen(false);
   }
 
   return (
@@ -46,11 +49,16 @@ function App() {
       <Footer />
       <PopupWithAuth
         isOpen={isPopupWithAuthOpen}
-        onOpenRegisterForm={setIsPopupWithRegisterOpen}
         onClose={closeAllPopups}
+        onOpenRegisterForm={setIsPopupWithRegisterOpen}
       />
       <PopupWithRegister
         isOpen={isPopupWithRegisterOpen}
+        onClose={closeAllPopups}
+        onOpenAlertForm={setIsPopupWithAlertOpen}
+      />
+      <PopupWithAlert
+        isOpen={isPopupWithAlertOpen}
         onClose={closeAllPopups}
       />
     </div>

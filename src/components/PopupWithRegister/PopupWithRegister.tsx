@@ -10,6 +10,7 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     props.onClose();
+    props.onOpenAlertForm(true);
   }
   return (
     <PopupWithForm
@@ -18,9 +19,6 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
       isOpen={props.isOpen}
       onClose={props.onClose}
       onSubmit={handleSubmit}
-      // isLoading={props.isLoading}
-      buttonText="Сохранить"
-      buttonLoadingText="Сохранение..."
     >
       <fieldset className="form__field">
         <label className="form__label" htmlFor="email">

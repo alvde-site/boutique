@@ -2,7 +2,11 @@ import { useState } from "react";
 import { useFormWithValidation } from "../../utils/formValidator";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { AUTH_ERROR, NEED_REGISTRATION } from "../../utils/constants";
-import { IFormWithValidation, IPopupWithAuthProps, IValues } from "../../utils/interfaces";
+import {
+  IFormWithValidation,
+  IPopupWithAuthProps,
+  IValues,
+} from "../../utils/interfaces";
 
 function PopupWithAuth(props: IPopupWithAuthProps) {
   const [hasErrors, setHasErrors] = useState({} as IValues);
@@ -84,7 +88,11 @@ function PopupWithAuth(props: IPopupWithAuthProps) {
       >
         Вход
       </button>
-      <button onClick={handleOpenRegisterForm} type="button" className="form__submit form__submit_type_register">
+      <button
+        onClick={handleOpenRegisterForm}
+        type="button"
+        className="form__submit form__submit_type_register"
+      >
         регистрация
       </button>
       <button
