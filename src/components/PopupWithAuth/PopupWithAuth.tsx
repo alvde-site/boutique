@@ -10,7 +10,7 @@ import {
 
 function PopupWithAuth(props: IPopupWithAuthProps) {
   const [hasErrors, setHasErrors] = useState({} as IValues);
-  const { values, handleChange, errors }: IFormWithValidation =
+  const { values, handleChange, errors, resetForm }: IFormWithValidation =
     useFormWithValidation();
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -26,6 +26,10 @@ function PopupWithAuth(props: IPopupWithAuthProps) {
           authpassword: AUTH_ERROR,
           title: AUTH_ERROR,
         });
+      } else {
+        props.onClose();
+        resetForm();
+        setHasErrors({});
       }
     }
   }
