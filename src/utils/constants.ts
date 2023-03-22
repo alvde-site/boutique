@@ -30,7 +30,8 @@ export const REQUIRED_FIELD = "Заполните обязательные по�
 export const CONFIRM_PASSWORD_ERROR = "Пароли не совпадают";
 
 /* Form text */
-export const NEED_REGISTRATION = "Для входа в личный кабинет необходима регистрация";
+export const NEED_REGISTRATION =
+  "Для входа в личный кабинет необходима регистрация";
 export const REGISTRATION = "Регистрация";
 
 /* -------- Components --------- */
@@ -133,4 +134,7 @@ export const conditionsLogo = [
   { src: paymentLogo, alt: "Оплата" },
 ];
 
+/* NotFound */
 
+export const NOTFOUND_TITLE_TEXT = "Ошибка";
+export const NOTFOUND_BUTTON_TEXT = "Вернуться на главную";

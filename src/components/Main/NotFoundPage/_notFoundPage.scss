@@ -1,0 +1,19 @@
+.notfound {
+    padding: 60px 90px 0;
+}
+
+.notfound__title, .notfound__subtitle {
+    @include big-text('Inter');
+    text-transform: uppercase
+}
+
+.notfound__text {
+    @include usual-text('Inter');
+    text-transform: uppercase;
+}
+
+@media(max-width: 1400px) {
+    .notfound {
+        padding: 0;
+    }
+}
