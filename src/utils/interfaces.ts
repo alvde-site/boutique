@@ -1,4 +1,9 @@
 import { ReactNode } from "react";
+/* reducers */
+export interface TInitialAuth {
+  loggedIn: boolean;
+  userId: null | string;
+}
 
 /* header */
 interface IMenu {

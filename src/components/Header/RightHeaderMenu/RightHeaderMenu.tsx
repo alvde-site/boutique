@@ -1,17 +1,28 @@
+import { selectAllAuth } from "../../../services/reducers/authSlice";
+import { useAppSelector } from "../../../utils/hooks";
 import { IRightHeaderMenuProps } from "../../../utils/interfaces";
 
 function RightHeaderMenu(props: IRightHeaderMenuProps) {
+  const auth = useAppSelector(selectAllAuth);
   function handleOpenPopup() {
     props.onPopupWithAuthOpen(true);
   }
   return (
     <div className={`icon-menu ${props.modifier}`}>
-      <button
-        onClick={handleOpenPopup}
-        className="icon-menu__button  icon-menu__text icon-menu__button_type_enter"
-      >
-        Войти
-      </button>
+      {auth.loggedIn ? (
+        <button
+          className="icon-menu__button icon-menu__button_type_account"
+          aria-label="Личный кабинет"
+        >
+        </button>
+      ) : (
+        <button
+          onClick={handleOpenPopup}
+          className="icon-menu__button  icon-menu__text icon-menu__button_type_enter"
+        >
+          Войти
+        </button>
+      )}
       <button
         className="icon-menu__button icon-menu__button_type_search"
         aria-label="Поиск"

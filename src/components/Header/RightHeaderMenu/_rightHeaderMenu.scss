@@ -10,7 +10,7 @@
   margin: 0 30px 0 0;
   border: none;
   background-color: transparent;
-  opacity: $main-link-state-opacity;
+  opacity: $button-state-opacity;
   vertical-align: bottom;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .icon-menu__button:hover {
-  opacity: $main-link-hover-opacity;
+  opacity: $button-hover-opacity;
 }
 
 .icon-menu__button_type_enter {
@@ -41,4 +41,8 @@
   @include button-image(url(../../images/svg/basket-button.svg));
 }
 
-
+.icon-menu__button_type_account {
+  background-color: #fff;
+  @include button-size;
+  @include button-image(url(../../../images/svg/account-icon.svg));
+}

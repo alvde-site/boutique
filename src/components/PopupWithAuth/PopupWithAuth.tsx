@@ -7,8 +7,11 @@ import {
   IPopupWithAuthProps,
   IValues,
 } from "../../utils/interfaces";
+import { useAppDispatch } from "../../utils/hooks";
+import { signin } from "../../services/reducers/authSlice";
 
 function PopupWithAuth(props: IPopupWithAuthProps) {
+  const dispatch = useAppDispatch();
   const [hasErrors, setHasErrors] = useState({} as IValues);
   const { values, handleChange, errors, resetForm }: IFormWithValidation =
     useFormWithValidation();
@@ -30,6 +33,7 @@ function PopupWithAuth(props: IPopupWithAuthProps) {
         props.onClose();
         resetForm();
         setHasErrors({});
+        dispatch(signin({ loggedIn: true, userId: "1" }));
       }
     }
   }

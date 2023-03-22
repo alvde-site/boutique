@@ -16,7 +16,7 @@
 }
 
 .menu__link {
-  opacity: 0.5;
+  opacity: $button-state-opacity;
   transition: $main-transition;
 }
 
@@ -25,11 +25,11 @@
 }
 
 .menu__link:hover {
-  opacity: 1;
+  opacity: $button-hover-opacity;
 }
 
 .menu__link:hover .menu__link_more {
-  opacity: $main-link-hover-opacity;
+  opacity: $button-hover-opacity;
 }
 
 .menu__link_more {
@@ -49,7 +49,7 @@
   left: 50%;
   transform: translate(-50%);
   bottom: -20px;
-  opacity: $main-link-state-opacity;
+  opacity: $button-state-opacity;
 }
 
 @media (max-width: 1400px) {
