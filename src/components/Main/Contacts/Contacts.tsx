@@ -24,7 +24,7 @@ function Contacts() {
             <ul className="contacts__icons">
               <li>
                 <a
-                  href="!#"
+                  href="https://github.com/alvde-site"
                   aria-label="Инстаграмм"
                   className="contacts__icon contacts__icon_type_instagram"
                 >
@@ -33,7 +33,7 @@ function Contacts() {
               </li>
               <li>
                 <a
-                  href="!#"
+                  href="https://github.com/alvde-site"
                   aria-label="Вконтаке"
                   className="contacts__icon contacts__icon_type_vk"
                 >
@@ -42,7 +42,7 @@ function Contacts() {
               </li>
               <li>
                 <a
-                  href="!#"
+                  href="https://github.com/alvde-site"
                   aria-label="Телеграмм"
                   className="contacts__icon contacts__icon_type_tg"
                 >
@@ -51,7 +51,7 @@ function Contacts() {
               </li>
               <li>
                 <a
-                  href="!#"
+                  href="https://github.com/alvde-site"
                   aria-label="Фэйсбук"
                   className="contacts__icon contacts__icon_type_facebook"
                 >
@@ -87,7 +87,7 @@ function Contacts() {
                 <p className="card__text">{data.address}</p>
                 <h4 className="card__subtitle">Режим работы:</h4>
                 <p className="card__text">{data.time}</p>
-                <a className="card__button" href="!#">
+                <a className="card__button" href="https://github.com/alvde-site">
                   Яндекс.Карты
                 </a>
               </li>

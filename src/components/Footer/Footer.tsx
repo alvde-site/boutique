@@ -6,7 +6,7 @@ function Footer() {
       <div className="footer__content">
         <ul className="footer__links">
           <li>
-            <a href="!#" className="footer__link">
+            <a href="https://github.com/alvde-site" className="footer__link">
               О нас
             </a>
           </li>
@@ -16,7 +16,7 @@ function Footer() {
             </Link>
           </li>
           <li>
-            <a href="!#" className="footer__link">
+            <a href="https://github.com/alvde-site" className="footer__link">
               Instagram
             </a>
           </li>
@@ -31,7 +31,7 @@ function Footer() {
             </Link>
           </li>
           <li>
-            <a href="!#" className="footer__link">
+            <a href="https://github.com/alvde-site" className="footer__link">
               Telegram
             </a>
           </li>
@@ -46,7 +46,7 @@ function Footer() {
             </Link>
           </li>
           <li>
-            <a href="!#" className="footer__link">
+            <a href="https://github.com/alvde-site" className="footer__link">
               Facebook
             </a>
           </li>
@@ -61,7 +61,7 @@ function Footer() {
             </Link>
           </li>
           <li>
-            <a href="!#" className="footer__link">
+            <a href="https://github.com/alvde-site" className="footer__link">
               Vk
             </a>
           </li>
@@ -93,7 +93,7 @@ function Footer() {
               ></button>
             </li>
           </ul>
-          <a href="!#" className="footer__link">
+          <a href="https://github.com/alvde-site" className="footer__link">
             alvde
           </a>
         </div>

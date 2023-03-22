@@ -34,7 +34,7 @@ function Category() {
                   alt={item.title}
                 />
                 <div className="category__overlay">
-                  <a className="category__link" href="!#">
+                  <a className="category__link" href="https://github.com/alvde-site">
                     {item.title}
                   </a>
                 </div>

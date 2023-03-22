@@ -19,67 +19,67 @@ function StoreList(props: IStoreListProps) {
             <p className="store__subtitle">Sale</p>
             <ul className="store__links">
               <li>
-                <a className="store__link" href="!#">
+                <a className="store__link" href="https://github.com/alvde-site">
                   Костюмы
                 </a>
               </li>
               <li>
-                <a className="store__link" href="!#">
+                <a className="store__link" href="https://github.com/alvde-site">
                   платья
                 </a>
               </li>
               <li>
-                <a className="store__link" href="!#">
+                <a className="store__link" href="https://github.com/alvde-site">
                   Верхняя одежда
                 </a>
               </li>
               <li>
-                <a className="store__link" href="!#">
+                <a className="store__link" href="https://github.com/alvde-site">
                   Свитер
                 </a>
               </li>
               <li>
-                <a className="store__link" href="!#">
+                <a className="store__link" href="https://github.com/alvde-site">
                   Олимпийки
                 </a>
               </li>
               <li>
-                <a className="store__link" href="!#">
+                <a className="store__link" href="https://github.com/alvde-site">
                   худи и свитшоты
                 </a>
               </li>
               <li>
-                <a className="store__link" href="!#">
+                <a className="store__link" href="https://github.com/alvde-site">
                   юбки
                 </a>
               </li>
               <li>
-                <a className="store__link" href="!#">
+                <a className="store__link" href="https://github.com/alvde-site">
                   Брюки
                 </a>
               </li>
               <li>
-                <a className="store__link" href="!#">
+                <a className="store__link" href="https://github.com/alvde-site">
                   Футболки
                 </a>
               </li>
               <li>
-                <a className="store__link" href="!#">
+                <a className="store__link" href="https://github.com/alvde-site">
                   жакеты
                 </a>
               </li>
               <li>
-                <a className="store__link" href="!#">
+                <a className="store__link" href="https://github.com/alvde-site">
                   блузки
                 </a>
               </li>
               <li>
-                <a className="store__link" href="!#">
+                <a className="store__link" href="https://github.com/alvde-site">
                   Водолазки
                 </a>
               </li>
               <li>
-                <a className="store__link" href="!#">
+                <a className="store__link" href="https://github.com/alvde-site">
                   Аксессуары
                 </a>
               </li>
@@ -91,17 +91,17 @@ function StoreList(props: IStoreListProps) {
               <p className="store__subtitle">cRUISE 2022</p>
               <ul className="store__links">
                 <li>
-                  <a className="store__link" href="!#">
+                  <a className="store__link" href="https://github.com/alvde-site">
                     Urban Vogue
                   </a>
                 </li>
                 <li>
-                  <a className="store__link" href="!#">
+                  <a className="store__link" href="https://github.com/alvde-site">
                     Punk Couture
                   </a>
                 </li>
                 <li>
-                  <a className="store__link" href="!#">
+                  <a className="store__link" href="https://github.com/alvde-site">
                     Moscow Fashion Week
                   </a>
                 </li>
