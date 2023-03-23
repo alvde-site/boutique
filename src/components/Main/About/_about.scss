@@ -11,6 +11,7 @@
 
 .about__item_order_4 {
   grid-column: 1;
+  grid-row: 2;
 }
 
 .about__text {
@@ -70,6 +71,7 @@
 
   .about__item_order_3, .about__item_order_4 {
     grid-column: auto;
+    grid-row: auto;
   }
 
   .about__card {
