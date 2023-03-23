@@ -1,0 +1,86 @@
+.about {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 60px 90px 0;
+}
+
+.about__item_order_3 {
+  grid-column: 2;
+}
+
+.about__item_order_4 {
+  grid-column: 1;
+}
+
+.about__text {
+  @include usual-text("Inter");
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.about__card {
+  position: relative;
+}
+
+.about__image {
+  @include image-setting;
+}
+
+.about__overlay {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  transition: $transition-time;
+}
+
+.about__overlay:hover {
+    opacity: 1;
+}
+
+.about__link {
+  @include big-text("Inter");
+  text-decoration: none;
+  color: #fff;
+}
+
+.about__link:after {
+  content: "→";
+  padding-left: 20px;
+  transition: $transition-time;
+}
+
+.about__link:hover:after {
+  padding-left: 30px;
+}
+
+@media (max-width: 992px) {
+  .about {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .about__item_order_3, .about__item_order_4 {
+    grid-column: auto;
+  }
+
+  .about__card {
+    margin: 0 0 80px;
+  }
+
+  .about__overlay {
+    padding: 20px;
+  }
+
+  .about__link {
+    @include decorative-big-text;
+  }
+}

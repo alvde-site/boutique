@@ -12,6 +12,7 @@ import PopupWithAuth from "../PopupWithAuth/PopupWithAuth";
 import PopupWithRegister from "../PopupWithRegister/PopupWithRegister";
 import PopupWithAlert from "../PopupWithAlert/PopupWithAlert";
 import NotFoundPage from "../Main/NotFoundPage/NotFoundPage";
+import About from "../Main/About/About";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,6 +46,7 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/press" element={<Press />} />
           <Route path="/dealer" element={<Dealer />} />
+          <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

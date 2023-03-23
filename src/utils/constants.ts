@@ -23,6 +23,9 @@ import vogueLogo from "../images/vogue-logo.png";
 import deliveryLogo from "../images/svg/delivery-icon.svg";
 import refundLogo from "../images/svg/finance-icon.svg";
 import paymentLogo from "../images/svg/money-icon.svg";
+/* About */
+import urban from "../images/urban-vogue.jpg";
+import punk from "../images/punk-couture.jpg";
 
 /* Errors */
 export const AUTH_ERROR = "Неверный логин или пароль";
@@ -132,6 +135,15 @@ export const conditionsLogo = [
   { src: deliveryLogo, alt: "Доставка" },
   { src: refundLogo, alt: "Возврат" },
   { src: paymentLogo, alt: "Оплата" },
+];
+
+/* About */
+export const ABOUT_TITLE_TEXT = "О нас";
+export const ABOUT_BUTTON_TEXT = "Вернуться на главную";
+
+export const aboutFotos = [
+  { src: urban, alt: "Городская мода" },
+  { src: punk, alt: "Панк кутюр" },
 ];
 
 /* NotFound */
