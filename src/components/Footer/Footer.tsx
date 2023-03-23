@@ -6,9 +6,9 @@ function Footer() {
       <div className="footer__content">
         <ul className="footer__links">
           <li>
-            <a href="https://github.com/alvde-site" className="footer__link">
+            <Link to="/about" className="footer__link">
               О нас
-            </a>
+            </Link>
           </li>
           <li>
             <Link to="/dealer" className="footer__link">
