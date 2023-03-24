@@ -1,0 +1,47 @@
+.page-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  visibility: hidden;
+  opacity: 0;
+  transition-property: opacity, visibility;
+  transition-duration: 1s, 1s;
+  z-index: 14;
+}
+
+.page-popup_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.page-popup__container {
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  max-width: 841px;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f1f1f1;
+  padding: 34px 36px 37px;
+}
+
+.page-popup__close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 32px;
+  height: 32px;
+  background: #000 url(../../images/svg/close-icon.svg) center/contain
+    no-repeat;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: $transition-time;
+}
+
+.page-popup__close:hover {
+  opacity: $button-hover-opacity;
+}

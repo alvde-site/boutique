@@ -17,13 +17,14 @@ function Header(props: IHeaderProps) {
           aria-label="Меню"
           onClick={props.openMenu}
         ></button>
-        <RightHeaderMenu modifier={"nav__icon-menu"} onPopupWithAuthOpen={props.onPopupWithAuthOpen}/>
+        <RightHeaderMenu modifier={"nav__icon-menu"} onPopupWithAuthOpen={props.onPopupWithAuthOpen} onPopupWithBasketOpen={props.onPopupWithBasketOpen}/>
       </nav>
       <StoreList
         onClose={props.onClose}
         isMenuOpen={props.isMenuOpen}
         openMenu={props.openMenu}
         onPopupWithAuthOpen={props.onPopupWithAuthOpen}
+        onPopupWithBasketOpen={props.onPopupWithBasketOpen}
       />
     </header>
   );

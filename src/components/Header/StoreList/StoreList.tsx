@@ -6,7 +6,7 @@ import RightHeaderMenu from "../RightHeaderMenu/RightHeaderMenu";
 function StoreList(props: IStoreListProps) {
   return (
     <section className={`store ${props.isMenuOpen && "store_open"}`}>
-      <RightHeaderMenu modifier="store__icon-menu" onPopupWithAuthOpen={props.onPopupWithAuthOpen}/>
+      <RightHeaderMenu modifier="store__icon-menu" onPopupWithAuthOpen={props.onPopupWithAuthOpen} onPopupWithBasketOpen={props.onPopupWithBasketOpen}/>
       <Menu
         onClose={props.onClose}
         openMenu={props.openMenu}

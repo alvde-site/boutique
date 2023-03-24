@@ -23,21 +23,28 @@ interface IOnPopupWithAuthOpen {
   onPopupWithAuthOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+interface IOnPopupWithBascetOpen {
+  onPopupWithBasketOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 export interface IHeaderProps
   extends IStoreListProps,
     IMenu,
-    IOnPopupWithAuthOpen {}
+    IOnPopupWithAuthOpen,
+    IOnPopupWithBascetOpen {}
 
 export interface IMenuProps extends IMenu, IModifier {}
 
 export interface IRightHeaderMenuProps
   extends IModifier,
-    IOnPopupWithAuthOpen {}
+    IOnPopupWithAuthOpen,
+    IOnPopupWithBascetOpen {}
 
 export interface IStoreListProps
   extends IMenu,
     IIsMenuOpen,
-    IOnPopupWithAuthOpen {}
+    IOnPopupWithAuthOpen,
+    IOnPopupWithBascetOpen {}
 
 export interface IShowcaseProps extends IModifier {}
 
@@ -112,6 +119,10 @@ export interface IPopupWithRegisterProps extends IHandleOpenPopup {
 }
 
 export interface IPopupWithAlertProps extends IHandleOpenPopup {}
+
+export interface IPopupWithBasketProps extends IHandleOpenPopup {}
+
+/* Валидация формы */
 
 export interface IFormWithValidation extends IValues {
   values: IValues;

@@ -13,12 +13,15 @@ import PopupWithRegister from "../PopupWithRegister/PopupWithRegister";
 import PopupWithAlert from "../PopupWithAlert/PopupWithAlert";
 import NotFoundPage from "../Main/NotFoundPage/NotFoundPage";
 import About from "../Main/About/About";
+import PopupWithBasketPage from "../PopupWithBasketPage/PopupWithBasketPage";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPopupWithAuthOpen, setIsPopupWithAuthOpen] = useState(false);
   const [isPopupWithRegisterOpen, setIsPopupWithRegisterOpen] = useState(false);
   const [isPopupWithAlertOpen, setIsPopupWithAlertOpen] = useState(false);
+  const [isPopupWithBascketOpen, setIsPopupWithBascketOpen] =
+    useState(false);
   function handleOpenMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
@@ -28,6 +31,7 @@ function App() {
     setIsPopupWithAuthOpen(false);
     setIsPopupWithRegisterOpen(false);
     setIsPopupWithAlertOpen(false);
+    setIsPopupWithBascketOpen(false);
   }
 
   return (
@@ -37,6 +41,7 @@ function App() {
         openMenu={handleOpenMenu}
         onClose={closeAllPopups}
         onPopupWithAuthOpen={setIsPopupWithAuthOpen}
+        onPopupWithBasketOpen={setIsPopupWithBascketOpen}
       />
       <main className="main">
         <Routes>
@@ -61,8 +66,9 @@ function App() {
         onClose={closeAllPopups}
         onOpenAlertForm={setIsPopupWithAlertOpen}
       />
-      <PopupWithAlert
-        isOpen={isPopupWithAlertOpen}
+      <PopupWithAlert isOpen={isPopupWithAlertOpen} onClose={closeAllPopups} />
+      <PopupWithBasketPage
+        isOpen={isPopupWithBascketOpen}
         onClose={closeAllPopups}
       />
     </div>

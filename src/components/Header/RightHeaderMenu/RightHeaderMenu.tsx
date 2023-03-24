@@ -7,6 +7,10 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
   function handleOpenPopup() {
     props.onPopupWithAuthOpen(true);
   }
+
+  function hadleOpenBasket() {
+    props.onPopupWithBasketOpen(true);
+  }
   return (
     <div className={`icon-menu ${props.modifier}`}>
       {auth.loggedIn ? (
@@ -34,6 +38,7 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
       <button
         className="icon-menu__button icon-menu__button_type_basket"
         aria-label="Корзина"
+        onClick={hadleOpenBasket}
       >
         <span className="icon-menu__text">2</span>
       </button>
