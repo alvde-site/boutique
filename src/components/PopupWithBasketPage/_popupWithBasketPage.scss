@@ -71,8 +71,80 @@
     margin: auto 0 0;
 }
 
+.basket__price-wrap {
+    display: flex;
+    align-items: flex-end;
+}
+
+.basket__discount {
+    @include usual-text('Inter');
+    margin: 0 10px 0 0;
+    padding: 0 0 10px;
+    text-decoration: line-through;
+    color: rgba(26, 26, 26, 0.5);
+}
+
+.basket__price {
+    @include big-text('Inter');
+    margin: 0;
+    color: #1A1A1A;
+}
+
+.basket__currency {
+    display: inline-block;
+    @include usual-text('Inter');
+    margin: 0 0 0 10px;
+}
+
+.basket__favorite-wrap {
+    display: flex;
+    padding: 40px 0 0;
+    align-items: center;
+}
+
+.basket__favorite {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: none;
+    width: 24px;
+    height: 21px;
+    background: url(../../images/svg/like-icon.svg) center/contain no-repeat;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 100px 0 0;
+}
+
+.total__button {
+    margin: 20px 0 0;
+    padding: 18px 0;
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+    @include usual-text("Inter");
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+    transition: $transition-time;
+    opacity: $button-state-opacity;
+  }
+  
+  .total__button:hover {
+    opacity: $button-hover-opacity;
+  }
+
 @media (max-width: 768px) {
   .basket__card {
     grid-template-columns: 1fr;
   }
+}
+
+@media(max-width: 576px) {
+    .basket__field_type_favorite {
+        display: none;
+    }
 }

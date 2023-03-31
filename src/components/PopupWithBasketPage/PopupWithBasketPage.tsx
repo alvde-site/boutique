@@ -42,22 +42,23 @@ function PopupWithBasketPage(props: IPopupWithBasketProps) {
               <div className="basket__price-wrap">
                 <p className="basket__discount">15500</p>
                 <p className="basket__price">
-                  8000<span className="total__currency">₽</span>
+                  8000<span className="basket__currency">₽</span>
                 </p>
               </div>
               <div className="basket__favorite-wrap">
-                <p className="basket__field">В избранном</p>
+                <p className="basket__field basket__field_type_favorite">В избранном</p>
                 <button className="basket__favorite"></button>
               </div>
             </div>
           </div>
         </div>
         <div className="total">
-          <p className="total__text">ИТОГ</p>
-          <p className="total__price">
-            46000 <span className="total__currency">₽</span>
+          <p className="total__text basket__title">ИТОГ</p>
+          <p className="total__price basket__price">
+            46000 <span className="total__currency basket__currency">₽</span>
           </p>
         </div>
+        <button className="total__button">перейти к Оформлению</button>
       </div>
     </PopupWithPage>
   );
