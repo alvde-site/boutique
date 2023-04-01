@@ -15,6 +15,10 @@ interface IIsMenuOpen {
   isMenuOpen: boolean;
 }
 
+interface ISetIsMenuOpen {
+  setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 interface IModifier {
   modifier: string;
 }
@@ -30,6 +34,7 @@ interface IOnPopupWithBascetOpen {
 export interface IHeaderProps
   extends IStoreListProps,
     IMenu,
+    ISetIsMenuOpen,
     IOnPopupWithAuthOpen,
     IOnPopupWithBascetOpen {}
 
@@ -37,11 +42,13 @@ export interface IMenuProps extends IMenu, IModifier {}
 
 export interface IRightHeaderMenuProps
   extends IModifier,
+    ISetIsMenuOpen,
     IOnPopupWithAuthOpen,
     IOnPopupWithBascetOpen {}
 
 export interface IStoreListProps
   extends IMenu,
+    ISetIsMenuOpen,
     IIsMenuOpen,
     IOnPopupWithAuthOpen,
     IOnPopupWithBascetOpen {}

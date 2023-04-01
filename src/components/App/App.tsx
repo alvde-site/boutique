@@ -38,6 +38,7 @@ function App() {
     <div className="page">
       <Header
         isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
         openMenu={handleOpenMenu}
         onClose={closeAllPopups}
         onPopupWithAuthOpen={setIsPopupWithAuthOpen}

@@ -10,6 +10,7 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
 
   function hadleOpenBasket() {
     props.onPopupWithBasketOpen(true);
+    props.setIsMenuOpen(false);
   }
   return (
     <div className={`icon-menu ${props.modifier}`}>
