@@ -158,6 +158,8 @@ export const productDetails= [
     size: "L",
     height: 160,
     quantity: 1,
+    discount: 15500,
+    price: 8000,
   },
   {
     img: product2,
@@ -166,6 +168,8 @@ export const productDetails= [
     size: "S",
     height: 160,
     quantity: 1,
+    discount: "",
+    price: 20000,
   },
   {
     img: product3,
@@ -174,6 +178,8 @@ export const productDetails= [
     size: "L",
     height: 160,
     quantity: 1,
+    discount: "",
+    price: 18000,
   },
 ];
 

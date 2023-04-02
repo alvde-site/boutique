@@ -1,29 +1,29 @@
 import { IProductProps } from "../../../utils/interfaces";
 
-function Product(props: IProductProps) {
+function Product({details}: IProductProps) {
   return (
     <div className="product">
-      <img src={props.img} alt="Штанцы" className="basket__img" />
+      <img src={details.img} alt="Штанцы" className="basket__img" />
       <div className="product__content">
         <div className="product__item">
           <div className="product__desc">
-            <h3 className="product__title basket__title">{props.title}</h3>
+            <h3 className="product__title basket__title">{details.title}</h3>
             <ul className="product__details">
               <li className="product__field-wrap">
                 <p className="product__field">артикул:</p>
-                <p className="product__value">{props.article}</p>
+                <p className="product__value">{details.article}</p>
               </li>
               <li className="product__field-wrap">
                 <p className="product__field">Размер:</p>
-                <p className="product__value">{props.size}</p>
+                <p className="product__value">{details.size}</p>
               </li>
               <li className="product__field-wrap">
                 <p className="product__field">рост:</p>
-                <p className="product__value">{props.size}</p>
+                <p className="product__value">{details.size}</p>
               </li>
               <li className="product__field-wrap">
                 <p className="product__field">Количество:</p>
-                <p className="product__value">{props.quantity}</p>
+                <p className="product__value">{details.quantity}</p>
               </li>
             </ul>
           </div>
@@ -31,9 +31,9 @@ function Product(props: IProductProps) {
         </div>
         <div className="product__footer">
           <div className="product__price-wrap">
-            <p className="product__discount">15500</p>
+            <p className="product__discount">{details.discount}</p>
             <p className="product__price basket__price">
-              8000<span className="basket__currency">₽</span>
+              {details.price}<span className="basket__currency">₽</span>
             </p>
           </div>
           <div className="product__favorite-wrap">
