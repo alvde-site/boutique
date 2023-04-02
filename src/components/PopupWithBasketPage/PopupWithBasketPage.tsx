@@ -1,6 +1,7 @@
 import { IPopupWithBasketProps } from "../../utils/interfaces";
 import PopupWithPage from "../PopupWithPage/PopupWithPage";
 import Product from "./Product/Product";
+import { productDetails } from "../../utils/constants";
 
 function PopupWithBasketPage(props: IPopupWithBasketProps) {
   return (
@@ -11,7 +12,7 @@ function PopupWithBasketPage(props: IPopupWithBasketProps) {
     >
       <div className="basket">
         <h2 className="basket__title">КОРЗИНА</h2>
-        <Product />
+        {productDetails.map((details) => <Product details={details}/>)}
         <div className="total">
           <p className="total__text basket__title">ИТОГ</p>
           <p className="total__price basket__price">

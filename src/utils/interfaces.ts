@@ -129,6 +129,15 @@ export interface IPopupWithAlertProps extends IHandleOpenPopup {}
 
 export interface IPopupWithBasketProps extends IHandleOpenPopup {}
 
+export interface IProductProps {
+  img: string;
+  title: string;
+  article: string;
+  size: string;
+  height: number;
+  quantity: number;
+}
+
 /* Валидация формы */
 
 export interface IFormWithValidation extends IValues {

@@ -26,7 +26,10 @@ import paymentLogo from "../images/svg/money-icon.svg";
 /* About */
 import urban from "../images/urban-vogue.jpg";
 import punk from "../images/punk-couture.jpg";
-
+/* Products */
+import product1 from "../images/basket1.jpg";
+import product2 from "../images/basket2.jpg";
+import product3 from "../images/basket3.jpg";
 /* Errors */
 export const AUTH_ERROR = "Неверный логин или пароль";
 export const REQUIRED_FIELD = "Заполните обязательные поля";
@@ -144,6 +147,34 @@ export const ABOUT_BUTTON_TEXT = "Вернуться на главную";
 export const aboutFotos = [
   { src: urban, alt: "Городская мода" },
   { src: punk, alt: "Панк кутюр" },
+];
+
+/* Products */
+export const productDetails= [
+  {
+    img: product1,
+    title: "Coral pleated panel dress",
+    article: "А0118",
+    size: "L",
+    height: 160,
+    quantity: 1,
+  },
+  {
+    img: product2,
+    title: "Denim effect pants",
+    article: "PP29",
+    size: "S",
+    height: 160,
+    quantity: 1,
+  },
+  {
+    img: product3,
+    title: "Coral pleated panel dress",
+    article: "PP13",
+    size: "L",
+    height: 160,
+    quantity: 1,
+  },
 ];
 
 /* NotFound */
