@@ -1,0 +1,59 @@
+.favourite__card {
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+  gap: 10px;
+  margin: 30px 0 0;
+  background-color: #fff;
+}
+
+.favourite__img {
+  @include image-setting;
+  max-width: 320px;
+}
+
+.favourite__price-wrap {
+  display: flex;
+  align-items: flex-end;
+}
+
+.favourite__discount {
+  @include usual-text("Inter");
+  margin: 0 10px 0 0;
+  padding: 0 0 10px;
+  text-decoration: line-through;
+  color: rgba(26, 26, 26, 0.5);
+}
+
+.favourite__price {
+  @include big-text("Inter");
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.favourite__currency {
+  display: inline-block;
+  @include usual-text("Inter");
+  margin: 0 0 0 10px;
+}
+
+.favourite__handle {
+  display: flex;
+  flex-direction: column;
+  & button:last-child {
+    margin: 10px 0 0;
+  }
+}
+
+.favourite__button {
+  border: 1px solid #1A1A1A;
+  margin: 0;
+  padding: 0 100px 0 0;
+  height: 100px;
+  background-color: transparent;
+}
+
+.favourite__button_state_add {
+}
+
+.favourite__button_state_added {
+}

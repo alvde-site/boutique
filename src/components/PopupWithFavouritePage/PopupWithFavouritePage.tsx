@@ -1,7 +1,7 @@
 import { IPopupWithFavouriteProps } from "../../utils/interfaces";
 import PopupWithPage from "../PopupWithPage/PopupWithPage";
 import { favouriteDetails } from "../../utils/constants";
-import Favourite from "../PopupWithBasketPage/Favourite/Favourite";
+import Favourite from "./Favourite/Favourite";
 
 function PopupWithFavouritePage(props: IPopupWithFavouriteProps) {
   return (
@@ -10,8 +10,8 @@ function PopupWithFavouritePage(props: IPopupWithFavouriteProps) {
       onClose={props.onClose}
       name={"favourite"}
     >
-      <div className="basket">
-        <h2 className="basket__title">Избранное</h2>
+      <div className="favourite">
+        <h2 className="favourite__title">Избранное</h2>
         {favouriteDetails.map((details, index) => <Favourite details={details} key={index}/>)}
       </div>
     </PopupWithPage>
