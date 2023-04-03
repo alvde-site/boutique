@@ -183,6 +183,28 @@ export const productDetails= [
   },
 ];
 
+/* Favourite */
+export const favouriteDetails= [
+  {
+    img: product1,
+    title: "Coral pleated panel dress",
+    discount: 15500,
+    price: 8000,
+  },
+  {
+    img: product2,
+    title: "Denim effect pants",
+    discount: "",
+    price: 20000,
+  },
+  {
+    img: product3,
+    title: "Coral pleated panel dress",
+    discount: "",
+    price: 18000,
+  },
+];
+
 /* NotFound */
 
 export const NOTFOUND_TITLE_TEXT = "Ошибка";

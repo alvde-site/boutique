@@ -142,6 +142,16 @@ export interface IProductProps {
   };
 }
 
+export interface IPopupWithFavouriteProps extends IHandleOpenPopup {}
+
+export interface IFavouriteProps {
+  details: {
+    img: string;
+    title: string;
+    discount: number | string;
+    price: number;
+  };
+}
 /* Валидация формы */
 
 export interface IFormWithValidation extends IValues {
