@@ -15,8 +15,9 @@ function Favourite({ details }: IFavouriteProps) {
         </div>
       </div>
       <div className="favourite__handle">
-        <button className="favourite__button"></button>
-        <button className="favourite__button">Убрать из избранного</button>
+        <button className="favourite__button favourite__button_state_add">добавить в корзину</button>
+        <button className="favourite__button favourite__button_state_added">ДОБАВЛЕНО</button>
+        <button className="favourite__button favourite__button_state_remove">Убрать из избранного</button>
       </div>
     </div>
   );

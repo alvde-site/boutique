@@ -47,13 +47,25 @@
 .favourite__button {
   border: 1px solid #1A1A1A;
   margin: 0;
-  padding: 0 100px 0 0;
+  padding: 5px 100px 5px 5px;
   height: 100px;
-  background-color: transparent;
+  @include usual-text('Manrope');
+  text-transform: uppercase;
+  text-align: left;
 }
 
 .favourite__button_state_add {
+background-color: #1A1A1A;
+color: #fff;
+background: #1A1A1A url(../../../images/svg/add-icon.svg) 90%/30px 30px no-repeat;
 }
 
 .favourite__button_state_added {
+  background-color: transparent;
+  background: transparent url(../../../images/svg/added-icon.svg) 90%/30px 30px no-repeat;
+}
+
+.favourite__button_state_remove {
+  background-color: transparent;
+  background: transparent url(../../../images/svg/basket-remove-icon.svg) 90%/30px 30px no-repeat;
 }
