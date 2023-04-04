@@ -6,7 +6,13 @@ import RightHeaderMenu from "../RightHeaderMenu/RightHeaderMenu";
 function StoreList(props: IStoreListProps) {
   return (
     <section className={`store ${props.isMenuOpen && "store_open"}`}>
-      <RightHeaderMenu modifier="store__icon-menu" onPopupWithAuthOpen={props.onPopupWithAuthOpen} onPopupWithBasketOpen={props.onPopupWithBasketOpen} setIsMenuOpen={props.setIsMenuOpen}/>
+      <RightHeaderMenu
+        modifier="store__icon-menu"
+        onPopupWithAuthOpen={props.onPopupWithAuthOpen}
+        onPopupWithBasketOpen={props.onPopupWithBasketOpen}
+        onPopupWithFavouriteOpen={props.onPopupWithFavouriteOpen}
+        setIsMenuOpen={props.setIsMenuOpen}
+      />
       <Menu
         onClose={props.onClose}
         openMenu={props.openMenu}
@@ -91,17 +97,26 @@ function StoreList(props: IStoreListProps) {
               <p className="store__subtitle">cRUISE 2022</p>
               <ul className="store__links">
                 <li>
-                  <a className="store__link" href="https://github.com/alvde-site">
+                  <a
+                    className="store__link"
+                    href="https://github.com/alvde-site"
+                  >
                     Urban Vogue
                   </a>
                 </li>
                 <li>
-                  <a className="store__link" href="https://github.com/alvde-site">
+                  <a
+                    className="store__link"
+                    href="https://github.com/alvde-site"
+                  >
                     Punk Couture
                   </a>
                 </li>
                 <li>
-                  <a className="store__link" href="https://github.com/alvde-site">
+                  <a
+                    className="store__link"
+                    href="https://github.com/alvde-site"
+                  >
                     Moscow Fashion Week
                   </a>
                 </li>

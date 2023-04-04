@@ -31,6 +31,10 @@ interface IOnPopupWithBascetOpen {
   onPopupWithBasketOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+interface IOnPopupWithFavouriteOpen {
+  onPopupWithFavouriteOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 export interface IHeaderProps
   extends IStoreListProps,
     IMenu,
@@ -44,14 +48,16 @@ export interface IRightHeaderMenuProps
   extends IModifier,
     ISetIsMenuOpen,
     IOnPopupWithAuthOpen,
-    IOnPopupWithBascetOpen {}
+    IOnPopupWithBascetOpen,
+    IOnPopupWithFavouriteOpen {}
 
 export interface IStoreListProps
   extends IMenu,
     ISetIsMenuOpen,
     IIsMenuOpen,
     IOnPopupWithAuthOpen,
-    IOnPopupWithBascetOpen {}
+    IOnPopupWithBascetOpen,
+    IOnPopupWithFavouriteOpen {}
 
 export interface IShowcaseProps extends IModifier {}
 
@@ -139,6 +145,7 @@ export interface IProductProps {
     quantity: number;
     discount: number | string;
     price: number;
+    id: string;
   };
 }
 
@@ -148,8 +155,13 @@ export interface IFavouriteProps {
   details: {
     img: string;
     title: string;
+    article: string;
+    size: string;
+    height: number;
+    quantity: number;
     discount: number | string;
     price: number;
+    id: string;
   };
 }
 /* Валидация формы */

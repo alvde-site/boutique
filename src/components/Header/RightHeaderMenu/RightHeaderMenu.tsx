@@ -12,6 +12,11 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
     props.onPopupWithBasketOpen(true);
     props.setIsMenuOpen(false);
   }
+
+  function handleOpenFavourite() {
+    props.onPopupWithFavouriteOpen(true);
+    props.setIsMenuOpen(false);
+  }
   return (
     <div className={`icon-menu ${props.modifier}`}>
       {auth.loggedIn ? (
@@ -35,6 +40,7 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
       <button
         className="icon-menu__button icon-menu__button_type_favourite"
         aria-label="Избранное"
+        onClick={handleOpenFavourite}
       ></button>
       <button
         className="icon-menu__button icon-menu__button_type_basket"

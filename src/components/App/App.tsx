@@ -46,6 +46,7 @@ function App() {
         onClose={closeAllPopups}
         onPopupWithAuthOpen={setIsPopupWithAuthOpen}
         onPopupWithBasketOpen={setIsPopupWithBascketOpen}
+        onPopupWithFavouriteOpen={setIsPopupWithFavouriteOpen}
       />
       <main className="main">
         <Routes>

@@ -150,7 +150,7 @@ export const aboutFotos = [
 ];
 
 /* Products */
-export const productDetails= [
+export const productDetails = [
   {
     img: product1,
     title: "Coral pleated panel dress",
@@ -160,6 +160,7 @@ export const productDetails= [
     quantity: 1,
     discount: 15500,
     price: 8000,
+    id: "1",
   },
   {
     img: product2,
@@ -170,6 +171,7 @@ export const productDetails= [
     quantity: 1,
     discount: "",
     price: 20000,
+    id: "2",
   },
   {
     img: product3,
@@ -180,28 +182,44 @@ export const productDetails= [
     quantity: 1,
     discount: "",
     price: 18000,
+    id: "3",
   },
 ];
 
 /* Favourite */
-export const favouriteDetails= [
+export const favouriteDetails = [
   {
     img: product1,
     title: "Coral pleated panel dress",
+    article: "PP13",
+    size: "L",
+    height: 160,
+    quantity: 1,
     discount: 15500,
     price: 8000,
+    id: "4",
   },
   {
     img: product2,
     title: "Denim effect pants",
+    article: "PP13",
+    size: "L",
+    height: 160,
+    quantity: 1,
     discount: "",
     price: 20000,
+    id: "5",
   },
   {
     img: product3,
     title: "Coral pleated panel dress",
+    article: "PP13",
+    size: "L",
+    height: 160,
+    quantity: 1,
     discount: "",
     price: 18000,
+    id: "6",
   },
 ];
 
