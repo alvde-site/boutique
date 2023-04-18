@@ -12,7 +12,7 @@ function PopupWithFavouritePage(props: IPopupWithFavouriteProps) {
     >
       <div className="favourite">
         <h2 className="favourite__title">Избранное</h2>
-        {favouriteDetails.map((details, index) => <Favourite details={details} key={index}/>)}
+        {favouriteDetails.map((details) => <Favourite details={details} key={details.id}/>)}
       </div>
     </PopupWithPage>
   );

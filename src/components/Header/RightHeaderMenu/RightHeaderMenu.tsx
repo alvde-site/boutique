@@ -24,6 +24,7 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
           className="icon-menu__button icon-menu__button_type_account"
           aria-label="Личный кабинет"
         >
+          &#129333;
         </button>
       ) : (
         <button

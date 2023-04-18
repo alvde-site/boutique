@@ -12,7 +12,7 @@ function PopupWithBasketPage(props: IPopupWithBasketProps) {
     >
       <div className="basket">
         <h2 className="basket__title">КОРЗИНА</h2>
-        {productDetails.map((details, index) => <Product details={details} key={index}/>)}
+        {productDetails.map((details) => <Product details={details} key={details.id}/>)}
         <div className="total">
           <p className="total__text basket__title">ИТОГ</p>
           <p className="total__price basket__price">

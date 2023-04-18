@@ -42,7 +42,7 @@
 }
 
 .icon-menu__button_type_account {
-  background-color: #fff;
   @include button-size;
-  @include button-image(url(../../../images/svg/account-icon.svg));
+  font-size: 20px;
+  background-color: transparent;
 }
