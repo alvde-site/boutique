@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Contacts from "../Main/Contacts/Contacts";
 import Conditions from "../Main/Conditions/Conditions";
 import Privacy from "../Main/Privacy/Privacy";
@@ -23,10 +23,13 @@ function App() {
   const [isPopupWithAlertOpen, setIsPopupWithAlertOpen] = useState(false);
   const [isPopupWithBascketOpen, setIsPopupWithBascketOpen] = useState(false);
   const [isPopupWithFavouriteOpen, setIsPopupWithFavouriteOpen] =
+    useState(false);
+  const [isFirstVisitForStormkitServer, setIsFirstVisitForStormkitServer] =
     useState(true);
   function handleOpenMenu() {
     setIsMenuOpen(!isMenuOpen);
   }
+  const navigate = useNavigate();
 
   function closeAllPopups() {
     setIsMenuOpen(false);
@@ -36,6 +39,13 @@ function App() {
     setIsPopupWithBascketOpen(false);
     setIsPopupWithFavouriteOpen(false);
   }
+
+  useEffect(() => {
+    if (isFirstVisitForStormkitServer) {
+      setIsFirstVisitForStormkitServer(false);
+      navigate("/");
+    }
+  }, [navigate, isFirstVisitForStormkitServer]);
 
   return (
     <div className="page">

@@ -45,27 +45,45 @@
 }
 
 .favourite__button {
-  border: 1px solid #1A1A1A;
+  border: 1px solid #1a1a1a;
   margin: 0;
   padding: 10px 100px 10px 10px;
   height: 100px;
-  @include usual-text('Manrope');
+  @include usual-text("Manrope");
   text-transform: uppercase;
   text-align: left;
 }
 
 .favourite__button_state_add {
-background-color: #1A1A1A;
-color: #fff;
-background: #1A1A1A url(../../../images/svg/add-icon.svg) 90%/30px 30px no-repeat;
+  background-color: #1a1a1a;
+  color: #fff;
+  background: #1a1a1a url(../../../images/svg/add-icon.svg) 90%/30px 30px
+    no-repeat;
 }
 
 .favourite__button_state_added {
   background-color: transparent;
-  background: transparent url(../../../images/svg/added-icon.svg) 90%/30px 30px no-repeat;
+  background: transparent url(../../../images/svg/added-icon.svg) 90%/30px 30px
+    no-repeat;
 }
 
 .favourite__button_state_remove {
   background-color: transparent;
-  background: transparent url(../../../images/svg/basket-remove-icon.svg) 90%/30px 30px no-repeat;
+  background: transparent url(../../../images/svg/basket-remove-icon.svg) 90%/30px
+    30px no-repeat;
 }
+
+@media (max-width: 768px) {
+  .favourite__card {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .favourite__card {
+    padding: 10px;
+  }
+}
+
+
