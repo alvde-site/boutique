@@ -13,7 +13,7 @@ function PopupWithForm(props: any) {
           type="button"
           aria-label="Закрыть"
           onClick={props.onClose}
-        ></button>
+        >&times;</button>
         <img className="popup__logo" src={blackLogo} alt="Логотип" />
         <form
           action="#"

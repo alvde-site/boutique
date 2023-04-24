@@ -31,13 +31,11 @@
 }
 
 .popup__close {
+  font-size: 58px;
   position: absolute;
-  top: -40px;
-  right: -40px;
-  width: 32px;
-  height: 32px;
-  background: transparent url(../../images/svg/close-icon.svg) center/contain
-    no-repeat;
+  top: 0;
+  right: 22px;
+  background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
@@ -71,13 +69,6 @@
   .popup__container {
     max-width: 282px;
     padding: 25px 22px;
-  }
-
-  .popup__close {
-    width: 20px;
-    height: 20px;
-    top: -36px;
-    right: 0;
   }
 
   .form__title {
