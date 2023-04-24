@@ -179,7 +179,7 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
           />
         </label>
       </fieldset>
-      <h3 className="form__title">Адрес доставки</h3>
+      {/* <h3 className="form__title">Адрес доставки</h3>
       <fieldset className="form__field">
         <label className="form__label" htmlFor="email">
           <input
@@ -209,7 +209,7 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
             placeholder="Адрес"
           />
         </label>
-      </fieldset>
+      </fieldset> */}
 
       <button
         type="button"
