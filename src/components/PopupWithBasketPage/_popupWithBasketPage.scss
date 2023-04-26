@@ -41,3 +41,8 @@
 .total__button:hover {
   opacity: $button-hover-opacity;
 }
+
+.total__button_disabled {
+  opacity: $button-hover-opacity;
+  background-color: #bfbfbf;
+}

@@ -1,9 +1,17 @@
-import { IProductProps } from "../../../utils/interfaces";
+import { 
+  // IProductProps 
+} from "../../../utils/interfaces";
 
-function Product({details}: IProductProps) {
+function Product({details, removeItem}: any
+  // IProductProps
+  ) {
+  function removeBascketItem() {
+    removeItem(details.id);
+  }
+
   return (
     <div className="product">
-      <img src={details.img} alt="Штанцы" className="basket__img" />
+      <img src={details.img} alt={details.title} className="basket__img" />
       <div className="product__content">
         <div className="product__item">
           <div className="product__desc">
@@ -27,7 +35,7 @@ function Product({details}: IProductProps) {
               </li>
             </ul>
           </div>
-          <button className="product__remove-button">Удалить</button>
+          <button className="product__remove-button" onClick={removeBascketItem}>Удалить</button>
         </div>
         <div className="product__footer">
           <div className="product__price-wrap">
