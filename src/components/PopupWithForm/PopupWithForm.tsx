@@ -1,6 +1,7 @@
 import { blackLogo } from "../../utils/constants";
+import { IPopupWithFormProps } from "../../utils/interfaces";
 
-function PopupWithForm(props: any) {
+function PopupWithForm(props:IPopupWithFormProps) {
   return (
     <div
       className={`popup popup_handle_${props.name} ${

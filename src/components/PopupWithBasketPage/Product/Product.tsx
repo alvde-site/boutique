@@ -1,9 +1,8 @@
 import { 
-  // IProductProps 
+  IProductProps 
 } from "../../../utils/interfaces";
 
-function Product({details, removeItem}: any
-  // IProductProps
+function Product({details, removeItem}:IProductProps
   ) {
   function removeBascketItem() {
     removeItem(details.id);

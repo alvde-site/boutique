@@ -1,4 +1,6 @@
-function PopupWithPage(props: any) {
+import { IPopupWithPageProps } from "../../utils/interfaces";
+
+function PopupWithPage(props:IPopupWithPageProps) {
   return (
     <div
       className={`page-popup page-popup_handle_${props.name} ${

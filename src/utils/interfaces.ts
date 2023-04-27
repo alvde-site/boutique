@@ -121,7 +121,13 @@ export interface IValues {
   regaddress?: string;
 }
 
-export interface IPopupWithFormProps {}
+export interface IPopupWithFormProps extends IHandleOpenPopup {
+  name: string;
+  hasErrors?: string | undefined;
+  title: string;
+  onSubmit?: (e: React.FormEvent) => void;
+  children: ReactNode;
+}
 
 export interface IPopupWithAuthProps extends IHandleOpenPopup {
   onOpenRegisterForm: React.Dispatch<React.SetStateAction<boolean>>;
@@ -133,7 +139,12 @@ export interface IPopupWithRegisterProps extends IHandleOpenPopup {
 
 export interface IPopupWithAlertProps extends IHandleOpenPopup {}
 
-export interface IPopupWithBasketProps extends IHandleOpenPopup {}
+export interface IPopupWithPageProps extends IHandleOpenPopup {
+  name: string;
+  children: ReactNode;
+}
+
+export interface IPopupWithBasketPageProps extends IHandleOpenPopup {}
 
 export interface IProductProps {
   details: {
@@ -147,6 +158,7 @@ export interface IProductProps {
     price: number;
     id: string;
   };
+  removeItem: (id: string) => void;
 }
 
 export interface IPopupWithFavouriteProps extends IHandleOpenPopup {}

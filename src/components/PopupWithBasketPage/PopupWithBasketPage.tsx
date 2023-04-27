@@ -1,10 +1,10 @@
-import { IPopupWithBasketProps } from "../../utils/interfaces";
+import { IPopupWithBasketPageProps } from "../../utils/interfaces";
 import PopupWithPage from "../PopupWithPage/PopupWithPage";
 import Product from "./Product/Product";
 import { productDetails } from "../../utils/constants";
 import { useState, useEffect } from "react";
 
-function PopupWithBasketPage(props: IPopupWithBasketProps) {
+function PopupWithBasketPage(props: IPopupWithBasketPageProps) {
   const [productList, setProductList] = useState(productDetails);
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
@@ -16,7 +16,7 @@ function PopupWithBasketPage(props: IPopupWithBasketProps) {
     }
   }, [productList]);
 
-  function removeBascketItem(id: any) {
+  function removeBascketItem(id:string) {
     setProductList((list) => list.filter((e) => e.id !== id));
   }
 
