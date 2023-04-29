@@ -1,8 +1,11 @@
 import { selectAllAuth } from "../../../services/reducers/authSlice";
-import { useAppSelector } from "../../../utils/hooks";
+import { handlePopupState } from "../../../services/reducers/popupsSlice";
+import { MENU_POPUP } from "../../../utils/constants";
+import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import { IRightHeaderMenuProps } from "../../../utils/interfaces";
 
 function RightHeaderMenu(props: IRightHeaderMenuProps) {
+  const dispatch = useAppDispatch();
   const auth = useAppSelector(selectAllAuth);
   function handleOpenPopup() {
     props.onPopupWithAuthOpen(true);
@@ -10,12 +13,16 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
 
   function hadleOpenBasket() {
     props.onPopupWithBasketOpen(true);
-    props.setIsMenuOpen(false);
   }
 
   function handleOpenFavourite() {
     props.onPopupWithFavouriteOpen(true);
-    props.setIsMenuOpen(false);
+    dispatch(
+      handlePopupState({
+        popupName: MENU_POPUP,
+        handlePopupState: false,
+      })
+    );
   }
   return (
     <div className={`icon-menu ${props.modifier}`}>

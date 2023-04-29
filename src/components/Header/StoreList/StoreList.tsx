@@ -7,6 +7,7 @@ import RightHeaderMenu from "../RightHeaderMenu/RightHeaderMenu";
 
 function StoreList(props: IStoreListProps) {
   const menuPopupState = useAppSelector(menuPopup);
+
   return (
     <section className={`store ${menuPopupState?.state && "store_open"}`}>
       <RightHeaderMenu
@@ -14,13 +15,8 @@ function StoreList(props: IStoreListProps) {
         onPopupWithAuthOpen={props.onPopupWithAuthOpen}
         onPopupWithBasketOpen={props.onPopupWithBasketOpen}
         onPopupWithFavouriteOpen={props.onPopupWithFavouriteOpen}
-        setIsMenuOpen={props.setIsMenuOpen}
       />
-      <Menu
-        onClose={props.onClose}
-        openMenu={props.openMenu}
-        modifier="store__link-menu"
-      />
+      <Menu modifier="store__link-menu" />
       <div className="store__wrapper">
         <div className="store__content">
           <div className="store__category">

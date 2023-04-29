@@ -15,16 +15,11 @@ import NotFoundPage from "../Main/NotFoundPage/NotFoundPage";
 import About from "../Main/About/About";
 import PopupWithBasketPage from "../PopupWithBasketPage/PopupWithBasketPage";
 import PopupWithFavouritePage from "../PopupWithFavouritePage/PopupWithFavouritePage";
-import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import {
-  handlePopupState,
-  menuPopup,
-} from "../../services/reducers/popupsSlice";
+import { useAppDispatch } from "../../utils/hooks";
 
 function App() {
   const dispatch = useAppDispatch();
-  const menuPopupState = useAppSelector(menuPopup);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const [isPopupWithAuthOpen, setIsPopupWithAuthOpen] = useState(false);
   const [isPopupWithRegisterOpen, setIsPopupWithRegisterOpen] = useState(false);
   const [isPopupWithAlertOpen, setIsPopupWithAlertOpen] = useState(false);
@@ -33,18 +28,12 @@ function App() {
     useState(false);
   const [isFirstVisitForStormkitServer, setIsFirstVisitForStormkitServer] =
     useState(true);
-  function handleOpenMenu() {
-    dispatch(
-      handlePopupState({
-        popupName: "menuPopup",
-        popupState: !menuPopupState?.state,
-      })
-    );
-  }
+
   const navigate = useNavigate();
 
   function closeAllPopups() {
-    setIsMenuOpen(false);
+    dispatch(closeAllPopups);
+
     setIsPopupWithAuthOpen(false);
     setIsPopupWithRegisterOpen(false);
     setIsPopupWithAlertOpen(false);
@@ -62,10 +51,6 @@ function App() {
   return (
     <div className="page">
       <Header
-        isMenuOpen={isMenuOpen}
-        setIsMenuOpen={setIsMenuOpen}
-        openMenu={handleOpenMenu}
-        onClose={closeAllPopups}
         onPopupWithAuthOpen={setIsPopupWithAuthOpen}
         onPopupWithBasketOpen={setIsPopupWithBascketOpen}
         onPopupWithFavouriteOpen={setIsPopupWithFavouriteOpen}

@@ -16,10 +16,6 @@ interface IMenu {
   onClose: () => void;
 }
 
-interface IIsMenuOpen {
-  isMenuOpen: boolean;
-}
-
 interface ISetIsMenuOpen {
   setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -42,25 +38,19 @@ interface IOnPopupWithFavouriteOpen {
 
 export interface IHeaderProps
   extends IStoreListProps,
-    IMenu,
-    ISetIsMenuOpen,
     IOnPopupWithAuthOpen,
     IOnPopupWithBascetOpen {}
 
-export interface IMenuProps extends IMenu, IModifier {}
+export interface IMenuProps extends IModifier {}
 
 export interface IRightHeaderMenuProps
   extends IModifier,
-    ISetIsMenuOpen,
     IOnPopupWithAuthOpen,
     IOnPopupWithBascetOpen,
     IOnPopupWithFavouriteOpen {}
 
 export interface IStoreListProps
-  extends IMenu,
-    ISetIsMenuOpen,
-    IIsMenuOpen,
-    IOnPopupWithAuthOpen,
+  extends IOnPopupWithAuthOpen,
     IOnPopupWithBascetOpen,
     IOnPopupWithFavouriteOpen {}
 

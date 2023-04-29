@@ -227,3 +227,20 @@ export const favouriteDetails = [
 
 export const NOTFOUND_TITLE_TEXT = "Ошибка";
 export const NOTFOUND_BUTTON_TEXT = "Вернуться на главную";
+
+/* Popups */
+const MENU_POPUP = "menuPopup";
+const AUTH_POPUP = "authPopup";
+const REGISTER_POPUP = "registerPopup";
+const ALERT_POPUP = "alertPopup";
+const BASKET_POPUP = "basketPopup";
+const FAVOURITE_POPUP = "favouritePopop";
+
+export {
+  MENU_POPUP,
+  REGISTER_POPUP,
+  AUTH_POPUP,
+  ALERT_POPUP,
+  BASKET_POPUP,
+  FAVOURITE_POPUP,
+};
