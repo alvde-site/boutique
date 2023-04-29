@@ -15,31 +15,12 @@ import NotFoundPage from "../Main/NotFoundPage/NotFoundPage";
 import About from "../Main/About/About";
 import PopupWithBasketPage from "../PopupWithBasketPage/PopupWithBasketPage";
 import PopupWithFavouritePage from "../PopupWithFavouritePage/PopupWithFavouritePage";
-import { useAppDispatch } from "../../utils/hooks";
 
 function App() {
-  const dispatch = useAppDispatch();
-
-  const [isPopupWithAuthOpen, setIsPopupWithAuthOpen] = useState(false);
-  const [isPopupWithRegisterOpen, setIsPopupWithRegisterOpen] = useState(false);
-  const [isPopupWithAlertOpen, setIsPopupWithAlertOpen] = useState(false);
-  const [isPopupWithBascketOpen, setIsPopupWithBascketOpen] = useState(false);
-  const [isPopupWithFavouriteOpen, setIsPopupWithFavouriteOpen] =
-    useState(false);
-  const [isFirstVisitForStormkitServer, setIsFirstVisitForStormkitServer] =
-    useState(true);
-
   const navigate = useNavigate();
 
-  function closeAllPopups() {
-    dispatch(closeAllPopups);
-
-    setIsPopupWithAuthOpen(false);
-    setIsPopupWithRegisterOpen(false);
-    setIsPopupWithAlertOpen(false);
-    setIsPopupWithBascketOpen(false);
-    setIsPopupWithFavouriteOpen(false);
-  }
+  const [isFirstVisitForStormkitServer, setIsFirstVisitForStormkitServer] =
+    useState(true);
 
   useEffect(() => {
     if (isFirstVisitForStormkitServer) {
@@ -50,11 +31,7 @@ function App() {
 
   return (
     <div className="page">
-      <Header
-        onPopupWithAuthOpen={setIsPopupWithAuthOpen}
-        onPopupWithBasketOpen={setIsPopupWithBascketOpen}
-        onPopupWithFavouriteOpen={setIsPopupWithFavouriteOpen}
-      />
+      <Header />
       <main className="main">
         <Routes>
           <Route path="/" element={<Main />}></Route>
@@ -68,25 +45,11 @@ function App() {
         </Routes>
       </main>
       <Footer />
-      <PopupWithAuth
-        isOpen={isPopupWithAuthOpen}
-        onClose={closeAllPopups}
-        onOpenRegisterForm={setIsPopupWithRegisterOpen}
-      />
-      <PopupWithRegister
-        isOpen={isPopupWithRegisterOpen}
-        onClose={closeAllPopups}
-        onOpenAlertForm={setIsPopupWithAlertOpen}
-      />
-      <PopupWithAlert isOpen={isPopupWithAlertOpen} onClose={closeAllPopups} />
-      <PopupWithBasketPage
-        isOpen={isPopupWithBascketOpen}
-        onClose={closeAllPopups}
-      />
-      <PopupWithFavouritePage
-        isOpen={isPopupWithFavouriteOpen}
-        onClose={closeAllPopups}
-      />
+      <PopupWithAuth />
+      <PopupWithRegister />
+      <PopupWithAlert />
+      <PopupWithBasketPage />
+      <PopupWithFavouritePage />
     </div>
   );
 }

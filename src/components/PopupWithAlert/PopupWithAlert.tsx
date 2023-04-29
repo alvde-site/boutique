@@ -1,17 +1,17 @@
+import { closeAllPopups } from "../../services/reducers/popupsSlice";
+import { useAppDispatch } from "../../utils/hooks";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
-import { IPopupWithAlertProps } from "../../utils/interfaces";
 
-function PopupWithAlert(props: IPopupWithAlertProps) {
+function PopupWithAlert() {
+  const dispatch = useAppDispatch();
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    props.onClose();
+    dispatch(closeAllPopups());
   }
 
   return (
     <PopupWithForm
       name="alert"
-      isOpen={props.isOpen}
-      onClose={props.onClose}
       onSubmit={handleSubmit}
       title={"Вы зарегестрированы"}
     >

@@ -1,10 +1,9 @@
-import { IPopupWithBasketPageProps } from "../../utils/interfaces";
 import PopupWithPage from "../PopupWithPage/PopupWithPage";
 import Product from "./Product/Product";
 import { productDetails } from "../../utils/constants";
 import { useState, useEffect } from "react";
 
-function PopupWithBasketPage(props: IPopupWithBasketPageProps) {
+function PopupWithBasketPage() {
   const [productList, setProductList] = useState(productDetails);
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
@@ -16,16 +15,12 @@ function PopupWithBasketPage(props: IPopupWithBasketPageProps) {
     }
   }, [productList]);
 
-  function removeBascketItem(id:string) {
+  function removeBascketItem(id: string) {
     setProductList((list) => list.filter((e) => e.id !== id));
   }
 
   return (
-    <PopupWithPage
-      isOpen={props.isOpen}
-      onClose={props.onClose}
-      name={"basket"}
-    >
+    <PopupWithPage name={"basket"}>
       <div className="basket">
         <h2 className="basket__title">КОРЗИНА</h2>
         {productList.map((details) => (

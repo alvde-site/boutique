@@ -4,12 +4,11 @@ import {
 } from "../../services/reducers/popupsSlice";
 import { MENU_POPUP } from "../../utils/constants";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import { IHeaderProps } from "../../utils/interfaces";
 import Menu from "./Menu/Menu";
 import RightHeaderMenu from "./RightHeaderMenu/RightHeaderMenu";
 import StoreList from "./StoreList/StoreList";
 
-function Header(props: IHeaderProps) {
+function Header() {
   const dispatch = useAppDispatch();
   function handleMenuState() {
     dispatch(
@@ -31,18 +30,9 @@ function Header(props: IHeaderProps) {
           aria-label="Меню"
           onClick={handleMenuState}
         ></button>
-        <RightHeaderMenu
-          modifier={"nav__icon-menu"}
-          onPopupWithAuthOpen={props.onPopupWithAuthOpen}
-          onPopupWithBasketOpen={props.onPopupWithBasketOpen}
-          onPopupWithFavouriteOpen={props.onPopupWithFavouriteOpen}
-        />
+        <RightHeaderMenu modifier={"nav__icon-menu"} />
       </nav>
-      <StoreList
-        onPopupWithAuthOpen={props.onPopupWithAuthOpen}
-        onPopupWithBasketOpen={props.onPopupWithBasketOpen}
-        onPopupWithFavouriteOpen={props.onPopupWithFavouriteOpen}
-      />
+      <StoreList />
     </header>
   );
 }

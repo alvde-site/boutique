@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { useFormWithValidation } from "../../utils/formValidator";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
-import { AUTH_ERROR, NEED_REGISTRATION } from "../../utils/constants";
 import {
-  IFormWithValidation,
-  IPopupWithAuthProps,
-  IValues,
-} from "../../utils/interfaces";
+  AUTH_ERROR,
+  NEED_REGISTRATION,
+  REGISTER_POPUP,
+} from "../../utils/constants";
+import { IFormWithValidation, IValues } from "../../utils/interfaces";
 import { useAppDispatch } from "../../utils/hooks";
 import { signin } from "../../services/reducers/authSlice";
+import {
+  closeAllPopups,
+  handlePopupState,
+} from "../../services/reducers/popupsSlice";
 
-function PopupWithAuth(props: IPopupWithAuthProps) {
+function PopupWithAuth() {
   const dispatch = useAppDispatch();
   const [hasErrors, setHasErrors] = useState({} as IValues);
   const { values, handleChange, errors, resetForm }: IFormWithValidation =
@@ -30,7 +34,7 @@ function PopupWithAuth(props: IPopupWithAuthProps) {
           title: AUTH_ERROR,
         });
       } else {
-        props.onClose();
+        dispatch(closeAllPopups());
         resetForm();
         setHasErrors({});
         dispatch(signin({ loggedIn: true, userId: "1" }));
@@ -39,8 +43,8 @@ function PopupWithAuth(props: IPopupWithAuthProps) {
   }
 
   function handleOpenRegisterForm() {
-    props.onClose();
-    props.onOpenRegisterForm(true);
+    dispatch(closeAllPopups());
+    dispatch(handlePopupState({ namePopup: REGISTER_POPUP, statePopup: true }));
   }
 
   return (
@@ -48,8 +52,6 @@ function PopupWithAuth(props: IPopupWithAuthProps) {
       name="auth"
       hasErrors={hasErrors["title"]}
       title={`${hasErrors["title"] ? AUTH_ERROR : NEED_REGISTRATION}`}
-      isOpen={props.isOpen}
-      onClose={props.onClose}
       onSubmit={handleSubmit}
     >
       <fieldset className="form__field">

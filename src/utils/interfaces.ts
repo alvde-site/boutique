@@ -11,56 +11,18 @@ export interface IPopupState {
 }
 
 /* header */
-interface IMenu {
-  openMenu: () => void;
-  onClose: () => void;
-}
-
-interface ISetIsMenuOpen {
-  setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
 interface IModifier {
   modifier: string;
 }
 
-interface IOnPopupWithAuthOpen {
-  onPopupWithAuthOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-interface IOnPopupWithBascetOpen {
-  onPopupWithBasketOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-interface IOnPopupWithFavouriteOpen {
-  onPopupWithFavouriteOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export interface IHeaderProps
-  extends IStoreListProps,
-    IOnPopupWithAuthOpen,
-    IOnPopupWithBascetOpen {}
-
 export interface IMenuProps extends IModifier {}
 
-export interface IRightHeaderMenuProps
-  extends IModifier,
-    IOnPopupWithAuthOpen,
-    IOnPopupWithBascetOpen,
-    IOnPopupWithFavouriteOpen {}
-
-export interface IStoreListProps
-  extends IOnPopupWithAuthOpen,
-    IOnPopupWithBascetOpen,
-    IOnPopupWithFavouriteOpen {}
+export interface IRightHeaderMenuProps extends IModifier {}
 
 export interface IShowcaseProps extends IModifier {}
 
 /* main */
-
-export interface IMainProps {
-  onPopupWithAuthOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
 export interface IPromoTitle {
   title: string;
@@ -78,7 +40,7 @@ export interface ContentCategoryProps {
   buttonText: string;
 }
 
-export interface IOpenModifierProps extends IMenuProps, IShowcaseProps {}
+export interface IOpenModifierProps extends IModifier, IShowcaseProps {}
 
 export interface IErrors {
   login?: string;
@@ -97,10 +59,6 @@ export interface IFormValidator {
 }
 
 /* Popups */
-interface IHandleOpenPopup {
-  isOpen: boolean;
-  onClose: () => void;
-}
 
 export interface IValues {
   title?: string;
@@ -116,7 +74,7 @@ export interface IValues {
   regaddress?: string;
 }
 
-export interface IPopupWithFormProps extends IHandleOpenPopup {
+export interface IPopupWithFormProps {
   name: string;
   hasErrors?: string | undefined;
   title: string;
@@ -124,22 +82,10 @@ export interface IPopupWithFormProps extends IHandleOpenPopup {
   children: ReactNode;
 }
 
-export interface IPopupWithAuthProps extends IHandleOpenPopup {
-  onOpenRegisterForm: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export interface IPopupWithRegisterProps extends IHandleOpenPopup {
-  onOpenAlertForm: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export interface IPopupWithAlertProps extends IHandleOpenPopup {}
-
-export interface IPopupWithPageProps extends IHandleOpenPopup {
+export interface IPopupWithPageProps {
   name: string;
   children: ReactNode;
 }
-
-export interface IPopupWithBasketPageProps extends IHandleOpenPopup {}
 
 export interface IProductProps {
   details: {
@@ -155,8 +101,6 @@ export interface IProductProps {
   };
   removeItem: (id: string) => void;
 }
-
-export interface IPopupWithFavouriteProps extends IHandleOpenPopup {}
 
 export interface IFavouriteProps {
   details: {
