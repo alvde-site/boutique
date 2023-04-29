@@ -1,24 +1,27 @@
 import { Link } from "react-router-dom";
 import { IMenuProps } from "../../../utils/interfaces";
-import { useAppDispatch } from "../../../utils/hooks";
+import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import {
   closeAllPopups,
   handlePopupState,
+  menuPopup,
 } from "../../../services/reducers/popupsSlice";
 import { MENU_POPUP } from "../../../utils/constants";
 
 function Menu(props: IMenuProps) {
   const dispatch = useAppDispatch();
+  const menuPopupState = useAppSelector(menuPopup);
   const handleMenuState = () => {
     dispatch(
       handlePopupState({
         popupName: MENU_POPUP,
-        handlePopupState: false,
+        popupState: !menuPopupState?.state,
       })
     );
   };
+
   const handleClosePopup = () => {
-    dispatch(closeAllPopups);
+    dispatch(closeAllPopups());
   };
 
   return (

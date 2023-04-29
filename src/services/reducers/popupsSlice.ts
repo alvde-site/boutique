@@ -30,8 +30,8 @@ const popupsSlice = createSlice({
         existingPopup.state = popupState;
       }
     },
-    closeAllPopups(state) {
-      state = initialState;
+    closeAllPopups() {
+      return initialState;
     },
   },
 });
