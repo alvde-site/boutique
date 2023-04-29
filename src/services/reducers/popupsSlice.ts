@@ -28,6 +28,10 @@ const popupsSlice = createSlice({
   },
 });
 
+export const { handlePopupState, closeAllPopups } = popupsSlice.actions;
+
+export const menuPopup = (state: RootState) =>
+  state.popups.find((popup) => popup.name === "menuPopup");
 export const selectAllPopups = (state: RootState) => state.popups;
 
 export default popupsSlice.reducer;

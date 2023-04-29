@@ -1,11 +1,14 @@
+import { menuPopup } from "../../../services/reducers/popupsSlice";
+import { useAppSelector } from "../../../utils/hooks";
 import { IStoreListProps } from "../../../utils/interfaces";
 import Showcase from "../../Showcase/Showcase";
 import Menu from "../Menu/Menu";
 import RightHeaderMenu from "../RightHeaderMenu/RightHeaderMenu";
 
 function StoreList(props: IStoreListProps) {
+  const menuPopupState = useAppSelector(menuPopup);
   return (
-    <section className={`store ${props.isMenuOpen && "store_open"}`}>
+    <section className={`store ${menuPopupState?.state && "store_open"}`}>
       <RightHeaderMenu
         modifier="store__icon-menu"
         onPopupWithAuthOpen={props.onPopupWithAuthOpen}

@@ -15,8 +15,15 @@ import NotFoundPage from "../Main/NotFoundPage/NotFoundPage";
 import About from "../Main/About/About";
 import PopupWithBasketPage from "../PopupWithBasketPage/PopupWithBasketPage";
 import PopupWithFavouritePage from "../PopupWithFavouritePage/PopupWithFavouritePage";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import {
+  handlePopupState,
+  menuPopup,
+} from "../../services/reducers/popupsSlice";
 
 function App() {
+  const dispatch = useAppDispatch();
+  const menuPopupState = useAppSelector(menuPopup);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPopupWithAuthOpen, setIsPopupWithAuthOpen] = useState(false);
   const [isPopupWithRegisterOpen, setIsPopupWithRegisterOpen] = useState(false);
@@ -27,7 +34,12 @@ function App() {
   const [isFirstVisitForStormkitServer, setIsFirstVisitForStormkitServer] =
     useState(true);
   function handleOpenMenu() {
-    setIsMenuOpen(!isMenuOpen);
+    dispatch(
+      handlePopupState({
+        popupName: "menuPopup",
+        popupState: !menuPopupState?.state,
+      })
+    );
   }
   const navigate = useNavigate();
 
