@@ -1,8 +1,13 @@
 import { ReactNode } from "react";
 /* reducers */
-export interface TInitialAuth {
+export interface IInitialAuth {
   loggedIn: boolean;
   userId: null | string;
+}
+
+export interface IPopupState {
+  name: string;
+  state: boolean;
 }
 
 /* header */
