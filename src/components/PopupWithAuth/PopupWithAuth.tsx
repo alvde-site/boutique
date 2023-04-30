@@ -3,6 +3,7 @@ import { useFormWithValidation } from "../../utils/formValidator";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import {
   AUTH_ERROR,
+  AUTH_POPUP,
   NEED_REGISTRATION,
   REGISTER_POPUP,
 } from "../../utils/constants";
@@ -44,12 +45,12 @@ function PopupWithAuth() {
 
   function handleOpenRegisterForm() {
     dispatch(closeAllPopups());
-    dispatch(handlePopupState({ namePopup: REGISTER_POPUP, statePopup: true }));
+    dispatch(handlePopupState({ popupName: REGISTER_POPUP, popupState: true }));
   }
 
   return (
     <PopupWithForm
-      name="auth"
+      name={AUTH_POPUP}
       hasErrors={hasErrors["title"]}
       title={`${hasErrors["title"] ? AUTH_ERROR : NEED_REGISTRATION}`}
       onSubmit={handleSubmit}

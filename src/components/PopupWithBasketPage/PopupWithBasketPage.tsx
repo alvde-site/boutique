@@ -1,6 +1,6 @@
 import PopupWithPage from "../PopupWithPage/PopupWithPage";
 import Product from "./Product/Product";
-import { productDetails } from "../../utils/constants";
+import { BASKET_POPUP, productDetails } from "../../utils/constants";
 import { useState, useEffect } from "react";
 
 function PopupWithBasketPage() {
@@ -20,7 +20,7 @@ function PopupWithBasketPage() {
   }
 
   return (
-    <PopupWithPage name={"basket"}>
+    <PopupWithPage name={BASKET_POPUP}>
       <div className="basket">
         <h2 className="basket__title">КОРЗИНА</h2>
         {productList.map((details) => (

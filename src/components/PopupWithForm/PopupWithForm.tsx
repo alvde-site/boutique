@@ -1,21 +1,22 @@
 import { closeAllPopups } from "../../services/reducers/popupsSlice";
-import { AUTH_POPUP, blackLogo } from "../../utils/constants";
+import { blackLogo } from "../../utils/constants";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { IPopupWithFormProps } from "../../utils/interfaces";
 
 function PopupWithForm(props: IPopupWithFormProps) {
   const dispatch = useAppDispatch();
-  const authPopupState = useAppSelector((state) =>
-    state.popups.find((popup) => popup.name === AUTH_POPUP)
+  const popupState = useAppSelector((state) =>
+    state.popups.find((popup) => popup.name === props.name)
   );
 
   const closePopup = () => {
     dispatch(closeAllPopups());
   };
+
   return (
     <div
       className={`popup popup_handle_${props.name} ${
-        authPopupState?.state ? "popup_opened" : ""
+        popupState?.state ? "popup_opened" : ""
       }`}
     >
       <div className="popup__container">

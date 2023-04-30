@@ -12,22 +12,22 @@ import { IRightHeaderMenuProps } from "../../../utils/interfaces";
 function RightHeaderMenu(props: IRightHeaderMenuProps) {
   const dispatch = useAppDispatch();
   const auth = useAppSelector(selectAllAuth);
-  function handleOpenPopup() {
-    dispatch(handlePopupState({ namePopup: AUTH_POPUP, statePopup: true }));
+  function handleOpenAuthPopup() {
+    dispatch(handlePopupState({ popupName: AUTH_POPUP, popupState: true }));
   }
 
   function hadleOpenBasket() {
-    dispatch(handlePopupState({ namePopup: BASKET_POPUP, statePopup: true }));
+    dispatch(handlePopupState({ popupName: BASKET_POPUP, popupState: true }));
   }
 
   function handleOpenFavourite() {
     dispatch(
-      handlePopupState({ namePopup: FAVOURITE_POPUP, statePopup: true })
+      handlePopupState({ popupName: FAVOURITE_POPUP, popupState: true })
     );
     dispatch(
       handlePopupState({
         popupName: MENU_POPUP,
-        handlePopupState: false,
+        popupState: false,
       })
     );
   }
@@ -42,7 +42,7 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
         </button>
       ) : (
         <button
-          onClick={handleOpenPopup}
+          onClick={handleOpenAuthPopup}
           className="icon-menu__button  icon-menu__text icon-menu__button_type_enter"
         >
           Войти

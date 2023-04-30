@@ -1,4 +1,5 @@
 import { closeAllPopups } from "../../services/reducers/popupsSlice";
+import { ALERT_POPUP } from "../../utils/constants";
 import { useAppDispatch } from "../../utils/hooks";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 
@@ -11,7 +12,7 @@ function PopupWithAlert() {
 
   return (
     <PopupWithForm
-      name="alert"
+      name={ALERT_POPUP}
       onSubmit={handleSubmit}
       title={"Вы зарегестрированы"}
     >

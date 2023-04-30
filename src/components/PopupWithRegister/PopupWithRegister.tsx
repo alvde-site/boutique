@@ -1,17 +1,21 @@
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useFormWithValidation } from "../../utils/formValidator";
-import {
-  IFormWithValidation,
-  IPopupWithRegisterProps,
-  IValues,
-} from "../../utils/interfaces";
+import { IFormWithValidation, IValues } from "../../utils/interfaces";
 import { useState } from "react";
 import {
+  ALERT_POPUP,
   CONFIRM_PASSWORD_ERROR,
+  REGISTER_POPUP,
   REGISTRATION,
   REQUIRED_FIELD,
 } from "../../utils/constants";
-function PopupWithRegister(props: IPopupWithRegisterProps) {
+import {
+  closeAllPopups,
+  handlePopupState,
+} from "../../services/reducers/popupsSlice";
+import { useAppDispatch } from "../../utils/hooks";
+function PopupWithRegister() {
+  const dispatch = useAppDispatch();
   const [hasErrors, setHasErrors] = useState({} as IValues);
   const { values, handleChange, errors, resetForm }: IFormWithValidation =
     useFormWithValidation();
@@ -42,8 +46,8 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
     );
 
     if (canSumbit) {
-      props.onClose();
-      props.onOpenAlertForm(true);
+      dispatch(closeAllPopups());
+      dispatch(handlePopupState({ popupName: ALERT_POPUP, popupState: true }));
       resetForm();
       setHasErrors({});
     } else {
@@ -73,11 +77,9 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
   }
   return (
     <PopupWithForm
-      name="auth"
+      name={REGISTER_POPUP}
       hasErrors={hasErrors["title"]}
       title={`${hasErrors["title"] ? hasErrors["title"] : REGISTRATION}`}
-      isOpen={props.isOpen}
-      onClose={props.onClose}
     >
       <fieldset className="form__field">
         <label className="form__label" htmlFor="email">
@@ -179,38 +181,6 @@ function PopupWithRegister(props: IPopupWithRegisterProps) {
           />
         </label>
       </fieldset>
-      {/* <h3 className="form__title">Адрес доставки</h3>
-      <fieldset className="form__field">
-        <label className="form__label" htmlFor="email">
-          <input
-            className={`form__input ${
-              hasErrors["regcity"] && "form__input_type_error"
-            }`}
-            value={values["regcity"] || ""}
-            type="text"
-            id="regcity"
-            name="regcity"
-            onChange={handleChange}
-            placeholder="Город"
-          />
-        </label>
-      </fieldset>
-      <fieldset className="form__field">
-        <label className="form__label" htmlFor="email">
-          <input
-            className={`form__input ${
-              hasErrors["regaddress"] && "form__input_type_error"
-            }`}
-            value={values["regaddress"] || ""}
-            type="text"
-            id="regaddress"
-            name="regaddress"
-            onChange={handleChange}
-            placeholder="Адрес"
-          />
-        </label>
-      </fieldset> */}
-
       <button
         type="button"
         onClick={handleSubmit}

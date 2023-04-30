@@ -21,6 +21,7 @@
 Технологии используемые в проекте:
 
 - React, useState
+- Redux
 - TypeScript
 - SCSS
 - Адаптивная верстка
