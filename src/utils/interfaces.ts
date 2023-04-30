@@ -108,7 +108,11 @@ export interface IProductProps {
 
 export interface IFavouriteProps {
   details: IProductsState;
-  removeItem: (id: string) => void;
+  removeFromFavourite: (id: string) => void;
+  addToBasket: (id: string) => void;
+  removeFromBasket: (id: string) => void;
+  basketProducts: IProductsState[];
+
 }
 /* Валидация формы */
 

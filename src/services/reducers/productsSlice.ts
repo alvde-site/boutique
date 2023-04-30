@@ -49,6 +49,13 @@ const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
+    addBasketProduct(state, action) {
+      const { productId } = action.payload;
+      const existingProduct = state.find((p) => p.id === productId);
+      if (existingProduct) {
+        existingProduct.isInBasket = true;
+      }
+    },
     removeBasketProduct(state, action) {
       const { productId } = action.payload;
       const existingProduct = state.find((p) => p.id === productId);
@@ -56,17 +63,29 @@ const productsSlice = createSlice({
         existingProduct.isInBasket = false;
       }
     },
+    addFavouriteProduct(state, action) {
+      const { productId } = action.payload;
+      const existingProduct = state.find((p) => p.id === productId);
+      if (existingProduct) {
+        existingProduct.isInFavorite = true;
+      }
+    },
     removeFavouriteProduct(state, action) {
-        const { productId } = action.payload;
-        const existingProduct = state.find((p) => p.id === productId);
-        if (existingProduct) {
-          existingProduct.isInFavorite = false;
-        }
-      },
+      const { productId } = action.payload;
+      const existingProduct = state.find((p) => p.id === productId);
+      if (existingProduct) {
+        existingProduct.isInFavorite = false;
+      }
+    },
   },
 });
 
-export const { removeBasketProduct, removeFavouriteProduct } = productsSlice.actions;
+export const {
+  addBasketProduct,
+  removeBasketProduct,
+  addFavouriteProduct,
+  removeFavouriteProduct,
+} = productsSlice.actions;
 
 export const selectAllInBasket = (state: RootState) =>
   state.products.filter((product) => product.isInBasket);
