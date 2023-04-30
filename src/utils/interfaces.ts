@@ -10,6 +10,20 @@ export interface IPopupState {
   state: boolean;
 }
 
+export interface IProductsState {
+  img: string;
+  title: string;
+  article: string;
+  size: string;
+  height: number;
+  quantity: number;
+  discount: number | string;
+  price: number;
+  id: string;
+  isInBasket: boolean;
+  isInFavorite: boolean;
+}
+
 /* header */
 
 interface IModifier {
@@ -88,32 +102,13 @@ export interface IPopupWithPageProps {
 }
 
 export interface IProductProps {
-  details: {
-    img: string;
-    title: string;
-    article: string;
-    size: string;
-    height: number;
-    quantity: number;
-    discount: number | string;
-    price: number;
-    id: string;
-  };
+  details: IProductsState;
   removeItem: (id: string) => void;
 }
 
 export interface IFavouriteProps {
-  details: {
-    img: string;
-    title: string;
-    article: string;
-    size: string;
-    height: number;
-    quantity: number;
-    discount: number | string;
-    price: number;
-    id: string;
-  };
+  details: IProductsState;
+  removeItem: (id: string) => void;
 }
 /* Валидация формы */
 

@@ -30,6 +30,8 @@ import punk from "../images/punk-couture.jpg";
 import product1 from "../images/basket1.jpg";
 import product2 from "../images/basket2.jpg";
 import product3 from "../images/basket3.jpg";
+
+export { product1, product2, product3 };
 /* Errors */
 export const AUTH_ERROR = "Неверный логин или пароль";
 export const REQUIRED_FIELD = "Заполните обязательные поля";
@@ -147,80 +149,6 @@ export const ABOUT_BUTTON_TEXT = "Вернуться на главную";
 export const aboutFotos = [
   { src: urban, alt: "Городская мода" },
   { src: punk, alt: "Панк кутюр" },
-];
-
-/* Products */
-export const productDetails = [
-  {
-    img: product1,
-    title: "Coral pleated panel dress",
-    article: "А0118",
-    size: "L",
-    height: 160,
-    quantity: 1,
-    discount: 15500,
-    price: 8000,
-    id: "1",
-  },
-  {
-    img: product2,
-    title: "Denim effect pants",
-    article: "PP29",
-    size: "S",
-    height: 160,
-    quantity: 1,
-    discount: "",
-    price: 20000,
-    id: "2",
-  },
-  {
-    img: product3,
-    title: "Coral pleated panel dress",
-    article: "PP13",
-    size: "L",
-    height: 160,
-    quantity: 1,
-    discount: "",
-    price: 18000,
-    id: "3",
-  },
-];
-
-/* Favourite */
-export const favouriteDetails = [
-  {
-    img: product1,
-    title: "Coral pleated panel dress",
-    article: "PP13",
-    size: "L",
-    height: 160,
-    quantity: 1,
-    discount: 15500,
-    price: 8000,
-    id: "4",
-  },
-  {
-    img: product2,
-    title: "Denim effect pants",
-    article: "PP13",
-    size: "L",
-    height: 160,
-    quantity: 1,
-    discount: "",
-    price: 20000,
-    id: "5",
-  },
-  {
-    img: product3,
-    title: "Coral pleated panel dress",
-    article: "PP13",
-    size: "L",
-    height: 160,
-    quantity: 1,
-    discount: "",
-    price: 18000,
-    id: "6",
-  },
 ];
 
 /* NotFound */

@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { IFavouriteProps } from "../../../utils/interfaces";
 
-function Favourite({ details }: IFavouriteProps) {
+function Favourite({ details, removeItem }: IFavouriteProps) {
   const [isAdded, setIsAdded] = useState(false);
   function handleAddToBasket() {
     setIsAdded(!isAdded);
+  }
+
+  function removeFavoureteItem() {
+    removeItem(details.id);
   }
   return (
     <div className="favourite__card">
@@ -35,7 +39,7 @@ function Favourite({ details }: IFavouriteProps) {
             добавить в корзину
           </button>
         )}
-        <button className="favourite__button favourite__button_state_remove">
+        <button className="favourite__button favourite__button_state_remove" onClick={removeFavoureteItem}>
           Убрать из избранного
         </button>
       </div>

@@ -1,29 +1,35 @@
 import PopupWithPage from "../PopupWithPage/PopupWithPage";
 import Product from "./Product/Product";
-import { BASKET_POPUP, productDetails } from "../../utils/constants";
+import { BASKET_POPUP } from "../../utils/constants";
 import { useState, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import {
+  removeBasketProduct,
+  selectAllInBasket,
+} from "../../services/reducers/productsSlice";
 
 function PopupWithBasketPage() {
-  const [productList, setProductList] = useState(productDetails);
+  const dispatch = useAppDispatch();
   const [totalPrice, setTotalPrice] = useState(0);
+  const basketProducts = useAppSelector(selectAllInBasket);
   useEffect(() => {
-    if (productList.length) {
-      const total = productList.map((e) => e.price).reduce((a, c) => a + c);
+    if (basketProducts.length) {
+      const total = basketProducts.map((e) => e.price).reduce((a, c) => a + c);
       setTotalPrice(() => total);
     } else {
       setTotalPrice(() => 0);
     }
-  }, [productList]);
+  }, [basketProducts]);
 
   function removeBascketItem(id: string) {
-    setProductList((list) => list.filter((e) => e.id !== id));
+    dispatch(removeBasketProduct({ productId: id }));
   }
 
   return (
     <PopupWithPage name={BASKET_POPUP}>
       <div className="basket">
         <h2 className="basket__title">КОРЗИНА</h2>
-        {productList.map((details) => (
+        {basketProducts.map((details) => (
           <Product
             details={details}
             key={details.id}
@@ -39,9 +45,9 @@ function PopupWithBasketPage() {
         </div>
         <button
           className={`total__button${
-            !productList.length ? " total__button_disabled" : ""
+            !basketProducts.length ? " total__button_disabled" : ""
           }`}
-          disabled={!productList.length}
+          disabled={!basketProducts.length}
         >
           перейти к Оформлению
         </button>
