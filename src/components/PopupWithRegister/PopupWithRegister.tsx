@@ -186,7 +186,7 @@ function PopupWithRegister() {
         onClick={handleSubmit}
         className="form__submit form__submit_type_auth"
       >
-        Зарегестрироваться
+        Зарегистрироваться
       </button>
     </PopupWithForm>
   );
