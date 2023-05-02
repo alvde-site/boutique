@@ -1,11 +1,22 @@
-import { 
-  IProductProps 
-} from "../../../utils/interfaces";
+import { IProductProps } from "../../../utils/interfaces";
 
-function Product({details, removeItem}:IProductProps
-  ) {
+function Product({
+  details,
+  removeItem,
+  allProducts,
+  toggleFavourite,
+}: IProductProps) {
+  const existingProduct = allProducts.find((p) => p.id === details.id);
+
   function removeBascketItem() {
     removeItem(details.id);
+  }
+
+  function toggleFavouriteState() {
+    console.log(allProducts);
+    if (existingProduct) {
+      toggleFavourite(details.id, existingProduct.isInFavorite);
+    }
   }
 
   return (
@@ -34,20 +45,36 @@ function Product({details, removeItem}:IProductProps
               </li>
             </ul>
           </div>
-          <button className="product__remove-button" onClick={removeBascketItem}>Удалить</button>
+          <button
+            className="product__remove-button"
+            onClick={removeBascketItem}
+          >
+            Удалить
+          </button>
         </div>
         <div className="product__footer">
           <div className="product__price-wrap">
             <p className="product__discount">{details.discount}</p>
             <p className="product__price basket__price">
-              {details.price}<span className="basket__currency">₽</span>
+              {details.price}
+              <span className="basket__currency">₽</span>
             </p>
           </div>
-          <div className="product__favorite-wrap">
-            <p className="product__field product__field_type_favorite">
-              В избранном
+          <div className="product__favourite-wrap">
+            <p className="product__field product__field_type_favourite">
+              {`В ${
+                existingProduct?.isInFavorite ? "избранном" : "избранное"
+              }`}
             </p>
-            <button className="product__favorite"></button>
+            <button
+              className={`product__favourite ${
+                existingProduct?.isInFavorite
+                  ? "product__favourite_type_like"
+                  : "product__favourite_type_dislike"
+              }`}
+              aria-label="Избранное"
+              onClick={toggleFavouriteState}
+            ></button>
           </div>
         </div>
       </div>

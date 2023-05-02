@@ -104,6 +104,8 @@ export interface IPopupWithPageProps {
 export interface IProductProps {
   details: IProductsState;
   removeItem: (id: string) => void;
+  allProducts: IProductsState[];
+  toggleFavourite: (id: string, isInFavorite: boolean) => void;
 }
 
 export interface IFavouriteProps {
@@ -112,7 +114,6 @@ export interface IFavouriteProps {
   addToBasket: (id: string) => void;
   removeFromBasket: (id: string) => void;
   basketProducts: IProductsState[];
-
 }
 /* Валидация формы */
 

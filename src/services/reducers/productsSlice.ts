@@ -87,6 +87,8 @@ export const {
   removeFavouriteProduct,
 } = productsSlice.actions;
 
+export const selectAllProducts = (state: RootState) => state.products;
+
 export const selectAllInBasket = (state: RootState) =>
   state.products.filter((product) => product.isInBasket);
 

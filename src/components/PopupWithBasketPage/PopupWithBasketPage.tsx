@@ -4,14 +4,18 @@ import { BASKET_POPUP } from "../../utils/constants";
 import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import {
+  addFavouriteProduct,
   removeBasketProduct,
+  removeFavouriteProduct,
   selectAllInBasket,
+  selectAllProducts,
 } from "../../services/reducers/productsSlice";
 
 function PopupWithBasketPage() {
   const dispatch = useAppDispatch();
   const [totalPrice, setTotalPrice] = useState(0);
   const basketProducts = useAppSelector(selectAllInBasket);
+  const allProducts = useAppSelector(selectAllProducts);
   useEffect(() => {
     if (basketProducts.length) {
       const total = basketProducts.map((e) => e.price).reduce((a, c) => a + c);
@@ -25,6 +29,14 @@ function PopupWithBasketPage() {
     dispatch(removeBasketProduct({ productId: id }));
   }
 
+  function toggleFavoriteState(id: string, isInFavourite: boolean) {
+    if (isInFavourite) {
+      dispatch(removeFavouriteProduct({ productId: id }));
+    } else {
+      dispatch(addFavouriteProduct({ productId: id }));
+    }
+  }
+
   return (
     <PopupWithPage name={BASKET_POPUP}>
       <div className="basket">
@@ -34,6 +46,8 @@ function PopupWithBasketPage() {
             details={details}
             key={details.id}
             removeItem={removeBascketItem}
+            allProducts={allProducts}
+            toggleFavourite={toggleFavoriteState}
           />
         ))}
         <div className="total">
