@@ -22,6 +22,7 @@ export interface IProductsState {
   id: string;
   isInBasket: boolean;
   isInFavorite: boolean;
+  isInOrder: boolean;
 }
 
 /* header */

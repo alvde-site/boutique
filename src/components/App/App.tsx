@@ -15,6 +15,7 @@ import NotFoundPage from "../Main/NotFoundPage/NotFoundPage";
 import About from "../Main/About/About";
 import PopupWithBasketPage from "../PopupWithBasketPage/PopupWithBasketPage";
 import PopupWithFavouritePage from "../PopupWithFavouritePage/PopupWithFavouritePage";
+import Account from "../Main/Account/Account";
 
 function App() {
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ function App() {
           <Route path="/press" element={<Press />} />
           <Route path="/dealer" element={<Dealer />} />
           <Route path="/about" element={<About />} />
+          <Route path="/account" element={<Account />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

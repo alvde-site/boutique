@@ -27,11 +27,12 @@ import paymentLogo from "../images/svg/money-icon.svg";
 import urban from "../images/urban-vogue.jpg";
 import punk from "../images/punk-couture.jpg";
 /* Products */
-import product1 from "../images/basket1.jpg";
-import product2 from "../images/basket2.jpg";
-import product3 from "../images/basket3.jpg";
+import product1 from "../images/product1.jpg";
+import product2 from "../images/product2.jpg";
+import product3 from "../images/product3.jpg";
+import product4 from "../images/product4.jpg";
 
-export { product1, product2, product3 };
+export { product1, product2, product3, product4 };
 /* Errors */
 export const AUTH_ERROR = "Неверный логин или пароль";
 export const REQUIRED_FIELD = "Заполните обязательные поля";

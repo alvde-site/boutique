@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { IProductsState } from "../../utils/interfaces";
-import { product1, product2, product3 } from "../../utils/constants";
+import { product1, product2, product3, product4 } from "../../utils/constants";
 
 const initialState: IProductsState[] = [
   {
@@ -16,6 +16,7 @@ const initialState: IProductsState[] = [
     id: "1",
     isInBasket: true,
     isInFavorite: true,
+    isInOrder: false,
   },
   {
     img: product2,
@@ -29,6 +30,7 @@ const initialState: IProductsState[] = [
     id: "2",
     isInBasket: true,
     isInFavorite: true,
+    isInOrder: false,
   },
   {
     img: product3,
@@ -42,6 +44,21 @@ const initialState: IProductsState[] = [
     id: "3",
     isInBasket: true,
     isInFavorite: true,
+    isInOrder: false,
+  },
+  {
+    img: product4,
+    title: "Burgundy dress [x1]",
+    article: "PP13",
+    size: "L",
+    height: 160,
+    quantity: 1,
+    discount: "",
+    price: 9000,
+    id: "4",
+    isInBasket: false,
+    isInFavorite: false,
+    isInOrder: true,
   },
 ];
 
