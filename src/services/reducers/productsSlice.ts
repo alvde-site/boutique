@@ -30,7 +30,7 @@ const initialState: IProductsState[] = [
     id: "2",
     isInBasket: true,
     isInFavorite: true,
-    isInOrder: false,
+    isInOrder: true,
   },
   {
     img: product3,
@@ -44,7 +44,7 @@ const initialState: IProductsState[] = [
     id: "3",
     isInBasket: true,
     isInFavorite: true,
-    isInOrder: false,
+    isInOrder: true,
   },
   {
     img: product4,
@@ -111,5 +111,8 @@ export const selectAllInBasket = (state: RootState) =>
 
 export const selectAllInFavourite = (state: RootState) =>
   state.products.filter((product) => product.isInFavorite);
+
+export const selectAllInOrder = (state: RootState) =>
+  state.products.filter((product) => product.isInOrder);
 
 export default productsSlice.reducer;
