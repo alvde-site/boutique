@@ -1,4 +1,5 @@
 .account {
+  box-sizing: border-box;
   padding: $main-desctop-padding;
 }
 .account__signout {
@@ -60,13 +61,54 @@
 }
 
 .order {
-    border: 1px solid #000;
-    display: grid;
-    grid-template-columns: 1fr 3fr;
+  border: 1px solid #000;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin: 0 0 40px;
 }
 
 .order__images {
-    border-right: 1px solid #000;
+  padding: 10px;
+  border-right: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.order__image {
+  @include image-setting;
+}
+
+.order__description {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.order__field {
+  @include usual-text("Inter");
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.order__label {
+  padding: 0 10px 0 0;
+}
+
+.order__button {
+  @include usual-text("Inter");
+  text-transform: uppercase;
+  background-color: #000;
+  color: #fff;
+  margin: auto 0 20px;
+  align-self: flex-end;
+  opacity: $button-state-opacity;
+}
+
+.order__button:hover {
+    opacity: $button-hover-opacity;
 }
 
 @media (max-width: 1400px) {
@@ -77,10 +119,22 @@
   .account__buttons {
     display: grid;
   }
+
+  .account__content {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 576px) {
   .account__buttons {
     grid-template-columns: 1fr;
+  }
+
+  .order {
+    grid-template-columns: 1fr;
+  }
+
+  .order__images {
+    display: none;
   }
 }

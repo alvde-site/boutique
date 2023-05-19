@@ -24,38 +24,38 @@ function Account() {
         <div className="account__order order">
           <div className="order__images">
             {orderProducts.map((details) => (
-              <img src={details.img} alt={details.title} key={details.id}></img>
+              <img className="order__image" src={details.img} alt={details.title} key={details.id}></img>
             ))}
           </div>
           <div className="order__description">
             <div className="order__field">
-              <p className="order__lable">№ 2712</p>
+              <p className="order__label">№ 2712</p>
               <p className="order__text">19.02.2022</p>
             </div>
             {orderProducts.map((details) => (
               <div className="order__field" key={details.id}>
-                <p className="order__lable">{details.title}</p>
+                <p className="order__label">{details.title}</p>
                 <p className="order__text">{details.price} ₽</p>
               </div>
             ))}
             <div className="order__field">
-              <p className="order__lable">комментарий:</p>
+              <p className="order__label">комментарий:</p>
               <p className="order__text">Мирон жду аванс</p>
             </div>
             <div className="order__field">
-              <p className="order__lable">статус</p>
+              <p className="order__label">статус</p>
               <p className="order__text">в обработке</p>
             </div>
             <div className="order__field">
-              <p className="order__lable">доставка</p>
+              <p className="order__label">доставка</p>
               <p className="order__text">курьером за пределы мкад (790 ₽)</p>
             </div>
             <div className="order__field">
-              <p className="order__lable">сумма</p>
+              <p className="order__label">сумма</p>
               <p className="order__text">{totalPrice} ₽</p>
             </div>
             <div className="order__field">
-              <p className="order__lable">трек номер</p>
+              <p className="order__label">трек номер</p>
               <p className="order__text">DF43FJOAP009</p>
             </div>
             <button className="order__button">Отменить этот заказ</button>
@@ -87,38 +87,37 @@ function Account() {
           {order}
           <div className="account__order order">
             <div className="order__images">
-              <img src={product1} alt="Denim effect pants"></img>
+              <img className="order__image" src={product1} alt="Denim effect pants"></img>
             </div>
             <div className="order__description">
               <div className="order__field">
-                <p className="order__lable">№ 2712</p>
+                <p className="order__label">№ 2712</p>
                 <p className="order__text">19.02.2022</p>
               </div>
               <div className="order__field">
-                <p className="order__lable">Denim effect pants [x1]</p>
+                <p className="order__label">Denim effect pants [x1]</p>
                 <p className="order__text">8000 ₽</p>
               </div>
               <div className="order__field">
-                <p className="order__lable">комментарий:</p>
+                <p className="order__label">комментарий:</p>
                 <p className="order__text">-</p>
               </div>
               <div className="order__field">
-                <p className="order__lable">статус</p>
+                <p className="order__label">статус</p>
                 <p className="order__text">Доставлен</p>
               </div>
               <div className="order__field">
-                <p className="order__lable">доставка</p>
+                <p className="order__label">доставка</p>
                 <p className="order__text">курьер (490 ₽)</p>
               </div>
               <div className="order__field">
-                <p className="order__lable">сумма</p>
+                <p className="order__label">сумма</p>
                 <p className="order__text">8490 ₽</p>
               </div>
               <div className="order__field">
-                <p className="order__lable">трек номер</p>
+                <p className="order__label">трек номер</p>
                 <p className="order__text">DF43FJOAP009</p>
               </div>
-              <button className="order__button">Отменить этот заказ</button>
             </div>
           </div>
         </div>
