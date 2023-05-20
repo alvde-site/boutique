@@ -27,7 +27,7 @@ const usersSlice = createSlice({
       reducer(state, action: PayloadAction<IUser>) {
         state.users.push(action.payload);
       },
-      prepare({name, surname, email, password}) {
+      prepare({ name, surname, email, password }) {
         return {
           payload: {
             id: nanoid(),
@@ -43,5 +43,7 @@ const usersSlice = createSlice({
 });
 
 export const selectAllUsers = (state: RootState) => state.users.users;
+
+export const { createUser } = usersSlice.actions;
 
 export default usersSlice.reducer;
