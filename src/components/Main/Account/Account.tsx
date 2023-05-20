@@ -3,10 +3,27 @@ import { useAppSelector } from "../../../utils/hooks";
 import { selectAllInOrder } from "../../../services/reducers/productsSlice";
 import { useEffect, useState } from "react";
 import { product1 } from "../../../utils/constants";
+import { useFormWithValidation } from "../../../utils/formValidator";
+
+interface IValuesFrom {
+  profilename?: string;
+  profileemail?: string;
+}
+
+interface IValidationForm {
+  values: IValuesFrom;
+  handleChange: (event: React.FormEvent<Element>) => void;
+  errors: {};
+  setErrors: React.Dispatch<React.SetStateAction<{}>>;
+  isValid: boolean;
+  setIsValid: React.Dispatch<React.SetStateAction<boolean>>;
+  resetForm: (newValues?: {}, newErrors?: {}, newIsValid?: boolean) => void;
+}
 
 function Account() {
   const [totalPrice, setTotalPrice] = useState(0);
   const orderProducts = useAppSelector(selectAllInOrder);
+  const { values, handleChange, setIsValid }: IValidationForm = useFormWithValidation();
   useEffect(() => {
     if (orderProducts.length) {
       const total = orderProducts.map((e) => e.price).reduce((a, c) => a + c);
@@ -24,7 +41,12 @@ function Account() {
         <div className="account__order order">
           <div className="order__images">
             {orderProducts.map((details) => (
-              <img className="order__image" src={details.img} alt={details.title} key={details.id}></img>
+              <img
+                className="order__image"
+                src={details.img}
+                alt={details.title}
+                key={details.id}
+              ></img>
             ))}
           </div>
           <div className="order__description">
@@ -67,6 +89,31 @@ function Account() {
     }
   }
 
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    console.log(e);
+    // let name = `${values["profilename"] || currentUser.name}`;
+    // let email = `${values["profileemail"] || currentUser.email}`;
+    // onEditProfile({
+    //   name,
+    //   email,
+    // });
+  }
+
+  function handleSameValue(e: React.ChangeEvent<HTMLInputElement>) {
+    if (true
+      // e.target.value === currentUser.name ||
+      // e.target.value === currentUser.email
+    ) {
+      setIsValid(false);
+    }
+  }
+
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    handleChange(e);
+    handleSameValue(e);
+  }
+
   return (
     <section className="account">
       <div className="account__menu">
@@ -87,7 +134,11 @@ function Account() {
           {order}
           <div className="account__order order">
             <div className="order__images">
-              <img className="order__image" src={product1} alt="Denim effect pants"></img>
+              <img
+                className="order__image"
+                src={product1}
+                alt="Denim effect pants"
+              ></img>
             </div>
             <div className="order__description">
               <div className="order__field">
@@ -121,7 +172,106 @@ function Account() {
             </div>
           </div>
         </div>
-        <div className="account__profile"></div>
+        <div className="account__profile">
+          <form
+            action="#"
+            name="profileform"
+            className="profileform"
+            onSubmit={handleSubmit}
+            noValidate
+          >
+            <fieldset className="profileform__fieldset profileform__fieldset_type_name">
+              <label htmlFor="profilename" className="profileform__field">
+                Имя
+              </label>
+              <input
+                id="profilename"
+                type="text"
+                className="profileform__input"
+                name="profilename"
+                required
+                minLength={2}
+                maxLength={30}
+                value={values["profilename"] || "ИмяПользователя" || ""}
+                onChange={handleInputChange}
+                readOnly={!isEditProfile}
+                disabled={isLoading || !isEditProfile}
+                formNoValidate
+              />
+              <span className="profileform__input_focus"></span>
+            </fieldset>
+            <fieldset className="profileform__fieldset">
+              <label htmlFor="profileemail" className="profileform__field">
+                E-mail
+              </label>
+              <input
+                id="profileemail"
+                type="email"
+                className="profileform__input"
+                name="profileemail"
+                required
+                minLength={2}
+                maxLength={30}
+                value={values["profileemail"] || currentUser.email || ""}
+                onChange={handleInputChange}
+                readOnly={!isEditProfile}
+                disabled={isLoading || !isEditProfile}
+                pattern="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}"
+                formNoValidate
+              />
+              <span className="profileform__input_focus"></span>
+            </fieldset>
+            <fieldset className="profileform__submit-fieldset">
+              <span
+                id="success-submitprofile"
+                className={`profileform__submit-success ${
+                  submitSuccess && "profileform__submit-success_active"
+                }`}
+              >
+                Успешно!
+              </span>
+              <span
+                id="error-submitprofile"
+                className={`profileform__submit-error ${
+                  submitError && "profileform__submit-error_active"
+                }`}
+              >
+                {submitError}
+              </span>
+              <button
+                className={`profileform__submit ${
+                  isEditProfile &&
+                  `profileform__submit_active ${
+                    !isValid && "profileform__submit_disable"
+                  }`
+                }`}
+                type="submit"
+                disabled={!isValid ? true : isLoading ? true : false}
+              >
+                {!isLoading ? "Сохранить" : "Сохранение..."}
+              </button>
+              <button
+                className={`profileform__edit ${
+                  isEditProfile && "profileform__edit_disabled"
+                }`}
+                type="button"
+                onClick={handleEditButton}
+              >
+                Редактировать
+              </button>
+              <button
+                className={`profileform__logout ${
+                  isEditProfile && "profileform__logout_disabled"
+                }`}
+                onClick={handleSignout}
+                type="button"
+                disabled={isLoading}
+              >
+                {!isLoading ? "Выйти из аккаунта" : "Выходим..."}
+              </button>
+            </fieldset>
+          </form>
+        </div>
       </div>
     </section>
   );

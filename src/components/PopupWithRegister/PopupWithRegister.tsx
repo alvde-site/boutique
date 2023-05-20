@@ -13,6 +13,7 @@ import {
   closeAllPopups,
   handlePopupState,
 } from "../../services/reducers/popupsSlice";
+import { createUser } from "../../services/reducers/usersSlice";
 import { useAppDispatch } from "../../utils/hooks";
 function PopupWithRegister() {
   const dispatch = useAppDispatch();
@@ -48,6 +49,16 @@ function PopupWithRegister() {
     if (canSumbit) {
       dispatch(closeAllPopups());
       dispatch(handlePopupState({ popupName: ALERT_POPUP, popupState: true }));
+
+      dispatch(
+        createUser({
+          name: values["regname"],
+          surname: values["regsurname"] || "",
+          email: values["regemail"],
+          password: values["regpassword"],
+        })
+      );
+
       resetForm();
       setHasErrors({});
     } else {
