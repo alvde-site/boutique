@@ -56,8 +56,12 @@
 }
 
 .account__orders {
-  display: grid;
+  display: none;
   border-right: 1px solid rgba(#000, 0.1);
+}
+
+.account__orders_display {
+  display: grid;
 }
 
 .order {
@@ -108,7 +112,15 @@
 }
 
 .order__button:hover {
-    opacity: $button-hover-opacity;
+  opacity: $button-hover-opacity;
+}
+
+.account__profile {
+  display: none;
+}
+
+.account__profile_displayed {
+  display: block;
 }
 
 @media (max-width: 1400px) {

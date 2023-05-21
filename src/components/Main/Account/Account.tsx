@@ -25,8 +25,19 @@ interface IValidationForm {
 function Account() {
   const [totalPrice, setTotalPrice] = useState(0);
   const orderProducts = useAppSelector(selectAllInOrder);
+  const [isOrderShown, setIsOrderShown] = useState(true);
+  const [isProfileShown, setIsProfileShown] = useState(true);
   const { values, handleChange, setIsValid }: IValidationForm =
     useFormWithValidation();
+  const smDesc = "(max-width: 1400px)";
+  const smDesctMediaQuery = window.matchMedia(smDesc);
+
+  useEffect(() => {
+    if (smDesctMediaQuery.matches) {
+      setIsProfileShown(false);
+    }
+  }, [smDesctMediaQuery.matches]);
+
   useEffect(() => {
     if (orderProducts.length) {
       const total = orderProducts.map((e) => e.price).reduce((a, c) => a + c);
@@ -118,6 +129,15 @@ function Account() {
     handleSameValue(e);
   }
 
+  function showOrderPage() {
+    setIsOrderShown(true);
+    setIsProfileShown(false);
+  }
+  function showProfilePage() {
+    setIsOrderShown(false);
+    setIsProfileShown(true);
+  }
+
   return (
     <section className="account">
       <div className="account__menu">
@@ -127,17 +147,37 @@ function Account() {
           </Link>
         </div>
         <div className="account__buttons">
-          <button className="account__button account__button_active">
+          <button
+            className={`account__button ${
+              isOrderShown ? "account__button_active" : ""
+            }`}
+            onClick={showOrderPage}
+          >
             ЗАКАЗЫ
           </button>
-          <button className="account__button">ПРОФИЛЬ</button>
+          <button
+            className={`account__button ${
+              isProfileShown ? "account__button_active" : ""
+            }`}
+            onClick={showProfilePage}
+          >
+            ПРОФИЛЬ
+          </button>
         </div>
       </div>
       <div className="account__content">
-        <div className="account__orders">
+        <div
+          className={`account__orders ${
+            isOrderShown ? "account__orders_display" : ""
+          }`}
+        >
           <Order order={order} productImg={product1} />
         </div>
-        <div className="account__profile">
+        <div
+          className={`account__profile ${
+            isProfileShown ? "account__profile_displayed" : ""
+          }`}
+        >
           <Profile
             handleSubmit={handleSubmit}
             values={values}
