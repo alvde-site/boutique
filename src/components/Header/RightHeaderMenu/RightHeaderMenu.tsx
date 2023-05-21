@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { selectAllAuth } from "../../../services/reducers/authSlice";
-import { handlePopupState } from "../../../services/reducers/popupsSlice";
+import {
+  handlePopupState,
+  closeAllPopups,
+} from "../../../services/reducers/popupsSlice";
 import { selectAllInBasket } from "../../../services/reducers/productsSlice";
 import {
   AUTH_POPUP,
@@ -34,6 +37,10 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
       })
     );
   }
+
+  function handleCloseMenu() {
+    dispatch(closeAllPopups());
+  }
   return (
     <div className={`icon-menu ${props.modifier}`}>
       {auth.loggedIn ? (
@@ -41,6 +48,7 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
           to="/account"
           className="icon-menu__button icon-menu__button_type_account"
           aria-label="Личный кабинет"
+          onClick={handleCloseMenu}
         >
           &#129333;
         </Link>

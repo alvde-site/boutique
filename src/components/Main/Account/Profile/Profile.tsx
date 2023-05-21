@@ -16,7 +16,7 @@ function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
       onSubmit={handleSubmit}
       noValidate
     >
-      <fieldset className="profileform__fieldset profileform__fieldset_type_name">
+      <fieldset className="profileform__fieldset">
         <label htmlFor="profilename" className="profileform__field">
           Имя
         </label>
@@ -29,6 +29,46 @@ function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
           minLength={2}
           maxLength={30}
           value={values["profilename"] || "ИмяПользователя" || ""}
+          onChange={onInputChange}
+          // readOnly={!isEditProfile}
+          // disabled={isLoading || !isEditProfile}
+          formNoValidate
+        />
+        <span className="profileform__input_focus"></span>
+      </fieldset>
+      <fieldset className="profileform__fieldset profileform__fieldset_type_surname">
+        <label htmlFor="profilesurname" className="profileform__field">
+          Фамилия
+        </label>
+        <input
+          id="profilesurname"
+          type="text"
+          className="profileform__input"
+          name="profilesurname"
+          required
+          minLength={2}
+          maxLength={30}
+          value={values["profilesurname"] || "Фамилия пользователя" || ""}
+          onChange={onInputChange}
+          // readOnly={!isEditProfile}
+          // disabled={isLoading || !isEditProfile}
+          formNoValidate
+        />
+        <span className="profileform__input_focus"></span>
+      </fieldset>
+      <fieldset className="profileform__fieldset profileform__fieldset_type_tel">
+        <label htmlFor="profiletel" className="profileform__field">
+          Телефон
+        </label>
+        <input
+          id="profiletel"
+          type="text"
+          className="profileform__input"
+          name="profiletel"
+          required
+          minLength={2}
+          maxLength={30}
+          value={values["profiletel"] || "ТелефонПользователя" || ""}
           onChange={onInputChange}
           // readOnly={!isEditProfile}
           // disabled={isLoading || !isEditProfile}
@@ -50,8 +90,8 @@ function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
           maxLength={30}
           value={
             values["profileemail"] ||
+            "emailПользователя"
             // || currentUser.email
-            ""
           }
           onChange={onInputChange}
           // readOnly={!isEditProfile}

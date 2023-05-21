@@ -9,6 +9,8 @@ import Profile from "./Profile/Profile";
 
 export interface IValuesForm {
   profilename?: string;
+  profilesurname?:string;
+  profiletel?:string;
   profileemail?: string;
 }
 
