@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../../../utils/hooks";
+import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import { selectAllInOrder } from "../../../services/reducers/productsSlice";
 import { useEffect, useState } from "react";
 import { product1 } from "../../../utils/constants";
 import { useFormWithValidation } from "../../../utils/formValidator";
 import Order from "./Order/Order";
 import Profile from "./Profile/Profile";
+import { signout } from "../../../services/reducers/authSlice";
 
 export interface IValuesForm {
   profilename?: string;
@@ -25,6 +26,7 @@ interface IValidationForm {
 }
 
 function Account() {
+  const dispatch = useAppDispatch();
   const [totalPrice, setTotalPrice] = useState(0);
   const orderProducts = useAppSelector(selectAllInOrder);
   const [isOrderShown, setIsOrderShown] = useState(true);
@@ -140,11 +142,15 @@ function Account() {
     setIsProfileShown(true);
   }
 
+  function handleSignout() {
+    dispatch(signout({ loggedIn: false, userId: "1" }));
+  }
+
   return (
     <section className="account">
       <div className="account__menu">
         <div className="account__signout">
-          <Link className="account__signout-button" to="/">
+          <Link className="account__signout-button" to="/" onClick={handleSignout}>
             Выйти
           </Link>
         </div>

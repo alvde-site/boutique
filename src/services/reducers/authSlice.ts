@@ -28,6 +28,6 @@ const authSlice = createSlice({
 
 export const selectAllAuth = (state: RootState) => state.auth;
 
-export const { signin } = authSlice.actions;
+export const { signin, signout } = authSlice.actions;
 
 export default authSlice.reducer;
