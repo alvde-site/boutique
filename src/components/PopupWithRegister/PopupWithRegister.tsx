@@ -55,6 +55,7 @@ function PopupWithRegister() {
           name: values["regname"],
           surname: values["regsurname"] || "",
           email: values["regemail"],
+          tel: values["regtel"],
           password: values["regpassword"],
         })
       );

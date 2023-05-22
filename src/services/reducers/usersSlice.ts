@@ -5,6 +5,7 @@ interface IUser {
   id: string;
   name: string;
   surname: string;
+  tel: string;
   email: string;
   password: string;
 }
@@ -27,13 +28,14 @@ const usersSlice = createSlice({
       reducer(state, action: PayloadAction<IUser>) {
         state.users.push(action.payload);
       },
-      prepare({ name, surname, email, password }) {
+      prepare({ name, surname, tel, email, password }) {
         return {
           payload: {
             id: nanoid(),
             name,
             surname,
             email,
+            tel,
             password,
           },
         };

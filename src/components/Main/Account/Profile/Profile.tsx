@@ -1,5 +1,8 @@
 import { FormEvent, ChangeEventHandler } from "react";
 import { IValuesForm } from "../Account";
+import { useAppSelector } from "../../../../utils/hooks";
+import { selectAllAuth } from "../../../../services/reducers/authSlice";
+import { selectAllUsers } from "../../../../services/reducers/usersSlice";
 
 interface IProfileProps {
   handleSubmit: (e: FormEvent<Element>) => void;
@@ -8,6 +11,9 @@ interface IProfileProps {
 }
 
 function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
+  const auth = useAppSelector(selectAllAuth);
+  const users = useAppSelector(selectAllUsers);
+  const currentUser = users.find((u) => u.id === auth.userId);
   return (
     <form
       action="#"
@@ -28,7 +34,7 @@ function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
           required
           minLength={2}
           maxLength={30}
-          value={values["profilename"] || "ИмяПользователя" || ""}
+          value={values["profilename"] || currentUser?.name || ""}
           onChange={onInputChange}
           // readOnly={!isEditProfile}
           // disabled={isLoading || !isEditProfile}
@@ -48,7 +54,7 @@ function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
           required
           minLength={2}
           maxLength={30}
-          value={values["profilesurname"] || "Фамилия пользователя" || ""}
+          value={values["profilesurname"] || currentUser?.surname || ""}
           onChange={onInputChange}
           // readOnly={!isEditProfile}
           // disabled={isLoading || !isEditProfile}
@@ -68,7 +74,7 @@ function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
           required
           minLength={2}
           maxLength={30}
-          value={values["profiletel"] || "ТелефонПользователя" || ""}
+          value={values["profiletel"] || currentUser?.tel || ""}
           onChange={onInputChange}
           // readOnly={!isEditProfile}
           // disabled={isLoading || !isEditProfile}
@@ -89,9 +95,7 @@ function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
           minLength={2}
           maxLength={30}
           value={
-            values["profileemail"] ||
-            "emailПользователя"
-            // || currentUser.email
+            values["profileemail"] || currentUser?.email || ""
           }
           onChange={onInputChange}
           // readOnly={!isEditProfile}

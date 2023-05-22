@@ -8,26 +8,31 @@ import {
   REGISTER_POPUP,
 } from "../../utils/constants";
 import { IFormWithValidation, IValues } from "../../utils/interfaces";
-import { useAppDispatch } from "../../utils/hooks";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { signin } from "../../services/reducers/authSlice";
 import {
   closeAllPopups,
   handlePopupState,
 } from "../../services/reducers/popupsSlice";
+import { selectAllUsers } from "../../services/reducers/usersSlice";
 
 function PopupWithAuth() {
   const dispatch = useAppDispatch();
   const [hasErrors, setHasErrors] = useState({} as IValues);
   const { values, handleChange, errors, resetForm }: IFormWithValidation =
     useFormWithValidation();
+  const users = useAppSelector(selectAllUsers);
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setHasErrors(errors);
     if (!errors["authemail"] && !errors["authpassword"]) {
-      if (
-        values["authemail"] !== "admin@mail.ru" ||
-        values["authpassword"] !== "1234"
-      ) {
+      const user = users.find(
+        (u) =>
+          u.email === values["authemail"] &&
+          u.password === values["authpassword"]
+      );
+      console.log(user);
+      if (!user) {
         setHasErrors({
           ...errors,
           authemail: AUTH_ERROR,
@@ -38,7 +43,7 @@ function PopupWithAuth() {
         dispatch(closeAllPopups());
         resetForm();
         setHasErrors({});
-        dispatch(signin({ loggedIn: true, userId: "1" }));
+        dispatch(signin({ loggedIn: true, userId: user.id }));
       }
     }
   }
