@@ -5,6 +5,7 @@ import { useState } from "react";
 import {
   ALERT_POPUP,
   CONFIRM_PASSWORD_ERROR,
+  EXIST_USER,
   REGISTER_POPUP,
   REGISTRATION,
   REQUIRED_FIELD,
@@ -13,10 +14,12 @@ import {
   closeAllPopups,
   handlePopupState,
 } from "../../services/reducers/popupsSlice";
-import { createUser } from "../../services/reducers/usersSlice";
-import { useAppDispatch } from "../../utils/hooks";
+import { createUser, selectAllUsers } from "../../services/reducers/usersSlice";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import { signin } from "../../services/reducers/authSlice";
 function PopupWithRegister() {
   const dispatch = useAppDispatch();
+  const users = useAppSelector(selectAllUsers);
   const [hasErrors, setHasErrors] = useState({} as IValues);
   const { values, handleChange, errors, resetForm }: IFormWithValidation =
     useFormWithValidation();
@@ -42,14 +45,15 @@ function PopupWithRegister() {
         !errors["regreppassword"]
     );
 
+    const existUser = users.find((u) => u.email === values["regemail"]);
+
     const canSumbit = Boolean(
-      noErrors && isFilledRequiredFields && isPasswordsMatched
+      noErrors && isFilledRequiredFields && isPasswordsMatched && !existUser
     );
 
     if (canSumbit) {
       dispatch(closeAllPopups());
       dispatch(handlePopupState({ popupName: ALERT_POPUP, popupState: true }));
-
       dispatch(
         createUser({
           name: values["regname"],
@@ -59,10 +63,18 @@ function PopupWithRegister() {
           password: values["regpassword"],
         })
       );
-
+      dispatch(signin({ userEmail: values["regemail"] }));
       resetForm();
       setHasErrors({});
     } else {
+      if (existUser) {
+        setHasErrors({
+          ...errors,
+          regemail: EXIST_USER,
+          title: EXIST_USER,
+        });
+      }
+
       if (!isPasswordsMatched) {
         setHasErrors({
           ...errors,

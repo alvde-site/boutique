@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 /* reducers */
 export interface IInitialAuth {
   loggedIn: boolean;
-  userId: null | string;
+  userEmail: null | string;
 }
 
 export interface IPopupState {

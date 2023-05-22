@@ -143,7 +143,7 @@ function Account() {
   }
 
   function handleSignout() {
-    dispatch(signout({ loggedIn: false, userId: "1" }));
+    dispatch(signout());
   }
 
   return (

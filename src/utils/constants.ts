@@ -37,6 +37,7 @@ export { product1, product2, product3, product4 };
 export const AUTH_ERROR = "Неверный логин или пароль";
 export const REQUIRED_FIELD = "Заполните обязательные поля";
 export const CONFIRM_PASSWORD_ERROR = "Пароли не совпадают";
+export const EXIST_USER = "Пользователь с таким email уже существует";
 
 /* Form text */
 export const NEED_REGISTRATION =

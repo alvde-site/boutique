@@ -6,7 +6,7 @@ import { IInitialAuth } from "../../utils/interfaces";
 
 const initialState: IInitialAuth = {
   loggedIn: false,
-  userId: null,
+  userEmail: null,
 };
 
 const authSlice = createSlice({
@@ -14,14 +14,13 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     signin(state, action) {
-      const { loggedIn, userId } = action.payload;
-      state.loggedIn = loggedIn;
-      state.userId = userId;
+      const { userEmail } = action.payload;
+      state.loggedIn = true;
+      state.userEmail = userEmail;
     },
-    signout(state, action) {
-      const { loggedIn, userId } = action.payload;
-      state.loggedIn = loggedIn;
-      state.userId = userId;
+    signout(state) {
+      state.loggedIn = false;
+      state.userEmail = null;
     },
   },
 });

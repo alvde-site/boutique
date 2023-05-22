@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { closeAllPopups } from "../../services/reducers/popupsSlice";
 import { ALERT_POPUP } from "../../utils/constants";
 import { useAppDispatch } from "../../utils/hooks";
@@ -5,9 +6,12 @@ import PopupWithForm from "../PopupWithForm/PopupWithForm";
 
 function PopupWithAlert() {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+
     dispatch(closeAllPopups());
+    navigate("/account");
   }
 
   return (

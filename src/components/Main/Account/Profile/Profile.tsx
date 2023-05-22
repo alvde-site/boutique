@@ -13,7 +13,7 @@ interface IProfileProps {
 function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
   const auth = useAppSelector(selectAllAuth);
   const users = useAppSelector(selectAllUsers);
-  const currentUser = users.find((u) => u.id === auth.userId);
+  const currentUser = users.find((u) => u.email === auth.userEmail);
   return (
     <form
       action="#"

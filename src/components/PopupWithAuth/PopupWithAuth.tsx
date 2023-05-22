@@ -31,7 +31,6 @@ function PopupWithAuth() {
           u.email === values["authemail"] &&
           u.password === values["authpassword"]
       );
-      console.log(user);
       if (!user) {
         setHasErrors({
           ...errors,
@@ -43,7 +42,7 @@ function PopupWithAuth() {
         dispatch(closeAllPopups());
         resetForm();
         setHasErrors({});
-        dispatch(signin({ loggedIn: true, userId: user.id }));
+        dispatch(signin({ userEmail: user.email }));
       }
     }
   }
