@@ -27,13 +27,12 @@ function Profile({ values, onInputChange }: IProfileProps) {
 
   function handleEditButton() {
     setCanEditProfile(true);
+    setIsSuccessSubmit(false);
   }
 
   function handleSubmit(e: React.FormEvent) {
-    console.log("pltck");
     e.preventDefault();
-    console.log(e);
-    let id = `${currentUser?.id || ""}`;
+    let id = `${currentUser?.id}`;
     let name = `${values["profilename"] || currentUser?.name}`;
     let surname = `${values["profilesurname"] || currentUser?.surname}`;
     let tel = `${values["profiletel"] || currentUser?.tel}`;
@@ -41,6 +40,7 @@ function Profile({ values, onInputChange }: IProfileProps) {
     dispatch(updatedUser({ id, name, surname, tel, email }));
     setCanEditProfile(false);
     setIsSuccessSubmit(true);
+    console.log(id, name, surname, tel, email)
   }
   return (
     <form
@@ -142,7 +142,7 @@ function Profile({ values, onInputChange }: IProfileProps) {
           onChange={onInputChange}
           readOnly={!canEditProfile}
           disabled={!canEditProfile}
-          pattern="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}"
+          pattern="[A-Z0-9a-z._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,6}"
           formNoValidate
         />
         <span className="profileform__input_focus"></span>
