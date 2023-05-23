@@ -7,7 +7,7 @@ interface IUser {
   surname: string;
   tel: string;
   email: string;
-  password: string;
+  password?: string;
 }
 
 interface IUsersState {
@@ -41,11 +41,21 @@ const usersSlice = createSlice({
         };
       },
     },
+    updatedUser(state, action: PayloadAction<IUser>) {
+      const { id, name, surname, tel, email } = action.payload;
+      const existingUser = state.users.find((user) => user.id === id);
+      if (existingUser) {
+        existingUser.name = name;
+        existingUser.surname = surname;
+        existingUser.tel = tel;
+        existingUser.email = email;
+      }
+    },
   },
 });
 
 export const selectAllUsers = (state: RootState) => state.users.users;
 
-export const { createUser } = usersSlice.actions;
+export const { createUser, updatedUser } = usersSlice.actions;
 
 export default usersSlice.reducer;

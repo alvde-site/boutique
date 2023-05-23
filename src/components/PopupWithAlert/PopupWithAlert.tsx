@@ -9,7 +9,6 @@ function PopupWithAlert() {
   const navigate = useNavigate();
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-
     dispatch(closeAllPopups());
     navigate("/account");
   }

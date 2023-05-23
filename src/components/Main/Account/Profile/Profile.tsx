@@ -1,19 +1,47 @@
-import { FormEvent, ChangeEventHandler } from "react";
+import { ChangeEventHandler, useState, useEffect } from "react";
 import { IValuesForm } from "../Account";
-import { useAppSelector } from "../../../../utils/hooks";
+import { useAppDispatch, useAppSelector } from "../../../../utils/hooks";
 import { selectAllAuth } from "../../../../services/reducers/authSlice";
 import { selectAllUsers } from "../../../../services/reducers/usersSlice";
+import { updatedUser } from "../../../../services/reducers/usersSlice";
 
 interface IProfileProps {
-  handleSubmit: (e: FormEvent<Element>) => void;
   values: IValuesForm;
   onInputChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
+function Profile({ values, onInputChange }: IProfileProps) {
+  const dispatch = useAppDispatch();
   const auth = useAppSelector(selectAllAuth);
   const users = useAppSelector(selectAllUsers);
   const currentUser = users.find((u) => u.email === auth.userEmail);
+  const [canEditProfile, setCanEditProfile] = useState(false);
+  const [isSuccessSubmit, setIsSuccessSubmit] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsSuccessSubmit(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [setIsSuccessSubmit]);
+
+  function handleEditButton() {
+    setCanEditProfile(true);
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    console.log("pltck");
+    e.preventDefault();
+    console.log(e);
+    let id = `${currentUser?.id || ""}`;
+    let name = `${values["profilename"] || currentUser?.name}`;
+    let surname = `${values["profilesurname"] || currentUser?.surname}`;
+    let tel = `${values["profiletel"] || currentUser?.tel}`;
+    let email = `${values["profileemail"] || currentUser?.email}`;
+    dispatch(updatedUser({ id, name, surname, tel, email }));
+    setCanEditProfile(false);
+    setIsSuccessSubmit(true);
+  }
   return (
     <form
       action="#"
@@ -22,7 +50,11 @@ function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
       onSubmit={handleSubmit}
       noValidate
     >
-      <fieldset className="profileform__fieldset">
+      <fieldset
+        className={`profileform__fieldset ${
+          canEditProfile ? "profileform__fieldset_editable" : ""
+        }`}
+      >
         <label htmlFor="profilename" className="profileform__field">
           Имя
         </label>
@@ -36,13 +68,17 @@ function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
           maxLength={30}
           value={values["profilename"] || currentUser?.name || ""}
           onChange={onInputChange}
-          // readOnly={!isEditProfile}
-          // disabled={isLoading || !isEditProfile}
+          readOnly={!canEditProfile}
+          disabled={!canEditProfile}
           formNoValidate
         />
         <span className="profileform__input_focus"></span>
       </fieldset>
-      <fieldset className="profileform__fieldset profileform__fieldset_type_surname">
+      <fieldset
+        className={`profileform__fieldset profileform__fieldset_type_surname ${
+          canEditProfile ? "profileform__fieldset_editable" : ""
+        }`}
+      >
         <label htmlFor="profilesurname" className="profileform__field">
           Фамилия
         </label>
@@ -56,13 +92,17 @@ function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
           maxLength={30}
           value={values["profilesurname"] || currentUser?.surname || ""}
           onChange={onInputChange}
-          // readOnly={!isEditProfile}
-          // disabled={isLoading || !isEditProfile}
+          readOnly={!canEditProfile}
+          disabled={!canEditProfile}
           formNoValidate
         />
         <span className="profileform__input_focus"></span>
       </fieldset>
-      <fieldset className="profileform__fieldset profileform__fieldset_type_tel">
+      <fieldset
+        className={`profileform__fieldset profileform__fieldset_type_tel ${
+          canEditProfile ? "profileform__fieldset_editable" : ""
+        }`}
+      >
         <label htmlFor="profiletel" className="profileform__field">
           Телефон
         </label>
@@ -76,13 +116,17 @@ function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
           maxLength={30}
           value={values["profiletel"] || currentUser?.tel || ""}
           onChange={onInputChange}
-          // readOnly={!isEditProfile}
-          // disabled={isLoading || !isEditProfile}
+          readOnly={!canEditProfile}
+          disabled={!canEditProfile}
           formNoValidate
         />
         <span className="profileform__input_focus"></span>
       </fieldset>
-      <fieldset className="profileform__fieldset">
+      <fieldset
+        className={`profileform__fieldset ${
+          canEditProfile ? "profileform__fieldset_editable" : ""
+        }`}
+      >
         <label htmlFor="profileemail" className="profileform__field">
           E-mail
         </label>
@@ -94,12 +138,10 @@ function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
           required
           minLength={2}
           maxLength={30}
-          value={
-            values["profileemail"] || currentUser?.email || ""
-          }
+          value={values["profileemail"] || currentUser?.email || ""}
           onChange={onInputChange}
-          // readOnly={!isEditProfile}
-          // disabled={isLoading || !isEditProfile}
+          readOnly={!canEditProfile}
+          disabled={!canEditProfile}
           pattern="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}"
           formNoValidate
         />
@@ -108,50 +150,32 @@ function Profile({ handleSubmit, values, onInputChange }: IProfileProps) {
       <fieldset className="profileform__submit-fieldset">
         <span
           id="success-submitprofile"
-          // className={`profileform__submit-success ${
-          // submitSuccess && "profileform__submit-success_active"
-          // }`}
+          className={`profileform__submit-success ${
+            isSuccessSubmit && "profileform__submit-success_active"
+          }`}
         >
           Успешно!
         </span>
-        <span
-          id="error-submitprofile"
-          // className={`profileform__submit-error ${
-          //   submitError && "profileform__submit-error_active"
-          // }`}
-        >
-          {/* {submitError} */}
-        </span>
         <button
-          // className={`profileform__submit ${
-          //   isEditProfile &&
-          //   `profileform__submit_active ${
-          //     !isValid && "profileform__submit_disable"
-          //   }`
-          // }`}
+          className={`profileform__submit ${
+            canEditProfile &&
+            `profileform__submit_active ${
+              !canEditProfile && "profileform__submit_disable"
+            }`
+          }`}
           type="submit"
-          // disabled={!isValid ? true : isLoading ? true : false}
+          disabled={!canEditProfile}
         >
-          {/* {!isLoading ? "Сохранить" : "Сохранение..."} */}
+          Сохранить
         </button>
         <button
-          // className={`profileform__edit ${
-          //   isEditProfile && "profileform__edit_disabled"
-          // }`}
+          className={`profileform__edit ${
+            canEditProfile && "profileform__edit_disabled"
+          }`}
           type="button"
-          // onClick={handleEditButton}
+          onClick={handleEditButton}
         >
           Редактировать
-        </button>
-        <button
-          // className={`profileform__logout ${
-          //   isEditProfile && "profileform__logout_disabled"
-          // }`}
-          // onClick={handleSignout}
-          type="button"
-          // disabled={isLoading}
-        >
-          {/* {!isLoading ? "Выйти из аккаунта" : "Выходим..."} */}
         </button>
       </fieldset>
     </form>

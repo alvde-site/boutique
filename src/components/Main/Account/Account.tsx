@@ -10,8 +10,8 @@ import { signout } from "../../../services/reducers/authSlice";
 
 export interface IValuesForm {
   profilename?: string;
-  profilesurname?:string;
-  profiletel?:string;
+  profilesurname?: string;
+  profiletel?: string;
   profileemail?: string;
 }
 
@@ -107,17 +107,6 @@ function Account() {
     }
   }
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    console.log(e);
-    // let name = `${values["profilename"] || currentUser.name}`;
-    // let email = `${values["profileemail"] || currentUser.email}`;
-    // onEditProfile({
-    //   name,
-    //   email,
-    // });
-  }
-
   function handleSameValue(e: React.ChangeEvent<HTMLInputElement>) {
     if (
       e
@@ -150,7 +139,11 @@ function Account() {
     <section className="account">
       <div className="account__menu">
         <div className="account__signout">
-          <Link className="account__signout-button" to="/" onClick={handleSignout}>
+          <Link
+            className="account__signout-button"
+            to="/"
+            onClick={handleSignout}
+          >
             Выйти
           </Link>
         </div>
@@ -186,11 +179,7 @@ function Account() {
             isProfileShown ? "account__profile_displayed" : ""
           }`}
         >
-          <Profile
-            handleSubmit={handleSubmit}
-            values={values}
-            onInputChange={handleInputChange}
-          />
+          <Profile values={values} onInputChange={handleInputChange} />
         </div>
       </div>
     </section>
