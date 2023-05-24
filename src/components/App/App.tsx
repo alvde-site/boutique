@@ -16,8 +16,11 @@ import About from "../Main/About/About";
 import PopupWithBasketPage from "../PopupWithBasketPage/PopupWithBasketPage";
 import PopupWithFavouritePage from "../PopupWithFavouritePage/PopupWithFavouritePage";
 import Account from "../Main/Account/Account";
+import { ICurrentUser } from "../../utils/interfaces";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function App() {
+  const [currentUser, setCurrentUser] = useState<ICurrentUser>({ email: "" });
   const navigate = useNavigate();
 
   const [isFirstVisitForStormkitServer, setIsFirstVisitForStormkitServer] =
@@ -31,28 +34,30 @@ function App() {
   }, [navigate, isFirstVisitForStormkitServer]);
 
   return (
-    <div className="page">
-      <Header />
-      <main className="main">
-        <Routes>
-          <Route path="/" element={<Main />}></Route>
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/conditions" element={<Conditions />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/press" element={<Press />} />
-          <Route path="/dealer" element={<Dealer />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </main>
-      <Footer />
-      <PopupWithAuth />
-      <PopupWithRegister />
-      <PopupWithAlert />
-      <PopupWithBasketPage />
-      <PopupWithFavouritePage />
-    </div>
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className="page">
+        <Header />
+        <main className="main">
+          <Routes>
+            <Route path="/" element={<Main />}></Route>
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/conditions" element={<Conditions />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/press" element={<Press />} />
+            <Route path="/dealer" element={<Dealer />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </main>
+        <Footer />
+        <PopupWithAuth />
+        <PopupWithRegister setCurrentUser={setCurrentUser}/>
+        <PopupWithAlert />
+        <PopupWithBasketPage />
+        <PopupWithFavouritePage />
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 

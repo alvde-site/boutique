@@ -42,7 +42,7 @@ function PopupWithAuth() {
         dispatch(closeAllPopups());
         resetForm();
         setHasErrors({});
-        dispatch(signin({ userEmail: user.email }));
+        dispatch(signin({ userId: user.id }));
       }
     }
   }

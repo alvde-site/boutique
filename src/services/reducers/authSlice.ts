@@ -2,11 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { IInitialAuth } from "../../utils/interfaces";
 
-
-
 const initialState: IInitialAuth = {
   loggedIn: false,
-  userEmail: null,
+  userId: null,
 };
 
 const authSlice = createSlice({
@@ -14,13 +12,13 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     signin(state, action) {
-      const { userEmail } = action.payload;
+      const { userId } = action.payload;
       state.loggedIn = true;
-      state.userEmail = userEmail;
+      state.userId = userId;
     },
     signout(state) {
       state.loggedIn = false;
-      state.userEmail = null;
+      state.userId = null;
     },
   },
 });

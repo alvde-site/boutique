@@ -2,7 +2,11 @@ import { ReactNode } from "react";
 /* reducers */
 export interface IInitialAuth {
   loggedIn: boolean;
-  userEmail: null | string;
+  userId: null | string;
+}
+
+export interface ICurrentUser {
+  email: string | undefined;
 }
 
 export interface IPopupState {
@@ -115,6 +119,10 @@ export interface IFavouriteProps {
   addToBasket: (id: string) => void;
   removeFromBasket: (id: string) => void;
   basketProducts: IProductsState[];
+}
+
+export interface IPopupRegisterProps {
+  setCurrentUser: React.Dispatch<React.SetStateAction<ICurrentUser>>;
 }
 /* Валидация формы */
 

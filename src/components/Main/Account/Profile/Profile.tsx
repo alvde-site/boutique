@@ -14,7 +14,7 @@ function Profile({ values, onInputChange }: IProfileProps) {
   const dispatch = useAppDispatch();
   const auth = useAppSelector(selectAllAuth);
   const users = useAppSelector(selectAllUsers);
-  const currentUser = users.find((u) => u.email === auth.userEmail);
+  const currentUser = users.find((u) => u.id === auth.userId);
   const [canEditProfile, setCanEditProfile] = useState(false);
   const [isSuccessSubmit, setIsSuccessSubmit] = useState(false);
 
@@ -23,7 +23,7 @@ function Profile({ values, onInputChange }: IProfileProps) {
       setIsSuccessSubmit(false);
     }, 5000);
     return () => clearTimeout(timer);
-  }, [setIsSuccessSubmit]);
+  }, [isSuccessSubmit]);
 
   function handleEditButton() {
     setCanEditProfile(true);
@@ -40,7 +40,7 @@ function Profile({ values, onInputChange }: IProfileProps) {
     dispatch(updatedUser({ id, name, surname, tel, email }));
     setCanEditProfile(false);
     setIsSuccessSubmit(true);
-    console.log(id, name, surname, tel, email)
+    console.log(id, name, surname, tel, email);
   }
   return (
     <form

@@ -1,6 +1,10 @@
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useFormWithValidation } from "../../utils/formValidator";
-import { IFormWithValidation, IValues } from "../../utils/interfaces";
+import {
+  IFormWithValidation,
+  IPopupRegisterProps,
+  IValues,
+} from "../../utils/interfaces";
 import { useState } from "react";
 import {
   ALERT_POPUP,
@@ -16,8 +20,7 @@ import {
 } from "../../services/reducers/popupsSlice";
 import { createUser, selectAllUsers } from "../../services/reducers/usersSlice";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import { signin } from "../../services/reducers/authSlice";
-function PopupWithRegister() {
+function PopupWithRegister({ setCurrentUser }: IPopupRegisterProps) {
   const dispatch = useAppDispatch();
   const users = useAppSelector(selectAllUsers);
   const [hasErrors, setHasErrors] = useState({} as IValues);
@@ -63,7 +66,7 @@ function PopupWithRegister() {
           password: values["regpassword"],
         })
       );
-      dispatch(signin({ userEmail: values["regemail"] }));
+      setCurrentUser({ email: values["regemail"] });
       resetForm();
       setHasErrors({});
     } else {
