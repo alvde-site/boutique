@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Contacts from "../Main/Contacts/Contacts";
 import Conditions from "../Main/Conditions/Conditions";
 import Privacy from "../Main/Privacy/Privacy";
@@ -18,20 +18,10 @@ import PopupWithFavouritePage from "../PopupWithFavouritePage/PopupWithFavourite
 import Account from "../Main/Account/Account";
 import { ICurrentUser } from "../../utils/interfaces";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import SectionSelection from "../Main/SectionSelection/SectionSelection";
 
 function App() {
   const [currentUser, setCurrentUser] = useState<ICurrentUser>({ email: "" });
-  const navigate = useNavigate();
-
-  const [isFirstVisitForStormkitServer, setIsFirstVisitForStormkitServer] =
-    useState(true);
-
-  useEffect(() => {
-    if (isFirstVisitForStormkitServer) {
-      setIsFirstVisitForStormkitServer(false);
-      navigate("/");
-    }
-  }, [navigate, isFirstVisitForStormkitServer]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -47,12 +37,14 @@ function App() {
             <Route path="/dealer" element={<Dealer />} />
             <Route path="/about" element={<About />} />
             <Route path="/account" element={<Account />} />
+            <Route path="/category/choose" element={<SectionSelection />} />
+            <Route path="/collection" element={<SectionSelection />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer />
         <PopupWithAuth />
-        <PopupWithRegister setCurrentUser={setCurrentUser}/>
+        <PopupWithRegister setCurrentUser={setCurrentUser} />
         <PopupWithAlert />
         <PopupWithBasketPage />
         <PopupWithFavouritePage />
