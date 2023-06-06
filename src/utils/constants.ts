@@ -10,6 +10,10 @@ import categoryFoto1 from "../images/category2.jpg";
 import categoryFoto2 from "../images/category3.jpg";
 import categoryFoto3 from "../images/category4.jpg";
 import categoryFoto4 from "../images/category5.jpg";
+import categoryFoto5 from "../images/category6.jpg";
+import categoryFoto6 from "../images/category7.jpg";
+import categoryFoto7 from "../images/category8.jpg";
+import categoryFoto8 from "../images/category9.jpg";
 /*Collection images*/
 import collectionFoto1 from "../images/collection1.jpg";
 import collectionFoto2 from "../images/collection2.jpg";
@@ -75,15 +79,20 @@ export const showcase = {
 /* Category */
 export const CATEGORY_TITLE_TEXT = "Категории";
 export const CATEGORY_BUTTON_TEXT = "Все категории";
-export const categoryDesctiption = {
-  src: categoryDescriptionFoto,
-};
+export const CATEGORY_PATH="/category";
 export const categoryFotos = [
-  { src: categoryFoto1, title: "sale" },
+  { src: categoryDescriptionFoto, title: "sale" },
+  { src: categoryFoto1, title: "Жакеты" },
   { src: categoryFoto2, title: "Юбки" },
   { src: categoryFoto3, title: "Свадебные платья" },
   { src: categoryFoto4, title: "блузки" },
+  { src: categoryFoto5, title: "Костюмы" },
+  { src: categoryFoto6, title: "Свитеры" },
+  { src: categoryFoto7, title: "Верхняя одежда" },
+  { src: categoryFoto8, title: "Футболки" },
 ];
+
+export const categoryPath = ["Главная", "Категории"];
 
 /*Collection */
 export const COLLECTION_TITLE_TEXT = "Коллекции";

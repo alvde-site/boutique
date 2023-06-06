@@ -1,69 +1,22 @@
-import testImg from "../../../images/product1.jpg";
+import Paths from "../Paths/Paths";
+import { categoryPath } from "../../../utils/constants";
+import { categoryFotos } from "../../../utils/constants";
 
 function SectionSelection() {
   return (
-    <section className="partition">
-      <ul className="partition__paths">
-        <li className="partition__path">Главная</li>
-      </ul>
-      <ul className="partition__links">
-        <li className="partition__link">Категории</li>
-      </ul>
-      <div className="partition__content">
-        <div className="partition__card">
-          <a className="partition__link" href="!#">
-            <img className="partition__img" src={testImg} alt=""></img>
-          </a>
-          <h3 className="partition__title">SALE</h3>
-        </div>
-        <div className="partition__card">
-          <a className="partition__link" href="!#">
-            <img className="partition__img" src={testImg} alt=""></img>
-          </a>
-          <h3 className="partition__title">SALE</h3>
-        </div>
-        <div className="partition__card">
-          <a className="partition__link" href="!#">
-            <img className="partition__img" src={testImg} alt=""></img>
-          </a>
-          <h3 className="partition__title">SALE</h3>
-        </div>
-        <div className="partition__card">
-          <a className="partition__link" href="!#">
-            <img className="partition__img" src={testImg} alt=""></img>
-          </a>
-          <h3 className="partition__title">SALE</h3>
-        </div>
-        <div className="partition__card">
-          <a className="partition__link" href="!#">
-            <img className="partition__img" src={testImg} alt=""></img>
-          </a>
-          <h3 className="partition__title">SALE</h3>
-        </div>
-        <div className="partition__card">
-          <a className="partition__link" href="!#">
-            <img className="partition__img" src={testImg} alt=""></img>
-          </a>
-          <h3 className="partition__title">SALE</h3>
-        </div>
-        <div className="partition__card">
-          <a className="partition__link" href="!#">
-            <img className="partition__img" src={testImg} alt=""></img>
-          </a>
-          <h3 className="partition__title">SALE</h3>
-        </div>
-        <div className="partition__card">
-          <a className="partition__link" href="!#">
-            <img className="partition__img" src={testImg} alt=""></img>
-          </a>
-          <h3 className="partition__title">SALE</h3>
-        </div>
-        <div className="partition__card">
-          <a className="partition__link" href="!#">
-            <img className="partition__img" src={testImg} alt=""></img>
-          </a>
-          <h3 className="partition__title">SALE</h3>
-        </div>
+    <section className="content">
+      <div className="partition">
+        <Paths path={categoryPath} />
+        <ul className="partition__content">
+          {categoryFotos.map((f, i) => (
+            <li className="partition__card" key={i}>
+              <a className="partition__link" href="!#">
+                <img className="partition__img" src={f.src} alt={f.title}></img>
+              </a>
+              <h3 className="partition__title">{f.title}</h3>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

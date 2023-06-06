@@ -1,21 +1,34 @@
 import { useNavigate } from "react-router-dom";
-import { ContentCategoryProps } from "../../../utils/interfaces";
+import { IContentProps } from "../../../utils/interfaces";
 
-function Content({ children, titleText, buttonText }: ContentCategoryProps) {
+function Content({
+  children,
+  titleText,
+  buttonText,
+  navigatePath,
+}: IContentProps) {
   const navigate = useNavigate();
   function handleClick() {
-    navigate("/");
+    navigatePath ? navigate(navigatePath) : navigate("/");
   }
   return (
     <section className="content">
       <div className="content__menu">
-        <h2 className="content__title">{titleText}</h2>
-        <button onClick={handleClick} className="content__button content__button_position_top">
+        <h2 className="content__title" onClick={handleClick}>
+          {titleText}
+        </h2>
+        <button
+          onClick={handleClick}
+          className="content__button content__button_position_top"
+        >
           {buttonText}
         </button>
       </div>
       {children}
-      <button onClick={handleClick} className="content__button content__button_position_bottom">
+      <button
+        onClick={handleClick}
+        className="content__button content__button_position_bottom"
+      >
         {buttonText}
       </button>
     </section>

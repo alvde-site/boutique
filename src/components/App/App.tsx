@@ -37,7 +37,7 @@ function App() {
             <Route path="/dealer" element={<Dealer />} />
             <Route path="/about" element={<About />} />
             <Route path="/account" element={<Account />} />
-            <Route path="/category/choose" element={<SectionSelection />} />
+            <Route path="/category" element={<SectionSelection />} />
             <Route path="/collection" element={<SectionSelection />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

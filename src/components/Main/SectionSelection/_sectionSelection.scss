@@ -1,0 +1,39 @@
+.partition {
+  padding: 60px 90px 0;
+}
+
+.partition__paths {
+  margin: 0 0 30px;
+}
+
+.partition__content {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 280px));
+  gap: 20px;
+  justify-content: center;
+}
+
+.partition__link {
+  display: block;
+  text-decoration: none;
+  height: 80%;
+}
+
+.partition__title {
+  @include usual-text("Inter");
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.partition__img {
+  @include image-setting;
+}
+
+@media (max-width: 992px) {
+  .partition {
+    padding: 0;
+  }
+}

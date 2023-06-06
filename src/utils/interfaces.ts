@@ -53,10 +53,11 @@ export interface IPromoProps {
   promoTitles: IPromoTitles;
 }
 
-export interface ContentCategoryProps {
+export interface IContentProps {
   children: ReactNode;
   titleText: string;
   buttonText: string;
+  navigatePath?: string;
 }
 
 export interface IOpenModifierProps extends IModifier, IShowcaseProps {}
