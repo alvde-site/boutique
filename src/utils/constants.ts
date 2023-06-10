@@ -98,6 +98,7 @@ export const categoryPath = ["Главная", "Категории"];
 /*Collection */
 export const COLLECTION_TITLE_TEXT = "Коллекции";
 export const COLLECTION_BUTTON_TEXT = "Все коллекции";
+export const COLLECTION_PATH = "/collection";
 export const collectionFotos = [
   {
     src: collectionFoto1,

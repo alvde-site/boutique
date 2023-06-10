@@ -3,6 +3,7 @@ import Content from "../Content/Content";
 import {
   COLLECTION_BUTTON_TEXT,
   COLLECTION_TITLE_TEXT,
+  COLLECTION_PATH,
 } from "../../../utils/constants";
 
 function Collection() {
@@ -10,9 +11,10 @@ function Collection() {
     <Content
       titleText={COLLECTION_TITLE_TEXT}
       buttonText={COLLECTION_BUTTON_TEXT}
+      navigatePath={COLLECTION_PATH}
     >
       <div className="collection">
-        {collectionFotos.map((collection, index) => (
+        {collectionFotos.slice(0, 3).map((collection, index) => (
           <article className="collection_item" key={index}>
             <figure className="collection__figure">
               <img

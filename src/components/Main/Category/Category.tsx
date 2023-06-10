@@ -3,12 +3,16 @@ import Content from "../Content/Content";
 import {
   CATEGORY_BUTTON_TEXT,
   CATEGORY_TITLE_TEXT,
-  CATEGORY_PATH
+  CATEGORY_PATH,
 } from "../../../utils/constants";
 
 function Category() {
   return (
-    <Content titleText={CATEGORY_TITLE_TEXT} buttonText={CATEGORY_BUTTON_TEXT} navigatePath={CATEGORY_PATH}>
+    <Content
+      titleText={CATEGORY_TITLE_TEXT}
+      buttonText={CATEGORY_BUTTON_TEXT}
+      navigatePath={CATEGORY_PATH}
+    >
       <div className="category">
         <div className="category__content">
           <div className="category__description">
