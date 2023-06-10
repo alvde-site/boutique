@@ -1,14 +1,12 @@
 import Paths from "../Paths/Paths";
-import { categoryPath } from "../../../utils/constants";
-import { categoryFotos } from "../../../utils/constants";
 
-function SectionSelection() {
+function SectionSelection({path, fotos}) {
   return (
     <section className="content">
       <div className="partition">
-        <Paths path={categoryPath} />
+        <Paths path={path} />
         <ul className="partition__content">
-          {categoryFotos.map((f, i) => (
+          {fotos.map((f, i) => (
             <li className="partition__card" key={i}>
               <a className="partition__link" href="!#">
                 <img className="partition__img" src={f.src} alt={f.title}></img>
