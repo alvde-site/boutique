@@ -37,7 +37,7 @@ function PopupWithForm(props: IPopupWithFormProps) {
         >
           <h2
             className={`form__title ${
-              props.hasErrors && "form__title_type_error"
+              props.hasErrors?"form__title_type_error":""
             }`}
           >
             {props.title}

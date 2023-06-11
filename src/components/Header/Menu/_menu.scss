@@ -36,8 +36,8 @@
   position: relative;
 }
 
-.menu__link_main {
-  display: none;
+.menu__item_small {
+  display: inline-block;
 }
 
 .menu__link_more::after {
@@ -57,7 +57,7 @@
     display: none;
   }
 
-  .menu__link_main {
-    display: inline-block;
+  .menu__item_small {
+    display: none;
   }
 }

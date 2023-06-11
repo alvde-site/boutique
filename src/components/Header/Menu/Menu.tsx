@@ -28,20 +28,20 @@ function Menu(props: IMenuProps) {
     <ul className={`menu ${props.modifier}`}>
       <li>
         <Link
+          onClick={handleClosePopup}
           to="/"
-          className="menu__link  menu__text menu__link_more"
+          className="menu__link menu__text"
+        >
+          Главная
+        </Link>
+      </li>
+      <li className="menu__item menu__item_small">
+        <Link
+          to=""
+          className="menu__link  menu__text"
           onClick={handleMenuState}
         >
           МАГАЗИН
-        </Link>
-      </li>
-      <li>
-        <Link
-          onClick={handleClosePopup}
-          to="/"
-          className="menu__link menu__text menu__link_main"
-        >
-          Главная
         </Link>
       </li>
       <li>
@@ -59,7 +59,7 @@ function Menu(props: IMenuProps) {
           to="/contacts"
           className="menu__link menu__text"
         >
-          Адреса магазинов и контакты
+          Контакты
         </Link>
       </li>
     </ul>
