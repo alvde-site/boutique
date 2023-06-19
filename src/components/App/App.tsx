@@ -19,10 +19,11 @@ import Account from "../Main/Account/Account";
 import { ICurrentUser } from "../../utils/interfaces";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import SectionSelection from "../Main/SectionSelection/SectionSelection";
-import { categoryPath } from "../../utils/constants";
+import { categoryCruise2022Path, categoryDressPath, categoryPath } from "../../utils/constants";
 import { categoryFotos } from "../../utils/constants";
 import { collectionPath } from "../../utils/constants";
 import { collectionFotos } from "../../utils/constants";
+import SectionChoose from "../Main/SectionChoose/SectionChoose";
 
 function App() {
   const [currentUser, setCurrentUser] = useState<ICurrentUser>({ email: "" });
@@ -43,6 +44,8 @@ function App() {
             <Route path="/account" element={<Account />} />
             <Route path="/category" element={<SectionSelection path={categoryPath} fotos={categoryFotos}/>} />
             <Route path="/collection" element={<SectionSelection path={collectionPath} fotos={collectionFotos}/>} />
+            <Route path="/category/dress" element={<SectionChoose path={categoryDressPath} fotos={categoryFotos}/>} />
+            <Route path="/category/cruise2022" element={<SectionChoose path={categoryCruise2022Path} fotos={categoryFotos}/>} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>

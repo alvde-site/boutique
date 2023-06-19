@@ -78,6 +78,26 @@ export interface IFormValidator {
   resetForm: () => void;
 }
 
+interface IPath {
+  path: string;
+  desc: string;
+}
+
+interface IFoto {
+  src: string;
+  title: string;
+}
+
+interface IPaths extends Array<IPath> {}
+interface IFotos extends Array<IFoto> {}
+
+interface ISection {
+  path: IPaths;
+  fotos: IFotos;
+}
+
+export interface ISectionChooseProps extends ISection {}
+
 /* Popups */
 
 export interface IValues {

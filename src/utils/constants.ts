@@ -93,7 +93,16 @@ export const categoryFotos = [
   { src: categoryFoto8, title: "Футболки" },
 ];
 
-export const categoryPath = ["Главная", "Категории"];
+export const categoryPath = [
+  { path: "/", desc: "Главная" },
+  { path: "/category", desc: "Категории" },
+];
+
+export const categoryDressPath = [
+  { path: "/", desc: "Главная" },
+  { path: "/category", desc: "Категории" },
+  { path: "/category/dress", desc: "Платья" },
+];
 
 /*Collection */
 export const COLLECTION_TITLE_TEXT = "Коллекции";
@@ -147,7 +156,16 @@ export const collectionFotos = [
   },
 ];
 
-export const collectionPath = ["Главная", "Коллекции"];
+export const collectionPath = [
+  { path: "/", desc: "Главная" },
+  { path: "/category", desc: "Коллекции" },
+];
+
+export const categoryCruise2022Path = [
+  { path: "/", desc: "Главная" },
+  { path: "/category", desc: "Категории" },
+  { path: "/category/cruise2022", desc: "Круиз2022" },
+];
 
 /* Companies */
 export const companiesLogo = [
