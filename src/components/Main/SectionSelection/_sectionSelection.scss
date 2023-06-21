@@ -16,10 +16,39 @@
   justify-content: center;
 }
 
+.partition__card:hover {
+  background-color: #f1f1f1;
+}
+
 .partition__link {
+  box-sizing: border-box;
   display: block;
   text-decoration: none;
   height: 80%;
+}
+
+.partition__link_add_border {
+  background-color: #f1f1f1;
+  padding: 38px;
+}
+
+.partition__info {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.partition__text {
+  margin: 0 0 8px;
+  @include usual-text("Inter");
+  text-transform: uppercase;
+}
+
+.partition__price {
+  margin: 0;
+  @include usual-text("Inter");
+  text-transform: uppercase;
 }
 
 .partition__title {

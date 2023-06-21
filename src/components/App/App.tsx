@@ -44,8 +44,8 @@ function App() {
             <Route path="/account" element={<Account />} />
             <Route path="/category" element={<SectionSelection path={categoryPath} fotos={categoryFotos}/>} />
             <Route path="/collection" element={<SectionSelection path={collectionPath} fotos={collectionFotos}/>} />
-            <Route path="/category/dress" element={<SectionChoose path={categoryDressPath} fotos={categoryFotos}/>} />
-            <Route path="/category/cruise2022" element={<SectionChoose path={categoryCruise2022Path} fotos={categoryFotos}/>} />
+            <Route path="/category/dress" element={<SectionChoose path={categoryDressPath}/>} />
+            <Route path="/category/cruise2022" element={<SectionChoose path={categoryCruise2022Path}/>} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>

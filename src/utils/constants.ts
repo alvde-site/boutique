@@ -36,8 +36,27 @@ import product1 from "../images/product1.jpg";
 import product2 from "../images/product2.jpg";
 import product3 from "../images/product3.jpg";
 import product4 from "../images/product4.jpg";
+import dress1 from "../images/dress1.jpg";
+import dress2 from "../images/dress2.jpg";
+import dress3 from "../images/dress3.jpg";
+import dress4 from "../images/dress4.jpg";
+import dress5 from "../images/dress5.jpg";
+import dress6 from "../images/dress6.jpg";
+import dress7 from "../images/dress7.jpg";
 
-export { product1, product2, product3, product4 };
+export {
+  product1,
+  product2,
+  product3,
+  product4,
+  dress1,
+  dress2,
+  dress3,
+  dress4,
+  dress5,
+  dress6,
+  dress7,
+};
 /* Errors */
 export const AUTH_ERROR = "Неверный логин или пароль";
 export const REQUIRED_FIELD = "Заполните обязательные поля";
@@ -102,6 +121,10 @@ export const categoryDressPath = [
   { path: "/", desc: "Главная" },
   { path: "/category", desc: "Категории" },
   { path: "/category/dress", desc: "Платья" },
+];
+
+export const dresses = [
+  
 ];
 
 /*Collection */

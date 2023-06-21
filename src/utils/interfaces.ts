@@ -27,6 +27,7 @@ export interface IProductsState {
   isInBasket: boolean;
   isInFavorite: boolean;
   isInOrder: boolean;
+  category: string;
 }
 
 /* header */
@@ -83,17 +84,10 @@ interface IPath {
   desc: string;
 }
 
-interface IFoto {
-  src: string;
-  title: string;
-}
-
 interface IPaths extends Array<IPath> {}
-interface IFotos extends Array<IFoto> {}
 
 interface ISection {
   path: IPaths;
-  fotos: IFotos;
 }
 
 export interface ISectionChooseProps extends ISection {}
@@ -130,6 +124,12 @@ export interface IPopupWithPageProps {
 export interface IProductProps {
   details: IProductsState;
   removeItem: (id: string) => void;
+  allProducts: IProductsState[];
+  toggleFavourite: (id: string, isInFavorite: boolean) => void;
+}
+
+export interface ISectionProductProps {
+  details: IProductsState;
   allProducts: IProductsState[];
   toggleFavourite: (id: string, isInFavorite: boolean) => void;
 }

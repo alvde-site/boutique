@@ -1,7 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { IProductsState } from "../../utils/interfaces";
-import { product1, product2, product3, product4 } from "../../utils/constants";
+import {
+  product1,
+  product2,
+  product3,
+  product4,
+  dress1,
+  dress2,
+  dress3,
+  dress4,
+  dress5,
+  dress6,
+  dress7,
+} from "../../utils/constants";
 
 const initialState: IProductsState[] = [
   {
@@ -17,6 +29,7 @@ const initialState: IProductsState[] = [
     isInBasket: true,
     isInFavorite: true,
     isInOrder: false,
+    category: "dress",
   },
   {
     img: product2,
@@ -31,6 +44,7 @@ const initialState: IProductsState[] = [
     isInBasket: true,
     isInFavorite: true,
     isInOrder: true,
+    category: "pant",
   },
   {
     img: product3,
@@ -45,6 +59,7 @@ const initialState: IProductsState[] = [
     isInBasket: true,
     isInFavorite: true,
     isInOrder: true,
+    category: "dress",
   },
   {
     img: product4,
@@ -59,6 +74,112 @@ const initialState: IProductsState[] = [
     isInBasket: false,
     isInFavorite: false,
     isInOrder: true,
+    category: "dress",
+  },
+  {
+    img: dress1,
+    title: "Blue pleated panel dress",
+    article: "А0118",
+    size: "L",
+    height: 160,
+    quantity: 1,
+    discount: "",
+    price: 35000,
+    id: "5",
+    isInBasket: false,
+    isInFavorite: true,
+    isInOrder: false,
+    category: "dress",
+  },
+  {
+    img: dress2,
+    title: "Rose pleated panel dress",
+    article: "А0118",
+    size: "L",
+    height: 160,
+    quantity: 1,
+    discount: "",
+    price: 35000,
+    id: "6",
+    isInBasket: false,
+    isInFavorite: false,
+    isInOrder: false,
+    category: "dress",
+  },
+  {
+    img: dress3,
+    title: "Navy blue flounce dress",
+    article: "А0118",
+    size: "L",
+    height: 160,
+    quantity: 1,
+    discount: "",
+    price: 35000,
+    id: "7",
+    isInBasket: false,
+    isInFavorite: false,
+    isInOrder: false,
+    category: "dress",
+  },
+  {
+    img: dress4,
+    title: "Sand pleated panel dress",
+    article: "А0118",
+    size: "L",
+    height: 160,
+    quantity: 1,
+    discount: "",
+    price: 35000,
+    id: "8",
+    isInBasket: false,
+    isInFavorite: false,
+    isInOrder: false,
+    category: "dress",
+  },
+  {
+    img: dress5,
+    title: "Rose pleated panel dress",
+    article: "А0118",
+    size: "L",
+    height: 160,
+    quantity: 1,
+    discount: "",
+    price: 35000,
+    id: "9",
+    isInBasket: false,
+    isInFavorite: false,
+    isInOrder: false,
+    category: "dress",
+  },
+  {
+    img: dress6,
+    title: "Burgundy dress",
+    article: "А0118",
+    size: "L",
+    height: 160,
+    quantity: 1,
+    discount: "",
+    price: 35000,
+    id: "10",
+    isInBasket: false,
+    isInFavorite: false,
+    isInOrder: false,
+    category: "dress",
+  },
+  {
+    img: dress7,
+    title: "Coral pleated panel dress",
+    article: "А0118",
+    size: "L",
+    height: 160,
+    quantity: 1,
+    discount: "",
+    price: 35000,
+    id: "11",
+    isInBasket: false,
+    isInFavorite: false,
+    isInOrder: false,
+    category: "dress",
   },
 ];
 
@@ -114,5 +235,8 @@ export const selectAllInFavourite = (state: RootState) =>
 
 export const selectAllInOrder = (state: RootState) =>
   state.products.filter((product) => product.isInOrder);
+
+export const selectAllDresses = (state: RootState) =>
+  state.products.filter((product) => product.category === "dress");
 
 export default productsSlice.reducer;

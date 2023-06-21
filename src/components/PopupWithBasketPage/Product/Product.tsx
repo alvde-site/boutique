@@ -13,7 +13,6 @@ function Product({
   }
 
   function toggleFavouriteState() {
-    console.log(allProducts);
     if (existingProduct) {
       toggleFavourite(details.id, existingProduct.isInFavorite);
     }
