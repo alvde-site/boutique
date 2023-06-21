@@ -55,7 +55,7 @@ export interface IPromoProps {
 }
 
 export interface IContentProps {
-  children: ReactNode;
+  children?: ReactNode;
   titleText: string;
   buttonText: string;
   navigatePath?: string;
@@ -126,6 +126,13 @@ export interface IProductProps {
   removeItem: (id: string) => void;
   allProducts: IProductsState[];
   toggleFavourite: (id: string, isInFavorite: boolean) => void;
+}
+
+export interface ISectionMoreProps extends IContentProps {
+  promoFotos: {
+    src: string;
+    title: string;
+  }[];
 }
 
 export interface ISectionProductProps {

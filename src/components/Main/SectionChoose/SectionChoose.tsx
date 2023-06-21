@@ -4,9 +4,15 @@ import {
   selectAllDresses,
   selectAllProducts,
 } from "../../../services/reducers/productsSlice";
+import {
+  CATEGORY_BUTTON_TEXT,
+  CATEGORY_TITLE_TEXT,
+  categoryFotos,
+} from "../../../utils/constants";
 import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import { ISectionChooseProps } from "../../../utils/interfaces";
 import Paths from "../Paths/Paths";
+import SectionMore from "../SectionMore/SectionMore";
 import SectionProduct from "./SectionProduct/SectionProduct";
 
 function SectionChoose({ path }: ISectionChooseProps) {
@@ -36,6 +42,11 @@ function SectionChoose({ path }: ISectionChooseProps) {
           ))}
         </ul>
       </div>
+      <SectionMore
+        titleText={CATEGORY_TITLE_TEXT}
+        buttonText={CATEGORY_BUTTON_TEXT}
+        promoFotos={categoryFotos}
+      />
     </section>
   );
 }

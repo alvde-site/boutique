@@ -1,12 +1,25 @@
-import { menuPopup } from "../../../services/reducers/popupsSlice";
-import { useAppSelector } from "../../../utils/hooks";
+import { Link } from "react-router-dom";
+import {
+  handlePopupState,
+  menuPopup,
+} from "../../../services/reducers/popupsSlice";
+import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import Showcase from "../../Showcase/Showcase";
 import Menu from "../Menu/Menu";
 import RightHeaderMenu from "../RightHeaderMenu/RightHeaderMenu";
+import { MENU_POPUP } from "../../../utils/constants";
 
 function StoreList() {
+  const dispatch = useAppDispatch();
   const menuPopupState = useAppSelector(menuPopup);
-
+  function closeMenu() {
+    dispatch(
+      handlePopupState({
+        popupName: MENU_POPUP,
+        popupState: !menuPopupState?.state,
+      })
+    );
+  }
   return (
     <section className={`store ${menuPopupState?.state && "store_open"}`}>
       <RightHeaderMenu modifier="store__icon-menu" />
@@ -14,73 +27,129 @@ function StoreList() {
       <div className="store__wrapper">
         <div className="store__content">
           <div className="store__category">
-            <h2 className="store__title">Категории</h2>
-            <p className="store__subtitle">Sale</p>
+            <h2 className="store__title" onClick={closeMenu}>
+              Категории
+            </h2>
+            <p className="store__subtitle" onClick={closeMenu}>
+              Sale
+            </p>
             <ul className="store__links">
               <li>
-                <a className="store__link" href="https://github.com/alvde-site">
+                <Link
+                  className="store__link"
+                  onClick={closeMenu}
+                  to="category/dress"
+                >
                   Костюмы
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="store__link" href="https://github.com/alvde-site">
+                <Link
+                  className="store__link"
+                  onClick={closeMenu}
+                  to="category/dress"
+                >
                   платья
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="store__link" href="https://github.com/alvde-site">
+                <Link
+                  className="store__link"
+                  onClick={closeMenu}
+                  to="category/dress"
+                >
                   Верхняя одежда
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="store__link" href="https://github.com/alvde-site">
+                <Link
+                  className="store__link"
+                  onClick={closeMenu}
+                  to="category/dress"
+                >
                   Свитер
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="store__link" href="https://github.com/alvde-site">
+                <Link
+                  className="store__link"
+                  onClick={closeMenu}
+                  to="category/dress"
+                >
                   Олимпийки
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="store__link" href="https://github.com/alvde-site">
+                <Link
+                  className="store__link"
+                  onClick={closeMenu}
+                  to="category/dress"
+                >
                   худи и свитшоты
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="store__link" href="https://github.com/alvde-site">
+                <Link
+                  className="store__link"
+                  onClick={closeMenu}
+                  to="category/dress"
+                >
                   юбки
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="store__link" href="https://github.com/alvde-site">
+                <Link
+                  className="store__link"
+                  onClick={closeMenu}
+                  to="category/dress"
+                >
                   Брюки
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="store__link" href="https://github.com/alvde-site">
+                <Link
+                  className="store__link"
+                  onClick={closeMenu}
+                  to="category/dress"
+                >
                   Футболки
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="store__link" href="https://github.com/alvde-site">
+                <Link
+                  className="store__link"
+                  onClick={closeMenu}
+                  to="category/dress"
+                >
                   жакеты
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="store__link" href="https://github.com/alvde-site">
+                <Link
+                  className="store__link"
+                  onClick={closeMenu}
+                  to="category/dress"
+                >
                   блузки
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="store__link" href="https://github.com/alvde-site">
+                <Link
+                  className="store__link"
+                  onClick={closeMenu}
+                  to="category/dress"
+                >
                   Водолазки
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="store__link" href="https://github.com/alvde-site">
+                <Link
+                  className="store__link"
+                  onClick={closeMenu}
+                  to="category/dress"
+                >
                   Аксессуары
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

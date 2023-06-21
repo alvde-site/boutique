@@ -5,6 +5,7 @@ import {
   CATEGORY_TITLE_TEXT,
   CATEGORY_PATH,
 } from "../../../utils/constants";
+import { Link } from "react-router-dom";
 
 function Category() {
   return (
@@ -39,12 +40,12 @@ function Category() {
                   alt={item.title}
                 />
                 <div className="category__overlay">
-                  <a
+                  <Link
                     className="category__link"
-                    href="https://github.com/alvde-site"
+                    to="category/dress"
                   >
                     {item.title}
-                  </a>
+                  </Link>
                 </div>
               </figure>
             ))}

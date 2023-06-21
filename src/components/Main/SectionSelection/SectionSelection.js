@@ -8,7 +8,7 @@ function SectionSelection({path, fotos}) {
         <ul className="partition__content">
           {fotos.map((f, i) => (
             <li className="partition__card" key={i}>
-              <a className="partition__link" href="!#">
+              <a className="partition__link" href="category/dress">
                 <img className="partition__img" src={f.src} alt={f.title}></img>
               </a>
               <h3 className="partition__title">{f.title}</h3>
