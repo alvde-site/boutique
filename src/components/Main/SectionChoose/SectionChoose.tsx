@@ -4,18 +4,13 @@ import {
   selectAllDresses,
   selectAllProducts,
 } from "../../../services/reducers/productsSlice";
-import {
-  CATEGORY_BUTTON_TEXT,
-  CATEGORY_TITLE_TEXT,
-  categoryFotos,
-} from "../../../utils/constants";
 import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import { ISectionChooseProps } from "../../../utils/interfaces";
 import Paths from "../Paths/Paths";
 import SectionMore from "../SectionMore/SectionMore";
 import SectionProduct from "./SectionProduct/SectionProduct";
 
-function SectionChoose({ path }: ISectionChooseProps) {
+function SectionChoose({ path, buttonText, titleText, fotos }: ISectionChooseProps) {
   const dispatch = useAppDispatch();
   const dressProducts = useAppSelector(selectAllDresses);
   const allProducts = useAppSelector(selectAllProducts);
@@ -43,9 +38,10 @@ function SectionChoose({ path }: ISectionChooseProps) {
         </ul>
       </div>
       <SectionMore
-        titleText={CATEGORY_TITLE_TEXT}
-        buttonText={CATEGORY_BUTTON_TEXT}
-        promoFotos={categoryFotos}
+        titleText={titleText}
+        buttonText={buttonText}
+        promoFotos={fotos}
+        navigatePath={path[1].path}
       />
     </section>
   );

@@ -99,7 +99,6 @@ export const showcase = {
 /* Category */
 export const CATEGORY_TITLE_TEXT = "Категории";
 export const CATEGORY_BUTTON_TEXT = "Все категории";
-export const CATEGORY_PATH = "/category";
 export const categoryFotos = [
   { src: categoryDescriptionFoto, title: "sale" },
   { src: categoryFoto1, title: "Жакеты" },
@@ -186,8 +185,8 @@ export const collectionPath = [
 
 export const categoryCruise2022Path = [
   { path: "/", desc: "Главная" },
-  { path: "/category", desc: "Категории" },
-  { path: "/category/cruise2022", desc: "Круиз2022" },
+  { path: "/collection", desc: "Коллекции" },
+  { path: "/collection/cruise2022", desc: "Круиз2022" },
 ];
 
 /* Companies */

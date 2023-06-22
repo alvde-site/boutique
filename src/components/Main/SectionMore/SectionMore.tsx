@@ -1,10 +1,10 @@
-import { CATEGORY_PATH } from "../../../utils/constants";
+
 import { ISectionMoreProps } from "../../../utils/interfaces";
 import Content from "../Content/Content";
 
 function SectionMore({ titleText, buttonText, navigatePath, promoFotos }: ISectionMoreProps) {
   return (
-    <Content titleText={titleText} buttonText={buttonText} navigatePath={CATEGORY_PATH}>
+    <Content titleText={titleText} buttonText={buttonText} navigatePath={navigatePath}>
       <div className="more">
         {promoFotos.slice(1, 4).map((collection, index) => (
           <article className="more_item" key={index}>

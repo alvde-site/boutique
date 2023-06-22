@@ -19,8 +19,18 @@ import Account from "../Main/Account/Account";
 import { ICurrentUser } from "../../utils/interfaces";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import SectionSelection from "../Main/SectionSelection/SectionSelection";
-import { categoryCruise2022Path, categoryDressPath, categoryPath } from "../../utils/constants";
-import { categoryFotos } from "../../utils/constants";
+import {
+  COLLECTION_BUTTON_TEXT,
+  COLLECTION_TITLE_TEXT,
+  categoryCruise2022Path,
+  categoryDressPath,
+  categoryPath,
+} from "../../utils/constants";
+import {
+  categoryFotos,
+  CATEGORY_BUTTON_TEXT,
+  CATEGORY_TITLE_TEXT,
+} from "../../utils/constants";
 import { collectionPath } from "../../utils/constants";
 import { collectionFotos } from "../../utils/constants";
 import SectionChoose from "../Main/SectionChoose/SectionChoose";
@@ -42,10 +52,43 @@ function App() {
             <Route path="/dealer" element={<Dealer />} />
             <Route path="/about" element={<About />} />
             <Route path="/account" element={<Account />} />
-            <Route path="/category" element={<SectionSelection path={categoryPath} fotos={categoryFotos}/>} />
-            <Route path="/collection" element={<SectionSelection path={collectionPath} fotos={collectionFotos}/>} />
-            <Route path="/category/dress" element={<SectionChoose path={categoryDressPath}/>} />
-            <Route path="/category/cruise2022" element={<SectionChoose path={categoryCruise2022Path}/>} />
+            <Route
+              path="/category"
+              element={
+                <SectionSelection path={categoryPath} fotos={categoryFotos} />
+              }
+            />
+            <Route
+              path="/collection"
+              element={
+                <SectionSelection
+                  path={collectionPath}
+                  fotos={collectionFotos}
+                />
+              }
+            />
+            <Route
+              path="/category/dress"
+              element={
+                <SectionChoose
+                  path={categoryDressPath}
+                  buttonText={CATEGORY_BUTTON_TEXT}
+                  titleText={CATEGORY_TITLE_TEXT}
+                  fotos={categoryFotos}
+                />
+              }
+            />
+            <Route
+              path="/collection/cruise2022"
+              element={
+                <SectionChoose
+                  path={categoryCruise2022Path}
+                  buttonText={COLLECTION_BUTTON_TEXT}
+                  titleText={COLLECTION_TITLE_TEXT}
+                  fotos={collectionFotos}
+                />
+              }
+            />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>

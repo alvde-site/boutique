@@ -3,7 +3,7 @@ import Content from "../Content/Content";
 import {
   CATEGORY_BUTTON_TEXT,
   CATEGORY_TITLE_TEXT,
-  CATEGORY_PATH,
+  categoryDressPath
 } from "../../../utils/constants";
 import { Link } from "react-router-dom";
 
@@ -12,7 +12,7 @@ function Category() {
     <Content
       titleText={CATEGORY_TITLE_TEXT}
       buttonText={CATEGORY_BUTTON_TEXT}
-      navigatePath={CATEGORY_PATH}
+      navigatePath={categoryDressPath[1].path}
     >
       <div className="category">
         <div className="category__content">

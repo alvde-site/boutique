@@ -90,7 +90,14 @@ interface ISection {
   path: IPaths;
 }
 
-export interface ISectionChooseProps extends ISection {}
+export interface ISectionChooseProps extends ISection {
+  buttonText: string;
+  titleText: string;
+  fotos: {
+    src: string;
+    title: string;
+  }[];
+}
 
 /* Popups */
 
