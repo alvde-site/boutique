@@ -6,8 +6,13 @@ import "./SwiperViewing.css";
 
 import { Navigation } from "swiper";
 import { IPromoProps } from "../../utils/interfaces";
+import { useNavigate } from "react-router-dom";
 
 function SwiperViewing(props: IPromoProps) {
+  const navigate = useNavigate();
+  function handleClick(path:string) {
+    navigate(path);
+  }
   return (
     <Swiper
       spaceBetween={50}
@@ -22,7 +27,7 @@ function SwiperViewing(props: IPromoProps) {
           <SwiperSlide key={index}>
             <div className="promo__content">
               <h2 className="promo__title">{item.title}</h2>
-              <button className="promo__button">Перейти</button>
+              <button className="promo__button" onClick={() => handleClick(item.path)}>Перейти</button>
             </div>
           </SwiperSlide>
         );

@@ -19,7 +19,7 @@
 
 .promo__title {
   @include big-text("Inter");
-  color: #fff;
+  text-transform: uppercase;
 }
 
 .promo__button {

@@ -7,7 +7,11 @@ import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import Showcase from "../../Showcase/Showcase";
 import Menu from "../Menu/Menu";
 import RightHeaderMenu from "../RightHeaderMenu/RightHeaderMenu";
-import { MENU_POPUP } from "../../../utils/constants";
+import {
+  MENU_POPUP,
+  categoryFotos,
+  collectionFotos,
+} from "../../../utils/constants";
 
 function StoreList() {
   const dispatch = useAppDispatch();
@@ -30,158 +34,35 @@ function StoreList() {
             <h2 className="store__title" onClick={closeMenu}>
               Категории
             </h2>
-            <p className="store__subtitle" onClick={closeMenu}>
-              Sale
-            </p>
             <ul className="store__links">
-              <li>
-                <Link
-                  className="store__link"
-                  onClick={closeMenu}
-                  to="category/dress"
-                >
-                  Костюмы
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="store__link"
-                  onClick={closeMenu}
-                  to="category/dress"
-                >
-                  платья
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="store__link"
-                  onClick={closeMenu}
-                  to="category/dress"
-                >
-                  Верхняя одежда
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="store__link"
-                  onClick={closeMenu}
-                  to="category/dress"
-                >
-                  Свитер
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="store__link"
-                  onClick={closeMenu}
-                  to="category/dress"
-                >
-                  Олимпийки
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="store__link"
-                  onClick={closeMenu}
-                  to="category/dress"
-                >
-                  худи и свитшоты
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="store__link"
-                  onClick={closeMenu}
-                  to="category/dress"
-                >
-                  юбки
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="store__link"
-                  onClick={closeMenu}
-                  to="category/dress"
-                >
-                  Брюки
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="store__link"
-                  onClick={closeMenu}
-                  to="category/dress"
-                >
-                  Футболки
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="store__link"
-                  onClick={closeMenu}
-                  to="category/dress"
-                >
-                  жакеты
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="store__link"
-                  onClick={closeMenu}
-                  to="category/dress"
-                >
-                  блузки
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="store__link"
-                  onClick={closeMenu}
-                  to="category/dress"
-                >
-                  Водолазки
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="store__link"
-                  onClick={closeMenu}
-                  to="category/dress"
-                >
-                  Аксессуары
-                </Link>
-              </li>
+              {categoryFotos.map((item, i) => (
+                <li key={i}>
+                  <Link
+                    className="store__link"
+                    onClick={closeMenu}
+                    to="category/dress"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="store__collection">
             <div>
               <h2 className="store__title">коллекции</h2>
-              <p className="store__subtitle">cRUISE 2022</p>
               <ul className="store__links">
-                <li>
-                  <a
-                    className="store__link"
-                    href="https://github.com/alvde-site"
-                  >
-                    Urban Vogue
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="store__link"
-                    href="https://github.com/alvde-site"
-                  >
-                    Punk Couture
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="store__link"
-                    href="https://github.com/alvde-site"
-                  >
-                    Moscow Fashion Week
-                  </a>
-                </li>
+                {collectionFotos.slice(0, 3).map((item, i) => (
+                  <li key={i}>
+                    <Link
+                      className="store__link"
+                      onClick={closeMenu}
+                      to="category/dress"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="store__advertisement advertisement">

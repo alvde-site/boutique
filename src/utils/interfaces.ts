@@ -46,6 +46,7 @@ export interface IShowcaseProps extends IModifier {}
 
 export interface IPromoTitle {
   title: string;
+  path: string;
 }
 
 export interface IPromoTitles extends Array<IPromoTitle> {}
