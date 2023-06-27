@@ -175,7 +175,7 @@ export const collectionFotos = [
 
 export const collectionPath = [
   { path: "/", desc: "Главная" },
-  { path: "/category", desc: "Коллекции" },
+  { path: "/collection", desc: "Коллекции" },
 ];
 
 export const categoryCruise2022Path = [

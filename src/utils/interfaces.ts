@@ -28,6 +28,7 @@ export interface IProductsState {
   isInFavorite: boolean;
   isInOrder: boolean;
   category: string;
+  collection: string;
 }
 
 /* header */

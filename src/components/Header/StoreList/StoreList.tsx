@@ -10,7 +10,9 @@ import RightHeaderMenu from "../RightHeaderMenu/RightHeaderMenu";
 import {
   MENU_POPUP,
   categoryFotos,
+  categoryPath,
   collectionFotos,
+  collectionPath,
 } from "../../../utils/constants";
 
 function StoreList() {
@@ -31,9 +33,13 @@ function StoreList() {
       <div className="store__wrapper">
         <div className="store__content">
           <div className="store__category">
-            <h2 className="store__title" onClick={closeMenu}>
-              Категории
-            </h2>
+            <Link
+              className="store__link"
+              to={categoryPath[1].path}
+              onClick={closeMenu}
+            >
+              <h2 className="store__title">Категории</h2>
+            </Link>
             <ul className="store__links">
               {categoryFotos.map((item, i) => (
                 <li key={i}>
@@ -50,7 +56,13 @@ function StoreList() {
           </div>
           <div className="store__collection">
             <div>
-              <h2 className="store__title">коллекции</h2>
+              <Link
+                className="store__link"
+                to={collectionPath[1].path}
+                onClick={closeMenu}
+              >
+                <h2 className="store__title">коллекции</h2>
+              </Link>
               <ul className="store__links">
                 {collectionFotos.slice(0, 3).map((item, i) => (
                   <li key={i}>

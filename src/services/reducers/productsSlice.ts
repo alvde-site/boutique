@@ -30,6 +30,7 @@ const initialState: IProductsState[] = [
     isInFavorite: true,
     isInOrder: false,
     category: "dress",
+    collection: "",
   },
   {
     img: product2,
@@ -45,6 +46,7 @@ const initialState: IProductsState[] = [
     isInFavorite: true,
     isInOrder: true,
     category: "pant",
+    collection: "",
   },
   {
     img: product3,
@@ -60,6 +62,7 @@ const initialState: IProductsState[] = [
     isInFavorite: true,
     isInOrder: true,
     category: "dress",
+    collection: "cruise2022",
   },
   {
     img: product4,
@@ -75,6 +78,7 @@ const initialState: IProductsState[] = [
     isInFavorite: false,
     isInOrder: true,
     category: "dress",
+    collection: "cruise2022",
   },
   {
     img: dress1,
@@ -90,6 +94,7 @@ const initialState: IProductsState[] = [
     isInFavorite: true,
     isInOrder: false,
     category: "dress",
+    collection: "cruise2022",
   },
   {
     img: dress2,
@@ -105,6 +110,7 @@ const initialState: IProductsState[] = [
     isInFavorite: false,
     isInOrder: false,
     category: "dress",
+    collection: "cruise2022",
   },
   {
     img: dress3,
@@ -120,6 +126,7 @@ const initialState: IProductsState[] = [
     isInFavorite: false,
     isInOrder: false,
     category: "dress",
+    collection: "cruise2022",
   },
   {
     img: dress4,
@@ -135,6 +142,7 @@ const initialState: IProductsState[] = [
     isInFavorite: false,
     isInOrder: false,
     category: "dress",
+    collection: "cruise2022",
   },
   {
     img: dress5,
@@ -150,6 +158,7 @@ const initialState: IProductsState[] = [
     isInFavorite: false,
     isInOrder: false,
     category: "dress",
+    collection: "cruise2022",
   },
   {
     img: dress6,
@@ -165,6 +174,7 @@ const initialState: IProductsState[] = [
     isInFavorite: false,
     isInOrder: false,
     category: "dress",
+    collection: "cruise2022",
   },
   {
     img: dress7,
@@ -180,6 +190,7 @@ const initialState: IProductsState[] = [
     isInFavorite: false,
     isInOrder: false,
     category: "dress",
+    collection: "cruise2022",
   },
 ];
 
