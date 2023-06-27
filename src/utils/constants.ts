@@ -5,7 +5,7 @@ import blackLogo from "../images/svg/black-logo.svg";
 /*Showcase images*/
 import showcaseFoto from "../images/showcase.jpg";
 /* Category images */
-import categoryDescriptionFoto from "../images/category1.jpg";
+import categorySaleFoto from "../images/category1.jpg";
 import categoryFoto1 from "../images/category2.jpg";
 import categoryFoto2 from "../images/category3.jpg";
 import categoryFoto3 from "../images/category4.jpg";
@@ -82,7 +82,7 @@ export const showcase = {
 export const CATEGORY_TITLE_TEXT = "Категории";
 export const CATEGORY_BUTTON_TEXT = "Все категории";
 export const categoryFotos = [
-  { src: categoryDescriptionFoto, title: "sale" },
+  { src: categorySaleFoto, title: "Распродажа" },
   { src: categoryFoto1, title: "Жакеты" },
   { src: categoryFoto2, title: "Юбки" },
   { src: categoryFoto3, title: "Свадебные платья" },
@@ -98,6 +98,18 @@ export const categoryFotos = [
   { src: collectionFoto, title: "Водолазки" },
   { src: collectionFoto, title: "Аксессуары" },
 ];
+
+export {
+  categorySaleFoto,
+  categoryFoto1,
+  categoryFoto2,
+  categoryFoto3,
+  categoryFoto4,
+  categoryFoto5,
+  categoryFoto6,
+  categoryFoto7,
+  categoryFoto8,
+};
 
 export const categoryPath = [
   { path: "/", desc: "Главная" },
@@ -116,59 +128,36 @@ export const dresses = [];
 export const COLLECTION_TITLE_TEXT = "Коллекции";
 export const COLLECTION_BUTTON_TEXT = "Все коллекции";
 export const COLLECTION_PATH = "/collection";
+export { collectionFoto };
 export const collectionFotos = [
   {
     src: collectionFoto1,
-    title: "urban vogue",
-    path: "/category/dress",
+    title: "Городская мода",
+    path: "urban",
     text: "Приталенное платье мини мятного цвета в полу-спортивном стиле. Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке вставки из гофре плиссе разных цветов. ",
   },
   {
     src: collectionFoto2,
-    title: "punk couture",
-    path: "/category/dress",
+    title: "Панк-кутюр",
+    path: "punk",
     text: "Мятный и розовый лампасы придают платью спортивное направление. По спинке длинная леопардовая молния.",
   },
   {
     src: collectionFoto3,
-    title: "cruise 2022",
-    path: "/category/dress",
+    title: "круиз 2022",
+    path: "cruise",
     text: "Приталенное платье мини мятного цвета в полу-спортивном стиле. Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке вставки из гофре плиссе разных цветов. Мятный и розовый лампасы придают платью спортивное направление. По спинке длинная леопардовая молния.",
   },
   {
     src: collectionFoto,
     title: "Коллекция 1",
-    path: "/category/dress",
+    path: "/category/collection1",
     text: "Приталенное платье мини мятного цвета в полу-спортивном стиле. Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке вставки из гофре плиссе разных цветов. Мятный и розовый лампасы придают платью спортивное направление. По спинке длинная леопардовая молния.",
   },
   {
     src: collectionFoto,
     title: "Коллекция 2",
-    path: "/category/dress",
-    text: "Приталенное платье мини мятного цвета в полу-спортивном стиле. Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке вставки из гофре плиссе разных цветов. Мятный и розовый лампасы придают платью спортивное направление. По спинке длинная леопардовая молния.",
-  },
-  {
-    src: collectionFoto,
-    title: "Коллекция 3",
-    path: "/category/dress",
-    text: "Приталенное платье мини мятного цвета в полу-спортивном стиле. Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке вставки из гофре плиссе разных цветов. Мятный и розовый лампасы придают платью спортивное направление. По спинке длинная леопардовая молния.",
-  },
-  {
-    src: collectionFoto,
-    title: "Коллекция 4",
-    path: "/category/dress",
-    text: "Приталенное платье мини мятного цвета в полу-спортивном стиле. Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке вставки из гофре плиссе разных цветов. Мятный и розовый лампасы придают платью спортивное направление. По спинке длинная леопардовая молния.",
-  },
-  {
-    src: collectionFoto,
-    title: "Коллекция 5",
-    path: "/category/dress",
-    text: "Приталенное платье мини мятного цвета в полу-спортивном стиле. Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке вставки из гофре плиссе разных цветов. Мятный и розовый лампасы придают платью спортивное направление. По спинке длинная леопардовая молния.",
-  },
-  {
-    src: collectionFoto,
-    title: "Коллекция 6",
-    path: "/category/dress",
+    path: "/category/collection2",
     text: "Приталенное платье мини мятного цвета в полу-спортивном стиле. Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке вставки из гофре плиссе разных цветов. Мятный и розовый лампасы придают платью спортивное направление. По спинке длинная леопардовая молния.",
   },
 ];
