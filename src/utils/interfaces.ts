@@ -93,9 +93,10 @@ interface ISection {
 }
 
 export interface ISectionChooseProps extends ISection {
+  item: { src: string; title: string; path: string };
   buttonText: string;
   titleText: string;
-  fotos: {
+  categoryData: {
     src: string;
     title: string;
   }[];
@@ -138,7 +139,7 @@ export interface IProductProps {
 }
 
 export interface ISectionMoreProps extends IContentProps {
-  promoFotos: {
+  categoryData: {
     src: string;
     title: string;
   }[];

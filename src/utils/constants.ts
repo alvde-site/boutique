@@ -81,22 +81,22 @@ export const showcase = {
 /* Category */
 export const CATEGORY_TITLE_TEXT = "Категории";
 export const CATEGORY_BUTTON_TEXT = "Все категории";
-export const categoryFotos = [
-  { src: categorySaleFoto, title: "Распродажа" },
-  { src: categoryFoto1, title: "Жакеты" },
-  { src: categoryFoto2, title: "Юбки" },
-  { src: categoryFoto3, title: "Свадебные платья" },
-  { src: categoryFoto4, title: "блузки" },
-  { src: categoryFoto5, title: "Костюмы" },
-  { src: categoryFoto6, title: "Свитеры" },
-  { src: categoryFoto7, title: "Верхняя одежда" },
-  { src: categoryFoto8, title: "Футболки" },
-  { src: dress1, title: "Платья" },
-  { src: collectionFoto, title: "Олимпийки" },
-  { src: collectionFoto, title: "Худи и свитшоты" },
-  { src: collectionFoto, title: "Брюки" },
-  { src: collectionFoto, title: "Водолазки" },
-  { src: collectionFoto, title: "Аксессуары" },
+export const categoryData = [
+  { src: categorySaleFoto, title: "Распродажа", path: "sale" },
+  { src: categoryFoto1, title: "Жакеты", path: "jackets" },
+  { src: categoryFoto2, title: "Юбки", path: "skirts" },
+  { src: categoryFoto3, title: "Свадебные платья", path: "wedding" },
+  { src: categoryFoto4, title: "блузки", path: "blouses" },
+  { src: categoryFoto5, title: "Костюмы", path: "costumes" },
+  { src: categoryFoto6, title: "Свитеры", path: "sweaters" },
+  { src: categoryFoto7, title: "Верхняя одежда", path: "outerwear" },
+  { src: categoryFoto8, title: "Футболки", path: "tshirt" },
+  { src: dress1, title: "Платья", path: "dress" },
+  { src: collectionFoto, title: "Олимпийки", path: "olympians" },
+  { src: collectionFoto, title: "Худи и свитшоты", path: "hoodies" },
+  { src: collectionFoto, title: "Брюки", path: "pant" },
+  { src: collectionFoto, title: "Водолазки", path: "turtlenecks" },
+  { src: collectionFoto, title: "Аксессуары", path: "accessories" },
 ];
 
 export {

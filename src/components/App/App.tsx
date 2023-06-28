@@ -20,14 +20,14 @@ import { ICurrentUser } from "../../utils/interfaces";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import SectionSelection from "../Main/SectionSelection/SectionSelection";
 import {
-  COLLECTION_BUTTON_TEXT,
-  COLLECTION_TITLE_TEXT,
-  categoryCruise2022Path,
-  categoryDressPath,
+  // COLLECTION_BUTTON_TEXT,
+  // COLLECTION_TITLE_TEXT,
+  // categoryCruise2022Path,
+  // categoryDressPath,
   categoryPath,
 } from "../../utils/constants";
 import {
-  categoryFotos,
+  categoryData,
   CATEGORY_BUTTON_TEXT,
   CATEGORY_TITLE_TEXT,
 } from "../../utils/constants";
@@ -55,7 +55,7 @@ function App() {
             <Route
               path="/category"
               element={
-                <SectionSelection path={categoryPath} fotos={categoryFotos} />
+                <SectionSelection path={categoryPath} fotos={categoryData} />
               }
             />
             <Route
@@ -67,28 +67,43 @@ function App() {
                 />
               }
             />
-            <Route
+            {categoryData.map((i, index) => (
+              <Route
+                key={index}
+                path={`/category/${i.path}`}
+                element={
+                  <SectionChoose
+                    item={i}
+                    path={categoryPath}
+                    buttonText={CATEGORY_BUTTON_TEXT}
+                    titleText={CATEGORY_TITLE_TEXT}
+                    categoryData={categoryData}
+                  />
+                }
+              />
+            ))}
+            {/* <Route
               path="/category/dress"
               element={
                 <SectionChoose
                   path={categoryDressPath}
                   buttonText={CATEGORY_BUTTON_TEXT}
                   titleText={CATEGORY_TITLE_TEXT}
-                  fotos={categoryFotos}
+                  categoryData={categoryData}
                 />
               }
-            />
-            <Route
+            /> */}
+            {/* <Route
               path="/collection/cruise2022"
               element={
                 <SectionChoose
                   path={categoryCruise2022Path}
                   buttonText={COLLECTION_BUTTON_TEXT}
                   titleText={COLLECTION_TITLE_TEXT}
-                  fotos={collectionFotos}
+                  categoryData={collectionFotos}
                 />
               }
-            />
+            /> */}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>

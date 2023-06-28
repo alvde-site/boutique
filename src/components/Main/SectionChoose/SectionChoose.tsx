@@ -10,7 +10,13 @@ import Paths from "../Paths/Paths";
 import SectionMore from "../SectionMore/SectionMore";
 import SectionProduct from "./SectionProduct/SectionProduct";
 
-function SectionChoose({ path, buttonText, titleText, fotos }: ISectionChooseProps) {
+function SectionChoose({
+  path,
+  item,
+  buttonText,
+  titleText,
+  categoryData,
+}: ISectionChooseProps) {
   const dispatch = useAppDispatch();
   const dressProducts = useAppSelector(selectAllDresses);
   const allProducts = useAppSelector(selectAllProducts);
@@ -22,10 +28,12 @@ function SectionChoose({ path, buttonText, titleText, fotos }: ISectionChoosePro
       dispatch(addFavouriteProduct({ productId: id }));
     }
   }
+  const copyPath = path.slice();
+  const newPath = [...copyPath, { path: item.path, desc: item.title }];
   return (
     <section className="content">
       <div className="partition">
-        <Paths path={path} />
+        <Paths path={newPath} />
         <ul className="partition__content">
           {dressProducts.map((details) => (
             <SectionProduct
@@ -40,7 +48,7 @@ function SectionChoose({ path, buttonText, titleText, fotos }: ISectionChoosePro
       <SectionMore
         titleText={titleText}
         buttonText={buttonText}
-        promoFotos={fotos}
+        categoryData={categoryData}
         navigatePath={path[1].path}
       />
     </section>

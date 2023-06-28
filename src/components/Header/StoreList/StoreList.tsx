@@ -9,7 +9,7 @@ import Menu from "../Menu/Menu";
 import RightHeaderMenu from "../RightHeaderMenu/RightHeaderMenu";
 import {
   MENU_POPUP,
-  categoryFotos,
+  categoryData,
   categoryPath,
   collectionFotos,
   collectionPath,
@@ -41,7 +41,7 @@ function StoreList() {
               <h2 className="store__title">Категории</h2>
             </Link>
             <ul className="store__links">
-              {categoryFotos.map((item, i) => (
+              {categoryData.map((item, i) => (
                 <li key={i}>
                   <Link
                     className="store__link"
