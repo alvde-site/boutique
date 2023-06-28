@@ -1,4 +1,4 @@
-import { collectionFotos } from "../../../utils/constants";
+import { collectionData } from "../../../utils/constants";
 import Content from "../Content/Content";
 import {
   COLLECTION_BUTTON_TEXT,
@@ -14,7 +14,7 @@ function Collection() {
       navigatePath={COLLECTION_PATH}
     >
       <div className="collection">
-        {collectionFotos.slice(0, 3).map((collection, index) => (
+        {collectionData.slice(0, 3).map((collection, index) => (
           <article className="collection_item" key={index}>
             <figure className="collection__figure">
               <img

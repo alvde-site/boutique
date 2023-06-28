@@ -1,12 +1,20 @@
-
 import { ISectionMoreProps } from "../../../utils/interfaces";
 import Content from "../Content/Content";
 
-function SectionMore({ titleText, buttonText, navigatePath, categoryData }: ISectionMoreProps) {
+function SectionMore({
+  titleText,
+  buttonText,
+  navigatePath,
+  data,
+}: ISectionMoreProps) {
   return (
-    <Content titleText={titleText} buttonText={buttonText} navigatePath={navigatePath}>
+    <Content
+      titleText={titleText}
+      buttonText={buttonText}
+      navigatePath={navigatePath}
+    >
       <div className="more">
-        {categoryData.slice(1, 4).map((collection, index) => (
+        {data.slice(1, 4).map((collection, index) => (
           <article className="more_item" key={index}>
             <figure className="more__figure">
               <img

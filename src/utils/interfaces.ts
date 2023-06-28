@@ -96,7 +96,7 @@ export interface ISectionChooseProps extends ISection {
   item: { src: string; title: string; path: string };
   buttonText: string;
   titleText: string;
-  categoryData: {
+  data: {
     src: string;
     title: string;
   }[];
@@ -139,7 +139,7 @@ export interface IProductProps {
 }
 
 export interface ISectionMoreProps extends IContentProps {
-  categoryData: {
+  data: {
     src: string;
     title: string;
   }[];

@@ -86,12 +86,12 @@ export const categoryData = [
   { src: categoryFoto1, title: "Жакеты", path: "jackets" },
   { src: categoryFoto2, title: "Юбки", path: "skirts" },
   { src: categoryFoto3, title: "Свадебные платья", path: "wedding" },
+  { src: dress1, title: "Платья", path: "dress" },
   { src: categoryFoto4, title: "блузки", path: "blouses" },
   { src: categoryFoto5, title: "Костюмы", path: "costumes" },
   { src: categoryFoto6, title: "Свитеры", path: "sweaters" },
   { src: categoryFoto7, title: "Верхняя одежда", path: "outerwear" },
   { src: categoryFoto8, title: "Футболки", path: "tshirt" },
-  { src: dress1, title: "Платья", path: "dress" },
   { src: collectionFoto, title: "Олимпийки", path: "olympians" },
   { src: collectionFoto, title: "Худи и свитшоты", path: "hoodies" },
   { src: collectionFoto, title: "Брюки", path: "pant" },
@@ -129,7 +129,7 @@ export const COLLECTION_TITLE_TEXT = "Коллекции";
 export const COLLECTION_BUTTON_TEXT = "Все коллекции";
 export const COLLECTION_PATH = "/collection";
 export { collectionFoto };
-export const collectionFotos = [
+export const collectionData = [
   {
     src: collectionFoto1,
     title: "Городская мода",
@@ -151,13 +151,13 @@ export const collectionFotos = [
   {
     src: collectionFoto,
     title: "Коллекция 1",
-    path: "/category/collection1",
+    path: "collection1",
     text: "Приталенное платье мини мятного цвета в полу-спортивном стиле. Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке вставки из гофре плиссе разных цветов. Мятный и розовый лампасы придают платью спортивное направление. По спинке длинная леопардовая молния.",
   },
   {
     src: collectionFoto,
     title: "Коллекция 2",
-    path: "/category/collection2",
+    path: "collection2",
     text: "Приталенное платье мини мятного цвета в полу-спортивном стиле. Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке вставки из гофре плиссе разных цветов. Мятный и розовый лампасы придают платью спортивное направление. По спинке длинная леопардовая молния.",
   },
 ];

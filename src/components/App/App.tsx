@@ -20,19 +20,15 @@ import { ICurrentUser } from "../../utils/interfaces";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import SectionSelection from "../Main/SectionSelection/SectionSelection";
 import {
-  // COLLECTION_BUTTON_TEXT,
-  // COLLECTION_TITLE_TEXT,
-  // categoryCruise2022Path,
-  // categoryDressPath,
   categoryPath,
-} from "../../utils/constants";
-import {
   categoryData,
   CATEGORY_BUTTON_TEXT,
   CATEGORY_TITLE_TEXT,
+  collectionPath,
+  collectionData,
+  COLLECTION_BUTTON_TEXT,
+  COLLECTION_TITLE_TEXT,
 } from "../../utils/constants";
-import { collectionPath } from "../../utils/constants";
-import { collectionFotos } from "../../utils/constants";
 import SectionChoose from "../Main/SectionChoose/SectionChoose";
 
 function App() {
@@ -63,7 +59,7 @@ function App() {
               element={
                 <SectionSelection
                   path={collectionPath}
-                  fotos={collectionFotos}
+                  fotos={collectionData}
                 />
               }
             />
@@ -77,33 +73,26 @@ function App() {
                     path={categoryPath}
                     buttonText={CATEGORY_BUTTON_TEXT}
                     titleText={CATEGORY_TITLE_TEXT}
-                    categoryData={categoryData}
+                    data={categoryData}
                   />
                 }
               />
             ))}
-            {/* <Route
-              path="/category/dress"
-              element={
-                <SectionChoose
-                  path={categoryDressPath}
-                  buttonText={CATEGORY_BUTTON_TEXT}
-                  titleText={CATEGORY_TITLE_TEXT}
-                  categoryData={categoryData}
-                />
-              }
-            /> */}
-            {/* <Route
-              path="/collection/cruise2022"
-              element={
-                <SectionChoose
-                  path={categoryCruise2022Path}
-                  buttonText={COLLECTION_BUTTON_TEXT}
-                  titleText={COLLECTION_TITLE_TEXT}
-                  categoryData={collectionFotos}
-                />
-              }
-            /> */}
+            {collectionData.map((i, index) => (
+              <Route
+                key={index}
+                path={`/collection/${i.path}`}
+                element={
+                  <SectionChoose
+                    item={i}
+                    path={collectionPath}
+                    buttonText={COLLECTION_BUTTON_TEXT}
+                    titleText={COLLECTION_TITLE_TEXT}
+                    data={collectionData}
+                  />
+                }
+              />
+            ))}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>

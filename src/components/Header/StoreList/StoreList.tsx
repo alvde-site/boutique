@@ -11,7 +11,7 @@ import {
   MENU_POPUP,
   categoryData,
   categoryPath,
-  collectionFotos,
+  collectionData,
   collectionPath,
 } from "../../../utils/constants";
 
@@ -64,7 +64,7 @@ function StoreList() {
                 <h2 className="store__title">коллекции</h2>
               </Link>
               <ul className="store__links">
-                {collectionFotos.slice(0, 3).map((item, i) => (
+                {collectionData.slice(0, 3).map((item, i) => (
                   <li key={i}>
                     <Link
                       className="store__link"

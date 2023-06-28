@@ -1,4 +1,4 @@
-import { collectionFotos } from "../../utils/constants";
+import { collectionData } from "../../utils/constants";
 import SwiperViewing from "../SwiperViewing/SwiperViewing";
 import Category from "./Category/Category";
 import Collection from "./Collection/Collection";
@@ -9,7 +9,7 @@ function Main() {
   return (
     <>
       <section className="promo">
-        <SwiperViewing promoTitles={collectionFotos} />
+        <SwiperViewing promoTitles={collectionData} />
       </section>
       <Showcase modifier="showcase_position_main" />
       <Category />

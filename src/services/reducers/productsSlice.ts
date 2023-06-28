@@ -58,14 +58,4 @@ export const selectAllInFavourite = (state: RootState) =>
 export const selectAllInOrder = (state: RootState) =>
   state.products.filter((product) => product.isInOrder);
 
-export const selectCategorySet = (state: RootState) =>
-  state.products.reduce((res: IProductsState[], product) => {
-    return res.find((i) => product.category === i.category)
-      ? res
-      : [...res, product];
-  }, []);
-
-export const selectAllDresses = (state: RootState) =>
-  state.products.filter((product) => product.category === "dress");
-
 export default productsSlice.reducer;

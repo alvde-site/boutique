@@ -1,7 +1,6 @@
 import {
   addFavouriteProduct,
   removeFavouriteProduct,
-  selectAllDresses,
   selectAllProducts,
 } from "../../../services/reducers/productsSlice";
 import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
@@ -15,10 +14,9 @@ function SectionChoose({
   item,
   buttonText,
   titleText,
-  categoryData,
+  data,
 }: ISectionChooseProps) {
   const dispatch = useAppDispatch();
-  const dressProducts = useAppSelector(selectAllDresses);
   const allProducts = useAppSelector(selectAllProducts);
 
   function toggleFavouriteState(id: string, isInFavourite: boolean) {
@@ -28,14 +26,20 @@ function SectionChoose({
       dispatch(addFavouriteProduct({ productId: id }));
     }
   }
-  const copyPath = path.slice();
-  const newPath = [...copyPath, { path: item.path, desc: item.title }];
+
+  const productPath = [...path.slice(), { path: item.path, desc: item.title }];
+
+  const categoryProducts = allProducts.filter(
+    (product) =>
+      product.category === item.path || product.collection === item.path
+  );
+
   return (
     <section className="content">
       <div className="partition">
-        <Paths path={newPath} />
+        <Paths path={productPath} />
         <ul className="partition__content">
-          {dressProducts.map((details) => (
+          {categoryProducts.map((details) => (
             <SectionProduct
               details={details}
               key={details.id}
@@ -48,7 +52,7 @@ function SectionChoose({
       <SectionMore
         titleText={titleText}
         buttonText={buttonText}
-        categoryData={categoryData}
+        data={data}
         navigatePath={path[1].path}
       />
     </section>
