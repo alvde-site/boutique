@@ -3,7 +3,7 @@ import Content from "../Content/Content";
 import {
   CATEGORY_BUTTON_TEXT,
   CATEGORY_TITLE_TEXT,
-  categoryDressPath
+  categoryDressPath,
 } from "../../../utils/constants";
 import { Link } from "react-router-dom";
 
@@ -40,10 +40,7 @@ function Category() {
                   alt={item.title}
                 />
                 <div className="category__overlay">
-                  <Link
-                    className="category__link"
-                    to="category/dress"
-                  >
+                  <Link className="category__link" to="category/dress">
                     {item.title}
                   </Link>
                 </div>
