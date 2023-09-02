@@ -21,12 +21,3 @@ $asset-base-path: "../assets" !default;
 @function image($file) {
   @return asset("images", $file);
 }
-
-/// Font asset helper
-/// @access public
-/// @param {String} $file - Asset file name, including extension
-/// @return {URL} - A `url()` function leading to the font
-/// @require {function} asset
-@function font($file) {
-  @return asset("fonts", $file);
-}

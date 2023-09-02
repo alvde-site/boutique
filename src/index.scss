@@ -1,10 +1,4 @@
-@import "./vendor/normalize";
-
-/* fonts */
-@import "./vendor/manrope";
-@import "./vendor/inter";
-@import "./vendor/forum";
-
+@import "./styles/main.scss";
 /* components */
 @import "./components/App/vars";
 @import "./components/App/app";
