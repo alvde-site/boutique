@@ -3,22 +3,22 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
 import { Route, Routes } from "react-router-dom";
-import Contacts from "../Main/Contacts/Contacts";
-import Conditions from "../Main/Conditions/Conditions";
-import Privacy from "../Main/Privacy/Privacy";
-import Press from "../Main/Press/Press";
-import Dealer from "../Main/Dealer/Dealer";
+import Contacts from "../Contacts/Contacts";
+import Conditions from "../Conditions/Conditions";
+import Privacy from "../Privacy/Privacy";
+import Press from "../Press/Press";
+import Dealer from "../Dealer/Dealer";
 import PopupWithAuth from "../PopupWithAuth/PopupWithAuth";
 import PopupWithRegister from "../PopupWithRegister/PopupWithRegister";
 import PopupWithAlert from "../PopupWithAlert/PopupWithAlert";
-import NotFoundPage from "../Main/NotFoundPage/NotFoundPage";
-import About from "../Main/About/About";
+import NotFoundPage from "../NotFoundPage/NotFoundPage";
+import About from "../About/About";
 import PopupWithBasketPage from "../PopupWithBasketPage/PopupWithBasketPage";
 import PopupWithFavouritePage from "../PopupWithFavouritePage/PopupWithFavouritePage";
-import Account from "../Main/Account/Account";
+import Account from "../Account/Account";
 import { ICurrentUser } from "../../utils/interfaces";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import SectionSelection from "../Main/SectionSelection/SectionSelection";
+import SectionSelection from "../SectionSelection/SectionSelection";
 import {
   categoryPath,
   categoryData,
@@ -29,7 +29,7 @@ import {
   COLLECTION_BUTTON_TEXT,
   COLLECTION_TITLE_TEXT,
 } from "../../utils/constants";
-import SectionChoose from "../Main/SectionChoose/SectionChoose";
+import SectionChoose from "../SectionChoose/SectionChoose";
 
 function App() {
   const [currentUser, setCurrentUser] = useState<ICurrentUser>({ email: "" });

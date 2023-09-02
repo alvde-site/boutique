@@ -40,7 +40,7 @@
   right: 40px;
   width: 32px;
   height: 32px;
-  background: #000 url(../../images/svg/close-icon.svg) center/contain
+  background: #000 svg("close-icon.svg") center/contain
     no-repeat;
   border: none;
   padding: 0;

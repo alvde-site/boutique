@@ -2,7 +2,7 @@
 /// should not include trailing slash
 /// @access public
 /// @type String
-$asset-base-path: "../assets" !default;
+$asset-base-path: "../../" !default;
 
 /// Asset URL builder
 /// @access private
@@ -20,4 +20,13 @@ $asset-base-path: "../assets" !default;
 /// @require {function} asset
 @function image($file) {
   @return asset("images", $file);
+}
+
+/// Svg asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the image
+/// @require {function} asset
+@function svg($file) {
+  @return asset("images/svg", $file);
 }

@@ -90,11 +90,11 @@
 }
 
 .footer__pay_type_mir {
-  background: #bfbfbf url(../../images/mir-logo.png) center/cover no-repeat;
+  background: #bfbfbf image("mir-logo.png") center/cover no-repeat;
 }
 
 .footer__pay_type_visa {
-  background: transparent url(../../images/visa-logo.png) center/cover no-repeat;
+  background: transparent image("visa-logo.png") center/cover no-repeat;
 }
 
 @media (max-width: 1400px) {

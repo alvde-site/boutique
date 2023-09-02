@@ -1,5 +1,5 @@
 import PopupWithPage from "../PopupWithPage/PopupWithPage";
-import Product from "./Product/Product";
+import Product from "../Product/Product";
 import { BASKET_POPUP } from "../../utils/constants";
 import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";

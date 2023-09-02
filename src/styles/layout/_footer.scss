@@ -1,3 +1,147 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
+.footer {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1920px;
+  margin: auto auto 0;
+  padding: $main-desctop-padding;
+  background-color: #f1f1f1;
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1739px;
+  margin: 0 auto;
+  padding: 0 90px;
+}
+
+.footer__links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-sizing: border-box;
+}
+
+.footer__link {
+  @include usual-text("Inter");
+  color: #000;
+  text-decoration: none;
+  transition: $transition-time;
+  opacity: $main-link-state-opacity;
+
+  &:hover {
+    opacity: $main-link-hover-opacity;
+  }
+}
+
+.footer__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.footer__langs {
+  margin: 0 0 auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+
+  li:not(:last-child)::after {
+    content: "/";
+    margin: 0 5px;
+    @include usual-text("Inter");
+  }
+}
+
+.footer__link_type_button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.footer__pays {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+
+  li:not(:last-child) {
+    margin: 0 5px 0 0;
+  }
+}
+
+.footer__pay {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: 58px;
+  height: 34px;
+  border-radius: 4px;
+  opacity: $main-link-state-opacity;
+
+  &:hover {
+    opacity: $main-link-hover-opacity;
+  }
+}
+
+.footer__pay_type_mir {
+  background: #bfbfbf image("mir-logo.png") center/cover no-repeat;
+}
+
+.footer__pay_type_visa {
+  background: transparent image("visa-logo.png") center/cover no-repeat;
+}
+
+@media (max-width: 1400px) {
+  .footer {
+    padding: $main-mobile-padding;
+  }
+
+  .footer__content {
+    grid-template-columns: 1fr;
+    max-width: 963px;
+    padding: $main-mobile-padding;
+
+    .footer__links {
+      padding: 0 0 45px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+      li:nth-child(3n + 2) {
+        text-align: center;
+      }
+
+      li:nth-child(3n + 3) {
+        text-align: right;
+      }
+    }
+  }
+
+  .footer__details {
+    margin: 45px 0 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer__langs {
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__links {
+    grid-template-columns: 1fr;
+
+    li {
+      margin-bottom: 15px;
+    }
+  }
+}

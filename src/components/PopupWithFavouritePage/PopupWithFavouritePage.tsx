@@ -1,6 +1,6 @@
 import PopupWithPage from "../PopupWithPage/PopupWithPage";
 import { FAVOURITE_POPUP } from "../../utils/constants";
-import Favourite from "./Favourite/Favourite";
+import Favourite from "../Favourite/Favourite";
 import {
   addBasketProduct,
   removeBasketProduct,

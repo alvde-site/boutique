@@ -4,9 +4,9 @@ import {
 } from "../../services/reducers/popupsSlice";
 import { MENU_POPUP } from "../../utils/constants";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import Menu from "./Menu/Menu";
-import RightHeaderMenu from "./RightHeaderMenu/RightHeaderMenu";
-import StoreList from "./StoreList/StoreList";
+import Menu from "../Menu/Menu";
+import RightHeaderMenu from "../RightHeaderMenu/RightHeaderMenu";
+import StoreList from "../StoreList/StoreList";
 
 function Header() {
   const dispatch = useAppDispatch();
