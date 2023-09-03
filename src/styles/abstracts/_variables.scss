@@ -38,17 +38,23 @@ $max-width: 1180px !default;
 
 /// Breakpoints map
 /// @type Length
+// Small smartphones
+$screen-xsm-max: 425px !default;
+
 // Small tablets and large smartphones (landscape view)
-$screen-sm-min: 576px !default;
+$screen-sm-max: 576px !default;
 
 // Small tablets (portrait view)
-$screen-md-min: 768px !default;
+$screen-md-max: 768px !default;
 
 // Tablets and small desktops
-$screen-lg-min: 992px !default;
+$screen-lg-max: 992px !default;
 
 // Large tablets and desktops
-$screen-xl-min: 1200px !default;
+$screen-xl-max: 1200px !default;
+
+// Extra Large tablets and desktops
+$screen-xxl-max: 1200px !default;
 
 // Отступы оберточных блоков
 $main-desctop-padding: 50px 90px;
