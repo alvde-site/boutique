@@ -100,7 +100,7 @@
   background: transparent image("visa-logo.png") center/cover no-repeat;
 }
 
-@media (max-width: 1400px) {
+@include xxl {
   .footer {
     padding: $main-mobile-padding;
   }
@@ -136,7 +136,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@include md {
   .footer__links {
     grid-template-columns: 1fr;
 

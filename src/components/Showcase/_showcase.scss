@@ -69,7 +69,7 @@
   @include usual-text("Inter");
 }
 
-@media (max-width: 1400px) {
+@include xxl {
   .showcase_position_main {
     display: grid;
   }
@@ -79,7 +79,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@include md {
   .showcase {
     grid-template-columns: 1fr;
     justify-items: center;

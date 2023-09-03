@@ -41,7 +41,7 @@
   background-image: svg("close-icon.svg");
 }
 
-@media (max-width: 1400px) {
+@include xxl {
   .header {
     padding: $main-mobile-padding;
   }

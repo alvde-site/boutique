@@ -8,7 +8,7 @@
   @include usual-text("Inter");
 }
 
-@media (max-width: 1400px) {
+@include xxl {
   .press {
     padding: $main-mobile-padding;
   }

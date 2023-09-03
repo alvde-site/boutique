@@ -110,7 +110,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@include md {
     .category__link {
         @include usual-text('Manrope');
     }

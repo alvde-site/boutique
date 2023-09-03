@@ -9,7 +9,7 @@
   @include usual-text("Inter");
 }
 
-@media (max-width: 1400px) {
+@include xxl {
   .dealer {
     padding: $main-mobile-padding;
   }

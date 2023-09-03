@@ -52,7 +52,7 @@
   opacity: $button-state-opacity;
 }
 
-@media (max-width: 1400px) {
+@include xxl {
   .menu__position_nav {
     display: none;
   }

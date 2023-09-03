@@ -100,7 +100,7 @@
     background: svg("dislike-icon.svg") center/contain no-repeat;
   }
 
-  @media (max-width: 768px) {
+  @include md {
     .product {
       grid-template-columns: 1fr;
     }

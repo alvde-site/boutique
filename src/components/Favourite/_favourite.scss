@@ -73,14 +73,14 @@
     30px no-repeat;
 }
 
-@media (max-width: 768px) {
+@include md {
   .favourite__card {
     grid-template-columns: 1fr;
     padding: 30px;
   }
 }
 
-@media (max-width: 768px) {
+@include md {
   .favourite__card {
     padding: 10px;
   }

@@ -50,7 +50,7 @@
   @include usual-text("Manrope");
 }
 
-@media (max-width: 1400px) {
+@include xxl {
   .content {
     padding: $main-mobile-padding;
     max-width: 963px;

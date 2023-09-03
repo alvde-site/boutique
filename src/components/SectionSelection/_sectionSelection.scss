@@ -61,7 +61,7 @@
   @include image-setting;
 }
 
-@media (max-width: 992px) {
+@include lg {
   .partition {
     padding: 0;
   }

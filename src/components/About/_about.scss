@@ -63,7 +63,7 @@
   padding-left: 30px;
 }
 
-@media (max-width: 992px) {
+@include lg {
   .about {
     grid-template-columns: 1fr;
     padding: 0;

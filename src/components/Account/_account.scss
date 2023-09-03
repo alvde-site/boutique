@@ -123,7 +123,7 @@
   display: block;
 }
 
-@media (max-width: 1400px) {
+@include xxl {
   .account {
     padding: $main-mobile-padding;
   }
@@ -137,7 +137,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@include sm {
   .account__buttons {
     grid-template-columns: 1fr;
   }

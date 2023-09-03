@@ -12,7 +12,7 @@
     text-transform: uppercase;
 }
 
-@media(max-width: 1400px) {
+@include xxl {
     .notfound {
         padding: 0;
     }

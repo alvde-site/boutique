@@ -95,7 +95,7 @@
     margin: 0 0 40px;
 }
 
-@media (max-width: 1400px) {
+@include xxl {
   .conditions {
     padding: $main-mobile-padding;
   }
