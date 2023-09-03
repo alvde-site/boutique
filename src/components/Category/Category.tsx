@@ -40,7 +40,7 @@ function Category() {
                   alt={item.title}
                 />
                 <div className="category__overlay">
-                  <Link className="category__link" to="category/dress">
+                  <Link className="category__link" to={`category/${item.path}`}>
                     {item.title}
                   </Link>
                 </div>
