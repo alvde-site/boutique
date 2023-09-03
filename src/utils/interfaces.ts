@@ -9,6 +9,7 @@ interface foto {
   src: string;
   title: string;
   path: string;
+  text?: string;
 }
 
 /* reducers */
@@ -108,10 +109,7 @@ export interface ISectionChooseProps extends ISection {
   item: { src: string; title: string; path: string };
   buttonText: string;
   titleText: string;
-  data: {
-    src: string;
-    title: string;
-  }[];
+  data: foto[];
 }
 
 export interface ISectionSelectionProps {
@@ -120,7 +118,7 @@ export interface ISectionSelectionProps {
 }
 
 export interface IOverlayProps {
-  path: string;
+  path: string|undefined;
   item: foto;
 }
 
@@ -161,10 +159,7 @@ export interface IProductProps {
 }
 
 export interface ISectionMoreProps extends IContentProps {
-  data: {
-    src: string;
-    title: string;
-  }[];
+  data: foto[];
 }
 
 export interface ISectionProductProps {

@@ -45,31 +45,6 @@
     @include image-setting;
 }
 
-.category__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0,0,0,.7);
-    opacity: 0;
-    transition: $transition-time;
-}
-
-.category__overlay:hover {
-    opacity: 1;
-}
-
-.category__link {
-    @include usual-text('Inter');
-    text-decoration: none;
-    color: #fff;
-    text-transform: uppercase;
-}
-
 // @media zone
 
 @include xxl {
@@ -94,26 +69,5 @@
 
     .category__image {
         max-height: 649px;
-    }
-
-    .category__overlay {
-        position: relative;
-        margin: 15px 0 0;
-        height: auto;
-        display: flex;
-        background-color: transparent;
-        opacity: 1;
-        transition: $transition-time;
-    }
-
-    .category__link {
-        @include decorative-big-text;
-        color: #000;
-    }
-}
-
-@include md {
-    .category__link {
-        @include usual-text('Manrope');
     }
 }

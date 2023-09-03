@@ -1,5 +1,6 @@
 import { ISectionMoreProps } from "../../utils/interfaces";
 import Content from "../Content/Content";
+import Overlay from "../Overlay/Overlay";
 
 function SectionMore({
   titleText,
@@ -22,6 +23,7 @@ function SectionMore({
                 src={collection.src}
                 alt={collection.title}
               />
+              <Overlay path={navigatePath} item={collection} />
             </figure>
             <h2 className="more__title">{collection.title}</h2>
           </article>
