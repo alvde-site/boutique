@@ -100,6 +100,8 @@
     background: svg("dislike-icon.svg") center/contain no-repeat;
   }
 
+// @media zone
+
   @include md {
     .product {
       grid-template-columns: 1fr;

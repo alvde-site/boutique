@@ -32,6 +32,8 @@
   color: #000;
 }
 
+// @media zone
+
 @include xxl {
   .more {
     grid-template-columns: 1fr;

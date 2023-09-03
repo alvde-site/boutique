@@ -97,6 +97,8 @@
   background: transparent image("visa-logo.png") center/cover no-repeat;
 }
 
+// @media zone
+
 @include xxl {
   .footer {
     padding: $main-mobile-padding;

@@ -52,6 +52,8 @@
   opacity: $button-state-opacity;
 }
 
+// @media zone
+
 @include xxl {
   .menu__position_nav {
     display: none;

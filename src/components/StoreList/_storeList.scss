@@ -120,6 +120,8 @@
   align-items: flex-start;
 }
 
+// @media zone
+
 @include xxl {
   .store__link-menu {
     display: flex;

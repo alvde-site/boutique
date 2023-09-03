@@ -50,6 +50,8 @@
   @include usual-text("Manrope");
 }
 
+// @media zone
+
 @include xxl {
   .content {
     padding: $main-mobile-padding;

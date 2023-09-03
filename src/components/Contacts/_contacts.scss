@@ -145,6 +145,8 @@
   opacity: $button-hover-opacity;
 }
 
+// @media zone
+
 @include xxl {
   .contacts {
     padding: $main-mobile-padding;

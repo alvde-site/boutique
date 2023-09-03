@@ -20,6 +20,8 @@
   @include usual-text("Inter");
 }
 
+// @media zone
+
 @include xxl {
   .privacy {
     padding: $main-mobile-padding;

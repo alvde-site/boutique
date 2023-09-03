@@ -73,6 +73,8 @@
     30px no-repeat;
 }
 
+// @media zone
+
 @include md {
   .favourite__card {
     grid-template-columns: 1fr;

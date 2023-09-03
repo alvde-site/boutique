@@ -70,7 +70,9 @@
     text-transform: uppercase;
 }
 
-@media(max-width:1400px) {
+// @media zone
+
+@include xxl {
     .category__content {
         grid-template-columns: 1fr;
         margin: 0 auto;

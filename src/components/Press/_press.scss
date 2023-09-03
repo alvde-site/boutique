@@ -8,6 +8,8 @@
   @include usual-text("Inter");
 }
 
+// @media zone
+
 @include xxl {
   .press {
     padding: $main-mobile-padding;

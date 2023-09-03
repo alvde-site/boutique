@@ -38,6 +38,8 @@
   opacity: $button-hover-opacity;
 }
 
+// @media zone
+
 @include xxl {
   .promo__button {
     width: 132px;

@@ -39,6 +39,8 @@
   background-image: svg("close-icon.svg");
 }
 
+// @media zone
+
 @include xxl {
   .header {
     padding: $main-mobile-padding;
