@@ -63,3 +63,9 @@
     margin: 0 0 78px;
   }
 }
+
+@include sm {
+  .promo__title {
+    text-align: center;
+  }
+}

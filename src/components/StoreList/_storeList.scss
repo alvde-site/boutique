@@ -157,3 +157,9 @@
     padding: 123px 20px 207px;
   }
 }
+
+@include sm {
+  .store__content {
+    grid-template-columns: 1fr;
+  }
+}

@@ -34,8 +34,8 @@
 
 .partition__info {
   box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
   padding: 16px;
 }
 
