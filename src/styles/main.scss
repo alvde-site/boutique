@@ -19,8 +19,8 @@
 
 // 4. Layout-related sections
 @import 
-  "layout/header", 
-  "layout/footer";
+  "../components/Header/header", 
+  "../components/Footer/footer";
 
 // 5. Components
 @import

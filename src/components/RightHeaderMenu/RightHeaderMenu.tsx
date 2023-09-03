@@ -4,7 +4,10 @@ import {
   handlePopupState,
   closeAllPopups,
 } from "../../services/reducers/popupsSlice";
-import { selectAllInBasket } from "../../services/reducers/productsSlice";
+import {
+  selectAllInBasket,
+  selectAllInFavourite,
+} from "../../services/reducers/productsSlice";
 import {
   AUTH_POPUP,
   BASKET_POPUP,
@@ -18,6 +21,7 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
   const dispatch = useAppDispatch();
   const auth = useAppSelector(selectAllAuth);
   const basketProducts = useAppSelector(selectAllInBasket);
+  const favouriteProducts = useAppSelector(selectAllInFavourite);
   function handleOpenAuthPopup() {
     dispatch(handlePopupState({ popupName: AUTH_POPUP, popupState: true }));
   }
@@ -68,7 +72,12 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
         className="icon-menu__button icon-menu__button_type_favourite"
         aria-label="Избранное"
         onClick={handleOpenFavourite}
-      ></button>
+      >
+        {" "}
+        <span className="icon-menu__text">
+          {favouriteProducts.length ? favouriteProducts.length : ""}
+        </span>
+      </button>
       <button
         className="icon-menu__button icon-menu__button_type_basket"
         aria-label="Корзина"
