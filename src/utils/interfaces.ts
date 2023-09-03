@@ -102,6 +102,11 @@ export interface ISectionChooseProps extends ISection {
   }[];
 }
 
+export interface ISectionSelectionProps {
+  path: {path: string; desc: string}[];
+  fotos: { src: string; title: string; path: string }[];
+}
+
 /* Popups */
 
 export interface IValues {

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import Paths from "../Paths/Paths";
+import { ISectionSelectionProps } from "../../utils/interfaces";
 
-function SectionSelection({ path, fotos }) {
+function SectionSelection({ path, fotos }:ISectionSelectionProps) {
   return (
     <section className="content">
       <div className="partition">
