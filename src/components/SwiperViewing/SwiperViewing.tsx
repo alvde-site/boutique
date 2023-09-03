@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import "./SwiperViewing.css";
+import "./SwiperViewing.scss";
 
 import { Navigation } from "swiper";
 import { IPromoProps } from "../../utils/interfaces";

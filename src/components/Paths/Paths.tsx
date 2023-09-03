@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import { IPathProps } from "../../utils/interfaces";
 
-function Paths({ path }) {
+function Paths({ path }:IPathProps) {
   return (
     <ul className="paths partition__paths">
       {path.map((e, i) => (

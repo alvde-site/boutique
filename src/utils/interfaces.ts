@@ -1,4 +1,16 @@
 import { ReactNode } from "react";
+
+interface path {
+  path: string;
+  desc: string;
+}
+
+interface foto {
+  src: string;
+  title: string;
+  path: string;
+}
+
 /* reducers */
 export interface IInitialAuth {
   loggedIn: boolean;
@@ -103,8 +115,8 @@ export interface ISectionChooseProps extends ISection {
 }
 
 export interface ISectionSelectionProps {
-  path: {path: string; desc: string}[];
-  fotos: { src: string; title: string; path: string }[];
+  path: path[];
+  fotos: foto[];
 }
 
 /* Popups */
@@ -166,6 +178,10 @@ export interface IFavouriteProps {
 
 export interface IPopupRegisterProps {
   setCurrentUser: React.Dispatch<React.SetStateAction<ICurrentUser>>;
+}
+
+export interface IPathProps {
+  path: path[];
 }
 /* Валидация формы */
 
