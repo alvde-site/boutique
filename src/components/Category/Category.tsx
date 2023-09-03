@@ -1,11 +1,11 @@
-import { categoryData } from "../../utils/constants";
+import { CATEGOTY_PATH, categoryData } from "../../utils/constants";
 import Content from "../Content/Content";
 import {
   CATEGORY_BUTTON_TEXT,
   CATEGORY_TITLE_TEXT,
   categoryDressPath,
 } from "../../utils/constants";
-import { Link } from "react-router-dom";
+import Overlay from "../Overlay/Overlay";
 
 function Category() {
   return (
@@ -39,11 +39,7 @@ function Category() {
                   src={item.src}
                   alt={item.title}
                 />
-                <div className="category__overlay">
-                  <Link className="category__link" to={`category/${item.path}`}>
-                    {item.title}
-                  </Link>
-                </div>
+                <Overlay path={CATEGOTY_PATH} item={item} />
               </figure>
             ))}
           </div>

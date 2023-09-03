@@ -5,6 +5,7 @@ import {
   COLLECTION_TITLE_TEXT,
   COLLECTION_PATH,
 } from "../../utils/constants";
+import Overlay from "../Overlay/Overlay";
 
 function Collection() {
   return (
@@ -22,6 +23,7 @@ function Collection() {
                 src={collection.src}
                 alt={collection.title}
               />
+              <Overlay path={COLLECTION_PATH} item={collection} />
             </figure>
             <div className="collection__content">
               <h2 className="collection__title">{collection.title}</h2>

@@ -79,6 +79,7 @@ export const showcase = {
 };
 
 /* Category */
+export const CATEGOTY_PATH = "/category";
 export const CATEGORY_TITLE_TEXT = "Категории";
 export const CATEGORY_BUTTON_TEXT = "Все категории";
 export const categoryData = [

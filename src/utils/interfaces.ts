@@ -119,6 +119,11 @@ export interface ISectionSelectionProps {
   fotos: foto[];
 }
 
+export interface IOverlayProps {
+  path: string;
+  item: foto;
+}
+
 /* Popups */
 
 export interface IValues {
