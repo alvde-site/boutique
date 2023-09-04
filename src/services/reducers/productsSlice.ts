@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { IProductsState } from "../../utils/interfaces";
-import productsBD from "../../utils/productsBD";
+import { productsBD } from "../../utils/boutiqueBD";
 
 const initialState: IProductsState[] = productsBD;
 

@@ -1,4 +1,4 @@
-import { CATEGOTY_PATH, categoryData } from "../../utils/constants";
+import { CATEGOTY_PATH } from "../../utils/constants";
 import Content from "../Content/Content";
 import {
   CATEGORY_BUTTON_TEXT,
@@ -6,6 +6,7 @@ import {
   categoryDressPath,
 } from "../../utils/constants";
 import Overlay from "../Overlay/Overlay";
+import { categoryBD } from "../../utils/boutiqueBD";
 
 function Category() {
   return (
@@ -19,8 +20,8 @@ function Category() {
           <div className="category__description">
             <img
               className="category__cover"
-              src={categoryData[0].src}
-              alt={categoryData[0].title}
+              src={categoryBD[0].src}
+              alt={categoryBD[0].title}
             />
             <p className="category__text">
               Будучи потомком великого импресарио 19-20 вв, Сергея Дягилева,
@@ -32,7 +33,7 @@ function Category() {
             </p>
           </div>
           <div className="category__gallery">
-            {categoryData.slice(1, 5).map((item, index) => (
+            {categoryBD.slice(1, 5).map((item, index) => (
               <figure className="category__figure" key={index}>
                 <img
                   className="category__image"

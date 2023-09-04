@@ -9,11 +9,10 @@ import Menu from "../Menu/Menu";
 import RightHeaderMenu from "../RightHeaderMenu/RightHeaderMenu";
 import {
   MENU_POPUP,
-  categoryData,
   categoryPath,
-  collectionData,
   collectionPath,
 } from "../../utils/constants";
+import { categoryBD, collectionBD } from "../../utils/boutiqueBD";
 
 function StoreList() {
   const dispatch = useAppDispatch();
@@ -41,7 +40,7 @@ function StoreList() {
               <h2 className="store__title">Категории</h2>
             </Link>
             <ul className="store__links">
-              {categoryData.map((item, i) => (
+              {categoryBD.map((item, i) => (
                 <li key={i}>
                   <Link
                     className="store__link"
@@ -64,7 +63,7 @@ function StoreList() {
                 <h2 className="store__title">коллекции</h2>
               </Link>
               <ul className="store__links">
-                {collectionData.slice(0, 3).map((item, i) => (
+                {collectionBD.slice(0, 3).map((item, i) => (
                   <li key={i}>
                     <Link
                       className="store__link"

@@ -21,15 +21,14 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import SectionSelection from "../SectionSelection/SectionSelection";
 import {
   categoryPath,
-  categoryData,
   CATEGORY_BUTTON_TEXT,
   CATEGORY_TITLE_TEXT,
   collectionPath,
-  collectionData,
   COLLECTION_BUTTON_TEXT,
   COLLECTION_TITLE_TEXT,
 } from "../../utils/constants";
 import SectionChoose from "../SectionChoose/SectionChoose";
+import { categoryBD, collectionBD } from "../../utils/boutiqueBD";
 
 function App() {
   const [currentUser, setCurrentUser] = useState<ICurrentUser>({ email: "" });
@@ -51,7 +50,7 @@ function App() {
             <Route
               path="/category"
               element={
-                <SectionSelection path={categoryPath} fotos={categoryData} />
+                <SectionSelection path={categoryPath} fotos={categoryBD} />
               }
             />
             <Route
@@ -59,40 +58,32 @@ function App() {
               element={
                 <SectionSelection
                   path={collectionPath}
-                  fotos={collectionData}
+                  fotos={collectionBD}
                 />
               }
             />
-            {categoryData.map((i, index) => (
-              <Route
-                key={index}
-                path={`/category/${i.path}`}
-                element={
-                  <SectionChoose
-                    item={i}
-                    path={categoryPath}
-                    buttonText={CATEGORY_BUTTON_TEXT}
-                    titleText={CATEGORY_TITLE_TEXT}
-                    data={categoryData}
-                  />
-                }
-              />
-            ))}
-            {collectionData.map((i, index) => (
-              <Route
-                key={index}
-                path={`/collection/${i.path}`}
-                element={
-                  <SectionChoose
-                    item={i}
-                    path={collectionPath}
-                    buttonText={COLLECTION_BUTTON_TEXT}
-                    titleText={COLLECTION_TITLE_TEXT}
-                    data={collectionData}
-                  />
-                }
-              />
-            ))}
+            <Route
+              path="/category/:sectionId"
+              element={
+                <SectionChoose
+                  path={categoryPath}
+                  buttonText={CATEGORY_BUTTON_TEXT}
+                  titleText={CATEGORY_TITLE_TEXT}
+                  data={categoryBD}
+                />
+              }
+            />
+            <Route
+              path="/collection/:sectionId"
+              element={
+                <SectionChoose
+                  path={collectionPath}
+                  buttonText={COLLECTION_BUTTON_TEXT}
+                  titleText={COLLECTION_TITLE_TEXT}
+                  data={collectionBD}
+                />
+              }
+            />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>

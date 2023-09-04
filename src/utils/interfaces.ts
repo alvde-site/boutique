@@ -44,6 +44,15 @@ export interface IProductsState {
   collection: string;
 }
 
+export interface ICategoryState {
+  id: number;
+  src: string;
+  title: string;
+  path: string;
+}
+
+export interface ICollectionState extends ICategoryState {}
+
 /* header */
 
 interface IModifier {
@@ -106,7 +115,7 @@ interface ISection {
 }
 
 export interface ISectionChooseProps extends ISection {
-  item: { src: string; title: string; path: string };
+  item?: any; // убрать после разработки
   buttonText: string;
   titleText: string;
   data: foto[];
@@ -118,7 +127,7 @@ export interface ISectionSelectionProps {
 }
 
 export interface IOverlayProps {
-  path: string|undefined;
+  path: string | undefined;
   item: foto;
 }
 

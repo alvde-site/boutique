@@ -4,6 +4,8 @@ import authSlice from "./reducers/authSlice";
 import popupsSlice from "./reducers/popupsSlice";
 import productsSlice from "./reducers/productsSlice";
 import usersSlice from "./reducers/usersSlice";
+import categoriesSlice from "./reducers/categoriesSlice";
+import collectionSlice from "./reducers/collectionSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +13,8 @@ export const store = configureStore({
     users: usersSlice,
     popups: popupsSlice,
     products: productsSlice,
+    categories: categoriesSlice,
+    collections: collectionSlice,
   },
 });
 
