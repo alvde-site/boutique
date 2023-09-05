@@ -1,11 +1,7 @@
 import { ReactNode } from "react";
 
-interface path {
-  path: string;
-  desc: string;
-}
-
-interface foto {
+interface IFoto {
+  id: number;
   src: string;
   title: string;
   path: string;
@@ -103,7 +99,7 @@ export interface IFormValidator {
   resetForm: () => void;
 }
 
-interface IPath {
+export interface IPath {
   path: string;
   desc: string;
 }
@@ -118,17 +114,17 @@ export interface ISectionChooseProps extends ISection {
   item?: any; // убрать после разработки
   buttonText: string;
   titleText: string;
-  data: foto[];
+  data: IFoto[];
 }
 
 export interface ISectionSelectionProps {
-  path: path[];
-  fotos: foto[];
+  path: IPath[];
+  fotos: IFoto[];
 }
 
 export interface IOverlayProps {
   path: string | undefined;
-  item: foto;
+  item: IFoto;
 }
 
 /* Popups */
@@ -168,7 +164,7 @@ export interface IProductProps {
 }
 
 export interface ISectionMoreProps extends IContentProps {
-  data: foto[];
+  data: IFoto[];
 }
 
 export interface ISectionProductProps {
@@ -190,7 +186,7 @@ export interface IPopupRegisterProps {
 }
 
 export interface IPathProps {
-  path: path[];
+  path: IPath[];
 }
 /* Валидация формы */
 

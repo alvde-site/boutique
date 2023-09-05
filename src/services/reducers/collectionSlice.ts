@@ -14,6 +14,6 @@ const collectionsSlice = createSlice({
 export const selectAllCollections = (state: RootState) => state.collections;
 
 export const selectCollectionsById = (state: RootState, sectionId: number) =>
-  state.categories.find((category) => category.id === sectionId);
+  state.collections.find((collection) => collection.id === sectionId);
 
 export default collectionsSlice.reducer;
