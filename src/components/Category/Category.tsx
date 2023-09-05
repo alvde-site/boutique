@@ -14,6 +14,7 @@ function Category() {
       titleText={CATEGORY_TITLE_TEXT}
       buttonText={CATEGORY_BUTTON_TEXT}
       navigatePath={categoryDressPath[1].path}
+      cssClass="content-button_position_top"
     >
       <div className="category">
         <div className="category__content">

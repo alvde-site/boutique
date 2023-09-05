@@ -8,21 +8,11 @@
   background-color: $background-content-color;
 }
 
-.content__button_position_bottom {
-  margin: 20px auto 0;
-  display: none;
-  @include usual-text("Manrope");
-}
-
 // @media zone
 
 @include xxl {
   .content {
     padding: $main-mobile-padding;
     max-width: 963px;
-  }
-
-  .content__button_position_bottom {
-    display: block;
   }
 }

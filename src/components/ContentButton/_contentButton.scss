@@ -1,0 +1,35 @@
+.content-button {
+  margin: 0;
+  padding: 7px 0 8px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #000;
+  color: #000;
+  opacity: $main-link-state-opacity;
+  text-transform: uppercase;
+}
+
+.content-button:hover {
+  opacity: $main-link-hover-opacity;
+}
+
+.content-button_position_top {
+  @include usual-text("Inter");
+}
+
+.content-button_position_bottom {
+  margin: 20px auto 0;
+  display: none;
+  @include usual-text("Manrope");
+}
+
+// @media zone
+
+@include xxl {
+  .content-button_position_top {
+    display: none;
+  }
+  .content-button_position_bottom {
+    display: block;
+  }
+}

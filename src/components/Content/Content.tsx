@@ -1,27 +1,28 @@
-import { useNavigate } from "react-router-dom";
 import { IContentProps } from "../../utils/interfaces";
 import ContentMenu from "../ContentMenu/ContentMenu";
+import ContentButton from "../ContentButton/ContentButton";
 
 function Content({
   children,
   titleText,
   buttonText,
   navigatePath,
+  cssClass,
 }: IContentProps) {
-  const navigate = useNavigate();
-  function handleClick() {
-    navigatePath ? navigate(navigatePath) : navigate("/");
-  }
   return (
     <section className="content">
-      <ContentMenu titleText={titleText} buttonText={buttonText} navigatePath={navigatePath}/>
+      <ContentMenu
+        titleText={titleText}
+        buttonText={buttonText}
+        navigatePath={navigatePath}
+        cssClass={cssClass}
+      />
       {children}
-      <button
-        onClick={handleClick}
-        className="content__button content__button_position_bottom"
-      >
-        {buttonText}
-      </button>
+      <ContentButton
+        cssClass="content-button_position_bottom"
+        buttonText={buttonText}
+        navigatePath={navigatePath}
+      />
     </section>
   );
 }

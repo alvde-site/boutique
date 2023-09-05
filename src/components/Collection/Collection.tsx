@@ -13,6 +13,7 @@ function Collection() {
       titleText={COLLECTION_TITLE_TEXT}
       buttonText={COLLECTION_BUTTON_TEXT}
       navigatePath={COLLECTION_PATH}
+      cssClass="content-button_position_top"
     >
       <div className="collection">
         {collectionBD.slice(0, 3).map((collection, index) => (

@@ -70,9 +70,10 @@ export interface IPromoProps {
 
 export interface IContentProps {
   children?: ReactNode;
-  titleText: string;
+  titleText?: string;
   buttonText: string;
   navigatePath?: string;
+  cssClass?: string;
 }
 
 export interface IOpenModifierProps extends IModifier, IShowcaseProps {}
