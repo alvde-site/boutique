@@ -1,9 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { IContentProps } from "../../utils/interfaces";
-import ContentMenu from "../ContentMenu/ContentMenu";
 
-function Content({
-  children,
+function ContentMenu({
   titleText,
   buttonText,
   navigatePath,
@@ -13,17 +11,18 @@ function Content({
     navigatePath ? navigate(navigatePath) : navigate("/");
   }
   return (
-    <section className="content">
-      <ContentMenu titleText={titleText} buttonText={buttonText} navigatePath={navigatePath}/>
-      {children}
+    <div className="content-menu">
+      <h2 className="content-menu__title" onClick={handleClick}>
+        {titleText}
+      </h2>
       <button
         onClick={handleClick}
-        className="content__button content__button_position_bottom"
+        className="content-menu__button content-menu__button_position_top"
       >
         {buttonText}
       </button>
-    </section>
+    </div>
   );
 }
 
-export default Content;
+export default ContentMenu;

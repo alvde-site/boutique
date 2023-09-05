@@ -1,0 +1,52 @@
+.content-menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 90px 0 0;
+  text-transform: uppercase;
+}
+
+.content-menu__title {
+  min-width: 201px;
+  margin: 0;
+  padding: 8px 29px 7px 90px;
+  text-align: right;
+  @include usual-text("Inter");
+  color: #fff;
+  background-color: #1a1a1a;
+}
+
+.content-menu__button {
+  margin: 0;
+  padding: 7px 0 8px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #000;
+  color: #000;
+  opacity: $main-link-state-opacity;
+  text-transform: uppercase;
+}
+
+.content-menu__button:hover {
+  opacity: $main-link-hover-opacity;
+}
+
+.content-menu__button_position_top {
+  @include usual-text("Inter");
+}
+
+// @media zone
+
+@include xxl {
+  .content-menu {
+    padding: 0;
+  }
+  .content-menu__title {
+    text-align: center;
+    margin: 0 auto 82px;
+    padding: 12px 0;
+  }
+
+  .content-menu__button_position_top {
+    display: none;
+  }
+}

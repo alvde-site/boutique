@@ -1,0 +1,115 @@
+.product {
+    margin: 60px 0 0;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 20px;
+  }
+  
+  .product__img {
+    @include image-setting;
+    max-width: 320px;
+  }
+  
+  .product__content {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .product__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #000;
+    padding: 0 0 20px;
+  }
+  
+  .product__details {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .product__field-wrap {
+      display: flex;
+      align-items: flex-end;
+      margin: 20px 0 0;
+  }
+  
+  .product__field {
+    @include usual-text('Manrope');
+    margin: 0 10px 0 0;
+    color: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+  }
+  
+  .product__value {
+    @include decorative-big-text;
+    margin: 0;
+    color: #000;
+    text-transform: uppercase;
+  }
+  
+  .product__remove-button {
+      @include usual-text('Inter');
+      height: 24px;
+      margin: 0;
+      padding: 0 34px 0 0;
+      border: none;
+      background: svg("grey-close-icon.svg") right/contain no-repeat;
+  }
+  
+  .product__footer {
+      display: flex;
+      justify-content: space-between;
+      margin: auto 0 0;
+  }
+  
+  .product__price-wrap {
+      display: flex;
+      align-items: flex-end;
+  }
+  
+  .product__discount {
+      @include usual-text('Inter');
+      margin: 0 10px 0 0;
+      padding: 0 0 10px;
+      text-decoration: line-through;
+      color: rgba(26, 26, 26, 0.5);
+  }
+  
+  .product__favourite-wrap {
+      display: flex;
+      padding: 40px 0 0;
+      align-items: center;
+  }
+  
+  .product__favourite {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border: none;
+      width: 24px;
+      height: 21px;
+  }
+
+  .product__favourite_type_like {
+    background: svg("like-icon.svg") center/contain no-repeat;
+  }
+
+  .product__favourite_type_dislike {
+    background: svg("dislike-icon.svg") center/contain no-repeat;
+  }
+
+// @media zone
+
+  @include md {
+    .product {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media(max-width: 576px) {
+      .product__field_type_favourite {
+          display: none;
+      }
+  }
