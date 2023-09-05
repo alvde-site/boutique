@@ -32,6 +32,8 @@ function SectionChoose({
 
   const [productPath, setProductPath] = useState(path);
   const [sectionProducts, setSectionProducts] = useState(allProducts);
+
+  const contentElement = document.getElementById("content");
   function toggleFavouriteState(id: string, isInFavourite: boolean) {
     if (isInFavourite) {
       dispatch(removeFavouriteProduct({ productId: id }));
@@ -48,8 +50,9 @@ function SectionChoose({
       setSectionProducts(() =>
         allProducts.filter((product) => product.category === category.path)
       );
+      contentElement?.scrollIntoView({ behavior: "smooth" });
     }
-  }, [path, category, allProducts]);
+  }, [path, category, allProducts, contentElement]);
 
   useEffect(() => {
     if (collection) {
@@ -59,11 +62,12 @@ function SectionChoose({
       setSectionProducts(() =>
         allProducts.filter((product) => product.collection === collection.path)
       );
+      contentElement?.scrollIntoView({ behavior: "smooth" });
     }
-  }, [path, collection, allProducts]);
+  }, [path, collection, allProducts, contentElement]);
 
   return (
-    <section className="content">
+    <section className="content" id="content">
       <div className="partition">
         <Paths path={productPath} />
         <ul className="partition__content">
