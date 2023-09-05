@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-interface IFoto {
+interface ISectionData {
   id: number;
   src: string;
   title: string;
@@ -45,6 +45,7 @@ export interface ICategoryState {
   src: string;
   title: string;
   path: string;
+  text?: string;
 }
 
 export interface ICollectionState extends ICategoryState {}
@@ -63,15 +64,8 @@ export interface IShowcaseProps extends IModifier {}
 
 /* main */
 
-export interface IPromoTitle {
-  title: string;
-  path: string;
-}
-
-export interface IPromoTitles extends Array<IPromoTitle> {}
-
 export interface IPromoProps {
-  promoTitles: IPromoTitles;
+  promoTitles: ISectionData[];
 }
 
 export interface IContentProps {
@@ -106,25 +100,24 @@ export interface IPath {
 
 interface IPaths extends Array<IPath> {}
 
-interface ISection {
+interface ISectionPath {
   path: IPaths;
 }
 
-export interface ISectionChooseProps extends ISection {
-  item?: any; // убрать после разработки
+export interface ISectionChooseProps extends ISectionPath {
   buttonText: string;
   titleText: string;
-  data: IFoto[];
+  data: ISectionData[];
 }
 
 export interface ISectionSelectionProps {
   path: IPath[];
-  fotos: IFoto[];
+  fotos: ISectionData[];
 }
 
 export interface IOverlayProps {
   path: string | undefined;
-  item: IFoto;
+  item: ISectionData;
 }
 
 /* Popups */
@@ -164,7 +157,7 @@ export interface IProductProps {
 }
 
 export interface ISectionMoreProps extends IContentProps {
-  data: IFoto[];
+  data: ISectionData[];
 }
 
 export interface ISectionProductProps {

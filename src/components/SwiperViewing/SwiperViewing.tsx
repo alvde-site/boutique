@@ -9,7 +9,7 @@ import { IPromoProps } from "../../utils/interfaces";
 import { useNavigate } from "react-router-dom";
 import { COLLECTION_PATH } from "../../utils/constants";
 
-function SwiperViewing(props: IPromoProps) {
+function SwiperViewing({promoTitles}:IPromoProps) {
   const navigate = useNavigate();
   function handleClick(path: string) {
     navigate(path);
@@ -21,14 +21,14 @@ function SwiperViewing(props: IPromoProps) {
       navigation={true}
       modules={[Navigation]}
     >
-      {props.promoTitles.map((item, index: number) => {
+      {promoTitles.map((item, index: number) => {
         return (
           <SwiperSlide key={index}>
             <div className="promo__content">
               <h2 className="promo__title">{item.title}</h2>
               <button
                 className="promo__button"
-                onClick={() => handleClick(`${COLLECTION_PATH}/${item.path}`)}
+                onClick={() => handleClick(`${COLLECTION_PATH}/${item.id}`)}
               >
                 Перейти
               </button>
