@@ -1,19 +1,19 @@
-import { CATEGOTY_PATH } from "../../utils/constants";
 import Content from "../Content/Content";
 import {
   CATEGORY_BUTTON_TEXT,
   CATEGORY_TITLE_TEXT,
-  categoryDressPath,
+  CATEGOTY_PATH,
 } from "../../utils/constants";
 import Overlay from "../Overlay/Overlay";
 import { categoryBD } from "../../utils/boutiqueBD";
+import ContentButton from "../ContentButton/ContentButton";
 
 function Category() {
   return (
     <Content
       titleText={CATEGORY_TITLE_TEXT}
       buttonText={CATEGORY_BUTTON_TEXT}
-      navigatePath={categoryDressPath[1].path}
+      navigatePath={CATEGOTY_PATH}
       cssClass="content-button_position_top"
     >
       <div className="category">
@@ -47,6 +47,11 @@ function Category() {
           </div>
         </div>
       </div>
+      <ContentButton
+        cssClass="content-button_position_bottom"
+        buttonText={CATEGORY_BUTTON_TEXT}
+        navigatePath={CATEGOTY_PATH}
+      />
     </Content>
   );
 }

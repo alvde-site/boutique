@@ -1,6 +1,5 @@
 import { IContentProps } from "../../utils/interfaces";
 import ContentMenu from "../ContentMenu/ContentMenu";
-import ContentButton from "../ContentButton/ContentButton";
 
 function Content({
   children,
@@ -10,7 +9,7 @@ function Content({
   cssClass,
 }: IContentProps) {
   return (
-    <section className="content">
+    <section className="content" id="content">
       <ContentMenu
         titleText={titleText}
         buttonText={buttonText}
@@ -18,11 +17,6 @@ function Content({
         cssClass={cssClass}
       />
       {children}
-      <ContentButton
-        cssClass="content-button_position_bottom"
-        buttonText={buttonText}
-        navigatePath={navigatePath}
-      />
     </section>
   );
 }

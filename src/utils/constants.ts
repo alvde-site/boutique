@@ -101,12 +101,6 @@ export const categoryPath = [
   { path: "/category", desc: "Категории" },
 ];
 
-export const categoryDressPath = [
-  { path: "/", desc: "Главная" },
-  { path: "/category", desc: "Категории" },
-  { path: "/category/dress", desc: "Платья" },
-];
-
 export const dresses = [];
 
 /*Collection */

@@ -45,7 +45,7 @@ function StoreList() {
                   <Link
                     className="store__link"
                     onClick={closeMenu}
-                    to="category/dress"
+                    to={`category/${item.id}`}
                   >
                     {item.title}
                   </Link>
@@ -68,7 +68,7 @@ function StoreList() {
                     <Link
                       className="store__link"
                       onClick={closeMenu}
-                      to="category/dress"
+                      to={`collection/${item.id}`}
                     >
                       {item.title}
                     </Link>
