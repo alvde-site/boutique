@@ -33,7 +33,7 @@ function SectionChoose({
   const [productPath, setProductPath] = useState(path);
   const [sectionProducts, setSectionProducts] = useState(allProducts);
 
-  const contentElement = document.getElementById("content");
+  const contentElement = document.getElementsByClassName("partition")[0];
   function toggleFavouriteState(id: string, isInFavourite: boolean) {
     if (isInFavourite) {
       dispatch(removeFavouriteProduct({ productId: id }));
@@ -70,8 +70,8 @@ function SectionChoose({
   }, [path, collection, allProducts, contentElement]);
 
   return (
-    <section className="content" id="content">
-      <div className="partition" id="partition">
+    <section className="content">
+      <div className="partition">
         <Paths path={productPath} />
         <ul className="partition__content">
           {sectionProducts.map((details) => (

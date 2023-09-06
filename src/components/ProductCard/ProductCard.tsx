@@ -29,7 +29,7 @@ function ProductCard() {
 
   return (
     <Content>
-      <div className="partition" id="partition">
+      <div className="partition">
         {<Paths path={productPath} />}
       </div>
     </Content>

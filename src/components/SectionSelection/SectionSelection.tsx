@@ -6,7 +6,7 @@ import Content from "../Content/Content";
 function SectionSelection({ path, fotos }: ISectionSelectionProps) {
   return (
     <Content>
-      <div className="partition" id="partition">
+      <div className="partition">
         <Paths path={path} />
         <ul className="partition__content">
           {fotos.map((f, i) => (
