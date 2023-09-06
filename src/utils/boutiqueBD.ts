@@ -414,10 +414,10 @@ const productsBD = [
 
 const categoryBD = [
   { id: "101", src: categorySaleFoto, title: "Распродажа", path: "sale" },
-  { id: "102", src: categoryFoto1, title: "Жакеты", path: "jackets" },
-  { id: "103", src: categoryFoto2, title: "Юбки", path: "skirts" },
-  { id: "104", src: categoryFoto3, title: "Свадебные платья", path: "wedding" },
-  { id: "105", src: dress1, title: "Платья", path: "dress" },
+  { id: "102", src: dress1, title: "Платья", path: "dress" },
+  { id: "103", src: categoryFoto1, title: "Жакеты", path: "jackets" },
+  { id: "104", src: categoryFoto2, title: "Юбки", path: "skirts" },
+  { id: "105", src: categoryFoto3, title: "Свадебные платья", path: "wedding" },
   { id: "106", src: categoryFoto4, title: "блузки", path: "blouses" },
   { id: "107", src: categoryFoto5, title: "Костюмы", path: "costumes" },
   { id: "108", src: categoryFoto6, title: "Свитеры", path: "sweaters" },

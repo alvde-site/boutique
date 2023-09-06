@@ -27,7 +27,13 @@ function ProductCard() {
     }
   }, [product, category]);
 
-  return <Content>{<Paths path={productPath} />}</Content>;
+  return (
+    <Content>
+      <div className="partition" id="partition">
+        {<Paths path={productPath} />}
+      </div>
+    </Content>
+  );
 }
 
 export default ProductCard;

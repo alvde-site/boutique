@@ -71,7 +71,7 @@ function SectionChoose({
 
   return (
     <section className="content" id="content">
-      <div className="partition">
+      <div className="partition" id="partition">
         <Paths path={productPath} />
         <ul className="partition__content">
           {sectionProducts.map((details) => (

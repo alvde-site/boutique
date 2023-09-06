@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import Paths from "../Paths/Paths";
 import { ISectionSelectionProps } from "../../utils/interfaces";
+import Content from "../Content/Content";
 
-function SectionSelection({ path, fotos }:ISectionSelectionProps) {
+function SectionSelection({ path, fotos }: ISectionSelectionProps) {
   return (
-    <section className="content">
-      <div className="partition">
+    <Content>
+      <div className="partition" id="partition">
         <Paths path={path} />
         <ul className="partition__content">
           {fotos.map((f, i) => (
@@ -18,7 +19,7 @@ function SectionSelection({ path, fotos }:ISectionSelectionProps) {
           ))}
         </ul>
       </div>
-    </section>
+    </Content>
   );
 }
 

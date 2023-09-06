@@ -4,7 +4,7 @@ function Content({
   children,
 }: IContentProps) {
   return (
-    <section className="content" id="content">
+    <section className="content">
       {children}
     </section>
   );
