@@ -70,8 +70,17 @@ export interface IPromoProps {
 
 export interface IContentProps {
   children?: ReactNode;
+}
+
+export interface IContentMenuProps {
   titleText?: string;
-  buttonText: string;
+  buttonText?: string;
+  navigatePath?: string;
+  cssClass?: string;
+}
+
+export interface IContentButtonProps {
+  buttonText?: string;
   navigatePath?: string;
   cssClass?: string;
 }
@@ -157,7 +166,7 @@ export interface IProductProps {
   toggleFavourite: (id: string, isInFavorite: boolean) => void;
 }
 
-export interface ISectionMoreProps extends IContentProps {
+export interface ISectionMoreProps extends IContentMenuProps {
   data: ISectionData[];
 }
 

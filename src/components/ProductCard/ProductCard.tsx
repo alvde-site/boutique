@@ -1,8 +1,7 @@
-function ProductCard() {
+import Content from "../Content/Content";
 
-  return (
-    <></>
-  );
+function ProductCard() {
+  return <Content />;
 }
 
 export default ProductCard;

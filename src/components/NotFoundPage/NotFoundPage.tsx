@@ -3,10 +3,18 @@ import {
   NOTFOUND_TITLE_TEXT,
   NOTFOUND_BUTTON_TEXT,
 } from "../../utils/constants";
+import ContentMenu from "../ContentMenu/ContentMenu";
+import ContentButton from "../ContentButton/ContentButton";
 
 function NotFoundPage() {
   return (
-    <Content titleText={NOTFOUND_TITLE_TEXT} buttonText={NOTFOUND_BUTTON_TEXT}>
+    <Content>
+      <ContentMenu
+        titleText={NOTFOUND_TITLE_TEXT}
+        buttonText={NOTFOUND_BUTTON_TEXT}
+        navigatePath={"/"}
+        cssClass={"content-button_position_top"}
+      />
       <div className="notfound">
         <h3 className="notfound__title">404</h3>
         <p className="notfound__subtitle">Ошибка</p>
@@ -15,6 +23,11 @@ function NotFoundPage() {
           никогда
         </p>
       </div>
+      <ContentButton
+        buttonText={NOTFOUND_BUTTON_TEXT}
+        navigatePath={"/"}
+        cssClass={"content-button_position_bottom"}
+      />
     </Content>
   );
 }

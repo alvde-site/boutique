@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { IContentProps } from "../../utils/interfaces";
+import { IContentButtonProps } from "../../utils/interfaces";
 
 function ContentButton({
   buttonText,
   navigatePath,
   cssClass,
-}: IContentProps) {
+}: IContentButtonProps) {
   const navigate = useNavigate();
   function handleClick() {
     navigatePath ? navigate(navigatePath) : navigate("/");

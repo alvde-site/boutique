@@ -1,10 +1,15 @@
 import { aboutFotos } from "../../utils/constants";
 import { ABOUT_TITLE_TEXT, ABOUT_BUTTON_TEXT } from "../../utils/constants";
 import Content from "../Content/Content";
+import ContentMenu from "../ContentMenu/ContentMenu";
 
 function About() {
   return (
-    <Content titleText={ABOUT_TITLE_TEXT} buttonText={ABOUT_BUTTON_TEXT}>
+    <Content>
+      <ContentMenu
+        titleText={ABOUT_TITLE_TEXT}
+        buttonText={ABOUT_BUTTON_TEXT}
+      />
       <div className="about">
         <p className="about__text about__item about__item_order_1">
           Urban vogue - повседневная одежда, яркая, местами авангардная, с

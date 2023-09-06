@@ -1,5 +1,6 @@
 import { ISectionMoreProps } from "../../utils/interfaces";
 import Content from "../Content/Content";
+import ContentMenu from "../ContentMenu/ContentMenu";
 import Overlay from "../Overlay/Overlay";
 
 function SectionMore({
@@ -9,11 +10,13 @@ function SectionMore({
   data,
 }: ISectionMoreProps) {
   return (
-    <Content
-      titleText={titleText}
-      buttonText={buttonText}
-      navigatePath={navigatePath}
-    >
+    <Content>
+      <ContentMenu
+        titleText={titleText}
+        buttonText={buttonText}
+        navigatePath={navigatePath}
+        cssClass={"content-button_position_top"}
+      />
       <div className="more">
         {data.slice(1, 4).map((collection, index) => (
           <article className="more_item" key={index}>

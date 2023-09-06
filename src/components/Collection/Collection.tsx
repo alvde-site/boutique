@@ -7,15 +7,17 @@ import {
 import Overlay from "../Overlay/Overlay";
 import { collectionBD } from "../../utils/boutiqueBD";
 import ContentButton from "../ContentButton/ContentButton";
+import ContentMenu from "../ContentMenu/ContentMenu";
 
 function Collection() {
   return (
-    <Content
-      titleText={COLLECTION_TITLE_TEXT}
-      buttonText={COLLECTION_BUTTON_TEXT}
-      navigatePath={COLLECTION_PATH}
-      cssClass="content-button_position_top"
-    >
+    <Content>
+      <ContentMenu
+       titleText={COLLECTION_TITLE_TEXT}
+       buttonText={COLLECTION_BUTTON_TEXT}
+       navigatePath={COLLECTION_PATH}
+       cssClass="content-button_position_top"
+      />
       <div className="collection">
         {collectionBD.slice(0, 3).map((collection, index) => (
           <article className="collection_item" key={index}>

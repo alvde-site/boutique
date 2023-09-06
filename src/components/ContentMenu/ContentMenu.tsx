@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { IContentProps } from "../../utils/interfaces";
+import { IContentMenuProps } from "../../utils/interfaces";
 import ContentButton from "../ContentButton/ContentButton";
 
-function ContentMenu({ titleText, buttonText, navigatePath }: IContentProps) {
+function ContentMenu({ titleText, buttonText, navigatePath }: IContentMenuProps) {
   const navigate = useNavigate();
   function handleClick() {
     navigatePath ? navigate(navigatePath) : navigate("/");

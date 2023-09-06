@@ -7,15 +7,17 @@ import {
 import Overlay from "../Overlay/Overlay";
 import { categoryBD } from "../../utils/boutiqueBD";
 import ContentButton from "../ContentButton/ContentButton";
+import ContentMenu from "../ContentMenu/ContentMenu";
 
 function Category() {
   return (
-    <Content
-      titleText={CATEGORY_TITLE_TEXT}
-      buttonText={CATEGORY_BUTTON_TEXT}
-      navigatePath={CATEGOTY_PATH}
-      cssClass="content-button_position_top"
-    >
+    <Content>
+      <ContentMenu
+        titleText={CATEGORY_TITLE_TEXT}
+        buttonText={CATEGORY_BUTTON_TEXT}
+        navigatePath={CATEGOTY_PATH}
+        cssClass={"content-button_position_top"}
+      />
       <div className="category">
         <div className="category__content">
           <div className="category__description">
