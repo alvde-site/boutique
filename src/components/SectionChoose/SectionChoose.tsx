@@ -22,10 +22,10 @@ function SectionChoose({
   const { sectionId } = useParams();
 
   const category = useAppSelector((state) =>
-    selectCategoryById(state, parseInt(sectionId!))
+    selectCategoryById(state, sectionId!)
   );
   const collection = useAppSelector((state) =>
-    selectCollectionsById(state, parseInt(sectionId!))
+    selectCollectionsById(state, sectionId!)
   );
   const dispatch = useAppDispatch();
   const allProducts = useAppSelector(selectAllProducts);

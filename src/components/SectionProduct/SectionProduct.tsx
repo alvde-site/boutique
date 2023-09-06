@@ -13,8 +13,15 @@ function SectionProduct({
   }
   return (
     <li className="partition__card">
-      <a className="partition__link partition__link_add_border" href="!#">
-        <img className="partition__img" src={details.img} alt={details.title}></img>
+      <a
+        className="partition__link partition__link_add_border"
+        href={`/product/${details.id}`}
+      >
+        <img
+          className="partition__img"
+          src={details.img}
+          alt={details.title}
+        ></img>
       </a>
       <div className="partition__info">
         <div>

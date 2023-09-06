@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 interface ISectionData {
-  id: number;
+  id: string;
   src: string;
   title: string;
   path: string;
@@ -41,7 +41,7 @@ export interface IProductsState {
 }
 
 export interface ICategoryState {
-  id: number;
+  id: string;
   src: string;
   title: string;
   path: string;

@@ -58,4 +58,7 @@ export const selectAllInFavourite = (state: RootState) =>
 export const selectAllInOrder = (state: RootState) =>
   state.products.filter((product) => product.isInOrder);
 
+export const selectProductById = (state: RootState, productId: string) =>
+  state.products.find((product) => product.id === productId);
+
 export default productsSlice.reducer;

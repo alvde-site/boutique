@@ -28,7 +28,7 @@ import {
 const productsBD = [
   {
     img: categorySaleFoto,
-    title: "Распродажа",
+    title: "Продукт",
     article: "А0118",
     size: "L",
     height: 160,
@@ -220,7 +220,7 @@ const productsBD = [
   },
   {
     img: categoryFoto1,
-    title: "Жакеты",
+    title: "Жакет",
     article: "А0118",
     size: "L",
     height: 160,
@@ -236,7 +236,7 @@ const productsBD = [
   },
   {
     img: categoryFoto2,
-    title: "Юбки",
+    title: "Юбка",
     article: "А0118",
     size: "L",
     height: 160,
@@ -252,7 +252,7 @@ const productsBD = [
   },
   {
     img: categoryFoto3,
-    title: "Свадебные платья",
+    title: "Свадебное платье",
     article: "А0118",
     size: "L",
     height: 160,
@@ -268,7 +268,7 @@ const productsBD = [
   },
   {
     img: categoryFoto4,
-    title: "Блузки",
+    title: "Блузка",
     article: "А0118",
     size: "L",
     height: 160,
@@ -284,7 +284,7 @@ const productsBD = [
   },
   {
     img: categoryFoto5,
-    title: "Костюмы",
+    title: "Костюм",
     article: "А0118",
     size: "L",
     height: 160,
@@ -300,7 +300,7 @@ const productsBD = [
   },
   {
     img: categoryFoto6,
-    title: "Свитеры",
+    title: "Свитер",
     article: "А0118",
     size: "L",
     height: 160,
@@ -332,7 +332,7 @@ const productsBD = [
   },
   {
     img: categoryFoto8,
-    title: "Футболки",
+    title: "Футболка",
     article: "А0118",
     size: "L",
     height: 160,
@@ -348,7 +348,7 @@ const productsBD = [
   },
   {
     img: collectionFoto,
-    title: "Олимпийки",
+    title: "Олимпийка",
     article: "А0118",
     size: "L",
     height: 160,
@@ -364,7 +364,7 @@ const productsBD = [
   },
   {
     img: collectionFoto,
-    title: "Худи и свитшоты",
+    title: "Худи",
     article: "А0118",
     size: "L",
     height: 160,
@@ -380,7 +380,7 @@ const productsBD = [
   },
   {
     img: collectionFoto,
-    title: "Водолазки",
+    title: "Водолазка",
     article: "А0118",
     size: "L",
     height: 160,
@@ -396,7 +396,7 @@ const productsBD = [
   },
   {
     img: collectionFoto,
-    title: "Аксессуары",
+    title: "Аксессуар",
     article: "А0118",
     size: "L",
     height: 160,
@@ -413,54 +413,54 @@ const productsBD = [
 ];
 
 const categoryBD = [
-  { id: 101, src: categorySaleFoto, title: "Распродажа", path: "sale" },
-  { id: 102, src: categoryFoto1, title: "Жакеты", path: "jackets" },
-  { id: 103, src: categoryFoto2, title: "Юбки", path: "skirts" },
-  { id: 104, src: categoryFoto3, title: "Свадебные платья", path: "wedding" },
-  { id: 105, src: dress1, title: "Платья", path: "dress" },
-  { id: 106, src: categoryFoto4, title: "блузки", path: "blouses" },
-  { id: 107, src: categoryFoto5, title: "Костюмы", path: "costumes" },
-  { id: 108, src: categoryFoto6, title: "Свитеры", path: "sweaters" },
-  { id: 109, src: categoryFoto7, title: "Верхняя одежда", path: "outerwear" },
-  { id: 110, src: categoryFoto8, title: "Футболки", path: "tshirt" },
-  { id: 111, src: collectionFoto, title: "Олимпийки", path: "olympians" },
-  { id: 112, src: collectionFoto, title: "Худи и свитшоты", path: "hoodies" },
-  { id: 113, src: collectionFoto, title: "Брюки", path: "pant" },
-  { id: 114, src: collectionFoto, title: "Водолазки", path: "turtlenecks" },
-  { id: 115, src: collectionFoto, title: "Аксессуары", path: "accessories" },
+  { id: "101", src: categorySaleFoto, title: "Распродажа", path: "sale" },
+  { id: "102", src: categoryFoto1, title: "Жакеты", path: "jackets" },
+  { id: "103", src: categoryFoto2, title: "Юбки", path: "skirts" },
+  { id: "104", src: categoryFoto3, title: "Свадебные платья", path: "wedding" },
+  { id: "105", src: dress1, title: "Платья", path: "dress" },
+  { id: "106", src: categoryFoto4, title: "блузки", path: "blouses" },
+  { id: "107", src: categoryFoto5, title: "Костюмы", path: "costumes" },
+  { id: "108", src: categoryFoto6, title: "Свитеры", path: "sweaters" },
+  { id: "109", src: categoryFoto7, title: "Верхняя одежда", path: "outerwear" },
+  { id: "110", src: categoryFoto8, title: "Футболки", path: "tshirt" },
+  { id: "111", src: collectionFoto, title: "Олимпийки", path: "olympians" },
+  { id: "112", src: collectionFoto, title: "Худи и свитшоты", path: "hoodies" },
+  { id: "113", src: collectionFoto, title: "Брюки", path: "pant" },
+  { id: "114", src: collectionFoto, title: "Водолазки", path: "turtlenecks" },
+  { id: "115", src: collectionFoto, title: "Аксессуары", path: "accessories" },
 ];
 
 const collectionBD = [
   {
-    id: 200,
+    id: "200",
     src: collectionFoto1,
     title: "Городская мода",
     path: "urban",
     text: "Приталенное платье мини мятного цвета в полу-спортивном стиле. Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке вставки из гофре плиссе разных цветов. ",
   },
   {
-    id: 201,
+    id: "201",
     src: collectionFoto2,
     title: "Панк-кутюр",
     path: "punk",
     text: "Мятный и розовый лампасы придают платью спортивное направление. По спинке длинная леопардовая молния.",
   },
   {
-    id: 202,
+    id: "202",
     src: collectionFoto3,
     title: "круиз 2022",
     path: "cruise",
     text: "Приталенное платье мини мятного цвета в полу-спортивном стиле. Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке вставки из гофре плиссе разных цветов. Мятный и розовый лампасы придают платью спортивное направление. По спинке длинная леопардовая молния.",
   },
   {
-    id: 203,
+    id: "203",
     src: collectionFoto,
     title: "Коллекция 1",
     path: "collection1",
     text: "Приталенное платье мини мятного цвета в полу-спортивном стиле. Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке вставки из гофре плиссе разных цветов. Мятный и розовый лампасы придают платью спортивное направление. По спинке длинная леопардовая молния.",
   },
   {
-    id: 204,
+    id: "204",
     src: collectionFoto,
     title: "Коллекция 2",
     path: "collection2",

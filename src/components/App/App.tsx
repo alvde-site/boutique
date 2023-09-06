@@ -29,6 +29,7 @@ import {
 } from "../../utils/constants";
 import SectionChoose from "../SectionChoose/SectionChoose";
 import { categoryBD, collectionBD } from "../../utils/boutiqueBD";
+import ProductCard from "../ProductCard/ProductCard";
 
 function App() {
   const [currentUser, setCurrentUser] = useState<ICurrentUser>({ email: "" });
@@ -56,10 +57,7 @@ function App() {
             <Route
               path="/collection"
               element={
-                <SectionSelection
-                  path={collectionPath}
-                  fotos={collectionBD}
-                />
+                <SectionSelection path={collectionPath} fotos={collectionBD} />
               }
             />
             <Route
@@ -84,6 +82,7 @@ function App() {
                 />
               }
             />
+            <Route path="/product/:productId" element={<ProductCard />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
