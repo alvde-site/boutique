@@ -18,7 +18,11 @@ function ProductCard() {
   useEffect(() => {
     if (product && category) {
       const addPath = categoryPath.slice();
-      addPath[2] = { path: `/${category.id}`, desc: `${category.title}/` };
+      addPath[2] = {
+        path: `/category/${category.id}`,
+        desc: `${category.title}`,
+      };
+      addPath[3] = { path: "", desc: "" };
       setProductPath(() => addPath);
     }
   }, [product, category]);

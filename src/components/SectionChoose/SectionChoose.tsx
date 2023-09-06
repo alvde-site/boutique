@@ -45,7 +45,7 @@ function SectionChoose({
   useEffect(() => {
     if (category) {
       const addPath = path.slice();
-      addPath[2] = { path: category.path, desc: category.title };
+      addPath[2] = { path: `/category/${category.id}`, desc: category.title };
       setProductPath(() => addPath);
       setSectionProducts(() =>
         allProducts.filter((product) => product.category === category.path)
@@ -57,7 +57,10 @@ function SectionChoose({
   useEffect(() => {
     if (collection) {
       const addPath = path.slice();
-      addPath[2] = { path: collection.path, desc: collection.title };
+      addPath[2] = {
+        path: `/collection/${collection.id}`,
+        desc: collection.title,
+      };
       setProductPath(() => addPath);
       setSectionProducts(() =>
         allProducts.filter((product) => product.collection === collection.path)
