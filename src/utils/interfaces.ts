@@ -64,6 +64,11 @@ export interface IShowcaseProps extends IModifier {}
 
 /* main */
 
+export interface IButtonFavProps {
+  productData: IProductsState;
+  onToggle: () => void;
+}
+
 export interface IPromoProps {
   promoTitles: ISectionData[];
 }

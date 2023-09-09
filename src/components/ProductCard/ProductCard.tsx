@@ -31,6 +31,22 @@ function ProductCard() {
     <Content>
       <div className="partition">
         {<Paths path={productPath} />}
+        <div className="prodcard">
+          <div className="prodcard__images">
+            <div className="prodcard__image-block">
+            <img
+              className="prodcard__image"
+              src={product?.img}
+              alt={product?.title}
+            />
+            <button></button>
+            </div>
+            
+            <div className="prodcard__scroll">
+
+            </div>
+          </div>
+        </div>
       </div>
     </Content>
   );

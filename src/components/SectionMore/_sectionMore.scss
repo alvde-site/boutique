@@ -51,6 +51,15 @@
   }
 }
 
+@include xl {
+  .more {
+    gap: 76px;
+  }
+  .more__title {
+    display: none;
+  }
+}
+
 @include md {
   .more {
     gap: 90px;
