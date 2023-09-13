@@ -5,7 +5,7 @@ import {
 import { useAppDispatch } from "../../utils/hooks";
 import { IButtonFavProps } from "../../utils/interfaces";
 
-function ButtonFav({ product }: IButtonFavProps) {
+function ButtonFav({ product, className }: IButtonFavProps) {
   const dispatch = useAppDispatch();
   function toggleFavouriteState() {
     if (product) {
@@ -19,10 +19,8 @@ function ButtonFav({ product }: IButtonFavProps) {
 
   return (
     <button
-      className={`buttonfav ${
-        product?.isInFavorite
-          ? "buttonfav_type_like"
-          : "buttonfav_type_dislike"
+      className={`buttonfav ${className} ${
+        product?.isInFavorite ? "buttonfav_type_like" : "buttonfav_type_dislike"
       }`}
       aria-label="Избранное"
       onClick={toggleFavouriteState}

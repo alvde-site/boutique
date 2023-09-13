@@ -108,11 +108,7 @@ function Account() {
   }
 
   function handleSameValue(e: React.ChangeEvent<HTMLInputElement>) {
-    if (
-      e
-      // e.target.value === currentUser.name ||
-      // e.target.value === currentUser.email
-    ) {
+    if (e) {
       setIsValid(false);
     }
   }

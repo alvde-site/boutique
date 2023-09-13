@@ -20,7 +20,7 @@ function SectionProduct({ product }: ISectionProductProps) {
           <p className="partition__text">{product.title}</p>
           <p className="partition__price">{`₽ ${product.price}`}</p>
         </div>
-        <ButtonFav product={product} />
+        <ButtonFav product={product} className="" />
       </div>
     </li>
   );

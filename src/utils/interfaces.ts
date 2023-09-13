@@ -66,6 +66,7 @@ export interface IShowcaseProps extends IModifier {}
 
 export interface IButtonFavProps {
   product: IProductsState;
+  className: string;
 }
 
 export interface IPromoProps {

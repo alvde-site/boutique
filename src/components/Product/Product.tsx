@@ -51,7 +51,7 @@ function Product({ product, removeItem }: IProductProps) {
             <p className="product__field product__field_type_favourite">
               {`В ${product?.isInFavorite ? "избранном" : "избранное"}`}
             </p>
-            <ButtonFav product={product} />
+            <ButtonFav product={product} className="" />
           </div>
         </div>
       </div>
