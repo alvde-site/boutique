@@ -82,23 +82,6 @@
       padding: 40px 0 0;
       align-items: center;
   }
-  
-  .product__favourite {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      border: none;
-      width: 24px;
-      height: 21px;
-  }
-
-  .product__favourite_type_like {
-    background: svg("like-icon.svg") center/contain no-repeat;
-  }
-
-  .product__favourite_type_dislike {
-    background: svg("dislike-icon.svg") center/contain no-repeat;
-  }
 
 // @media zone
 

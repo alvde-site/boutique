@@ -19,10 +19,10 @@ function ButtonFav({ product }: IButtonFavProps) {
 
   return (
     <button
-      className={`product__favourite ${
+      className={`buttonfav ${
         product?.isInFavorite
-          ? "product__favourite_type_like"
-          : "product__favourite_type_dislike"
+          ? "buttonfav_type_like"
+          : "buttonfav_type_dislike"
       }`}
       aria-label="Избранное"
       onClick={toggleFavouriteState}
