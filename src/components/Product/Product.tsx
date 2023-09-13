@@ -7,13 +7,14 @@ function Product({
   toggleFavourite,
 }: IProductProps) {
   const existingProduct = allProducts.find((p) => p.id === details.id);
-
+  console.log("product", existingProduct);
   function removeBascketItem() {
     removeItem(details.id);
   }
 
   function toggleFavouriteState() {
     if (existingProduct) {
+      console.log("product", existingProduct);
       toggleFavourite(details.id, existingProduct.isInFavorite);
     }
   }

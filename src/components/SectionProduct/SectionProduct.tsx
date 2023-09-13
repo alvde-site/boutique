@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ISectionProductProps } from "../../utils/interfaces";
 
 function SectionProduct({
@@ -8,21 +9,22 @@ function SectionProduct({
   const existingProduct = allProducts.find((p) => p.id === details.id);
   function toggleFavouriteState() {
     if (existingProduct) {
+      console.log("sectionProduct", existingProduct);
       toggleFavourite(details.id, existingProduct.isInFavorite);
     }
   }
   return (
     <li className="partition__card">
-      <a
+      <Link
         className="partition__link partition__link_add_border"
-        href={`/product/${details.id}`}
+        to={`/product/${details.id}`}
       >
         <img
           className="partition__img"
           src={details.img}
           alt={details.title}
         ></img>
-      </a>
+      </Link>
       <div className="partition__info">
         <div>
           <p className="partition__text">{details.title}</p>
