@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {
-  addFavouriteProduct,
-  removeFavouriteProduct,
-  selectAllProducts,
-} from "../../services/reducers/productsSlice";
-import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import { selectAllProducts } from "../../services/reducers/productsSlice";
+import { useAppSelector } from "../../utils/hooks";
 import { ISectionChooseProps } from "../../utils/interfaces";
 import Paths from "../Paths/Paths";
 import SectionMore from "../SectionMore/SectionMore";
@@ -27,20 +23,13 @@ function SectionChoose({
   const collection = useAppSelector((state) =>
     selectCollectionsById(state, sectionId!)
   );
-  const dispatch = useAppDispatch();
+
   const allProducts = useAppSelector(selectAllProducts);
 
   const [productPath, setProductPath] = useState(path);
   const [sectionProducts, setSectionProducts] = useState(allProducts);
 
   const contentElement = document.getElementsByClassName("partition")[0];
-  function toggleFavouriteState(id: string, isInFavourite: boolean) {
-    if (isInFavourite) {
-      dispatch(removeFavouriteProduct({ productId: id }));
-    } else {
-      dispatch(addFavouriteProduct({ productId: id }));
-    }
-  }
 
   useEffect(() => {
     if (category) {
@@ -74,13 +63,8 @@ function SectionChoose({
       <div className="partition">
         <Paths path={productPath} />
         <ul className="partition__content">
-          {sectionProducts.map((details) => (
-            <SectionProduct
-              details={details}
-              key={details.id}
-              allProducts={allProducts}
-              toggleFavourite={toggleFavouriteState}
-            />
+          {sectionProducts.map((product) => (
+            <SectionProduct product={product} key={product.id} />
           ))}
         </ul>
       </div>

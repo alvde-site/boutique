@@ -65,8 +65,7 @@ export interface IShowcaseProps extends IModifier {}
 /* main */
 
 export interface IButtonFavProps {
-  productData: IProductsState;
-  onToggle: () => void;
+  product: IProductsState;
 }
 
 export interface IPromoProps {
@@ -165,10 +164,8 @@ export interface IPopupWithPageProps {
 }
 
 export interface IProductProps {
-  details: IProductsState;
+  product: IProductsState;
   removeItem: (id: string) => void;
-  allProducts: IProductsState[];
-  toggleFavourite: (id: string, isInFavorite: boolean) => void;
 }
 
 export interface ISectionMoreProps extends IContentMenuProps {
@@ -176,9 +173,7 @@ export interface ISectionMoreProps extends IContentMenuProps {
 }
 
 export interface ISectionProductProps {
-  details: IProductsState;
-  allProducts: IProductsState[];
-  toggleFavourite: (id: string, isInFavorite: boolean) => void;
+  product: IProductsState;
 }
 
 export interface IFavouriteProps {
