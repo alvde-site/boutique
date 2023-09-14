@@ -1,5 +1,6 @@
 import { IProductProps } from "../../utils/interfaces";
 import ButtonFav from "../ButtonFav/ButtonFav";
+import Price from "../Price/Price";
 
 function Product({ product, removeItem }: IProductProps) {
   function removeBascketItem() {
@@ -40,13 +41,7 @@ function Product({ product, removeItem }: IProductProps) {
           </button>
         </div>
         <div className="product__footer">
-          <div className="product__price-wrap">
-            <p className="product__discount">{product.discount}</p>
-            <p className="product__price basket__price">
-              {product.price}
-              <span className="basket__currency">₽</span>
-            </p>
-          </div>
+          <Price product={product} />
           <div className="product__favourite-wrap">
             <p className="product__field product__field_type_favourite">
               {`В ${product?.isInFavorite ? "избранном" : "избранное"}`}

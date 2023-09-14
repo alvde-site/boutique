@@ -1,0 +1,18 @@
+.price {
+  display: flex;
+  align-items: flex-end;
+}
+
+.price__previous {
+  @include usual-text("Inter");
+  margin: 0 10px 0 0;
+  padding: 0 0 10px;
+  text-decoration: line-through;
+  color: rgba(26, 26, 26, 0.5);
+}
+
+.price__current {
+  @include big-text("Inter");
+  margin: 0;
+  color: #1a1a1a;
+}

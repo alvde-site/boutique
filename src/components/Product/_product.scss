@@ -64,19 +64,6 @@
       margin: auto 0 0;
   }
   
-  .product__price-wrap {
-      display: flex;
-      align-items: flex-end;
-  }
-  
-  .product__discount {
-      @include usual-text('Inter');
-      margin: 0 10px 0 0;
-      padding: 0 0 10px;
-      text-decoration: line-through;
-      color: rgba(26, 26, 26, 0.5);
-  }
-  
   .product__favourite-wrap {
       display: flex;
       padding: 40px 0 0;

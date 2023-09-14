@@ -8,6 +8,7 @@ import { categoryPath } from "../../utils/constants";
 import { selectAllCategories } from "../../services/reducers/categoriesSlice";
 import ButtonFav from "../ButtonFav/ButtonFav";
 import { selectAllCollections } from "../../services/reducers/collectionSlice";
+import Price from "../Price/Price";
 
 function ProductCard() {
   const { productId } = useParams();
@@ -146,13 +147,7 @@ function ProductCard() {
                 </li>
               </ul>
               <div className="details__price">
-                <div className="product__price-wrap">
-                  <p className="product__discount">{product!.discount}</p>
-                  <p className="product__price basket__price">
-                    {product!.price}
-                    <span className="basket__currency">₽</span>
-                  </p>
-                </div>
+                <Price product={product!} />
               </div>
             </div>
           </div>

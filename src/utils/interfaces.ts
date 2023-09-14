@@ -64,6 +64,10 @@ export interface IShowcaseProps extends IModifier {}
 
 /* main */
 
+export interface IPriceProps {
+  product: IProductsState;
+}
+
 export interface IButtonFavProps {
   product: IProductsState;
   className: string;

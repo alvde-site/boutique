@@ -1,4 +1,5 @@
 import { IFavouriteProps } from "../../utils/interfaces";
+import Price from "../Price/Price";
 
 function Favourite({
   details,
@@ -24,13 +25,7 @@ function Favourite({
       <img src={details.img} alt={details.title} className="favourite__img" />
       <div className="favourite__content">
         <h3 className="favourite__title">{details.title}</h3>
-        <div className="favourite__price-wrap">
-          <p className="favourite__discount">{details.discount}</p>
-          <p className="favourite__price">
-            {details.price}
-            <span className="favourite__currency">₽</span>
-          </p>
-        </div>
+        <Price product={details} />
       </div>
       <div className="favourite__handle">
         {existingProduct?.isInBasket ? (
