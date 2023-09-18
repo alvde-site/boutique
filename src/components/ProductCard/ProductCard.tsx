@@ -37,7 +37,7 @@ function ProductCard() {
   function Images() {
     return (
       <img
-        className="prodcard__image"
+        className="prodcard__miniimage"
         src={product?.img}
         alt={product?.title}
       />
