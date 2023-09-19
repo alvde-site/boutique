@@ -116,7 +116,7 @@ function ProductCard() {
                 <ul className="details__buttons">
                   {getDetailsSize().map((b, i) => (
                     <li key={i}>
-                      <button className="details__button" disabled={b.disabled}>
+                      <button className="details__button details__button_color_standart" disabled={b.disabled}>
                         {b.size}
                       </button>
                     </li>
@@ -129,10 +129,10 @@ function ProductCard() {
                 <h3 className="details__title">Цвет</h3>
                 <ul className="details__buttons">
                   <li>
-                    <button aria-label="Цвет"></button>
+                    <button className="details__button details__button_color_red" aria-label="Цвет"></button>
                   </li>
                   <li>
-                    <button aria-label="Цвет"></button>
+                    <button className="details__button details__button_color_orange" aria-label="Цвет"></button>
                   </li>
                 </ul>
               </div>

@@ -7,12 +7,13 @@
 .prodcard__images {
   display: grid;
   grid-template-columns: 3fr 1fr;
+  gap: 10px;
   max-height: 636px;
 }
 
 .prodcard__image-block {
   position: relative;
-  height: 100%;
+  max-height: 636px;
 }
 
 .prodcard__image {
@@ -31,12 +32,115 @@
   object-position: center;
 }
 
-// .prodcard__scroll::-webkit-scrollbar {
-//     width: 1px;
-// }
+.prodcard__scroll::-webkit-scrollbar {
+  width: 1px;
+}
 
 .prodcard__buttonfav {
   position: absolute;
   bottom: 28px;
   right: 28px;
+}
+
+.prodcard__title {
+  margin: 0;
+}
+
+.prodcard__article {
+  margin: 0;
+}
+
+.prodcard__text {
+  margin: 0;
+}
+
+.prodcard__field {
+  padding-top: $prodcard-item-top-margin;
+}
+
+.details__title {
+  margin: 0;
+}
+
+.details__buttons {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 40px);
+  gap: 10px;
+}
+
+.details__button {
+  width: 40px;
+  height: 40px;
+}
+
+.details__button_color_standart {
+  background: transparent;
+  &:active,
+  &:hover {
+    background: black;
+    color: white;
+  }
+  &:disabled {
+    background: #f1f1f1;
+    color: rgba(#000, 0.07);
+  }
+}
+
+.details__button_color_red {
+  position: relative;
+  background: #c62318;
+  &:hover::before,
+  &:active::before {
+    content: ".";
+    font-size: 70px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -74%);
+  }
+}
+
+.details__button_color_orange {
+  position: relative;
+  background: #e9b76c;
+  &:hover::before,
+  &:active::before {
+    content: ".";
+    font-size: 70px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -74%);
+  }
+}
+
+.details__order {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.details__orderbuttons {
+  list-style: none;
+  margin: $prodcard-item-top-margin 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.details__orderbutton {
+  background: transparent;
+  margin-top: 10px;
+  min-width: 150px;
+  padding: $prodcard-item-top-margin;
+  &:active,
+  &:hover {
+    background-color: #000;
+    color: white;
+  }
 }
