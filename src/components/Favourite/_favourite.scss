@@ -44,34 +44,34 @@
   }
 }
 
-.favourite__button {
-  border: 1px solid #1a1a1a;
-  margin: 0;
-  padding: 10px 100px 10px 10px;
-  height: 100px;
-  @include usual-text("Manrope");
-  text-transform: uppercase;
-  text-align: left;
-}
+// .favourite__button {
+//   border: 1px solid #1a1a1a;
+//   margin: 0;
+//   padding: 10px 100px 10px 10px;
+//   height: 100px;
+//   @include usual-text("Manrope");
+//   text-transform: uppercase;
+//   text-align: left;
+// }
 
-.favourite__button_state_add {
-  background-color: #1a1a1a;
-  color: #fff;
-  background: #1a1a1a svg("add-icon.svg") 90%/30px 30px
-    no-repeat;
-}
+// .favourite__button_state_add {
+//   background-color: #1a1a1a;
+//   color: #fff;
+//   background: #1a1a1a svg("add-icon.svg") 90%/30px 30px
+//     no-repeat;
+// }
 
-.favourite__button_state_added {
-  background-color: transparent;
-  background: transparent svg("added-icon.svg") 90%/30px 30px
-    no-repeat;
-}
+// .favourite__button_state_added {
+//   background-color: transparent;
+//   background: transparent svg("added-icon.svg") 90%/30px 30px
+//     no-repeat;
+// }
 
-.favourite__button_state_remove {
-  background-color: transparent;
-  background: transparent svg("basket-remove-icon.svg") 90%/30px
-    30px no-repeat;
-}
+// .favourite__button_state_remove {
+//   background-color: transparent;
+//   background: transparent svg("basket-remove-icon.svg") 90%/30px
+//     30px no-repeat;
+// }
 
 // @media zone
 

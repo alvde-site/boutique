@@ -1,4 +1,5 @@
 import { IFavouriteProps } from "../../utils/interfaces";
+import ButtonBasket from "../ButtonBasket/ButtonBasket";
 import Price from "../Price/Price";
 
 function Favourite({
@@ -29,26 +30,23 @@ function Favourite({
       </div>
       <div className="favourite__handle">
         {existingProduct?.isInBasket ? (
-          <button
-            className="favourite__button favourite__button_state_added"
+          <ButtonBasket
+            className={"buttonbasket_state_added"}
             onClick={removeBascketItem}
-          >
-            ДОБАВЛЕНО
-          </button>
+            buttonText={"ДОБАВЛЕНО"}
+          />
         ) : (
-          <button
-            className="favourite__button favourite__button_state_add"
+          <ButtonBasket
+            className={"buttonbasket_state_add"}
             onClick={addBasketItem}
-          >
-            добавить в корзину
-          </button>
+            buttonText={"добавить в корзину"}
+          />
         )}
-        <button
-          className="favourite__button favourite__button_state_remove"
+        <ButtonBasket
+          className={"buttonbasket_state_remove"}
           onClick={removeFavoureteItem}
-        >
-          Убрать из избранного
-        </button>
+          buttonText={"Убрать из избранного"}
+        />
       </div>
     </div>
   );

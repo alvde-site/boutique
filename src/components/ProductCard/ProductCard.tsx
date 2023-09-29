@@ -1,16 +1,22 @@
 import { useState, useEffect } from "react";
-import { selectProductById } from "../../services/reducers/productsSlice";
+import {
+  addBasketProduct,
+  removeBasketProduct,
+  selectProductById,
+} from "../../services/reducers/productsSlice";
 import Content from "../Content/Content";
 import Paths from "../Paths/Paths";
-import { useAppSelector } from "../../utils/hooks";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { Link, useParams } from "react-router-dom";
 import { categoryPath } from "../../utils/constants";
 import { selectAllCategories } from "../../services/reducers/categoriesSlice";
 import ButtonFav from "../ButtonFav/ButtonFav";
 import { selectAllCollections } from "../../services/reducers/collectionSlice";
 import Price from "../Price/Price";
+import ButtonBasket from "../ButtonBasket/ButtonBasket";
 
 function ProductCard() {
+  const dispatch = useAppDispatch();
   const { productId } = useParams();
   const product = useAppSelector((state) =>
     selectProductById(state, productId!)
@@ -74,6 +80,22 @@ function ProductCard() {
     }
     return buttons;
   };
+
+  // useEffect(()=> {
+    
+  // }, [])
+
+  function addBasketItem() {
+    dispatch(addBasketProduct({ productId: product?.id }));
+  }
+
+  function removeBascketItem() {
+    dispatch(removeBasketProduct({ productId: product?.id }));
+  }
+
+  function handlePurchase() {
+    console.log('Купить')
+  }
   return (
     <Content>
       <div className="partition">
@@ -116,7 +138,10 @@ function ProductCard() {
                 <ul className="details__buttons">
                   {getDetailsSize().map((b, i) => (
                     <li key={i}>
-                      <button className="details__button details__button_color_standart" disabled={b.disabled}>
+                      <button
+                        className="details__button details__button_color_standart"
+                        disabled={b.disabled}
+                      >
                         {b.size}
                       </button>
                     </li>
@@ -129,10 +154,16 @@ function ProductCard() {
                 <h3 className="details__title">Цвет</h3>
                 <ul className="details__buttons">
                   <li>
-                    <button className="details__button details__button_color_red" aria-label="Цвет"></button>
+                    <button
+                      className="details__button details__button_color_red"
+                      aria-label="Цвет"
+                    ></button>
                   </li>
                   <li>
-                    <button className="details__button details__button_color_orange" aria-label="Цвет"></button>
+                    <button
+                      className="details__button details__button_color_orange"
+                      aria-label="Цвет"
+                    ></button>
                   </li>
                 </ul>
               </div>
@@ -140,10 +171,26 @@ function ProductCard() {
             <div className="details__order">
               <ul className="details__orderbuttons">
                 <li>
-                  <button className="details__orderbutton">Купить</button>
+                <ButtonBasket
+                      className={""}
+                      onClick={handlePurchase}
+                      buttonText={"Купить"}
+                    />
                 </li>
                 <li>
-                  <button className="details__orderbutton">В корзину</button>
+                  {product?.isInBasket ? (
+                    <ButtonBasket
+                      className={"buttonbasket_state_added"}
+                      onClick={removeBascketItem}
+                      buttonText={"ДОБАВЛЕНО в Корзину"}
+                    />
+                  ) : (
+                    <ButtonBasket
+                      className={"buttonbasket_state_add"}
+                      onClick={addBasketItem}
+                      buttonText={"добавить в корзину"}
+                    />
+                  )}
                 </li>
               </ul>
               <div className="details__price">
