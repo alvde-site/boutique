@@ -58,33 +58,6 @@ function ProductCard() {
     return res;
   };
 
-  const getRandomInt = (max: number) => Math.floor(Math.random() * max);
-  const getDetailsSize = () => {
-    const buttonsNumber = 3;
-    let buttons = [
-      { size: "S", disabled: true },
-      { size: "M", disabled: true },
-      { size: "L", disabled: true },
-    ];
-    for (let i = 0; i < buttonsNumber; i++) {
-      switch (getRandomInt(2)) {
-        case 0:
-          buttons[i].disabled = false;
-          break;
-        case 1:
-          buttons[i].disabled = true;
-          break;
-        default:
-          console.log(`Невозможно обработать элемент ${i}`);
-      }
-    }
-    return buttons;
-  };
-
-  // useEffect(()=> {
-    
-  // }, [])
-
   function addBasketItem() {
     dispatch(addBasketProduct({ productId: product?.id }));
   }
@@ -94,7 +67,7 @@ function ProductCard() {
   }
 
   function handlePurchase() {
-    console.log('Купить')
+    console.log("Купить");
   }
   return (
     <Content>
@@ -136,7 +109,7 @@ function ProductCard() {
               <div className="details">
                 <h3 className="details__title">Размер</h3>
                 <ul className="details__buttons">
-                  {getDetailsSize().map((b, i) => (
+                  {product?.buttons.map((b, i) => (
                     <li key={i}>
                       <button
                         className="details__button details__button_color_standart"
@@ -171,11 +144,11 @@ function ProductCard() {
             <div className="details__order">
               <ul className="details__orderbuttons">
                 <li>
-                <ButtonBasket
-                      className={""}
-                      onClick={handlePurchase}
-                      buttonText={"Купить"}
-                    />
+                  <ButtonBasket
+                    className={""}
+                    onClick={handlePurchase}
+                    buttonText={"Купить"}
+                  />
                 </li>
                 <li>
                   {product?.isInBasket ? (

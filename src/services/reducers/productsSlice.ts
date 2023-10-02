@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, nanoid } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { IProductsInitialState, IProductsState } from "../../utils/interfaces";
+// import SizeButtons from "../../utils/SizeButtons";
 
 const initialState: IProductsInitialState = {
   initialProducts: [],
@@ -28,6 +29,8 @@ export const fetchProducts = createAsyncThunk(
     return response as IProductsState[];
   }
 );
+
+// const buttons = new SizeButtons(2);
 
 const productsSlice = createSlice({
   name: "products",
@@ -68,13 +71,17 @@ const productsSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
-        console.log('asdf')
+        console.log("asdf");
         state.status = "succeeded";
         const formattedProduct = action.payload.map((product) => {
           return {
             ...product,
             id: nanoid(),
-            // reactions: generateRandomReactions(),
+            buttons: [
+              { size: "S", disabled: true },
+              { size: "M", disabled: false },
+              { size: "L", disabled: true },
+            ],
           };
         });
         state.initialProducts = state.products.concat(formattedProduct);

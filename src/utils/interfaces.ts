@@ -23,6 +23,11 @@ export interface IPopupState {
   state: boolean;
 }
 
+interface IButton {
+  size: string;
+  disabled: boolean;
+}
+
 export interface IProductsState {
   img: string;
   title: string;
@@ -38,6 +43,7 @@ export interface IProductsState {
   isInOrder: boolean;
   category: string;
   collection: string;
+  buttons: IButton[];
 }
 
 export interface IProductsInitialState {
