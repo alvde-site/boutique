@@ -40,6 +40,13 @@ export interface IProductsState {
   collection: string;
 }
 
+export interface IProductsInitialState {
+  initialProducts: IProductsState[];
+  products: IProductsState[];
+  status: "idle" | "loading" | "succeeded" | "failed";
+  error: string | undefined;
+}
+
 export interface ICategoryState {
   id: string;
   src: string;

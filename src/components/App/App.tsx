@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
@@ -30,10 +30,23 @@ import {
 import SectionChoose from "../SectionChoose/SectionChoose";
 import { categoryBD, collectionBD } from "../../utils/boutiqueBD";
 import ProductCard from "../ProductCard/ProductCard";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import {
+  fetchProducts,
+  selectAllProducts,
+} from "../../services/reducers/productsSlice";
 
 function App() {
+  const dispatch = useAppDispatch();
   const [currentUser, setCurrentUser] = useState<ICurrentUser>({ email: "" });
-
+  const productStatus = useAppSelector((state) => state.products.status);
+  useEffect(() => {
+    if (productStatus === "idle") {
+      dispatch(fetchProducts());
+    }
+  }, [dispatch, productStatus]);
+  const products = useAppSelector(selectAllProducts);
+  console.log(products);
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
