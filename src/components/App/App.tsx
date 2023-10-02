@@ -31,10 +31,7 @@ import SectionChoose from "../SectionChoose/SectionChoose";
 import { categoryBD, collectionBD } from "../../utils/boutiqueBD";
 import ProductCard from "../ProductCard/ProductCard";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import {
-  fetchProducts,
-  selectAllProducts,
-} from "../../services/reducers/productsSlice";
+import { fetchProducts } from "../../services/reducers/productsSlice";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -45,8 +42,6 @@ function App() {
       dispatch(fetchProducts());
     }
   }, [dispatch, productStatus]);
-  const products = useAppSelector(selectAllProducts);
-  console.log(products);
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
