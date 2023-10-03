@@ -19,27 +19,24 @@ function PopupWithFavouritePage() {
   }
 
   function addBasketItem(id: string) {
-    dispatch(addBasketProduct({productId: id}))
+    dispatch(addBasketProduct({ productId: id }));
   }
 
   function removeBascketItem(id: string) {
     dispatch(removeBasketProduct({ productId: id }));
-  } 
+  }
   return (
-    <PopupWithPage name={FAVOURITE_POPUP}>
-      <div className="favourite">
-        <h2 className="favourite__title">Избранное</h2>
-        {favouriteProducts.map((details) => (
-          <Favourite
-            details={details}
-            key={details.id}
-            removeFromFavourite={removeFavouriteItem}
-            removeFromBasket={removeBascketItem}
-            addToBasket={addBasketItem}
-            basketProducts={basketProducts}
-          />
-        ))}
-      </div>
+    <PopupWithPage name={FAVOURITE_POPUP} title="Избранное">
+      {favouriteProducts.map((details) => (
+        <Favourite
+          details={details}
+          key={details.id}
+          removeFromFavourite={removeFavouriteItem}
+          removeFromBasket={removeBascketItem}
+          addToBasket={addBasketItem}
+          basketProducts={basketProducts}
+        />
+      ))}
     </PopupWithPage>
   );
 }

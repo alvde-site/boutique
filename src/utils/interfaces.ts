@@ -178,6 +178,7 @@ export interface IPopupWithFormProps {
 
 export interface IPopupWithPageProps {
   name: string;
+  title: string;
   children: ReactNode;
 }
 

@@ -26,32 +26,29 @@ function PopupWithBasketPage() {
   }
 
   return (
-    <PopupWithPage name={BASKET_POPUP}>
-      <div className="basket">
-        <h2 className="basket__title">КОРЗИНА</h2>
-        {basketProducts.map((product) => (
-          <Product
-            product={product}
-            key={product.id}
-            removeItem={removeBascketItem}
-          />
-        ))}
-        <div className="total">
-          <p className="total__text basket__title">ИТОГ</p>
-          <p className="total__price basket__price">
-            {totalPrice}
-            <span className="total__currency basket__currency">₽</span>
-          </p>
-        </div>
-        <button
-          className={`total__button${
-            !basketProducts.length ? " total__button_disabled" : ""
-          }`}
-          disabled={!basketProducts.length}
-        >
-          перейти к Оформлению
-        </button>
+    <PopupWithPage name={BASKET_POPUP} title="Корзина">
+      {basketProducts.map((product) => (
+        <Product
+          product={product}
+          key={product.id}
+          removeItem={removeBascketItem}
+        />
+      ))}
+      <div className="total">
+        <p className="total__text basket__title">ИТОГ</p>
+        <p className="total__price basket__price">
+          {totalPrice}
+          <span className="total__currency basket__currency">₽</span>
+        </p>
       </div>
+      <button
+        className={`total__button${
+          !basketProducts.length ? " total__button_disabled" : ""
+        }`}
+        disabled={!basketProducts.length}
+      >
+        перейти к Оформлению
+      </button>
     </PopupWithPage>
   );
 }

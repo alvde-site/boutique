@@ -83,7 +83,6 @@ export const CATEGOTY_PATH = "/category";
 export const CATEGORY_TITLE_TEXT = "Категории";
 export const CATEGORY_BUTTON_TEXT = "Все категории";
 
-
 export {
   categorySaleFoto,
   categoryFoto1,
@@ -178,7 +177,8 @@ const AUTH_POPUP = "authPopup";
 const REGISTER_POPUP = "registerPopup";
 const ALERT_POPUP = "alertPopup";
 const BASKET_POPUP = "basketPopup";
-const FAVOURITE_POPUP = "favouritePopop";
+const FAVOURITE_POPUP = "favouritePopup";
+const ORDERING_POPUP = "orderingPopup";
 
 export {
   MENU_POPUP,
@@ -187,4 +187,5 @@ export {
   ALERT_POPUP,
   BASKET_POPUP,
   FAVOURITE_POPUP,
+  ORDERING_POPUP,
 };

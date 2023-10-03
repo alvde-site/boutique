@@ -8,12 +8,13 @@ import Content from "../Content/Content";
 import Paths from "../Paths/Paths";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { Link, useParams } from "react-router-dom";
-import { categoryPath } from "../../utils/constants";
+import { ORDERING_POPUP, categoryPath } from "../../utils/constants";
 import { selectAllCategories } from "../../services/reducers/categoriesSlice";
 import ButtonFav from "../ButtonFav/ButtonFav";
 import { selectAllCollections } from "../../services/reducers/collectionSlice";
 import Price from "../Price/Price";
 import ButtonBasket from "../ButtonBasket/ButtonBasket";
+import { handlePopupState } from "../../services/reducers/popupsSlice";
 
 function ProductCard() {
   const dispatch = useAppDispatch();
@@ -67,7 +68,8 @@ function ProductCard() {
   }
 
   function handlePurchase() {
-    console.log("Купить");
+    console.log("regnmjm")
+    dispatch(handlePopupState({ popupName: ORDERING_POPUP, popupState: true }));
   }
   return (
     <Content>

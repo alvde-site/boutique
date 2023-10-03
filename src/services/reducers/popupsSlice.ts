@@ -7,6 +7,7 @@ import {
   BASKET_POPUP,
   FAVOURITE_POPUP,
   MENU_POPUP,
+  ORDERING_POPUP,
   REGISTER_POPUP,
 } from "../../utils/constants";
 
@@ -17,6 +18,7 @@ const initialState: IPopupState[] = [
   { name: ALERT_POPUP, state: false },
   { name: BASKET_POPUP, state: false },
   { name: FAVOURITE_POPUP, state: false },
+  { name: ORDERING_POPUP, state: false },
 ];
 
 const popupsSlice = createSlice({

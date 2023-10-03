@@ -32,6 +32,7 @@ import { categoryBD, collectionBD } from "../../utils/boutiqueBD";
 import ProductCard from "../ProductCard/ProductCard";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { fetchProducts } from "../../services/reducers/productsSlice";
+import PopupWithOrdering from "../PopupWithOrdering/PopupWithOrdering";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -100,6 +101,7 @@ function App() {
         <PopupWithAlert />
         <PopupWithBasketPage />
         <PopupWithFavouritePage />
+        <PopupWithOrdering />
       </div>
     </CurrentUserContext.Provider>
   );

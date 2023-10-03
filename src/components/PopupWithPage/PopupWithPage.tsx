@@ -23,7 +23,10 @@ function PopupWithPage(props: IPopupWithPageProps) {
           aria-label="Закрыть"
           onClick={closePopup}
         ></button>
-        {props.children}
+        <div className="page-popup__content">
+          <h2 className="page-popup__title">{props.title}</h2>
+          {props.children}
+        </div>
       </div>
     </div>
   );

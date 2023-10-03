@@ -13,9 +13,9 @@
 @import "../components/Header/header", "../components/Footer/footer";
 
 // 5. Components
-@import "../components/App/app", "../components/ButtonBasket/buttonBasket", "../components/ButtonFav/buttonfav",
-  "../components/Header/header", "../components/Menu/menu",
-  "../components/RightHeaderMenu/rightHeaderMenu",
+@import "../components/App/app", "../components/ButtonBasket/buttonBasket",
+  "../components/ButtonFav/buttonfav", "../components/Header/header",
+  "../components/Menu/menu", "../components/RightHeaderMenu/rightHeaderMenu",
   "../components/StoreList/storeList", "../components/Main/main",
   "../components/Content/content", "../components/ContentButton/contentButton",
   "../components/ContentMenu/contentMenu", "../components/Category/category",
@@ -23,20 +23,20 @@
   "../components/NotFoundPage/notFoundPage", "../components/Overlay/overlay",
   "../components/Companies/companies", "../components/Contacts/contacts",
   "../components/Conditions/conditions", "../components/Privacy/privacy",
-  "../components/Press/press", "../components/Price/price", "../components/Dealer/dealer",
-  "../components/About/about", "../components/Account/account",
-  "../components/Profile/profile", "../components/Paths/paths",
-  "../components/SectionSelection/sectionSelection",
+  "../components/Press/press", "../components/Price/price",
+  "../components/Dealer/dealer", "../components/About/about",
+  "../components/Account/account", "../components/Profile/profile",
+  "../components/Paths/paths", "../components/SectionSelection/sectionSelection",
   "../components/SectionMore/sectionMore", "../components/Footer/footer",
   "../components/Showcase/_showcase";
 
 /* popups */
 @import "../components/PopupWithForm/popupWithForm",
+  "../components/PopupWithOrdering/popupWithOrdering",
   "../components/PopupWithAuth/popupWithAuth",
   "../components/PopupWithPage/popupWithPage",
   "../components/PopupWithBasketPage/popupWithBasketPage",
   "../components/Product/product", "../components/ProductCard/productCard",
-  "../components/PopupWithFavouritePage/popupWithFavouritePage",
   "../components/Favourite/favourite";
 
 // 6. Page-specific styles
