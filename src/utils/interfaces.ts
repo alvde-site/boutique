@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { IValues } from "./formValidationInterfaces";
 
 interface ISectionData {
   id: string;
@@ -77,13 +78,21 @@ export interface IShowcaseProps extends IModifier {}
 
 /* main */
 
-export interface IPriceProps {
-  product: IProductsState;
+export interface IInputTextProps {
+  name: string;
+  values: any;
+  onChange: (event: React.ChangeEvent) => void;
+  className: string;
+  placeholder: string;
 }
 
 export interface IButtonFavProps {
   product: IProductsState;
   className: string;
+}
+
+export interface IPriceProps {
+  product: IProductsState;
 }
 
 export interface IPromoProps {
@@ -153,20 +162,6 @@ export interface IOverlayProps {
 }
 
 /* Popups */
-
-export interface IValues {
-  title?: string;
-  authemail?: string;
-  authpassword?: string;
-  regname?: string;
-  regsurname?: string;
-  regemail?: string;
-  regtel?: string;
-  regpassword?: string;
-  regreppassword?: string;
-  regcity?: string;
-  regaddress?: string;
-}
 
 export interface IPopupWithFormProps {
   name: string;

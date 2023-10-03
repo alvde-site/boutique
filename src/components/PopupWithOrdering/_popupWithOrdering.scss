@@ -1,0 +1,23 @@
+.ordering {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin: $prodcard-item-top-margin 0 0;
+}
+
+.ordering__field {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.ordering__input {
+  background: transparent;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #000;
+  margin: $prodcard-item-top-margin 0 0;
+}
+
+

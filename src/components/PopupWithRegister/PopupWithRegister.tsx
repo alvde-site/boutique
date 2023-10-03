@@ -3,8 +3,8 @@ import { useFormWithValidation } from "../../utils/formValidator";
 import {
   IFormWithValidation,
   IPopupRegisterProps,
-  IValues,
 } from "../../utils/interfaces";
+import { IValues } from "../../utils/formValidationInterfaces";
 import { useState } from "react";
 import {
   ALERT_POPUP,

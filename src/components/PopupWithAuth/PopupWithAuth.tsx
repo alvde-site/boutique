@@ -7,7 +7,8 @@ import {
   NEED_REGISTRATION,
   REGISTER_POPUP,
 } from "../../utils/constants";
-import { IFormWithValidation, IValues } from "../../utils/interfaces";
+import { IFormWithValidation } from "../../utils/interfaces";
+import { IValues } from "../../utils/formValidationInterfaces";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { signin } from "../../services/reducers/authSlice";
 import {
