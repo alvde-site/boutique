@@ -141,33 +141,35 @@ function ProductCard() {
                 </ul>
               </div>
             </div>
-            <div className="details__order">
-              <ul className="details__orderbuttons">
-                <li>
-                  <ButtonBasket
-                    className={""}
-                    onClick={handlePurchase}
-                    buttonText={"Купить"}
-                  />
-                </li>
-                <li>
-                  {product?.isInBasket ? (
+            <div className="prodcard__field">
+              <div className="details__order">
+                <div className="details__price">
+                  <Price product={product!} />
+                </div>
+                <ul className="details__orderbuttons">
+                  <li>
                     <ButtonBasket
-                      className={"buttonbasket_state_added"}
-                      onClick={removeBascketItem}
-                      buttonText={"ДОБАВЛЕНО в Корзину"}
+                      className={""}
+                      onClick={handlePurchase}
+                      buttonText={"Купить"}
                     />
-                  ) : (
-                    <ButtonBasket
-                      className={"buttonbasket_state_add"}
-                      onClick={addBasketItem}
-                      buttonText={"добавить в корзину"}
-                    />
-                  )}
-                </li>
-              </ul>
-              <div className="details__price">
-                <Price product={product!} />
+                  </li>
+                  <li>
+                    {product?.isInBasket ? (
+                      <ButtonBasket
+                        className={"buttonbasket_state_added"}
+                        onClick={removeBascketItem}
+                        buttonText={"ДОБАВЛЕНО в Корзину"}
+                      />
+                    ) : (
+                      <ButtonBasket
+                        className={"buttonbasket_state_add"}
+                        onClick={addBasketItem}
+                        buttonText={"добавить в корзину"}
+                      />
+                    )}
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

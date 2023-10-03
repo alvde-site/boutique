@@ -126,11 +126,12 @@
 }
 
 .details__orderbuttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
   list-style: none;
-  margin: $prodcard-item-top-margin 0 0;
+  margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
 }
 
 .details__orderbutton {
@@ -142,5 +143,29 @@
   &:hover {
     background-color: #000;
     color: white;
+  }
+}
+
+@include xxl {
+  .details__order {
+    grid-template-columns: 1fr;
+  }
+}
+
+@include md {
+  .prodcard {
+    grid-template-columns: 1fr;
+  }
+  .prodcard__images {
+    grid-template-columns: 1fr;
+    max-height: none;
+  }
+  .prodcard__scroll {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+  .details__order {
+    grid-template-columns: 1fr;
   }
 }

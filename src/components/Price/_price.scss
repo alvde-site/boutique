@@ -1,6 +1,5 @@
 .price {
   display: flex;
-  align-items: flex-end;
 }
 
 .price__previous {
@@ -15,4 +14,11 @@
   @include big-text("Inter");
   margin: 0;
   color: #1a1a1a;
+  min-width: 82px;
+}
+
+@include xxl {
+  .price {
+    flex-direction: column;
+  }
 }
