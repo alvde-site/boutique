@@ -3,7 +3,7 @@ import { IInputTextProps } from "../../utils/interfaces";
 function InputText(props:IInputTextProps) {
   return (
     <input
-      type="text"
+      type={props.type}
       id={props.name}
       name={props.name}
       minLength={2}

@@ -1,10 +1,9 @@
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useFormWithValidation } from "../../utils/formValidator";
 import {
-  IFormWithValidation,
   IPopupRegisterProps,
 } from "../../utils/interfaces";
-import { IValues } from "../../utils/formValidationInterfaces";
+import { IFormValidator, IValues } from "../../utils/formValidationInterfaces";
 import { useState } from "react";
 import {
   ALERT_POPUP,
@@ -24,7 +23,7 @@ function PopupWithRegister({ setCurrentUser }: IPopupRegisterProps) {
   const dispatch = useAppDispatch();
   const users = useAppSelector(selectAllUsers);
   const [hasErrors, setHasErrors] = useState({} as IValues);
-  const { values, handleChange, errors, resetForm }: IFormWithValidation =
+  const { values, handleChange, errors, resetForm }: IFormValidator =
     useFormWithValidation();
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();

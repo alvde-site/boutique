@@ -7,8 +7,7 @@ import {
   NEED_REGISTRATION,
   REGISTER_POPUP,
 } from "../../utils/constants";
-import { IFormWithValidation } from "../../utils/interfaces";
-import { IValues } from "../../utils/formValidationInterfaces";
+import { IFormValidator, IValues } from "../../utils/formValidationInterfaces";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { signin } from "../../services/reducers/authSlice";
 import {
@@ -20,7 +19,7 @@ import { selectAllUsers } from "../../services/reducers/usersSlice";
 function PopupWithAuth() {
   const dispatch = useAppDispatch();
   const [hasErrors, setHasErrors] = useState({} as IValues);
-  const { values, handleChange, errors, resetForm }: IFormWithValidation =
+  const { values, handleChange, errors, resetForm }: IFormValidator =
     useFormWithValidation();
   const users = useAppSelector(selectAllUsers);
   function handleSubmit(e: React.FormEvent) {

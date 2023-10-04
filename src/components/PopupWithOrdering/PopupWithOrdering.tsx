@@ -22,6 +22,7 @@ function PopupWithOrdering() {
       <div className="ordering">
         <fieldset className="ordering__field">
           <InputText
+            type="text"
             name="orderingName"
             values={values}
             onChange={handleInputChange}
@@ -29,6 +30,7 @@ function PopupWithOrdering() {
             placeholder={"Имя *"}
           />
           <InputText
+            type="text"
             name="orderingSurname"
             values={values}
             onChange={handleInputChange}
@@ -36,25 +38,41 @@ function PopupWithOrdering() {
             placeholder={"Фамилия *"}
           />
           <InputText
+            type="text"
             name="orderingNumber"
             values={values}
             onChange={handleInputChange}
             className={"ordering__input"}
             placeholder={"Телефон *"}
           />
-          <input
+          <InputText
             type="email"
-            id="orderingEmail"
             name="orderingEmail"
-            minLength={2}
-            maxLength={30}
-            value={values["orderingEmail"] || ""}
+            values={values}
             onChange={handleInputChange}
-            className="ordering__input"
-            placeholder="Почта *"
+            className={"ordering__input"}
+            placeholder={"Почта *"}
           />
         </fieldset>
-        <fieldset className="ordering__field"></fieldset>
+        <fieldset className="ordering__field">
+          <h3 className="ordering__title">Адрес доставки</h3>
+          <InputText
+            type="text"
+            name="orderingCity"
+            values={values}
+            onChange={handleInputChange}
+            className={"ordering__input"}
+            placeholder={"Город *"}
+          />
+          <InputText
+            type="text"
+            name="orderingStreet"
+            values={values}
+            onChange={handleInputChange}
+            className={"ordering__input"}
+            placeholder={"Улица, дом, квартира *"}
+          />
+        </fieldset>
         <fieldset className="ordering__field"></fieldset>
         <fieldset className="ordering__field"></fieldset>
         <fieldset className="ordering__field"></fieldset>

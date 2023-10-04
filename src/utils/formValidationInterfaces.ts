@@ -1,19 +1,5 @@
 export interface IValues {
-  title?: string;
-  authemail?: string;
-  authpassword?: string;
-  regname?: string;
-  regsurname?: string;
-  regemail?: string;
-  regtel?: string;
-  regpassword?: string;
-  regreppassword?: string;
-  regcity?: string;
-  regaddress?: string;
-  orderingName?: string;
-  orderingSurname?: string;
-  orderingNumber?: string;
-  orderingEmail?: string;
+  [key: string]: string;
 
 }
 

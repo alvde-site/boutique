@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { IValues } from "./formValidationInterfaces";
 
 interface ISectionData {
   id: string;
@@ -79,6 +78,7 @@ export interface IShowcaseProps extends IModifier {}
 /* main */
 
 export interface IInputTextProps {
+  type: string;
   name: string;
   values: any;
   onChange: (event: React.ChangeEvent) => void;
@@ -204,13 +204,4 @@ export interface IPopupRegisterProps {
 
 export interface IPathProps {
   path: IPath[];
-}
-/* Валидация формы */
-
-export interface IFormWithValidation extends IValues {
-  values: IValues;
-  errors: IValues;
-  setErrors: (value: IValues) => void;
-  handleChange: (e: React.FormEvent<Element>) => void;
-  resetForm: () => void;
 }
