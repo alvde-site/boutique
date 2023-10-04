@@ -73,7 +73,15 @@ function PopupWithOrdering() {
             placeholder={"Улица, дом, квартира *"}
           />
         </fieldset>
-        <fieldset className="ordering__field"></fieldset>
+        <fieldset className="ordering__field">
+          <button
+            className={`ordering__button
+         ${true ? " total__button_disabled" : ""}`}
+            disabled={true}
+          >
+            Оформить
+          </button>
+        </fieldset>
         <fieldset className="ordering__field"></fieldset>
         <fieldset className="ordering__field"></fieldset>
       </div>

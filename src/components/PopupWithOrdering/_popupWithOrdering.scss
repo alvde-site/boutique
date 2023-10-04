@@ -12,12 +12,40 @@
   border: none;
 }
 
+.ordering__title {
+  margin: 0;
+  padding: 0;
+}
+
 .ordering__input {
   background: transparent;
   width: 100%;
   padding: 10px;
   border: 1px solid #000;
   margin: $prodcard-item-top-margin 0 0;
+}
+
+.ordering__button {
+  margin: 20px 0 0;
+  padding: 18px 0;
+  border: none;
+  box-sizing: border-box;
+  width: 100%;
+  @include usual-text("Inter");
+  text-transform: uppercase;
+  background-color: #000;
+  color: #fff;
+  transition: $transition-time;
+  opacity: $button-state-opacity;
+}
+
+.ordering__button:hover {
+  opacity: $button-hover-opacity;
+}
+
+.ordering__button_disabled {
+  opacity: $button-hover-opacity;
+  background-color: #bfbfbf;
 }
 
 
