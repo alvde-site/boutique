@@ -1,0 +1,23 @@
+.receipt {
+  box-sizing: border-box;
+  padding: 10px;
+  border-image: url(../../images/svg/border-rect.png) 13 round;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  border-width: 10px 1px 1px;
+  border-style: solid;
+}
+
+.recline {
+    width: 100%;
+  display: flex;
+  & p:nth-child(odd) {
+    flex-grow: 0;
+    white-space: nowrap;
+  }
+  & p:nth-child(even) {
+    flex-grow: 1;
+    overflow: hidden;
+  }
+}

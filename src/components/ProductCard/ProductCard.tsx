@@ -15,8 +15,10 @@ import { selectAllCollections } from "../../services/reducers/collectionSlice";
 import Price from "../Price/Price";
 import ButtonBasket from "../ButtonBasket/ButtonBasket";
 import { handlePopupState } from "../../services/reducers/popupsSlice";
+import { handleToElementScroll } from "../../utils/utils";
 
 function ProductCard() {
+  const scrollElement = document.getElementsByClassName("ordering")[0];
   const dispatch = useAppDispatch();
   const { productId } = useParams();
   const product = useAppSelector((state) =>
@@ -68,8 +70,8 @@ function ProductCard() {
   }
 
   function handlePurchase() {
-    console.log("regnmjm")
     dispatch(handlePopupState({ popupName: ORDERING_POPUP, popupState: true }));
+    handleToElementScroll(scrollElement);
   }
   return (
     <Content>

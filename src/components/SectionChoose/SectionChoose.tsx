@@ -8,6 +8,7 @@ import SectionMore from "../SectionMore/SectionMore";
 import SectionProduct from "../SectionProduct/SectionProduct";
 import { selectCategoryById } from "../../services/reducers/categoriesSlice";
 import { selectCollectionsById } from "../../services/reducers/collectionSlice";
+import { handleToElementScroll } from "../../utils/utils";
 
 function SectionChoose({
   path,
@@ -54,7 +55,7 @@ function SectionChoose({
       setSectionProducts(() =>
         allProducts.filter((product) => product.collection === collection.path)
       );
-      contentElement?.scrollIntoView({ behavior: "smooth" });
+      handleToElementScroll(contentElement);
     }
   }, [path, collection, allProducts, contentElement]);
 

@@ -33,6 +33,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { fetchProducts } from "../../services/reducers/productsSlice";
 import PopupWithOrdering from "../PopupWithOrdering/PopupWithOrdering";
+import Receipt from "../Receipt/Receipt";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -57,6 +58,7 @@ function App() {
             <Route path="/dealer" element={<Dealer />} />
             <Route path="/about" element={<About />} />
             <Route path="/account" element={<Account />} />
+            <Route path="/receipt" element={<Receipt />} />
             <Route
               path="/category"
               element={
@@ -92,6 +94,7 @@ function App() {
               }
             />
             <Route path="/product/:productId" element={<ProductCard />} />
+
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
