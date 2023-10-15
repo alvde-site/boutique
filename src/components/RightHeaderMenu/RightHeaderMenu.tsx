@@ -27,6 +27,7 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
   }
 
   function hadleOpenBasket() {
+    dispatch(handlePopupState({ popupName: MENU_POPUP, popupState: false }));
     dispatch(handlePopupState({ popupName: BASKET_POPUP, popupState: true }));
   }
 

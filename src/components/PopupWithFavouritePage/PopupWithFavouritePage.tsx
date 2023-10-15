@@ -9,6 +9,7 @@ import {
   selectAllInFavourite,
 } from "../../services/reducers/productsSlice";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import IsEmpty from "../IsEmpty/IsEmpty";
 
 function PopupWithFavouritePage() {
   const dispatch = useAppDispatch();
@@ -25,18 +26,27 @@ function PopupWithFavouritePage() {
   function removeBascketItem(id: string) {
     dispatch(removeBasketProduct({ productId: id }));
   }
+
+  let content;
+
+  if (favouriteProducts.length) {
+    content = favouriteProducts.map((details) => (
+      <Favourite
+        details={details}
+        key={details.id}
+        removeFromFavourite={removeFavouriteItem}
+        removeFromBasket={removeBascketItem}
+        addToBasket={addBasketItem}
+        basketProducts={basketProducts}
+      />
+    ));
+  } else {
+    content = <IsEmpty />;
+  }
+
   return (
     <PopupWithPage name={FAVOURITE_POPUP} title="Избранное">
-      {favouriteProducts.map((details) => (
-        <Favourite
-          details={details}
-          key={details.id}
-          removeFromFavourite={removeFavouriteItem}
-          removeFromBasket={removeBascketItem}
-          addToBasket={addBasketItem}
-          basketProducts={basketProducts}
-        />
-      ))}
+      {content}
     </PopupWithPage>
   );
 }

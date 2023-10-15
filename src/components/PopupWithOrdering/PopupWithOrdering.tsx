@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { ORDERING_POPUP } from "../../utils/constants";
 import { IFormValidator } from "../../utils/formValidationInterfaces";
 import { useFormWithValidation } from "../../utils/formValidator";
@@ -5,6 +6,7 @@ import InputText from "../InputText/InputText";
 import PopupWithPage from "../PopupWithPage/PopupWithPage";
 
 function PopupWithOrdering() {
+  const navigate = useNavigate();
   const {
     values,
     handleChange,
@@ -16,6 +18,9 @@ function PopupWithOrdering() {
   IFormValidator = useFormWithValidation();
   function handleInputChange(e: React.ChangeEvent) {
     handleChange(e);
+  }
+  function handleOrder() {
+    navigate("/receipt")
   }
   return (
     <PopupWithPage name={ORDERING_POPUP} title="Оформление заказа">
@@ -76,8 +81,9 @@ function PopupWithOrdering() {
         <fieldset className="ordering__field">
           <button
             className={`ordering__button
-         ${true ? " total__button_disabled" : ""}`}
-            disabled={true}
+         ${false ? " total__button_disabled" : ""}`}
+            disabled={false}
+            onClick={handleOrder}
           >
             Оформить
           </button>

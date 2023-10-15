@@ -182,6 +182,17 @@ export interface IProductProps {
   removeItem: (id: string) => void;
 }
 
+interface IReclineData {
+  article: string;
+  price: number;
+  id: string;
+  [key: string]: string | number | boolean;
+}
+
+export interface IReclineProps {
+  product: IProductsState | IReclineData;
+}
+
 export interface ISectionMoreProps extends IContentMenuProps {
   data: ISectionData[];
 }
