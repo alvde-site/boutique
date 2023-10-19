@@ -4,11 +4,13 @@ import { IFormValidator } from "../../utils/formValidationInterfaces";
 import { useFormWithValidation } from "../../utils/formValidator";
 import InputText from "../InputText/InputText";
 import PopupWithPage from "../PopupWithPage/PopupWithPage";
-import { useAppSelector } from "../../utils/hooks";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { selectAllUsers } from "../../services/reducers/usersSlice";
 import { selectAllAuth } from "../../services/reducers/authSlice";
+import { closeAllPopups } from "../../services/reducers/popupsSlice";
 
 function PopupWithOrdering() {
+  const dispatch = useAppDispatch();
   const currentUser = { name: "", surname: "", tel: "", email: "" };
   const auth = useAppSelector(selectAllAuth);
   const users = useAppSelector(selectAllUsers);
@@ -34,6 +36,7 @@ function PopupWithOrdering() {
   }
   function handleOrder() {
     navigate("/receipt");
+    dispatch(closeAllPopups());
   }
   return (
     <PopupWithPage name={ORDERING_POPUP} title="Оформление заказа">

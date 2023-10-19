@@ -189,12 +189,16 @@ export interface IProductProps {
 
 interface IReclineData {
   article: string;
-  price: number;
+  price: number | string;
   id: string;
   [key: string]: string | number | boolean;
 }
 
-export interface IReclineProps {
+export interface IReclineUserProps {
+  data: { title: string; content: string };
+}
+
+export interface IReclinePriceProps {
   product: IProductsState | IReclineData;
 }
 

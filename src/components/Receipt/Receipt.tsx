@@ -2,10 +2,24 @@ import { useEffect, useState } from "react";
 import { selectAllInBasket } from "../../services/reducers/productsSlice";
 import { useAppSelector } from "../../utils/hooks";
 import Content from "../Content/Content";
-import { IReclineProps } from "../../utils/interfaces";
+import { IReclinePriceProps, IReclineUserProps } from "../../utils/interfaces";
 
 function Receipt() {
-  const Recline = ({ product }: IReclineProps) => {
+  const ReclineUserData = ({ data }: IReclineUserProps) => {
+    return (
+      <>
+        <div className="recline">
+          <p className="recline__lable">{`${data.title}`}</p>
+          <p className="recline__line">
+            ...........................................................................................................
+          </p>
+          <p className="recline__value">{`${data.content}`}</p>
+        </div>
+      </>
+    );
+  };
+
+  const ReclinePrice = ({ product }: IReclinePriceProps) => {
     return (
       <>
         <div className="recline">
@@ -55,10 +69,24 @@ function Receipt() {
         <div className="receipt__products">
           <h3 className="receipt__field-title">Товары:</h3>
           {receiptProducts.map((product) => (
-            <Recline product={product} key={product.id} />
+            <ReclinePrice product={product} key={product.id} />
           ))}
+          <div className="receipt__user-info">
+            <ReclineUserData
+              data={{
+                title: "Город:",
+                content: "Москва",
+              }}
+            />
+            <ReclineUserData
+              data={{
+                title: "Адрес:",
+                content: "Граничная 9",
+              }}
+            />
+          </div>
           <p className="receipt__product-total">
-            <Recline
+            <ReclinePrice
               product={totalReceiptProducts}
               key={totalReceiptProducts.id}
             />
