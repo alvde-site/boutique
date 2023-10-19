@@ -4,8 +4,21 @@ import { IFormValidator } from "../../utils/formValidationInterfaces";
 import { useFormWithValidation } from "../../utils/formValidator";
 import InputText from "../InputText/InputText";
 import PopupWithPage from "../PopupWithPage/PopupWithPage";
+import { useAppSelector } from "../../utils/hooks";
+import { selectAllUsers } from "../../services/reducers/usersSlice";
+import { selectAllAuth } from "../../services/reducers/authSlice";
 
 function PopupWithOrdering() {
+  const currentUser: any = { name: "", surname: "", tel: "", email: "" };
+  const auth = useAppSelector(selectAllAuth);
+  const users = useAppSelector(selectAllUsers);
+  const user: any = users.filter((u) => auth.userId === u.id)[0];
+  if (user) {
+    for (var key in user) {
+      currentUser[key] = user[key];
+    }
+    console.log(currentUser);
+  }
   const navigate = useNavigate();
   const {
     values,
@@ -20,7 +33,7 @@ function PopupWithOrdering() {
     handleChange(e);
   }
   function handleOrder() {
-    navigate("/receipt")
+    navigate("/receipt");
   }
   return (
     <PopupWithPage name={ORDERING_POPUP} title="Оформление заказа">
@@ -30,6 +43,7 @@ function PopupWithOrdering() {
             type="text"
             name="orderingName"
             values={values}
+            defaultValue={currentUser.name}
             onChange={handleInputChange}
             className={"ordering__input"}
             placeholder={"Имя *"}
@@ -37,6 +51,7 @@ function PopupWithOrdering() {
           <InputText
             type="text"
             name="orderingSurname"
+            defaultValue={currentUser.surname}
             values={values}
             onChange={handleInputChange}
             className={"ordering__input"}
@@ -45,6 +60,7 @@ function PopupWithOrdering() {
           <InputText
             type="text"
             name="orderingNumber"
+            defaultValue={currentUser.tel}
             values={values}
             onChange={handleInputChange}
             className={"ordering__input"}
@@ -53,6 +69,7 @@ function PopupWithOrdering() {
           <InputText
             type="email"
             name="orderingEmail"
+            defaultValue={currentUser.email}
             values={values}
             onChange={handleInputChange}
             className={"ordering__input"}
@@ -64,6 +81,7 @@ function PopupWithOrdering() {
           <InputText
             type="text"
             name="orderingCity"
+            defaultValue={""}
             values={values}
             onChange={handleInputChange}
             className={"ordering__input"}
@@ -72,6 +90,7 @@ function PopupWithOrdering() {
           <InputText
             type="text"
             name="orderingStreet"
+            defaultValue={""}
             values={values}
             onChange={handleInputChange}
             className={"ordering__input"}

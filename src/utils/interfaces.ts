@@ -1,5 +1,9 @@
 import { ReactNode } from "react";
 
+export interface IKeyString {
+  [key: string]: string;
+}
+
 interface ISectionData {
   id: string;
   src: string;
@@ -80,7 +84,8 @@ export interface IShowcaseProps extends IModifier {}
 export interface IInputTextProps {
   type: string;
   name: string;
-  values: any;
+  defaultValue: string;
+  values: IKeyString;
   onChange: (event: React.ChangeEvent) => void;
   className: string;
   placeholder: string;

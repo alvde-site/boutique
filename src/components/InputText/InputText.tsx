@@ -1,6 +1,6 @@
 import { IInputTextProps } from "../../utils/interfaces";
 
-function InputText(props:IInputTextProps) {
+function InputText(props: IInputTextProps) {
   return (
     <input
       type={props.type}
@@ -8,7 +8,7 @@ function InputText(props:IInputTextProps) {
       name={props.name}
       minLength={2}
       maxLength={30}
-      value={props.values[`${props.name}`] || ""}
+      value={props.values[`${props.name}`] || props.defaultValue || ""}
       onChange={props.onChange}
       className={props.className}
       placeholder={props.placeholder}
