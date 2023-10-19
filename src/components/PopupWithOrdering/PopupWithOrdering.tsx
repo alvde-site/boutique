@@ -9,15 +9,15 @@ import { selectAllUsers } from "../../services/reducers/usersSlice";
 import { selectAllAuth } from "../../services/reducers/authSlice";
 
 function PopupWithOrdering() {
-  const currentUser: any = { name: "", surname: "", tel: "", email: "" };
+  const currentUser = { name: "", surname: "", tel: "", email: "" };
   const auth = useAppSelector(selectAllAuth);
   const users = useAppSelector(selectAllUsers);
-  const user: any = users.filter((u) => auth.userId === u.id)[0];
+  const user = users.filter((u) => auth.userId === u.id)[0];
   if (user) {
     for (var key in user) {
-      currentUser[key] = user[key];
+      currentUser[key as keyof typeof currentUser] =
+        user[key as keyof typeof currentUser];
     }
-    console.log(currentUser);
   }
   const navigate = useNavigate();
   const {
