@@ -5,18 +5,16 @@ import {
   AUTH_ERROR,
   AUTH_POPUP,
   NEED_REGISTRATION,
-  REGISTER_POPUP,
 } from "../../utils/constants";
 import { IFormValidator, IValues } from "../../utils/formValidationInterfaces";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { signin } from "../../services/reducers/authSlice";
-import {
-  closeAllPopups,
-  handlePopupState,
-} from "../../services/reducers/popupsSlice";
+import { closeAllPopups } from "../../services/reducers/popupsSlice";
 import { selectAllUsers } from "../../services/reducers/usersSlice";
+import { useNavigate } from "react-router-dom";
 
 function PopupWithAuth() {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [hasErrors, setHasErrors] = useState({} as IValues);
   const { values, handleChange, errors, resetForm }: IFormValidator =
@@ -49,7 +47,7 @@ function PopupWithAuth() {
 
   function handleOpenRegisterForm() {
     dispatch(closeAllPopups());
-    dispatch(handlePopupState({ popupName: REGISTER_POPUP, popupState: true }));
+    navigate("/register");
   }
 
   return (

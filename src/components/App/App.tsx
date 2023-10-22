@@ -9,7 +9,6 @@ import Privacy from "../Privacy/Privacy";
 import Press from "../Press/Press";
 import Dealer from "../Dealer/Dealer";
 import PopupWithAuth from "../PopupWithAuth/PopupWithAuth";
-import PopupWithRegister from "../PopupWithRegister/PopupWithRegister";
 import PopupWithAlert from "../PopupWithAlert/PopupWithAlert";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import About from "../About/About";
@@ -34,6 +33,7 @@ import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { fetchProducts } from "../../services/reducers/productsSlice";
 import PopupWithOrdering from "../PopupWithOrdering/PopupWithOrdering";
 import Receipt from "../Receipt/Receipt";
+import Register from "../Register/Register";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -59,6 +59,10 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/account" element={<Account />} />
             <Route path="/receipt" element={<Receipt />} />
+            <Route
+              path="/register"
+              element={<Register setCurrentUser={setCurrentUser} />}
+            />
             <Route
               path="/category"
               element={
@@ -100,7 +104,6 @@ function App() {
         </main>
         <Footer />
         <PopupWithAuth />
-        <PopupWithRegister setCurrentUser={setCurrentUser} />
         <PopupWithAlert />
         <PopupWithBasketPage />
         <PopupWithFavouritePage />
