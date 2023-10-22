@@ -12,7 +12,9 @@ import {
 import { handlePopupState } from "../../services/reducers/popupsSlice";
 import { createUser, selectAllUsers } from "../../services/reducers/usersSlice";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
+import { useNavigate } from "react-router-dom";
 function Register({ setCurrentUser }: IPopupRegisterProps) {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const users = useAppSelector(selectAllUsers);
   const [hasErrors, setHasErrors] = useState({} as IValues);
@@ -48,6 +50,7 @@ function Register({ setCurrentUser }: IPopupRegisterProps) {
 
     if (canSumbit) {
       dispatch(handlePopupState({ popupName: ALERT_POPUP, popupState: true }));
+      navigate("/");
       dispatch(
         createUser({
           name: values["regname"],
@@ -212,7 +215,7 @@ function Register({ setCurrentUser }: IPopupRegisterProps) {
               className={`form__input ${
                 hasErrors["regcity"] && "form__input_type_error"
               }`}
-              value={values["regsurcity"] || ""}
+              value={values["regcity"] || ""}
               type="text"
               id="regcity"
               name="regcity"
