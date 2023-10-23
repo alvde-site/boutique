@@ -30,7 +30,10 @@ import SectionChoose from "../SectionChoose/SectionChoose";
 import { categoryBD, collectionBD } from "../../utils/boutiqueBD";
 import ProductCard from "../ProductCard/ProductCard";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import { fetchProducts } from "../../services/reducers/productsSlice";
+import {
+  addProducts,
+  fetchProducts,
+} from "../../services/reducers/productsSlice";
 import PopupWithOrdering from "../PopupWithOrdering/PopupWithOrdering";
 import Receipt from "../Receipt/Receipt";
 import Register from "../Register/Register";
@@ -40,8 +43,15 @@ function App() {
   const [currentUser, setCurrentUser] = useState<ICurrentUser>({ email: "" });
   const productStatus = useAppSelector((state) => state.products.status);
   useEffect(() => {
-    if (productStatus === "idle") {
+    const localData = localStorage.getItem("boutique");
+    if (productStatus === "idle" && !localData) {
       dispatch(fetchProducts());
+    } else {
+      if (localData) {
+        const productsData = JSON.parse(localData).productsDB;
+        console.log("из local", productsData);
+        dispatch(addProducts({ productsData }));
+      }
     }
   }, [dispatch, productStatus]);
   return (

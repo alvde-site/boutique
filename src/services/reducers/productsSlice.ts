@@ -63,6 +63,12 @@ const productsSlice = createSlice({
         existingProduct.isInFavorite = false;
       }
     },
+    addProducts(state, action) {
+      const { productsData } = action.payload;
+      if (productsData) {
+        state.products = productsData;
+      }
+    },
   },
   extraReducers(builder) {
     builder
@@ -80,6 +86,11 @@ const productsSlice = createSlice({
         });
         state.initialProducts = state.products.concat(formattedProduct);
         state.products = state.products.concat(formattedProduct);
+        localStorage.setItem(
+          "boutique",
+          JSON.stringify({ productsDB: formattedProduct })
+        );
+        console.log("из fetch", formattedProduct);
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = "failed";
@@ -93,6 +104,7 @@ export const {
   removeBasketProduct,
   addFavouriteProduct,
   removeFavouriteProduct,
+  addProducts,
 } = productsSlice.actions;
 
 export const selectAllProducts = (state: RootState) => state.products.products;
