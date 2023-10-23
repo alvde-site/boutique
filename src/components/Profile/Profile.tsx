@@ -147,6 +147,54 @@ function Profile({ values, onInputChange }: IProfileProps) {
         />
         <span className="profileform__input_focus"></span>
       </fieldset>
+      <fieldset
+        className={`profileform__fieldset ${
+          canEditProfile ? "profileform__fieldset_editable" : ""
+        }`}
+      >
+        <label htmlFor="profilecity" className="profileform__field">
+          Город
+        </label>
+        <input
+          id="profilecity"
+          type="text"
+          className="profileform__input"
+          name="profilecity"
+          required
+          minLength={2}
+          maxLength={30}
+          value={values["profilecity"] || currentUser?.city || ""}
+          onChange={onInputChange}
+          readOnly={!canEditProfile}
+          disabled={!canEditProfile}
+          formNoValidate
+        />
+        <span className="profileform__input_focus"></span>
+      </fieldset>
+      <fieldset
+        className={`profileform__fieldset ${
+          canEditProfile ? "profileform__fieldset_editable" : ""
+        }`}
+      >
+        <label htmlFor="profilestreet" className="profileform__field">
+          Улица
+        </label>
+        <input
+          id="profilestreet"
+          type="text"
+          className="profileform__input"
+          name="profilestreet"
+          required
+          minLength={2}
+          maxLength={30}
+          value={values["profilestreet"] || currentUser?.street || ""}
+          onChange={onInputChange}
+          readOnly={!canEditProfile}
+          disabled={!canEditProfile}
+          formNoValidate
+        />
+        <span className="profileform__input_focus"></span>
+      </fieldset>
       <fieldset className="profileform__submit-fieldset">
         <span
           id="success-submitprofile"

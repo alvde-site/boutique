@@ -13,6 +13,8 @@ export interface IValuesForm {
   profilesurname?: string;
   profiletel?: string;
   profileemail?: string;
+  profilecity?: string;
+  profilestreet?: string;
 }
 
 interface IValidationForm {
