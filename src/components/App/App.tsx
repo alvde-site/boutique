@@ -44,13 +44,14 @@ function App() {
   const productStatus = useAppSelector((state) => state.products.status);
   useEffect(() => {
     const localData = localStorage.getItem("boutique");
+    console.log("localData", localData);
     if (productStatus === "idle" && !localData) {
       dispatch(fetchProducts());
     } else {
       if (localData) {
-        const productsData = JSON.parse(localData).productsDB;
-        console.log("из local", productsData);
-        dispatch(addProducts({ productsData }));
+        const productsData = JSON.parse(localData);
+        console.log("из local", productsData.productsBD);
+        dispatch(addProducts({ productsData: productsData.productsBD }));
       }
     }
   }, [dispatch, productStatus]);

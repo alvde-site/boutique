@@ -39,6 +39,23 @@ const productsSlice = createSlice({
       const { productId } = action.payload;
       const existingProduct = state.products.find((p) => p.id === productId);
       if (existingProduct) {
+
+
+        const localData = localStorage.getItem("boutique");
+        if (localData) {
+          const parsedLocalData = JSON.parse(localData);
+          const formattedProductsBD = parsedLocalData.productsBD.map((i: any) =>
+            i.id === productId ? { ...existingProduct, isInBasket: true } : i
+          );
+          console.log("formattedProductsBD", formattedProductsBD);
+          const formattedLocalData = `{"productsBD": ${JSON.stringify(
+            formattedProductsBD
+          )}}`;
+          localStorage.setItem("boutique", formattedLocalData);
+        }
+
+
+
         existingProduct.isInBasket = true;
       }
     },
@@ -88,7 +105,7 @@ const productsSlice = createSlice({
         state.products = state.products.concat(formattedProduct);
         localStorage.setItem(
           "boutique",
-          JSON.stringify({ productsDB: formattedProduct })
+          JSON.stringify({ productsBD: formattedProduct })
         );
         console.log("из fetch", formattedProduct);
       })
