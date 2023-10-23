@@ -31,6 +31,29 @@ export const fetchProducts = createAsyncThunk(
 
 const buttons = new SizeButtons(2);
 
+const handleProductDataState = ({
+  productId,
+  existingProduct,
+  field,
+  state,
+}: any) => {
+  const localData = localStorage.getItem("boutique");
+  if (localData) {
+    const parsedLocalData = JSON.parse(localData);
+    const formattedProductsBD = parsedLocalData.productsBD.map((i: any) =>
+      i.id === productId ? { ...existingProduct, [field]: state } : i
+    );
+    console.log(
+      formattedProductsBD.filter((i: any) => i.id === productId)[0].isInBasket
+    );
+    // console.log("formattedProductsBD", formattedProductsBD);
+    const formattedLocalData = `{"productsBD":${JSON.stringify(
+      formattedProductsBD
+    )}}`;
+    localStorage.setItem("boutique", formattedLocalData);
+  }
+};
+
 const productsSlice = createSlice({
   name: "products",
   initialState,
@@ -39,22 +62,28 @@ const productsSlice = createSlice({
       const { productId } = action.payload;
       const existingProduct = state.products.find((p) => p.id === productId);
       if (existingProduct) {
-
-
-        const localData = localStorage.getItem("boutique");
-        if (localData) {
-          const parsedLocalData = JSON.parse(localData);
-          const formattedProductsBD = parsedLocalData.productsBD.map((i: any) =>
-            i.id === productId ? { ...existingProduct, isInBasket: true } : i
-          );
-          console.log("formattedProductsBD", formattedProductsBD);
-          const formattedLocalData = `{"productsBD": ${JSON.stringify(
-            formattedProductsBD
-          )}}`;
-          localStorage.setItem("boutique", formattedLocalData);
-        }
-
-
+        handleProductDataState({
+          productId,
+          existingProduct,
+          field: "isInBasket",
+          state: true,
+        });
+        // console.log("Здесь");
+        // const localData = localStorage.getItem("boutique");
+        // if (localData) {
+        //   const parsedLocalData = JSON.parse(localData);
+        //   const formattedProductsBD = parsedLocalData.productsBD.map((i: any) =>
+        //     i.id === productId ? { ...existingProduct, isInBasket: true } : i
+        //   );
+        //   const filerProduct = parsedLocalData.productsBD.map((i: any) => {
+        //     return { a: i.id, b: productId };
+        //   });
+        //   console.log("formattedProductsBD", filerProduct);
+        //   const formattedLocalData = `{"productsBD": ${JSON.stringify(
+        //     formattedProductsBD
+        //   )}}`;
+        //   localStorage.setItem("boutique", formattedLocalData);
+        // }
 
         existingProduct.isInBasket = true;
       }
@@ -102,12 +131,15 @@ const productsSlice = createSlice({
           };
         });
         state.initialProducts = state.products.concat(formattedProduct);
-        state.products = state.products.concat(formattedProduct);
-        localStorage.setItem(
-          "boutique",
-          JSON.stringify({ productsBD: formattedProduct })
-        );
-        console.log("из fetch", formattedProduct);
+        const localData = localStorage.getItem("boutique");
+        if (!localData) {
+          console.log("fetch", formattedProduct);
+          state.products = state.products.concat(formattedProduct);
+          localStorage.setItem(
+            "boutique",
+            JSON.stringify({ productsBD: formattedProduct })
+          );
+        }
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = "failed";
