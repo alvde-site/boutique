@@ -43,13 +43,10 @@ const handleProductDataState = ({
     const formattedProductsBD = parsedLocalData.productsBD.map((i: any) =>
       i.id === productId ? { ...existingProduct, [field]: state } : i
     );
-    console.log(
-      formattedProductsBD.filter((i: any) => i.id === productId)[0].isInBasket
-    );
-    // console.log("formattedProductsBD", formattedProductsBD);
-    const formattedLocalData = `{"productsBD":${JSON.stringify(
-      formattedProductsBD
-    )}}`;
+    const formattedLocalData = JSON.stringify({
+      ...parsedLocalData,
+      productsBD: formattedProductsBD,
+    });
     localStorage.setItem("boutique", formattedLocalData);
   }
 };
@@ -68,23 +65,6 @@ const productsSlice = createSlice({
           field: "isInBasket",
           state: true,
         });
-        // console.log("Здесь");
-        // const localData = localStorage.getItem("boutique");
-        // if (localData) {
-        //   const parsedLocalData = JSON.parse(localData);
-        //   const formattedProductsBD = parsedLocalData.productsBD.map((i: any) =>
-        //     i.id === productId ? { ...existingProduct, isInBasket: true } : i
-        //   );
-        //   const filerProduct = parsedLocalData.productsBD.map((i: any) => {
-        //     return { a: i.id, b: productId };
-        //   });
-        //   console.log("formattedProductsBD", filerProduct);
-        //   const formattedLocalData = `{"productsBD": ${JSON.stringify(
-        //     formattedProductsBD
-        //   )}}`;
-        //   localStorage.setItem("boutique", formattedLocalData);
-        // }
-
         existingProduct.isInBasket = true;
       }
     },
@@ -92,6 +72,12 @@ const productsSlice = createSlice({
       const { productId } = action.payload;
       const existingProduct = state.products.find((p) => p.id === productId);
       if (existingProduct) {
+        handleProductDataState({
+          productId,
+          existingProduct,
+          field: "isInBasket",
+          state: false,
+        });
         existingProduct.isInBasket = false;
       }
     },
@@ -99,6 +85,12 @@ const productsSlice = createSlice({
       const { productId } = action.payload;
       const existingProduct = state.products.find((p) => p.id === productId);
       if (existingProduct) {
+        handleProductDataState({
+          productId,
+          existingProduct,
+          field: "isInFavorite",
+          state: true,
+        });
         existingProduct.isInFavorite = true;
       }
     },
@@ -106,6 +98,12 @@ const productsSlice = createSlice({
       const { productId } = action.payload;
       const existingProduct = state.products.find((p) => p.id === productId);
       if (existingProduct) {
+        handleProductDataState({
+          productId,
+          existingProduct,
+          field: "isInFavorite",
+          state: false,
+        });
         existingProduct.isInFavorite = false;
       }
     },
