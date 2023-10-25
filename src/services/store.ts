@@ -6,6 +6,10 @@ import productsSlice from "./reducers/productsSlice";
 import usersSlice from "./reducers/usersSlice";
 import categoriesSlice from "./reducers/categoriesSlice";
 import collectionSlice from "./reducers/collectionSlice";
+import {
+  localStorageMiddleware,
+  reHydrateStore,
+} from "./middleware/localStorageMiddleware";
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +20,9 @@ export const store = configureStore({
     categories: categoriesSlice,
     collections: collectionSlice,
   },
+  preloadedState: reHydrateStore(),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(localStorageMiddleware),
 });
 
 export type AppDispatch = typeof store.dispatch;
