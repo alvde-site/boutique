@@ -1,6 +1,7 @@
 /* ------  Images --------- */
 /* Логотипы */
 import blackLogo from "../images/svg/black-logo.svg";
+import qr from "../images/qr-code.png";
 
 /*Showcase images*/
 import showcaseFoto from "../images/showcase.jpg";
@@ -69,7 +70,7 @@ export const NEED_REGISTRATION =
 export const REGISTRATION = "Регистрация";
 
 /* -------- Components --------- */
-export { blackLogo };
+export { blackLogo, qr };
 
 /* Showcase */
 export const showcase = {

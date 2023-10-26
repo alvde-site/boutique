@@ -7,6 +7,7 @@ import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { selectAllUsers } from "../../services/reducers/usersSlice";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { signin } from "../../services/reducers/authSlice";
+import ButtonAccount from "../ButtonAccount/ButtonAccount";
 
 function PopupWithAlert() {
   const dispatch = useAppDispatch();
@@ -28,15 +29,13 @@ function PopupWithAlert() {
       title={"Вы зарегестрированы"}
     >
       <h3 className="form__title">
-        пожалуйста, проверьте вашу почту в письме будут ваши данные
+        пожалуйста, проверьте вашу почту. в письме будут ваши данные
       </h3>
-      <button
-        type="submit"
-        onClick={handleSubmit}
-        className="form__submit form__submit_type_auth"
-      >
-        В личный кабинет
-      </button>
+      <ButtonAccount
+        handleSubmit={handleSubmit}
+        buttonText="В личный кабинет"
+        className=""
+      />
     </PopupWithForm>
   );
 }

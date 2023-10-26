@@ -81,6 +81,12 @@ export interface IShowcaseProps extends IModifier {}
 
 /* main */
 
+export interface IButtonAccountProps {
+  handleSubmit: (e: React.FormEvent) => void | (() => void);
+  buttonText: string;
+  className: string;
+}
+
 export interface IInputTextProps {
   type: string;
   name: string;

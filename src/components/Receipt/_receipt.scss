@@ -2,14 +2,45 @@
   box-sizing: border-box;
   padding: 10px;
   border-image: url(../../images/svg/border-rect.png) 13 round;
-  max-width: 500px;
+  max-width: 300px;
   width: 100%;
   margin: 0 auto;
   border-width: 10px 1px 1px;
   border-style: solid;
+  font-family: "Stick No Bills", "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 200;
 }
 
-.recline {
+.receipt__title {
+  margin: 0;
+  font-size: 42px;
+  line-height: 1.25;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.receipt__subtitle {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.25;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.receipt__line {
+  margin: 20px 0 0;
+}
+
+.receipt__field-title {
+  margin: 0;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.recline-content {
+  margin: 15px 0 0;
   width: 100%;
   display: flex;
   & p:nth-child(odd) {
@@ -20,4 +51,62 @@
     flex-grow: 1;
     overflow: hidden;
   }
+}
+
+.recline__product-title {
+  width: 100%;
+  margin: 15px 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-overflow: ellipsis;
+}
+
+.recline__lable,
+.recline__value {
+  margin: 0;
+  font-size: 12px;
+  line-height: 2.7;
+}
+
+.recline__line,
+.recline__short-line {
+  margin: 0;
+  overflow: hidden;
+}
+
+.recline__short-line {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.recline__rectangle {
+  margin: 20px 0;
+  height: 50px;
+  border: 1px solid #000;
+}
+
+.recline__qr {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.recline__order-number {
+  text-align: center;
+  margin: 0 auto;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 1.25;
+  width: 120px;
+}
+
+.recline__qr-image {
+  @include image-setting;
+}
+
+.recline__text {
+  margin: 0;
+  text-align: center;
 }
