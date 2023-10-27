@@ -11,12 +11,19 @@ import { closeAllPopups } from "../../services/reducers/popupsSlice";
 
 function PopupWithOrdering() {
   const dispatch = useAppDispatch();
-  const currentUser = { name: "", surname: "", tel: "", email: "", };
+  const currentUser = {
+    name: "",
+    surname: "",
+    tel: "",
+    email: "",
+    city: "",
+    street: "",
+  };
   const auth = useAppSelector(selectAllAuth);
   const users = useAppSelector(selectAllUsers);
   const user = users.filter((u) => auth.userId === u.id)[0];
   if (user) {
-    for (var key in user) {
+    for (let key in user) {
       currentUser[key as keyof typeof currentUser] =
         user[key as keyof typeof currentUser];
     }
@@ -84,7 +91,7 @@ function PopupWithOrdering() {
           <InputText
             type="text"
             name="orderingCity"
-            defaultValue={""}
+            defaultValue={currentUser.city}
             values={values}
             onChange={handleInputChange}
             className={"ordering__input"}
@@ -93,7 +100,7 @@ function PopupWithOrdering() {
           <InputText
             type="text"
             name="orderingStreet"
-            defaultValue={""}
+            defaultValue={currentUser.street}
             values={values}
             onChange={handleInputChange}
             className={"ordering__input"}

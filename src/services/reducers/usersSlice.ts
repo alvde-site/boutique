@@ -4,12 +4,9 @@ import { RootState } from "../store";
 interface IUser {
   id: string;
   name: string;
-  surname: string;
   tel: string;
   email: string;
-  password?: string;
-  city?:string;
-  street?:string;
+  [key: string]: string;
 }
 
 interface IUsersState {
@@ -46,13 +43,15 @@ const usersSlice = createSlice({
       },
     },
     updatedUser(state, action: PayloadAction<IUser>) {
-      const { id, name, surname, tel, email } = action.payload;
+      const { id, name, surname, tel, email, city, street } = action.payload;
       const existingUser = state.users.find((user) => user.id === id);
       if (existingUser) {
         existingUser.name = name;
         existingUser.surname = surname;
         existingUser.tel = tel;
         existingUser.email = email;
+        existingUser.city = city;
+        existingUser.street = street;
       }
     },
   },

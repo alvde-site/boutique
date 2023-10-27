@@ -18,7 +18,6 @@ function Receipt() {
   const auth = useAppSelector(selectAllAuth);
   const users = useAppSelector(selectAllUsers);
   const currentUser = users.find((u) => u.id === auth.userId);
-  console.log(currentUser)
 
   const userIdents = [];
   const userAddress = [];
@@ -73,6 +72,10 @@ function Receipt() {
       }
     }
   }
+
+  let today = new Date();
+
+  let now = today.toLocaleString("ru-RU");
 
   const ReclinePrice = ({ product }: IReclinePriceProps) => {
     return (
@@ -191,7 +194,7 @@ function Receipt() {
           <ReclineUserData
             data={{
               title: "Дата:",
-              content: "12.01.2023 14:56",
+              content: `${now}`,
             }}
           />
         </div>
