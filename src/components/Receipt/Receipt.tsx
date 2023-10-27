@@ -6,12 +6,72 @@ import { IReclinePriceProps, IReclineUserProps } from "../../utils/interfaces";
 import ButtonAccount from "../ButtonAccount/ButtonAccount";
 import { useNavigate } from "react-router-dom";
 import { qr } from "../../utils/constants";
+import { selectAllAuth } from "../../services/reducers/authSlice";
+import { selectAllUsers } from "../../services/reducers/usersSlice";
 
 function Receipt() {
   const navigate = useNavigate();
   const handleSubmit = () => {
     navigate("/account");
   };
+
+  const auth = useAppSelector(selectAllAuth);
+  const users = useAppSelector(selectAllUsers);
+  const currentUser = users.find((u) => u.id === auth.userId);
+
+  const userIdents = [];
+  const userAddress = [];
+
+  if (currentUser) {
+    for (let key in currentUser) {
+      switch (key) {
+        case "name":
+          userIdents.push({
+            lable: "Имя:",
+            value: currentUser[key as keyof typeof currentUser],
+          });
+          break;
+        case "surname":
+          userIdents.push({
+            lable: "Фамилия:",
+            value: currentUser[key as keyof typeof currentUser],
+          });
+          break;
+        case "email":
+          userIdents.push({
+            lable: "E-mail:",
+            value: currentUser[key as keyof typeof currentUser],
+          });
+          break;
+        case "tel":
+          userIdents.push({
+            lable: "Тел:",
+            value: currentUser[key as keyof typeof currentUser],
+          });
+          break;
+        default:
+          break;
+      }
+    }
+    for (let key in currentUser) {
+      switch (key) {
+        case "city":
+          userAddress.push({
+            lable: "Улица:",
+            value: currentUser[key as keyof typeof currentUser],
+          });
+          break;
+        case "street":
+          userAddress.push({
+            lable: "Адрес:",
+            value: currentUser[key as keyof typeof currentUser],
+          });
+          break;
+        default:
+          break;
+      }
+    }
+  }
 
   const ReclinePrice = ({ product }: IReclinePriceProps) => {
     return (
@@ -98,21 +158,28 @@ function Receipt() {
                 ****************************************************************************************************************************
               </p>
             </div>
-            <ReclineUserData
-              data={{
-                title: "Имя:",
-                content: "Александр",
-              }}
-            />
+            <h3 className="receipt__field-title">Данные:</h3>
+            {userIdents.map((e) => (
+              <ReclineUserData
+                key={e.lable}
+                data={{
+                  title: `${e.lable}`,
+                  content: `${e.value}`,
+                }}
+              />
+            ))}
             <div className="recline-content">
               <p className="recline__short-line">***</p>
             </div>
-            <ReclineUserData
-              data={{
-                title: "Адрес:",
-                content: "Граничная 9",
-              }}
-            />
+            {userAddress.map((e) => (
+              <ReclineUserData
+                key={e.lable}
+                data={{
+                  title: `${e.lable}`,
+                  content: `${e.value}`,
+                }}
+              />
+            ))}
           </div>
           <div className="recline__rectangle"></div>
           <div className="recline__qr">
