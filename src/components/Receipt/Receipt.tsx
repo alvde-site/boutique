@@ -18,6 +18,7 @@ function Receipt() {
   const auth = useAppSelector(selectAllAuth);
   const users = useAppSelector(selectAllUsers);
   const currentUser = users.find((u) => u.id === auth.userId);
+  console.log(currentUser)
 
   const userIdents = [];
   const userAddress = [];

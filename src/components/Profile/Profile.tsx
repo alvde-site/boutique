@@ -37,10 +37,11 @@ function Profile({ values, onInputChange }: IProfileProps) {
     let surname = `${values["profilesurname"] || currentUser?.surname}`;
     let tel = `${values["profiletel"] || currentUser?.tel}`;
     let email = `${values["profileemail"] || currentUser?.email}`;
-    dispatch(updatedUser({ id, name, surname, tel, email }));
+    let city = `${values["profilecity"] || currentUser?.city}`;
+    let street = `${values["profilestreet"] || currentUser?.street}`;
+    dispatch(updatedUser({ id, name, surname, tel, email, city, street }));
     setCanEditProfile(false);
     setIsSuccessSubmit(true);
-    console.log(id, name, surname, tel, email);
   }
   return (
     <form

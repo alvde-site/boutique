@@ -11,7 +11,7 @@ import { closeAllPopups } from "../../services/reducers/popupsSlice";
 
 function PopupWithOrdering() {
   const dispatch = useAppDispatch();
-  const currentUser = { name: "", surname: "", tel: "", email: "" };
+  const currentUser = { name: "", surname: "", tel: "", email: "", };
   const auth = useAppSelector(selectAllAuth);
   const users = useAppSelector(selectAllUsers);
   const user = users.filter((u) => auth.userId === u.id)[0];

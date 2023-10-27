@@ -58,6 +58,8 @@ function Register({ setCurrentUser }: IPopupRegisterProps) {
           email: values["regemail"],
           tel: values["regtel"],
           password: values["regpassword"],
+          city: values["regcity"],
+          street: values["regstreet"],
         })
       );
       setCurrentUser({ email: values["regemail"] });
