@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Contacts from "../Contacts/Contacts";
 import Conditions from "../Conditions/Conditions";
 import Privacy from "../Privacy/Privacy";
@@ -37,11 +37,13 @@ import {
 import PopupWithOrdering from "../PopupWithOrdering/PopupWithOrdering";
 import Receipt from "../Receipt/Receipt";
 import Register from "../Register/Register";
+import { selectAllAuth } from "../../services/reducers/authSlice";
 
 function App() {
   const dispatch = useAppDispatch();
   const [currentUser, setCurrentUser] = useState<ICurrentUser>({ email: "" });
   const productStatus = useAppSelector((state) => state.products.status);
+  const auth = useAppSelector(selectAllAuth);
   useEffect(() => {
     const localData = localStorage.getItem("boutique");
     if (productStatus === "idle" && !localData) {
@@ -71,7 +73,13 @@ function App() {
             <Route path="/receipt" element={<Receipt />} />
             <Route
               path="/register"
-              element={<Register setCurrentUser={setCurrentUser} />}
+              element={
+                auth.loggedIn ? (
+                  <Navigate to="/" />
+                ) : (
+                  <Register setCurrentUser={setCurrentUser} />
+                )
+              }
             />
             <Route
               path="/category"
