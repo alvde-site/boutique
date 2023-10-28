@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
@@ -38,12 +38,19 @@ import PopupWithOrdering from "../PopupWithOrdering/PopupWithOrdering";
 import Receipt from "../Receipt/Receipt";
 import Register from "../Register/Register";
 import { selectAllAuth } from "../../services/reducers/authSlice";
+import ProtectedRoute, {
+  ProtectedRouteProps,
+} from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   const dispatch = useAppDispatch();
   const [currentUser, setCurrentUser] = useState<ICurrentUser>({ email: "" });
   const productStatus = useAppSelector((state) => state.products.status);
   const auth = useAppSelector(selectAllAuth);
+  const defaultProtectedRouteProps: Omit<ProtectedRouteProps, "outlet"> = {
+    loggedIn: auth.loggedIn,
+    authPath: "/register",
+  };
   useEffect(() => {
     const localData = localStorage.getItem("boutique");
     if (productStatus === "idle" && !localData) {
@@ -69,16 +76,28 @@ function App() {
             <Route path="/press" element={<Press />} />
             <Route path="/dealer" element={<Dealer />} />
             <Route path="/about" element={<About />} />
-            <Route path="/account" element={<Account />} />
+            <Route
+              path="/account"
+              element={
+                <ProtectedRoute
+                  {...defaultProtectedRouteProps}
+                  outlet={<Account />}
+                />
+              }
+            />
+
+            {/* <Route path="/account" element={<Account />} /> */}
             <Route path="/receipt" element={<Receipt />} />
             <Route
               path="/register"
               element={
-                auth.loggedIn ? (
-                  <Navigate to="/" />
-                ) : (
-                  <Register setCurrentUser={setCurrentUser} />
-                )
+                <React.Fragment>
+                  {auth.loggedIn ? (
+                    <Navigate to="/" />
+                  ) : (
+                    <Register setCurrentUser={setCurrentUser} />
+                  )}
+                </React.Fragment>
               }
             />
             <Route
