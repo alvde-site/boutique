@@ -31,26 +31,6 @@ export const fetchProducts = createAsyncThunk(
 
 const buttons = new SizeButtons(2);
 
-const handleProductDataState = ({
-  productId,
-  existingProduct,
-  field,
-  state,
-}: any) => {
-  const localData = localStorage.getItem("boutique");
-  if (localData) {
-    const parsedLocalData = JSON.parse(localData);
-    const formattedProductsBD = parsedLocalData.productsBD.map((i: any) =>
-      i.id === productId ? { ...existingProduct, [field]: state } : i
-    );
-    const formattedLocalData = JSON.stringify({
-      ...parsedLocalData,
-      productsBD: formattedProductsBD,
-    });
-    localStorage.setItem("boutique", formattedLocalData);
-  }
-};
-
 const productsSlice = createSlice({
   name: "products",
   initialState,
@@ -59,12 +39,6 @@ const productsSlice = createSlice({
       const { productId } = action.payload;
       const existingProduct = state.products.find((p) => p.id === productId);
       if (existingProduct) {
-        handleProductDataState({
-          productId,
-          existingProduct,
-          field: "isInBasket",
-          state: true,
-        });
         existingProduct.isInBasket = true;
       }
     },
@@ -72,12 +46,6 @@ const productsSlice = createSlice({
       const { productId } = action.payload;
       const existingProduct = state.products.find((p) => p.id === productId);
       if (existingProduct) {
-        handleProductDataState({
-          productId,
-          existingProduct,
-          field: "isInBasket",
-          state: false,
-        });
         existingProduct.isInBasket = false;
       }
     },
@@ -85,12 +53,6 @@ const productsSlice = createSlice({
       const { productId } = action.payload;
       const existingProduct = state.products.find((p) => p.id === productId);
       if (existingProduct) {
-        handleProductDataState({
-          productId,
-          existingProduct,
-          field: "isInFavorite",
-          state: true,
-        });
         existingProduct.isInFavorite = true;
       }
     },
@@ -98,12 +60,6 @@ const productsSlice = createSlice({
       const { productId } = action.payload;
       const existingProduct = state.products.find((p) => p.id === productId);
       if (existingProduct) {
-        handleProductDataState({
-          productId,
-          existingProduct,
-          field: "isInFavorite",
-          state: false,
-        });
         existingProduct.isInFavorite = false;
       }
     },
@@ -129,15 +85,7 @@ const productsSlice = createSlice({
           };
         });
         state.initialProducts = state.products.concat(formattedProduct);
-        const localData = localStorage.getItem("boutique");
-        if (!localData) {
-          console.log("fetch", formattedProduct);
-          state.products = state.products.concat(formattedProduct);
-          localStorage.setItem(
-            "boutique",
-            JSON.stringify({ productsBD: formattedProduct })
-          );
-        }
+        state.products = state.products.concat(formattedProduct);
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = "failed";
