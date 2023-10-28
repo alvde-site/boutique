@@ -1,10 +1,17 @@
+import { selectAllAuth } from "../../services/reducers/authSlice";
+import { useAppSelector } from "../../utils/hooks";
 import { IProductProps } from "../../utils/interfaces";
 import ButtonFav from "../ButtonFav/ButtonFav";
 import Price from "../Price/Price";
 
 function Product({ product, removeItem }: IProductProps) {
+  const auth = useAppSelector(selectAllAuth);
+  const userId = `${auth.userId ? auth.userId : "noauth"}`;
+  const isInFav =
+    product.isInFavorite.includes(auth.userId) ||
+    product.isInFavorite.includes("noauth");
   function removeBascketItem() {
-    removeItem(product.id);
+    removeItem(product.id, userId);
   }
 
   return (
@@ -44,7 +51,7 @@ function Product({ product, removeItem }: IProductProps) {
           <Price product={product} />
           <div className="product__favourite-wrap">
             <p className="product__field product__field_type_favourite">
-              {`В ${product?.isInFavorite ? "избранном" : "избранное"}`}
+              {`В ${isInFav ? "избранном" : "избранное"}`}
             </p>
             <ButtonFav product={product} className="" />
           </div>

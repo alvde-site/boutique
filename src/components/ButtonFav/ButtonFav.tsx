@@ -1,18 +1,34 @@
+import { selectAllAuth } from "../../services/reducers/authSlice";
 import {
   addFavouriteProduct,
   removeFavouriteProduct,
 } from "../../services/reducers/productsSlice";
-import { useAppDispatch } from "../../utils/hooks";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { IButtonFavProps } from "../../utils/interfaces";
 
 function ButtonFav({ product, className }: IButtonFavProps) {
   const dispatch = useAppDispatch();
+  const auth = useAppSelector(selectAllAuth);
+  const isInFav =
+    product.isInFavorite.includes(auth.userId) ||
+    product.isInFavorite.includes("noauth");
+  const userId = `${auth.userId ? auth.userId : "noauth"}`;
   function toggleFavouriteState() {
     if (product) {
-      if (product.isInFavorite) {
-        dispatch(removeFavouriteProduct({ productId: product.id }));
+      if (isInFav) {
+        dispatch(
+          removeFavouriteProduct({
+            productId: product.id,
+            userId,
+          })
+        );
       } else {
-        dispatch(addFavouriteProduct({ productId: product.id }));
+        dispatch(
+          addFavouriteProduct({
+            productId: product.id,
+            userId,
+          })
+        );
       }
     }
   }
@@ -20,7 +36,7 @@ function ButtonFav({ product, className }: IButtonFavProps) {
   return (
     <button
       className={`buttonfav ${className} ${
-        product?.isInFavorite ? "buttonfav_type_like" : "buttonfav_type_dislike"
+        isInFav ? "buttonfav_type_like" : "buttonfav_type_dislike"
       }`}
       aria-label="Избранное"
       onClick={toggleFavouriteState}

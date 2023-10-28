@@ -1,3 +1,5 @@
+import { selectAllAuth } from "../../services/reducers/authSlice";
+import { useAppSelector } from "../../utils/hooks";
 import { IFavouriteProps } from "../../utils/interfaces";
 import ButtonBasket from "../ButtonBasket/ButtonBasket";
 import Price from "../Price/Price";
@@ -10,16 +12,18 @@ function Favourite({
   basketProducts,
 }: IFavouriteProps) {
   const existingProduct = basketProducts.find((p) => p.id === details.id);
+  const auth = useAppSelector(selectAllAuth);
+  const userId = `${auth.userId ? auth.userId : "noauth"}`
   function addBasketItem() {
-    addToBasket(details.id);
+    addToBasket(details.id, userId);
   }
 
   function removeFavoureteItem() {
-    removeFromFavourite(details.id);
+    removeFromFavourite(details.id, userId);
   }
 
   function removeBascketItem() {
-    removeFromBasket(details.id);
+    removeFromBasket(details.id, userId);
   }
   return (
     <div className="favourite__card">

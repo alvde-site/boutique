@@ -42,9 +42,9 @@ export interface IProductsState {
   discount: number | string;
   price: number;
   id: string;
-  isInBasket: boolean;
-  isInFavorite: boolean;
-  isInOrder: boolean;
+  isInBasket: (string | null)[];
+  isInFavorite: (string | null)[];
+  isInOrder: (string | null)[];
   category: string;
   collection: string;
   buttons: IButton[];
@@ -190,7 +190,7 @@ export interface IPopupWithPageProps {
 
 export interface IProductProps {
   product: IProductsState;
-  removeItem: (id: string) => void;
+  removeItem: (id: string, userId: string) => void;
 }
 
 interface IReclineData {
@@ -218,9 +218,9 @@ export interface ISectionProductProps {
 
 export interface IFavouriteProps {
   details: IProductsState;
-  removeFromFavourite: (id: string) => void;
-  addToBasket: (id: string) => void;
-  removeFromBasket: (id: string) => void;
+  removeFromFavourite: (id: string, userId: string) => void;
+  addToBasket: (id: string, userId: string) => void;
+  removeFromBasket: (id: string, userId: string) => void;
   basketProducts: IProductsState[];
 }
 

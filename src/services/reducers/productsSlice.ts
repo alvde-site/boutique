@@ -30,37 +30,52 @@ export const fetchProducts = createAsyncThunk(
 );
 
 const buttons = new SizeButtons(2);
+const sortItems = (id: string | null, userId: string) => {
+  if (id === "noauth") {
+    return false;
+  }
+  if (id === userId) {
+    return false;
+  }
+  return true;
+};
 
 const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
     addBasketProduct(state, action) {
-      const { productId } = action.payload;
+      const { productId, userId } = action.payload;
       const existingProduct = state.products.find((p) => p.id === productId);
       if (existingProduct) {
-        existingProduct.isInBasket = true;
+        existingProduct.isInBasket.push(userId);
       }
     },
     removeBasketProduct(state, action) {
-      const { productId } = action.payload;
+      const { productId, userId } = action.payload;
       const existingProduct = state.products.find((p) => p.id === productId);
       if (existingProduct) {
-        existingProduct.isInBasket = false;
+        const formattedProductBasket = existingProduct.isInBasket.filter((id) =>
+          sortItems(id, userId)
+        );
+        existingProduct.isInBasket = formattedProductBasket;
       }
     },
     addFavouriteProduct(state, action) {
-      const { productId } = action.payload;
+      const { productId, userId } = action.payload;
       const existingProduct = state.products.find((p) => p.id === productId);
       if (existingProduct) {
-        existingProduct.isInFavorite = true;
+        existingProduct.isInFavorite.push(userId);
       }
     },
     removeFavouriteProduct(state, action) {
-      const { productId } = action.payload;
+      const { productId, userId } = action.payload;
       const existingProduct = state.products.find((p) => p.id === productId);
       if (existingProduct) {
-        existingProduct.isInFavorite = false;
+        const formattedProductFavourite = existingProduct.isInFavorite.filter(
+          (id) => sortItems(id, userId)
+        );
+        existingProduct.isInFavorite = formattedProductFavourite;
       }
     },
     addProducts(state, action) {
@@ -105,13 +120,13 @@ export const {
 export const selectAllProducts = (state: RootState) => state.products.products;
 
 export const selectAllInBasket = (state: RootState) =>
-  state.products.products.filter((product) => product.isInBasket);
+  state.products.products.filter((product) => product.isInBasket.length);
 
 export const selectAllInFavourite = (state: RootState) =>
-  state.products.products.filter((product) => product.isInFavorite);
+  state.products.products.filter((product) => product.isInFavorite.length);
 
 export const selectAllInOrder = (state: RootState) =>
-  state.products.products.filter((product) => product.isInOrder);
+  state.products.products.filter((product) => product.isInOrder.length);
 
 export const selectProductById = (state: RootState, productId: string) =>
   state.products.products.find((product) => product.id === productId);

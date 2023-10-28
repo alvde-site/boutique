@@ -15,16 +15,16 @@ function PopupWithFavouritePage() {
   const dispatch = useAppDispatch();
   const favouriteProducts = useAppSelector(selectAllInFavourite);
   const basketProducts = useAppSelector(selectAllInBasket);
-  function removeFavouriteItem(id: string) {
-    dispatch(removeFavouriteProduct({ productId: id }));
+  function removeFavouriteItem(id: string, userId: string) {
+    dispatch(removeFavouriteProduct({ productId: id, userId }));
   }
 
-  function addBasketItem(id: string) {
-    dispatch(addBasketProduct({ productId: id }));
+  function addBasketItem(id: string, userId: string) {
+    dispatch(addBasketProduct({ productId: id, userId }));
   }
 
-  function removeBascketItem(id: string) {
-    dispatch(removeBasketProduct({ productId: id }));
+  function removeBascketItem(id: string, userId: string) {
+    dispatch(removeBasketProduct({ productId: id, userId }));
   }
 
   let content;

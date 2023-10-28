@@ -25,8 +25,8 @@ function PopupWithBasketPage() {
     }
   }, [basketProducts]);
 
-  function removeBascketItem(id: string) {
-    dispatch(removeBasketProduct({ productId: id }));
+  function removeBascketItem(id: string, userId: string) {
+    dispatch(removeBasketProduct({ productId: id, userId }));
   }
 
   function handlePurchase() {
@@ -36,7 +36,6 @@ function PopupWithBasketPage() {
   }
 
   let content;
-
   if (basketProducts.length) {
     content = basketProducts.map((product) => (
       <Product
@@ -53,7 +52,7 @@ function PopupWithBasketPage() {
     <PopupWithPage name={BASKET_POPUP} title="Корзина">
       {content}
       <div className="total">
-        <p className="total__text basket__title">ИТОГ</p>
+        <p className="total__text basket__title">ИТОГ:</p>
         <p className="total__price basket__price">
           {totalPrice}
           <span className="total__currency basket__currency">₽</span>

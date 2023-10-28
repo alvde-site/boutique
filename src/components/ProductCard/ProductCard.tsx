@@ -16,14 +16,19 @@ import Price from "../Price/Price";
 import ButtonBasket from "../ButtonBasket/ButtonBasket";
 import { handlePopupState } from "../../services/reducers/popupsSlice";
 import { handleToElementScroll } from "../../utils/utils";
+import { selectAllAuth } from "../../services/reducers/authSlice";
 
 function ProductCard() {
   const scrollElement = document.getElementsByClassName("ordering")[0];
   const dispatch = useAppDispatch();
+  const auth = useAppSelector(selectAllAuth);
   const { productId } = useParams();
   const product = useAppSelector((state) =>
     selectProductById(state, productId!)
   );
+  const isInBasket =
+    product?.isInBasket.includes(auth.userId) ||
+    product?.isInBasket.includes("noauth");
   const categories = useAppSelector(selectAllCategories);
   const category = categories.filter((c) => c.path === product!.category)[0];
   const collections = useAppSelector(selectAllCollections);
@@ -62,11 +67,21 @@ function ProductCard() {
   };
 
   function addBasketItem() {
-    dispatch(addBasketProduct({ productId: product?.id }));
+    dispatch(
+      addBasketProduct({
+        productId: product?.id,
+        userId: `${auth.userId ? auth.userId : "noauth"}`,
+      })
+    );
   }
 
   function removeBascketItem() {
-    dispatch(removeBasketProduct({ productId: product?.id }));
+    dispatch(
+      removeBasketProduct({
+        productId: product?.id,
+        userId: `${auth.userId ? auth.userId : "noauth"}`,
+      })
+    );
   }
 
   function handlePurchase() {
@@ -159,7 +174,7 @@ function ProductCard() {
                     />
                   </li>
                   <li>
-                    {product?.isInBasket ? (
+                    {isInBasket ? (
                       <ButtonBasket
                         className={"buttonbasket_state_added"}
                         onClick={removeBascketItem}

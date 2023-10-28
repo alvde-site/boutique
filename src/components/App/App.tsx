@@ -31,7 +31,7 @@ import { categoryBD, collectionBD } from "../../utils/boutiqueBD";
 import ProductCard from "../ProductCard/ProductCard";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import {
-  addProducts,
+  // addProducts,
   fetchProducts,
 } from "../../services/reducers/productsSlice";
 import PopupWithOrdering from "../PopupWithOrdering/PopupWithOrdering";
@@ -52,16 +52,17 @@ function App() {
     authPath: "/register",
   };
   useEffect(() => {
-    const localData = localStorage.getItem("boutique");
-    if (productStatus === "idle" && !localData) {
+  //   const localData = localStorage.getItem("boutique");
+    if (productStatus === "idle") {
       dispatch(fetchProducts());
-    } else {
-      const getLocalData = localStorage.getItem("boutique");
-      if (getLocalData) {
-        const productsData = JSON.parse(getLocalData);
-        dispatch(addProducts({ productsData: productsData.productsBD }));
-      }
-    }
+    } 
+    // else {
+  //     const getLocalData = localStorage.getItem("boutique");
+  //     if (getLocalData) {
+  //       const productsData = JSON.parse(getLocalData);
+  //       dispatch(addProducts({ productsData: productsData.productsBD }));
+  //     }
+  //   }
   }, [dispatch, productStatus]);
   return (
     <CurrentUserContext.Provider value={currentUser}>
