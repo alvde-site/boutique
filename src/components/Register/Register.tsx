@@ -4,6 +4,7 @@ import { IFormValidator, IValues } from "../../utils/formValidationInterfaces";
 import { useState } from "react";
 import {
   ALERT_POPUP,
+  AUTH_POPUP,
   CONFIRM_PASSWORD_ERROR,
   EXIST_USER,
   REGISTRATION,
@@ -97,6 +98,11 @@ function Register({ setCurrentUser }: IPopupRegisterProps) {
         });
       }
     }
+  }
+
+  function handleOpenRegisterForm() {
+    navigate("/");
+    dispatch(handlePopupState({ popupName: AUTH_POPUP, popupState: true }));
   }
   return (
     <div className="register">
@@ -247,6 +253,13 @@ function Register({ setCurrentUser }: IPopupRegisterProps) {
           className="form__submit form__submit_type_auth"
         >
           Зарегистрироваться
+        </button>
+        <button
+          onClick={handleOpenRegisterForm}
+          type="button"
+          className="form__submit form__submit_type_register"
+        >
+          Войти
         </button>
       </form>
     </div>

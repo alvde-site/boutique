@@ -105,12 +105,6 @@ function PopupWithAuth() {
       >
         регистрация
       </button>
-      <button
-        type="button"
-        className="form__submit form__submit_type_forgotten"
-      >
-        Забыли пароль?
-      </button>
     </PopupWithForm>
   );
 }
