@@ -10,11 +10,14 @@ import {
 } from "../../services/reducers/productsSlice";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import IsEmpty from "../IsEmpty/IsEmpty";
+import { selectAllAuth } from "../../services/reducers/authSlice";
 
 function PopupWithFavouritePage() {
   const dispatch = useAppDispatch();
+  const auth = useAppSelector(selectAllAuth);
   const favouriteProducts = useAppSelector(selectAllInFavourite);
   const basketProducts = useAppSelector(selectAllInBasket);
+
   function removeFavouriteItem(id: string, userId: string) {
     dispatch(removeFavouriteProduct({ productId: id, userId }));
   }
@@ -27,17 +30,27 @@ function PopupWithFavouritePage() {
     dispatch(removeBasketProduct({ productId: id, userId }));
   }
 
+  const filteredFavoutiteProducts = favouriteProducts.filter(
+    (p) =>
+      p.isInFavorite.includes("noauth") || p.isInFavorite.includes(auth.userId)
+  );
+
+  const filteredBasketProducts = basketProducts.filter(
+    (p) =>
+      p.isInBasket.includes("noauth") || p.isInBasket.includes(auth.userId)
+  );
+
   let content;
 
-  if (favouriteProducts.length) {
-    content = favouriteProducts.map((details) => (
+  if (filteredFavoutiteProducts.length) {
+    content = filteredFavoutiteProducts.map((details) => (
       <Favourite
         details={details}
         key={details.id}
         removeFromFavourite={removeFavouriteItem}
         removeFromBasket={removeBascketItem}
         addToBasket={addBasketItem}
-        basketProducts={basketProducts}
+        basketProducts={filteredBasketProducts}
       />
     ));
   } else {

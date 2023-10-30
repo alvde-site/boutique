@@ -22,6 +22,17 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
   const auth = useAppSelector(selectAllAuth);
   const basketProducts = useAppSelector(selectAllInBasket);
   const favouriteProducts = useAppSelector(selectAllInFavourite);
+  const filteredFavoutiteProducts = favouriteProducts.filter(
+    (p) =>
+      p.isInFavorite.includes("noauth") || p.isInFavorite.includes(auth.userId)
+  );
+
+  const filteredBasketProducts = basketProducts.filter(
+    (p) =>
+      p.isInBasket.includes("noauth") || p.isInBasket.includes(auth.userId)
+  );
+
+
   function handleOpenAuthPopup() {
     dispatch(handlePopupState({ popupName: AUTH_POPUP, popupState: true }));
   }
@@ -76,7 +87,7 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
       >
         {" "}
         <span className="icon-menu__text">
-          {favouriteProducts.length ? favouriteProducts.length : ""}
+          {filteredFavoutiteProducts.length ? filteredFavoutiteProducts.length : ""}
         </span>
       </button>
       <button
@@ -85,7 +96,7 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
         onClick={hadleOpenBasket}
       >
         <span className="icon-menu__text">
-          {basketProducts.length ? basketProducts.length : ""}
+          {filteredBasketProducts.length ? filteredBasketProducts.length : ""}
         </span>
       </button>
     </div>

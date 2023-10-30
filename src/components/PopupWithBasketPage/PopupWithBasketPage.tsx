@@ -10,20 +10,26 @@ import {
 import IsEmpty from "../IsEmpty/IsEmpty";
 import { handlePopupState } from "../../services/reducers/popupsSlice";
 import { handleToElementScroll } from "../../utils/utils";
+import { selectAllAuth } from "../../services/reducers/authSlice";
 
 function PopupWithBasketPage() {
   const scrollElement = document.getElementsByClassName("ordering")[0];
   const dispatch = useAppDispatch();
+  const auth = useAppSelector(selectAllAuth);
   const [totalPrice, setTotalPrice] = useState(0);
   const basketProducts = useAppSelector(selectAllInBasket);
+  const filteredBasketProducts = basketProducts.filter(
+    (p) =>
+      p.isInBasket.includes("noauth") || p.isInBasket.includes(auth.userId)
+  );
   useEffect(() => {
-    if (basketProducts.length) {
-      const total = basketProducts.map((e) => e.price).reduce((a, c) => a + c);
+    if (filteredBasketProducts.length) {
+      const total = filteredBasketProducts.map((e) => e.price).reduce((a, c) => a + c);
       setTotalPrice(() => total);
     } else {
       setTotalPrice(() => 0);
     }
-  }, [basketProducts]);
+  }, [filteredBasketProducts]);
 
   function removeBascketItem(id: string, userId: string) {
     dispatch(removeBasketProduct({ productId: id, userId }));
@@ -36,8 +42,8 @@ function PopupWithBasketPage() {
   }
 
   let content;
-  if (basketProducts.length) {
-    content = basketProducts.map((product) => (
+  if (filteredBasketProducts.length) {
+    content = filteredBasketProducts.map((product) => (
       <Product
         product={product}
         key={product.id}
@@ -60,9 +66,9 @@ function PopupWithBasketPage() {
       </div>
       <button
         className={`total__button${
-          !basketProducts.length ? " total__button_disabled" : ""
+          !filteredBasketProducts.length ? " total__button_disabled" : ""
         }`}
-        disabled={!basketProducts.length}
+        disabled={!filteredBasketProducts.length}
         onClick={handlePurchase}
       >
         перейти к Оформлению
