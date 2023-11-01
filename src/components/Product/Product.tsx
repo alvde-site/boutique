@@ -16,7 +16,7 @@ function Product({ product, removeItem }: IProductProps) {
 
   return (
     <div className="product">
-      <img src={product.img} alt={product.title} className="basket__img" />
+      <img src={product.img} alt={product.title} className="product__img" />
       <div className="product__content">
         <div className="product__item">
           <div className="product__desc">
