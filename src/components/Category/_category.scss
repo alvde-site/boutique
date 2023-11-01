@@ -1,73 +1,73 @@
 .category {
-    padding: 0 0 112px;
+  padding: 0 0 112px;
 }
 
 .category__content {
-    display: grid;
-    grid-template-columns: 45% 55%;
-    column-gap: 13px;
-    padding: 60px 90px 0;
+  display: grid;
+  grid-template-columns: 9fr 11fr;
+  column-gap: 13px;
+  padding: 60px 90px 0;
 }
 
 .category__description {
-    display: flex;
-    flex-direction: column;
-    min-height: 1304px;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  min-height: 1304px;
+  justify-content: space-between;
 }
 
 .category__cover {
-    @include image-setting;
-    max-height: 1023px;
+  @include image-setting;
+  max-height: 1023px;
 }
 
 .category__text {
-    margin: 0;
-    max-width: 513px;
-    @include usual-text('Inter');
-    color: #000;
-    text-transform: uppercase;
+  margin: 0;
+  max-width: 513px;
+  @include usual-text("Inter");
+  color: #000;
+  text-transform: uppercase;
 }
 
 .category__gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    max-height: 1312px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-height: 1312px;
 }
 
 .category__figure {
-    position: relative;
-    margin: 0;
+  position: relative;
+  margin: 0;
 }
 
 .category__image {
-    @include image-setting;
+  @include image-setting;
 }
 
 // @media zone
 
 @include xxl {
-    .category__content {
-        grid-template-columns: 1fr;
-        margin: 0 auto;
-        padding: 0;
-    }
+  .category__content {
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    padding: 0;
+  }
 
-    .category__description {
-        display: none;
-    }
+  .category__description {
+    display: none;
+  }
 
-    .category__gallery {
-        max-height: none;
-        gap: 100px 12px;
-    }
+  .category__gallery {
+    max-height: none;
+    gap: 100px 12px;
+  }
 
-    .category__figure {
-        max-height: 722px;
-    }
+  .category__figure {
+    max-height: 722px;
+  }
 
-    .category__image {
-        max-height: 649px;
-    }
+  .category__image {
+    max-height: 649px;
+  }
 }
