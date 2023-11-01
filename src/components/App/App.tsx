@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
 import { Navigate, Route, Routes } from "react-router-dom";
@@ -30,10 +29,7 @@ import SectionChoose from "../SectionChoose/SectionChoose";
 import { categoryBD, collectionBD } from "../../utils/boutiqueBD";
 import ProductCard from "../ProductCard/ProductCard";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import {
-  // addProducts,
-  fetchProducts,
-} from "../../services/reducers/productsSlice";
+import { fetchProducts } from "../../services/reducers/productsSlice";
 import PopupWithOrdering from "../PopupWithOrdering/PopupWithOrdering";
 import Receipt from "../Receipt/Receipt";
 import Register from "../Register/Register";
@@ -41,6 +37,7 @@ import { selectAllAuth } from "../../services/reducers/authSlice";
 import ProtectedRoute, {
   ProtectedRouteProps,
 } from "../ProtectedRoute/ProtectedRoute";
+import Header from "../Header/Header";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -52,17 +49,9 @@ function App() {
     authPath: "/register",
   };
   useEffect(() => {
-  //   const localData = localStorage.getItem("boutique");
     if (productStatus === "idle") {
       dispatch(fetchProducts());
-    } 
-    // else {
-  //     const getLocalData = localStorage.getItem("boutique");
-  //     if (getLocalData) {
-  //       const productsData = JSON.parse(getLocalData);
-  //       dispatch(addProducts({ productsData: productsData.productsBD }));
-  //     }
-  //   }
+    }
   }, [dispatch, productStatus]);
   return (
     <CurrentUserContext.Provider value={currentUser}>

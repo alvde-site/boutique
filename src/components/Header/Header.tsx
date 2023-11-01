@@ -1,38 +1,15 @@
-import {
-  handlePopupState,
-  menuPopup,
-} from "../../services/reducers/popupsSlice";
-import { MENU_POPUP } from "../../utils/constants";
-import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import Menu from "../Menu/Menu";
-import RightHeaderMenu from "../RightHeaderMenu/RightHeaderMenu";
-import StoreList from "../StoreList/StoreList";
+import { Link } from "react-router-dom";
+import Nav from "../Nav/Nav";
 
 function Header() {
-  const dispatch = useAppDispatch();
-  function handleMenuState() {
-    dispatch(
-      handlePopupState({
-        popupName: MENU_POPUP,
-        popupState: !menuPopupState?.state,
-      })
-    );
-  }
-  const menuPopupState = useAppSelector(menuPopup);
   return (
     <header className="header">
-      <nav className="nav">
-        <Menu modifier="menu__position_nav" />
-        <button
-          className={`nav__burger ${
-            menuPopupState?.state && "nav__burger_open"
-          }`}
-          aria-label="Меню"
-          onClick={handleMenuState}
-        ></button>
-        <RightHeaderMenu modifier={"nav__icon-menu"} />
-      </nav>
-      <StoreList />
+      <Nav />
+      <div className="header__content">
+        <Link className="header__logo" to="/"></Link>
+        <h1 className="header__title">Магазин модной одежды</h1>
+        <a className="header__contacts" href="tel:+79268304044">+7 (926) 830-40-44</a>
+      </div>
     </header>
   );
 }
