@@ -28,10 +28,8 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
   );
 
   const filteredBasketProducts = basketProducts.filter(
-    (p) =>
-      p.isInBasket.includes("noauth") || p.isInBasket.includes(auth.userId)
+    (p) => p.isInBasket.includes("noauth") || p.isInBasket.includes(auth.userId)
   );
-
 
   function handleOpenAuthPopup() {
     dispatch(handlePopupState({ popupName: AUTH_POPUP, popupState: true }));
@@ -77,17 +75,15 @@ function RightHeaderMenu(props: IRightHeaderMenuProps) {
         </button>
       )}
       <button
-        className="icon-menu__button icon-menu__button_type_search"
-        aria-label="Поиск"
-      ></button>
-      <button
         className="icon-menu__button icon-menu__button_type_favourite"
         aria-label="Избранное"
         onClick={handleOpenFavourite}
       >
         {" "}
         <span className="icon-menu__text">
-          {filteredFavoutiteProducts.length ? filteredFavoutiteProducts.length : ""}
+          {filteredFavoutiteProducts.length
+            ? filteredFavoutiteProducts.length
+            : ""}
         </span>
       </button>
       <button

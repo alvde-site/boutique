@@ -1,8 +1,9 @@
 .header__content {
+  @include container-width;
+  padding: 20px 90px;
   background-color: #fff;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 20px 50px;
   border-bottom: 3px solid #000;
 }
 
@@ -21,16 +22,21 @@
 }
 
 .header__contacts {
-    margin: 0;
-    @include usual-text("Inter");
-    text-align: right;
-    text-decoration: none;
-    color: #000;
+  margin: 0;
+  @include usual-text("Inter");
+  text-align: right;
+  text-decoration: none;
+  color: #000;
+}
+
+@include xxl {
+  .header__content {
+    padding: 20px;
+  }
 }
 
 @include sm {
   .header__content {
-    padding: 20px;
     grid-template-columns: 1fr;
     gap: 10px;
   }

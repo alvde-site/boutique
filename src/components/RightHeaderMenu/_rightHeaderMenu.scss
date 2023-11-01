@@ -1,10 +1,3 @@
-.icon-menu__text {
-  @include usual-text("Inter");
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #fff;
-}
-
 .icon-menu__button {
   padding: 0;
   margin: 0 30px 0 0;
@@ -23,7 +16,7 @@
 }
 
 .icon-menu__button_type_enter {
-  opacity: $main-link-state-opacity;
+  opacity: $button-state-opacity;
   transition: $main-transition;
 }
 
@@ -48,3 +41,11 @@
   border: 1px solid #fff;
   padding: 2px;
 }
+
+.icon-menu__text {
+  @include usual-text("Inter");
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+}
+

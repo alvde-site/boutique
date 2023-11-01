@@ -15,11 +15,7 @@ function Footer() {
               Оптовикам
             </Link>
           </li>
-          <li>
-            <a href="https://github.com/alvde-site" className="footer__link">
-              Instagram
-            </a>
-          </li>
+
           <li>
             <Link to="/press" className="footer__link">
               Пресса
@@ -30,11 +26,7 @@ function Footer() {
               Условия доставки
             </Link>
           </li>
-          <li>
-            <a href="https://github.com/alvde-site" className="footer__link">
-              Telegram
-            </a>
-          </li>
+
           <li>
             <Link to="/contacts" className="footer__link">
               Контакты
@@ -45,11 +37,7 @@ function Footer() {
               Условия возврата
             </Link>
           </li>
-          <li>
-            <a href="https://github.com/alvde-site" className="footer__link">
-              Facebook
-            </a>
-          </li>
+
           <li>
             <Link to="/conditions" className="footer__link">
               Оплата
@@ -60,11 +48,6 @@ function Footer() {
               Политика конфиденциальности
             </Link>
           </li>
-          <li>
-            <a href="https://github.com/alvde-site" className="footer__link">
-              Vk
-            </a>
-          </li>
         </ul>
         <div className="footer__details">
           <ul className="footer__langs">
@@ -74,7 +57,10 @@ function Footer() {
               </button>
             </li>
             <li>
-              <button className="footer__link footer__link_type_button">
+              <button
+                lang="en"
+                className="footer__link footer__link_type_button"
+              >
                 EN
               </button>
             </li>
@@ -93,9 +79,6 @@ function Footer() {
               ></button>
             </li>
           </ul>
-          <a href="https://github.com/alvde-site" className="footer__link">
-            alvde
-          </a>
         </div>
       </div>
     </footer>

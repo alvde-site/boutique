@@ -26,15 +26,6 @@ function Menu(props: IMenuProps) {
 
   return (
     <ul className={`menu ${props.modifier}`}>
-      <li>
-        <Link
-          onClick={handleClosePopup}
-          to="/"
-          className="menu__link menu__text"
-        >
-          Главная
-        </Link>
-      </li>
       <li className="menu__item menu__item_small">
         <Link
           to=""
