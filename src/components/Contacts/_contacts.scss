@@ -82,7 +82,7 @@
 }
 
 .contacts__icon_type_tg {
-  @include button-image(("svg/tg-icon.svg"));
+  @include button-image(svg("tg-icon.svg"));
 }
 
 .contacts__icon_type_facebook {

@@ -8,7 +8,6 @@ import SectionMore from "../SectionMore/SectionMore";
 import SectionProduct from "../SectionProduct/SectionProduct";
 import { selectCategoryById } from "../../services/reducers/categoriesSlice";
 import { selectCollectionsById } from "../../services/reducers/collectionSlice";
-import { handleToElementScroll } from "../../utils/utils";
 
 function SectionChoose({
   path,
@@ -30,8 +29,6 @@ function SectionChoose({
   const [productPath, setProductPath] = useState(path);
   const [sectionProducts, setSectionProducts] = useState(allProducts);
 
-  const contentElement = document.getElementsByClassName("partition")[0];
-
   useEffect(() => {
     if (category) {
       const addPath = path.slice();
@@ -40,9 +37,8 @@ function SectionChoose({
       setSectionProducts(() =>
         allProducts.filter((product) => product.category === category.path)
       );
-      contentElement?.scrollIntoView({ behavior: "smooth" });
     }
-  }, [path, category, allProducts, contentElement]);
+  }, [path, category, allProducts]);
 
   useEffect(() => {
     if (collection) {
@@ -55,9 +51,8 @@ function SectionChoose({
       setSectionProducts(() =>
         allProducts.filter((product) => product.collection === collection.path)
       );
-      handleToElementScroll(contentElement);
     }
-  }, [path, collection, allProducts, contentElement]);
+  }, [path, collection, allProducts]);
 
   return (
     <section className="content">
