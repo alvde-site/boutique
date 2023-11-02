@@ -133,6 +133,7 @@ function ProductCard() {
                       <button
                         className="details__button details__button_color_standart"
                         disabled={b.disabled}
+                        title={b.disabled?"Размера больше нет в наличии":b.size}
                       >
                         {b.size}
                       </button>
