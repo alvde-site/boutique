@@ -7,70 +7,87 @@ import ButtonAccount from "../ButtonAccount/ButtonAccount";
 import { useNavigate } from "react-router-dom";
 import { qr } from "../../utils/constants";
 import { selectAllAuth } from "../../services/reducers/authSlice";
-import { selectAllUsers } from "../../services/reducers/usersSlice";
+import {
+  selectAllUsers,
+  selectNoAuthUser,
+} from "../../services/reducers/usersSlice";
 
 function Receipt() {
   const navigate = useNavigate();
   const handleSubmit = () => {
     navigate("/account");
   };
-
   const auth = useAppSelector(selectAllAuth);
   const users = useAppSelector(selectAllUsers);
-  const currentUser = users.find((u) => u.id === auth.userId);
+  let currentUser = users.find((u) => u.id === auth.userId);
+  const noAuthUser = useAppSelector(selectNoAuthUser);
+  let userIdents: any = [];
+  let userAddress: any = [];
 
-  const userIdents = [];
-  const userAddress = [];
-
-  if (currentUser) {
-    for (let key in currentUser) {
+  const createUserInents = (userData: any) => {
+    const user = [];
+    for (let key in userData) {
       switch (key) {
         case "name":
-          userIdents.push({
+          user.push({
             lable: "Имя:",
-            value: currentUser[key as keyof typeof currentUser],
+            value: userData[key as keyof typeof userData],
           });
           break;
         case "surname":
-          userIdents.push({
+          user.push({
             lable: "Фамилия:",
-            value: currentUser[key as keyof typeof currentUser],
+            value: userData[key as keyof typeof userData],
           });
           break;
         case "email":
-          userIdents.push({
+          user.push({
             lable: "E-mail:",
-            value: currentUser[key as keyof typeof currentUser],
+            value: userData[key as keyof typeof userData],
           });
           break;
         case "tel":
-          userIdents.push({
+          user.push({
             lable: "Тел:",
-            value: currentUser[key as keyof typeof currentUser],
+            value: userData[key as keyof typeof userData],
           });
           break;
         default:
           break;
       }
     }
-    for (let key in currentUser) {
+    return user;
+  };
+
+  const createUserAddress = (userData: any) => {
+    const user = [];
+    for (let key in userData) {
       switch (key) {
         case "city":
-          userAddress.push({
+          user.push({
             lable: "Улица:",
-            value: currentUser[key as keyof typeof currentUser],
+            value: userData[key as keyof typeof userData],
           });
           break;
         case "street":
-          userAddress.push({
+          user.push({
             lable: "Адрес:",
-            value: currentUser[key as keyof typeof currentUser],
+            value: userData[key as keyof typeof userData],
           });
           break;
         default:
           break;
       }
     }
+    return user;
+  };
+
+  if (currentUser) {
+    userIdents = createUserInents(currentUser);
+    userAddress = createUserAddress(currentUser);
+  } else {
+    userIdents = createUserInents(noAuthUser);
+    userAddress = createUserAddress(noAuthUser);
   }
 
   let today = new Date();
@@ -163,7 +180,7 @@ function Receipt() {
               </p>
             </div>
             <h3 className="receipt__field-title">Данные:</h3>
-            {userIdents.map((e) => (
+            {userIdents.map((e: any) => (
               <ReclineUserData
                 key={e.lable}
                 data={{
@@ -175,7 +192,7 @@ function Receipt() {
             <div className="recline-content">
               <p className="recline__short-line">***</p>
             </div>
-            {userAddress.map((e) => (
+            {userAddress.map((e: any) => (
               <ReclineUserData
                 key={e.lable}
                 data={{

@@ -9,14 +9,20 @@ interface IUser {
   [key: string]: string;
 }
 
+interface INoAuthUser {
+  [key: string]: string;
+}
+
 interface IUsersState {
   initialUsers: [];
   users: IUser[];
+  noAuthUser: INoAuthUser[];
 }
 
 const initialState: IUsersState = {
   initialUsers: [],
   users: [],
+  noAuthUser: [],
 };
 
 const usersSlice = createSlice({
@@ -42,6 +48,9 @@ const usersSlice = createSlice({
         };
       },
     },
+    createNoAuthUser(state, action) {
+      state.noAuthUser = action.payload;
+    },
     updatedUser(state, action: PayloadAction<IUser>) {
       const { id, name, surname, tel, email, city, street } = action.payload;
       const existingUser = state.users.find((user) => user.id === id);
@@ -58,7 +67,8 @@ const usersSlice = createSlice({
 });
 
 export const selectAllUsers = (state: RootState) => state.users.users;
+export const selectNoAuthUser = (state: RootState) => state.users.noAuthUser;
 
-export const { createUser, updatedUser } = usersSlice.actions;
+export const { createUser, updatedUser, createNoAuthUser } = usersSlice.actions;
 
 export default usersSlice.reducer;

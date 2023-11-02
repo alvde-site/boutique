@@ -5,7 +5,10 @@ import { useFormWithValidation } from "../../utils/formValidator";
 import InputText from "../InputText/InputText";
 import PopupWithPage from "../PopupWithPage/PopupWithPage";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import { selectAllUsers } from "../../services/reducers/usersSlice";
+import {
+  createNoAuthUser,
+  selectAllUsers,
+} from "../../services/reducers/usersSlice";
 import { selectAllAuth } from "../../services/reducers/authSlice";
 import { closeAllPopups } from "../../services/reducers/popupsSlice";
 
@@ -32,18 +35,28 @@ function PopupWithOrdering() {
   const {
     values,
     handleChange,
+    resetForm,
   }: // errors,
   // setErrors,
   // isValid,
   // setIsValid,
-  // resetForm,
   IFormValidator = useFormWithValidation();
   function handleInputChange(e: React.ChangeEvent) {
     handleChange(e);
   }
   function handleOrder() {
+    const noAuthUser = {
+      name: values.orderingName || "",
+      surname: values.orderingSurname || "",
+      tel: values.orderingNumber || "",
+      email: values.orderingEmail || "",
+      city: values.orderingCity || "",
+      street: values.orderingStreet || "",
+    };
     navigate("/receipt");
     dispatch(closeAllPopups());
+    dispatch(createNoAuthUser(noAuthUser));
+    resetForm();
   }
   return (
     <PopupWithPage name={ORDERING_POPUP} title="Оформление заказа">
