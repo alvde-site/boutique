@@ -43,7 +43,7 @@
 
 .store__content {
   display: grid;
-  grid-template-columns: 1fr 3fr 2fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 35px;
   background-color: #fff;
   padding: 35px;
@@ -123,6 +123,10 @@
 // @media zone
 
 @include xxl {
+  .store {
+    padding: 71px 90px 207px;
+  }
+
   .store__link-menu {
     display: flex;
   }
@@ -154,7 +158,7 @@
 
 @include md {
   .store {
-    padding: 123px 20px 207px;
+    padding: 71px 20px 207px;
   }
 }
 

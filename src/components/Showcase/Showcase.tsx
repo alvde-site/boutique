@@ -1,22 +1,30 @@
-import { showcase } from "../../utils/constants";
+import { useNavigate } from "react-router-dom";
+import { selectAllProducts } from "../../services/reducers/productsSlice";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { IShowcaseProps } from "../../utils/interfaces";
+import { closeAllPopups } from "../../services/reducers/popupsSlice";
 
 function Showcase(props: IShowcaseProps) {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const hotNew = useAppSelector(selectAllProducts)[5];
+  const handleClick = () => {
+    dispatch(closeAllPopups());
+    navigate(`/product/${hotNew.id}`);
+  };
   return (
     <article className={`showcase ${props.modifier}`}>
       <figure className="showcase__figure">
-        <img
-          className="showcase__image"
-          src={showcase.src}
-          alt={showcase.alt}
-        />
+        <img className="showcase__image" src={hotNew.img} alt={hotNew.title} />
       </figure>
       <div className="showcase__content">
         <div className="showcase__title-block">
-          <h2 className="showcase__title">{showcase.alt}</h2>
-          <p className="showcase__subtitle">{showcase.description}</p>
+          <h2 className="showcase__title">{hotNew.title}</h2>
+          <p className="showcase__subtitle">{hotNew.title}</p>
         </div>
-        <button className="showcase__button">Приобрести</button>
+        <button className="showcase__button" onClick={handleClick}>
+          Приобрести
+        </button>
         <p className="showcase__description">
           Приталенное платье мини мятного цвета в полу-спортивном стиле.
           Выполнено из джерси, рукава из мерцающего желтого крепа. На юбке

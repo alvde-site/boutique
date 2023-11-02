@@ -76,13 +76,13 @@ function StoreList() {
                 ))}
               </ul>
             </div>
-            <div className="store__advertisement advertisement">
+            {/* <div className="store__advertisement advertisement">
               <h3 className="advertisement__title">cRUISE 2022</h3>
               <p className="advertisement__subtitle">
                 Рады рассказать вам о недавнем мероприятии, в котором мы
                 поучаствовали и представили на ней новую коллекцию йоу
               </p>
-            </div>
+            </div> */}
           </div>
           <div className="store__new">
             <h2 className="store__title">Новинки</h2>
