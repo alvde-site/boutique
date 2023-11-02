@@ -26,19 +26,8 @@
 // @media zone
 
 @include xxl {
-  .overlay {
-    position: relative;
-    margin: 15px 0 0;
-    height: auto;
-    display: flex;
-    background-color: transparent;
-    opacity: 1;
-    transition: $transition-time;
-  }
-
   .overlay__link {
     @include decorative-big-text;
-    color: #000;
   }
 }
 

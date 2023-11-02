@@ -16,7 +16,7 @@ import categoryFoto6 from "../images/category7.jpg";
 import categoryFoto7 from "../images/category8.jpg";
 import categoryFoto8 from "../images/category9.jpg";
 /*Collection images*/
-import collectionFoto from "../images/collection_temp.jpg";
+import collectionFoto from "../images/nofoto.jpg";
 import collectionFoto1 from "../images/collection1.jpg";
 import collectionFoto2 from "../images/collection2.jpg";
 import collectionFoto3 from "../images/collection3.jpg";

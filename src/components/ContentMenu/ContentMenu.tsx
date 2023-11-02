@@ -1,13 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { IContentMenuProps } from "../../utils/interfaces";
 import ContentButton from "../ContentButton/ContentButton";
-import { handleToElementScroll, mainElement } from "../../utils/utils";
+import { handleToElementScroll } from "../../utils/utils";
 
-function ContentMenu({ titleText, buttonText, navigatePath }: IContentMenuProps) {
+function ContentMenu({
+  titleText,
+  buttonText,
+  navigatePath,
+}: IContentMenuProps) {
   const navigate = useNavigate();
+  const mainElement = document.getElementsByClassName("main");
   function handleClick() {
+    handleToElementScroll(mainElement[0]);
     navigatePath ? navigate(navigatePath) : navigate("/");
-    handleToElementScroll(mainElement);
   }
   return (
     <div className="content-menu">
