@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { ISectionProductProps } from "../../utils/interfaces";
 import ButtonFav from "../ButtonFav/ButtonFav";
-import { handleToElementScroll, mainElement } from "../../utils/utils";
+import { handleToElementScroll } from "../../utils/utils";
 
 function SectionProduct({ product }: ISectionProductProps) {
+  const mainElement = document.getElementsByClassName("main");
   const handleScroll = () => {
-    handleToElementScroll(mainElement);
+    handleToElementScroll(mainElement[0]);
   };
   return (
     <li className="partition__card">
