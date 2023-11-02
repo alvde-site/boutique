@@ -3,6 +3,7 @@ import { selectAllProducts } from "../../services/reducers/productsSlice";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { IShowcaseProps } from "../../utils/interfaces";
 import { closeAllPopups } from "../../services/reducers/popupsSlice";
+import { handleToElementScroll, mainElement } from "../../utils/utils";
 
 function Showcase(props: IShowcaseProps) {
   const dispatch = useAppDispatch();
@@ -11,6 +12,7 @@ function Showcase(props: IShowcaseProps) {
   const handleClick = () => {
     dispatch(closeAllPopups());
     navigate(`/product/${hotNew.id}`);
+    handleToElementScroll(mainElement);
   };
   return (
     <article className={`showcase ${props.modifier}`}>
