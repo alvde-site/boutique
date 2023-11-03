@@ -8,7 +8,7 @@ import { handleToElementScroll } from "../../utils/utils";
 function Showcase(props: IShowcaseProps) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const hotNew = useAppSelector(selectAllProducts)[5];
+  const hotNew = useAppSelector(selectAllProducts)[7];
   const mainElement = document.getElementsByClassName("main");
   const handleClick = () => {
     dispatch(closeAllPopups());
