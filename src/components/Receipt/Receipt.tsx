@@ -11,6 +11,7 @@ import {
   selectAllUsers,
   selectNoAuthUser,
 } from "../../services/reducers/usersSlice";
+import { createUserAddress, createUserInents } from "../../utils/utils";
 
 function Receipt() {
   const navigate = useNavigate();
@@ -21,66 +22,8 @@ function Receipt() {
   const users = useAppSelector(selectAllUsers);
   let currentUser = users.find((u) => u.id === auth.userId);
   const noAuthUser = useAppSelector(selectNoAuthUser);
-  let userIdents: any = [];
-  let userAddress: any = [];
-
-  const createUserInents = (userData: any) => {
-    const user = [];
-    for (let key in userData) {
-      switch (key) {
-        case "name":
-          user.push({
-            lable: "Имя:",
-            value: userData[key as keyof typeof userData],
-          });
-          break;
-        case "surname":
-          user.push({
-            lable: "Фамилия:",
-            value: userData[key as keyof typeof userData],
-          });
-          break;
-        case "email":
-          user.push({
-            lable: "E-mail:",
-            value: userData[key as keyof typeof userData],
-          });
-          break;
-        case "tel":
-          user.push({
-            lable: "Тел:",
-            value: userData[key as keyof typeof userData],
-          });
-          break;
-        default:
-          break;
-      }
-    }
-    return user;
-  };
-
-  const createUserAddress = (userData: any) => {
-    const user = [];
-    for (let key in userData) {
-      switch (key) {
-        case "city":
-          user.push({
-            lable: "Улица:",
-            value: userData[key as keyof typeof userData],
-          });
-          break;
-        case "street":
-          user.push({
-            lable: "Адрес:",
-            value: userData[key as keyof typeof userData],
-          });
-          break;
-        default:
-          break;
-      }
-    }
-    return user;
-  };
+  let userIdents = [];
+  let userAddress = [];
 
   if (currentUser) {
     userIdents = createUserInents(currentUser);
@@ -180,7 +123,7 @@ function Receipt() {
               </p>
             </div>
             <h3 className="receipt__field-title">Данные:</h3>
-            {userIdents.map((e: any) => (
+            {userIdents.map((e) => (
               <ReclineUserData
                 key={e.lable}
                 data={{
@@ -192,7 +135,7 @@ function Receipt() {
             <div className="recline-content">
               <p className="recline__short-line">***</p>
             </div>
-            {userAddress.map((e: any) => (
+            {userAddress.map((e) => (
               <ReclineUserData
                 key={e.lable}
                 data={{

@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice, nanoid } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-interface IUser {
+export interface IUser {
   id: string;
   name: string;
   tel: string;
@@ -9,20 +9,20 @@ interface IUser {
   [key: string]: string;
 }
 
-interface INoAuthUser {
+export interface INoAuthUser {
   [key: string]: string;
 }
 
 interface IUsersState {
   initialUsers: [];
   users: IUser[];
-  noAuthUser: INoAuthUser[];
+  noAuthUser: INoAuthUser;
 }
 
 const initialState: IUsersState = {
   initialUsers: [],
   users: [],
-  noAuthUser: [],
+  noAuthUser: {},
 };
 
 const usersSlice = createSlice({
