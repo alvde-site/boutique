@@ -8,18 +8,15 @@ import Content from "../Content/Content";
 import Paths from "../Paths/Paths";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { Link, useParams } from "react-router-dom";
-import { ORDERING_POPUP, categoryPath } from "../../utils/constants";
+import { categoryPath } from "../../utils/constants";
 import { selectAllCategories } from "../../services/reducers/categoriesSlice";
 import ButtonFav from "../ButtonFav/ButtonFav";
 import { selectAllCollections } from "../../services/reducers/collectionSlice";
 import Price from "../Price/Price";
 import ButtonBasket from "../ButtonBasket/ButtonBasket";
-import { handlePopupState } from "../../services/reducers/popupsSlice";
-import { handleToElementScroll } from "../../utils/utils";
 import { selectAllAuth } from "../../services/reducers/authSlice";
 
 function ProductCard() {
-  const scrollElement = document.getElementsByClassName("ordering")[0];
   const dispatch = useAppDispatch();
   const auth = useAppSelector(selectAllAuth);
   const { productId } = useParams();
@@ -84,10 +81,6 @@ function ProductCard() {
     );
   }
 
-  function handlePurchase() {
-    dispatch(handlePopupState({ popupName: ORDERING_POPUP, popupState: true }));
-    handleToElementScroll(scrollElement);
-  }
   return (
     <Content>
       <div className="partition">
@@ -108,7 +101,6 @@ function ProductCard() {
             <h2 className="prodcard__title">{product?.title}</h2>
             <div className="prodcard__field">
               <p className="prodcard__article">{product?.article}</p>
-              {/* Исправить */}
               <Link
                 to={`collection/${collection.id}`}
                 className="prodcard__collection"
@@ -133,7 +125,9 @@ function ProductCard() {
                       <button
                         className="details__button details__button_color_standart"
                         disabled={b.disabled}
-                        title={b.disabled?"Размера больше нет в наличии":b.size}
+                        title={
+                          b.disabled ? "Размера больше нет в наличии" : b.size
+                        }
                       >
                         {b.size}
                       </button>
@@ -167,13 +161,6 @@ function ProductCard() {
                   <Price product={product!} />
                 </div>
                 <ul className="details__orderbuttons">
-                  <li>
-                    <ButtonBasket
-                      className={""}
-                      onClick={handlePurchase}
-                      buttonText={"Купить"}
-                    />
-                  </li>
                   <li>
                     {isInBasket ? (
                       <ButtonBasket
