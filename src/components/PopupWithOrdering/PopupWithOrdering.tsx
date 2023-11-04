@@ -36,6 +36,7 @@ function PopupWithOrdering() {
 
   const users = useAppSelector(selectAllUsers);
   const user = users.filter((u) => auth.userId === u.id)[0];
+  console.log(user)
   if (user) {
     for (let key in user) {
       currentUser[key as keyof typeof currentUser] =
@@ -119,7 +120,7 @@ function PopupWithOrdering() {
               placeholder={"Фамилия *"}
             />
             <InputText
-              type="number"
+              type="tel"
               name="orderingNumber"
               defaultValue={currentUser.tel}
               values={values}
