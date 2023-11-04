@@ -10,6 +10,7 @@ import {
   localStorageMiddleware,
   reHydrateStore,
 } from "./middleware/localStorageMiddleware";
+import ordersSlice from "./reducers/ordersSlice";
 
 export const store = configureStore({
   reducer: {
@@ -19,6 +20,7 @@ export const store = configureStore({
     products: productsSlice,
     categories: categoriesSlice,
     collections: collectionSlice,
+    orders: ordersSlice,
   },
   preloadedState: reHydrateStore(),
   middleware: (getDefaultMiddleware) =>

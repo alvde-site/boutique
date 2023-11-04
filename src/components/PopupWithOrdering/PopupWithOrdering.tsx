@@ -11,6 +11,8 @@ import {
 } from "../../services/reducers/usersSlice";
 import { selectAllAuth } from "../../services/reducers/authSlice";
 import { closeAllPopups } from "../../services/reducers/popupsSlice";
+import { removeBasketProduct, selectAllInBasket } from "../../services/reducers/productsSlice";
+import { addOrder } from "../../services/reducers/ordersSlice";
 
 function PopupWithOrdering() {
   const dispatch = useAppDispatch();
@@ -23,6 +25,12 @@ function PopupWithOrdering() {
     street: "",
   };
   const auth = useAppSelector(selectAllAuth);
+  const userId = `${auth.userId ? auth.userId : "noauth"}`;
+  const basketProducts = useAppSelector(selectAllInBasket);
+  const order = basketProducts.filter(
+    (p) => p.isInBasket.includes("noauth") || p.isInBasket.includes(auth.userId)
+  );
+
   const users = useAppSelector(selectAllUsers);
   const user = users.filter((u) => auth.userId === u.id)[0];
   if (user) {
@@ -72,6 +80,10 @@ function PopupWithOrdering() {
       navigate("/receipt");
       dispatch(closeAllPopups());
       dispatch(createNoAuthUser(noAuthUser));
+      dispatch(addOrder({ order }));
+      order.forEach((p) => {
+        dispatch(removeBasketProduct({productId: p.id, userId}))
+      })
       resetForm();
     }
   }

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { selectAllInBasket } from "../../services/reducers/productsSlice";
 import { useAppSelector } from "../../utils/hooks";
 import Content from "../Content/Content";
 import { IReclinePriceProps, IReclineUserProps } from "../../utils/interfaces";
@@ -12,6 +11,7 @@ import {
   selectNoAuthUser,
 } from "../../services/reducers/usersSlice";
 import { createUserAddress, createUserInents } from "../../utils/utils";
+import { selectAllInOrders } from "../../services/reducers/ordersSlice";
 
 function Receipt() {
   const navigate = useNavigate();
@@ -22,9 +22,30 @@ function Receipt() {
   const users = useAppSelector(selectAllUsers);
   let currentUser = users.find((u) => u.id === auth.userId);
   const noAuthUser = useAppSelector(selectNoAuthUser);
+  const orders = useAppSelector(selectAllInOrders);
   let userIdents = [];
   let userAddress = [];
 
+  let today = new Date();
+
+  let now = today.toLocaleString("ru-RU");
+
+  const [totalRecline, setTotalRecline] = useState(0);
+  // const basketProducts = useAppSelector(selectAllInBasket);
+  const receiptProducts = orders.map((e) => {
+    return {
+      title: e.title,
+      article: `[${e.article}]`,
+      price: e.price,
+      id: e.id,
+    };
+  });
+  const totalReceiptProducts = {
+    title: "",
+    article: "Итого:",
+    price: totalRecline,
+    id: "totalProducts",
+  };
   if (currentUser) {
     userIdents = createUserInents(currentUser);
     userAddress = createUserAddress(currentUser);
@@ -33,10 +54,14 @@ function Receipt() {
     userAddress = createUserAddress(noAuthUser);
   }
 
-  let today = new Date();
-
-  let now = today.toLocaleString("ru-RU");
-
+  useEffect(() => {
+    if (orders.length) {
+      const total = orders.map((e) => e.price).reduce((a, c) => a + c);
+      setTotalRecline(() => total);
+    } else {
+      setTotalRecline(() => 0);
+    }
+  }, [orders, totalRecline]);
   const ReclinePrice = ({ product }: IReclinePriceProps) => {
     return (
       <>
@@ -69,32 +94,6 @@ function Receipt() {
       </>
     );
   };
-
-  const [totalRecline, setTotalRecline] = useState(0);
-  const basketProducts = useAppSelector(selectAllInBasket);
-  const receiptProducts = basketProducts.map((e) => {
-    return {
-      title: e.title,
-      article: `[${e.article}]`,
-      price: e.price,
-      id: e.id,
-    };
-  });
-  const totalReceiptProducts = {
-    title: "",
-    article: "Итого:",
-    price: totalRecline,
-    id: "totalProducts",
-  };
-  useEffect(() => {
-    if (basketProducts.length) {
-      const total = basketProducts.map((e) => e.price).reduce((a, c) => a + c);
-      setTotalRecline(() => total);
-    } else {
-      setTotalRecline(() => 0);
-    }
-  }, [basketProducts, totalRecline]);
-
   return (
     <Content>
       <div className="receipt">

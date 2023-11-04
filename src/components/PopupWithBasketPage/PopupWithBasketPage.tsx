@@ -15,16 +15,19 @@ import { selectAllAuth } from "../../services/reducers/authSlice";
 function PopupWithBasketPage() {
   const scrollElement = document.getElementsByClassName("ordering")[0];
   const dispatch = useAppDispatch();
-  const auth = useAppSelector(selectAllAuth);
   const [totalPrice, setTotalPrice] = useState(0);
+
+  const auth = useAppSelector(selectAllAuth);
   const basketProducts = useAppSelector(selectAllInBasket);
   const filteredBasketProducts = basketProducts.filter(
-    (p) =>
-      p.isInBasket.includes("noauth") || p.isInBasket.includes(auth.userId)
+    (p) => p.isInBasket.includes("noauth") || p.isInBasket.includes(auth.userId)
   );
+
   useEffect(() => {
     if (filteredBasketProducts.length) {
-      const total = filteredBasketProducts.map((e) => e.price).reduce((a, c) => a + c);
+      const total = filteredBasketProducts
+        .map((e) => e.price)
+        .reduce((a, c) => a + c);
       setTotalPrice(() => total);
     } else {
       setTotalPrice(() => 0);
