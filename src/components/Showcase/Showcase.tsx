@@ -20,7 +20,6 @@ function Showcase(props: IShowcaseProps) {
     hotNew = { id: "", title: "", img: "" };
   }
 
-  console.log(hotNew);
   const mainElement = document.getElementsByClassName("main");
   const handleClick = () => {
     dispatch(closeAllPopups());

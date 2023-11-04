@@ -32,19 +32,13 @@ function PopupWithOrdering() {
     }
   }
   const navigate = useNavigate();
-  const {
-    values,
-    handleChange,
-    resetForm,
-  }: // errors,
-  // setErrors,
-  // isValid,
-  // setIsValid,
-  IFormValidator = useFormWithValidation();
+  const { values, handleChange, resetForm, errors }: IFormValidator =
+    useFormWithValidation();
   function handleInputChange(e: React.ChangeEvent) {
     handleChange(e);
   }
-  function handleOrder() {
+  function handleOrder(e: React.FormEvent) {
+    e.preventDefault();
     const noAuthUser = {
       name: values.orderingName || "",
       surname: values.orderingSurname || "",
@@ -53,85 +47,115 @@ function PopupWithOrdering() {
       city: values.orderingCity || "",
       street: values.orderingStreet || "",
     };
-    navigate("/receipt");
-    dispatch(closeAllPopups());
-    dispatch(createNoAuthUser(noAuthUser));
-    resetForm();
+
+    const isFilledRequiredFields = Boolean(
+      values["orderingName"] &&
+        values["orderingSurname"] &&
+        values["orderingNumber"] &&
+        values["orderingEmail"] &&
+        values["orderingCity"] &&
+        values["orderingStreet"]
+    );
+
+    const noErrors = Boolean(
+      !errors["orderingName"] &&
+        !errors["orderingSurname"] &&
+        !errors["orderingNumber"] &&
+        !errors["orderingEmail"] &&
+        !errors["orderingCity"] &&
+        !errors["orderingStreet"]
+    );
+
+    const canSumbit = Boolean(noErrors && isFilledRequiredFields);
+
+    if (canSumbit) {
+      navigate("/receipt");
+      dispatch(closeAllPopups());
+      dispatch(createNoAuthUser(noAuthUser));
+      resetForm();
+    }
   }
   return (
     <PopupWithPage name={ORDERING_POPUP} title="Оформление заказа">
       <div className="ordering">
-        <fieldset className="ordering__field">
-          <InputText
-            type="text"
-            name="orderingName"
-            values={values}
-            defaultValue={currentUser.name}
-            onChange={handleInputChange}
-            className={"ordering__input"}
-            placeholder={"Имя *"}
-          />
-          <InputText
-            type="text"
-            name="orderingSurname"
-            defaultValue={currentUser.surname}
-            values={values}
-            onChange={handleInputChange}
-            className={"ordering__input"}
-            placeholder={"Фамилия *"}
-          />
-          <InputText
-            type="text"
-            name="orderingNumber"
-            defaultValue={currentUser.tel}
-            values={values}
-            onChange={handleInputChange}
-            className={"ordering__input"}
-            placeholder={"Телефон *"}
-          />
-          <InputText
-            type="email"
-            name="orderingEmail"
-            defaultValue={currentUser.email}
-            values={values}
-            onChange={handleInputChange}
-            className={"ordering__input"}
-            placeholder={"Почта *"}
-          />
-        </fieldset>
-        <fieldset className="ordering__field">
-          <h3 className="ordering__title">Адрес доставки</h3>
-          <InputText
-            type="text"
-            name="orderingCity"
-            defaultValue={currentUser.city}
-            values={values}
-            onChange={handleInputChange}
-            className={"ordering__input"}
-            placeholder={"Город *"}
-          />
-          <InputText
-            type="text"
-            name="orderingStreet"
-            defaultValue={currentUser.street}
-            values={values}
-            onChange={handleInputChange}
-            className={"ordering__input"}
-            placeholder={"Улица, дом, квартира *"}
-          />
-        </fieldset>
-        <fieldset className="ordering__field">
-          <button
-            className={`ordering__button
-         ${false ? " total__button_disabled" : ""}`}
-            disabled={false}
-            onClick={handleOrder}
-          >
-            Оформить
-          </button>
-        </fieldset>
-        <fieldset className="ordering__field"></fieldset>
-        <fieldset className="ordering__field"></fieldset>
+        <form
+          action="#"
+          name={`ordering-form`}
+          className="popup__form form"
+          onSubmit={handleOrder}
+        >
+          <fieldset className="ordering__field">
+            <InputText
+              type="text"
+              name="orderingName"
+              values={values}
+              defaultValue={currentUser.name}
+              onChange={handleInputChange}
+              className={"ordering__input"}
+              placeholder={"Имя *"}
+            />
+            <InputText
+              type="text"
+              name="orderingSurname"
+              defaultValue={currentUser.surname}
+              values={values}
+              onChange={handleInputChange}
+              className={"ordering__input"}
+              placeholder={"Фамилия *"}
+            />
+            <InputText
+              type="number"
+              name="orderingNumber"
+              defaultValue={currentUser.tel}
+              values={values}
+              onChange={handleInputChange}
+              className={"ordering__input"}
+              placeholder={"Телефон *"}
+            />
+            <InputText
+              type="email"
+              name="orderingEmail"
+              defaultValue={currentUser.email}
+              values={values}
+              onChange={handleInputChange}
+              className={"ordering__input"}
+              placeholder={"Почта *"}
+            />
+          </fieldset>
+          <fieldset className="ordering__field">
+            <h3 className="ordering__title">Адрес доставки</h3>
+            <InputText
+              type="text"
+              name="orderingCity"
+              defaultValue={currentUser.city}
+              values={values}
+              onChange={handleInputChange}
+              className={"ordering__input"}
+              placeholder={"Город *"}
+            />
+            <InputText
+              type="text"
+              name="orderingStreet"
+              defaultValue={currentUser.street}
+              values={values}
+              onChange={handleInputChange}
+              className={"ordering__input"}
+              placeholder={"Улица, дом, квартира *"}
+            />
+          </fieldset>
+          <fieldset className="ordering__field">
+            <button
+              className={`ordering__button
+       ${false ? " total__button_disabled" : ""}`}
+              disabled={false}
+              type="submit"
+            >
+              Оформить
+            </button>
+          </fieldset>
+          <fieldset className="ordering__field"></fieldset>
+          <fieldset className="ordering__field"></fieldset>
+        </form>
       </div>
     </PopupWithPage>
   );

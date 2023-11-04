@@ -12,6 +12,7 @@ function InputText(props: IInputTextProps) {
       onChange={props.onChange}
       className={props.className}
       placeholder={props.placeholder}
+      required
     />
   );
 }
