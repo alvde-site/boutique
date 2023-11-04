@@ -4,6 +4,13 @@ export interface IKeyString {
   [key: string]: string;
 }
 
+export interface IHotNew {
+  id: string;
+  title: string;
+  img: string;
+  [key: string]: string;
+}
+
 interface ISectionData {
   id: string;
   src: string;

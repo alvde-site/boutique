@@ -1,20 +1,33 @@
 import { useNavigate } from "react-router-dom";
 import { selectAllProducts } from "../../services/reducers/productsSlice";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import { IShowcaseProps } from "../../utils/interfaces";
+import {
+  IHotNew,
+  IProductsState,
+  IShowcaseProps,
+} from "../../utils/interfaces";
 import { closeAllPopups } from "../../services/reducers/popupsSlice";
 import { handleToElementScroll } from "../../utils/utils";
 
 function Showcase(props: IShowcaseProps) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const hotNew = useAppSelector(selectAllProducts)[7];
+
+  let hotNew: IHotNew | IProductsState;
+
+  hotNew = useAppSelector(selectAllProducts)[7];
+  if (!hotNew) {
+    hotNew = { id: "", title: "", img: "" };
+  }
+
+  console.log(hotNew);
   const mainElement = document.getElementsByClassName("main");
   const handleClick = () => {
     dispatch(closeAllPopups());
     navigate(`/product/${hotNew.id}`);
     handleToElementScroll(mainElement[0]);
   };
+
   return (
     <article className={`showcase ${props.modifier}`}>
       <figure className="showcase__figure">
