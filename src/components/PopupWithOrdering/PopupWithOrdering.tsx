@@ -11,7 +11,10 @@ import {
 } from "../../services/reducers/usersSlice";
 import { selectAllAuth } from "../../services/reducers/authSlice";
 import { closeAllPopups } from "../../services/reducers/popupsSlice";
-import { removeBasketProduct, selectAllInBasket } from "../../services/reducers/productsSlice";
+import {
+  removeBasketProduct,
+  selectAllInBasket,
+} from "../../services/reducers/productsSlice";
 import { addOrder } from "../../services/reducers/ordersSlice";
 
 function PopupWithOrdering() {
@@ -57,12 +60,12 @@ function PopupWithOrdering() {
     };
 
     const isFilledRequiredFields = Boolean(
-      values["orderingName"] &&
-        values["orderingSurname"] &&
-        values["orderingNumber"] &&
-        values["orderingEmail"] &&
-        values["orderingCity"] &&
-        values["orderingStreet"]
+      (values["orderingName"] || currentUser.name) &&
+        (values["orderingSurname"] || currentUser.surname) &&
+        (values["orderingNumber"] || currentUser.tel) &&
+        (values["orderingEmail"] || currentUser.email) &&
+        (values["orderingCity"] || currentUser.city) &&
+        (values["orderingStreet"] || currentUser.street)
     );
 
     const noErrors = Boolean(
@@ -75,15 +78,15 @@ function PopupWithOrdering() {
     );
 
     const canSumbit = Boolean(noErrors && isFilledRequiredFields);
-
+    console.log(isFilledRequiredFields);
     if (canSumbit) {
       navigate("/receipt");
       dispatch(closeAllPopups());
       dispatch(createNoAuthUser(noAuthUser));
       dispatch(addOrder({ order }));
       order.forEach((p) => {
-        dispatch(removeBasketProduct({productId: p.id, userId}))
-      })
+        dispatch(removeBasketProduct({ productId: p.id, userId }));
+      });
       resetForm();
     }
   }
