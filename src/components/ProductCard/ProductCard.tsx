@@ -8,13 +8,17 @@ import Content from "../Content/Content";
 import Paths from "../Paths/Paths";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { Link, useParams } from "react-router-dom";
-import { categoryPath } from "../../utils/constants";
+import { BASKET_POPUP, categoryPath } from "../../utils/constants";
 import { selectAllCategories } from "../../services/reducers/categoriesSlice";
 import ButtonFav from "../ButtonFav/ButtonFav";
 import { selectAllCollections } from "../../services/reducers/collectionSlice";
 import Price from "../Price/Price";
 import ButtonBasket from "../ButtonBasket/ButtonBasket";
 import { selectAllAuth } from "../../services/reducers/authSlice";
+import {
+  closeAllPopups,
+  handlePopupState,
+} from "../../services/reducers/popupsSlice";
 
 function ProductCard() {
   const dispatch = useAppDispatch();
@@ -62,6 +66,11 @@ function ProductCard() {
     }
     return res;
   };
+
+  function handlePurchase() {
+    dispatch(closeAllPopups());
+    dispatch(handlePopupState({ popupName: BASKET_POPUP, popupState: true }));
+  }
 
   function addBasketItem() {
     dispatch(
@@ -161,6 +170,13 @@ function ProductCard() {
                   <Price product={product!} />
                 </div>
                 <ul className="details__orderbuttons">
+                  <li>
+                    <ButtonBasket
+                      className={"buttonbasket_state_add"}
+                      onClick={handlePurchase}
+                      buttonText={"Купить"}
+                    />
+                  </li>
                   <li>
                     {isInBasket ? (
                       <ButtonBasket

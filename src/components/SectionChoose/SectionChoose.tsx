@@ -47,6 +47,7 @@ function SectionChoose({
         path: `/collection/${collection.id}`,
         desc: collection.title,
       };
+      console.log(allProducts)
       setProductPath(() => addPath);
       setSectionProducts(() =>
         allProducts.filter((product) => product.collection === collection.path)
