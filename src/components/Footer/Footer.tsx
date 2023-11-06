@@ -50,21 +50,6 @@ function Footer() {
           </li>
         </ul>
         <div className="footer__details">
-          <ul className="footer__langs">
-            <li>
-              <button className="footer__link footer__link_type_button">
-                RU
-              </button>
-            </li>
-            <li>
-              <button
-                lang="en"
-                className="footer__link footer__link_type_button"
-              >
-                EN
-              </button>
-            </li>
-          </ul>
           <ul className="footer__pays">
             <li>
               <button
