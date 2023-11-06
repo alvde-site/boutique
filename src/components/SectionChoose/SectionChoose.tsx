@@ -8,6 +8,7 @@ import SectionMore from "../SectionMore/SectionMore";
 import SectionProduct from "../SectionProduct/SectionProduct";
 import { selectCategoryById } from "../../services/reducers/categoriesSlice";
 import { selectCollectionsById } from "../../services/reducers/collectionSlice";
+import IsEmpty from "../IsEmpty/IsEmpty";
 
 function SectionChoose({
   path,
@@ -59,9 +60,18 @@ function SectionChoose({
       <div className="partition">
         <Paths path={productPath} />
         <ul className="partition__content">
-          {sectionProducts.map((product) => (
+          {
+            sectionProducts.length ? (
+              sectionProducts.map((product) => (
+                <SectionProduct product={product} key={product.id} />
+              ))
+            ) : (
+              <IsEmpty />
+            )
+            /* {sectionProducts.map((product) => (
             <SectionProduct product={product} key={product.id} />
-          ))}
+          ))} */
+          }
         </ul>
       </div>
       <SectionMore
