@@ -99,8 +99,8 @@ const productsSlice = createSlice({
             buttons: buttons.getDatailsSize(),
           };
         });
-        state.initialProducts = state.products.concat(formattedProduct);
-        state.products = state.products.concat(formattedProduct);
+        state.initialProducts = formattedProduct;
+        state.products = formattedProduct;
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = "failed";

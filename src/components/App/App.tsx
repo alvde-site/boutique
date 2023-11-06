@@ -29,7 +29,10 @@ import SectionChoose from "../SectionChoose/SectionChoose";
 import { categoryBD, collectionBD } from "../../utils/boutiqueBD";
 import ProductCard from "../ProductCard/ProductCard";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import { fetchProducts } from "../../services/reducers/productsSlice";
+import {
+  fetchProducts,
+  selectAllProducts,
+} from "../../services/reducers/productsSlice";
 import PopupWithOrdering from "../PopupWithOrdering/PopupWithOrdering";
 import Receipt from "../Receipt/Receipt";
 import Register from "../Register/Register";
@@ -43,6 +46,7 @@ function App() {
   const dispatch = useAppDispatch();
   const [currentUser, setCurrentUser] = useState<ICurrentUser>({ email: "" });
   const productStatus = useAppSelector((state) => state.products.status);
+  const allProducts = useAppSelector(selectAllProducts);
   const auth = useAppSelector(selectAllAuth);
   const defaultProtectedRouteProps: Omit<ProtectedRouteProps, "outlet"> = {
     loggedIn: auth.loggedIn,
@@ -52,7 +56,7 @@ function App() {
     if (productStatus === "idle") {
       dispatch(fetchProducts());
     }
-  }, [dispatch, productStatus]);
+  }, [dispatch, productStatus, allProducts]);
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
