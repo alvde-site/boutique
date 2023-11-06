@@ -19,6 +19,7 @@ import {
   closeAllPopups,
   handlePopupState,
 } from "../../services/reducers/popupsSlice";
+import { handleToElementScroll } from "../../utils/utils";
 
 function ProductCard() {
   const dispatch = useAppDispatch();
@@ -68,8 +69,16 @@ function ProductCard() {
   };
 
   function handlePurchase() {
+    const element = document.querySelector(".page-popup__content");
+    dispatch(
+      addBasketProduct({
+        productId: product?.id,
+        userId: `${auth.userId ? auth.userId : "noauth"}`,
+      })
+    );
     dispatch(closeAllPopups());
     dispatch(handlePopupState({ popupName: BASKET_POPUP, popupState: true }));
+    handleToElementScroll(element);
   }
 
   function addBasketItem() {
